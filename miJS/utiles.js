@@ -5,6 +5,53 @@
 -- Última modificación: 2025-01-09
 */ 
 
+// Función para crear una tabla personalizada a partir de un objeto con los siguientes parámetros:
+// {
+//  encabezadoTabla
+//  cuerpoTabla
+// }
+function crearTabla({
+    encabezadoTabla,
+    cuerpoTabla
+}) {
+    const htmlTabla = document.createElement('table');
+    htmlTabla.className = 'ws-table-all w3-bordered w3-striped w3-border test w3-hoverable';
+    htmlTabla.appendChild(crearEncabezadoTabla(encabezadoTabla));
+    htmlTabla.appendChild(crearCuerpoTabla(cuerpoTabla));
+
+    return htmlTabla;
+}
+
+// Función para crear el encabezado de una tabla a partir de un array con los encabezados
+function crearEncabezadoTabla(encabezadoTabla) {
+    const htmlEncabezado = document.createElement('thead');
+    const htmlFila = document.createElement('tr');
+    htmlFila.className = 'w3-green';
+    encabezadoTabla.forEach((encabezado) => {
+        const htmlCelda = document.createElement('th');
+        htmlCelda.textContent = encabezado;
+        htmlFila.appendChild(htmlCelda);
+    });
+    htmlEncabezado.appendChild(htmlFila);
+    return htmlEncabezado;
+
+}
+
+// Función para crear el cuerpo de una tabla a partir de un array de objetos con los datos
+function crearCuerpoTabla(cuerpoTabla) {
+    const htmlCuerpo = document.createElement('tbody');
+    cuerpoTabla.forEach((fila) => {
+        const htmlFila = document.createElement('tr');
+        Object.values(fila).forEach((celda) => {
+            const htmlCelda = document.createElement('td');
+            htmlCelda.textContent = celda;
+            htmlFila.appendChild(htmlCelda);
+        });
+        htmlCuerpo.appendChild(htmlFila);
+    });
+    return htmlCuerpo;
+}
+
 // La función crearElementoHTML() recibe un objeto con las propiedades del elemento a crear y devuelve el elemento creado
 // en formato HTML
 // La estructura del objeto parámetro es la siguiente:
