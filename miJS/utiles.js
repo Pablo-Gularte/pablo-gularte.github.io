@@ -100,7 +100,7 @@ function crearModal({
             }
         ]
     };
-    return crearElementoHTML(objEstructuraModal);
+    return crearElementoHtml(objEstructuraModal);
 }
 
 /* ******************************************************************************************************************** */
