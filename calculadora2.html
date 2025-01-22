@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor de Unidades</title>
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url(imgs/fondo-formulas-matem.jpg);
+            background-repeat: repeat;
+        }
+
+        .converter-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .history-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+        }
+
+        .history-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .history-container li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fondo">
+        <div class="w3-container" style="opacity: 1;">
+            <div class="converter-container w3-card-4 w3-round-large">
+                <h2 class="w3-center">Convertidor de Unidades de Almacenamiento</h2>
+                <form id="converter-form">
+                    <div class="w3-margin">
+                        <label for="bits">Bits</label>
+                        <input type="number" class="w3-input w3-border" id="bits"
+                            placeholder="Ingresa el valor en bits">
+                    </div>
+                    <div class="w3-margin">
+                        <label for="bytes">Bytes</label>
+                        <input type="number" class="w3-input w3-border" id="bytes"
+                            placeholder="Ingresa el valor en bytes">
+                    </div>
+                    <div class="w3-margin">
+                        <label for="kilobytes">Kilobytes</label>
+                        <input type="number" class="w3-input w3-border" id="kilobytes"
+                            placeholder="Ingresa el valor en kilobytes">
+                    </div>
+                    <div class="w3-margin">
+                        <label for="megabytes">Megabytes</label>
+                        <input type="number" class="w3-input w3-border" id="megabytes"
+                            placeholder="Ingresa el valor en megabytes">
+                    </div>
+                    <div class="w3-margin">
+                        <label for="gigabytes">Gigabytes</label>
+                        <input type="number" class="w3-input w3-border" id="gigabytes"
+                            placeholder="Ingresa el valor en gigabytes">
+                    </div>
+                    <div class="w3-margin">
+                        <label for="terabytes">Terabytes</label>
+                        <input type="number" class="w3-input w3-border" id="terabytes"
+                            placeholder="Ingresa el valor en terabytes">
+                    </div>
+                    <div class="w3-margin w3-row">
+                        <button type="button" id="convert-btn"
+                            class="w3-button w3-blue w3-round w3-half">Convertir</button>
+                        <button type="button" id="clear-btn" class="w3-button w3-red w3-round w3-half">Borrar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="history-container w3-card-4 w3-round-large">
+                <h4>Historial de Conversiones</h4>
+                <ul id="history-list" class="w3-ul"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const units = {
+            bits: 1,
+            bytes: 8,
+            kilobytes: 8 * 1024,
+            megabytes: 8 * 1024 ** 2,
+            gigabytes: 8 * 1024 ** 3,
+            terabytes: 8 * 1024 ** 4
+        };
+
+        const inputs = document.querySelectorAll('#converter-form input');
+        const convertButton = document.getElementById('convert-btn');
+        const clearButton = document.getElementById('clear-btn');
+        const historyList = document.getElementById('history-list');
+
+        function convertUnits(event) {
+            const target = Array.from(inputs).find(input => input.value !== '' && !isNaN(parseFloat(input.value)));
+            if (!target) return;
+
+            const value = parseFloat(target.value);
+            const unit = target.id;
+            const valueInBits = value * units[unit];
+
+            inputs.forEach(input => {
+                const otherUnit = input.id;
+                input.value = (valueInBits / units[otherUnit]).toFixed(6);
+            });
+
+            addToHistory(value, unit);
+        }
+
+        function clearValues() {
+            inputs.forEach(input => {
+                input.value = '';
+            });
+        }
+
+        function addToHistory(value, unit) {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${value} en ${unit}`;
+            historyList.appendChild(listItem);
+        }
+
+        convertButton.addEventListener('click', convertUnits);
+        clearButton.addEventListener('click', clearValues);
+
+        inputs.forEach(input => {
+            input.addEventListener('input', (event) => {
+                if (event.target.value === '') {
+                    clearValues();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,14 +1,254 @@
 <!DOCTYPE html>
 <html lang="es-AR">
-    <head>
-        <title>Página de prueba Servidor web GitHub</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <main>
-            <h1>Hola mundo</h1>
-            <h3>Página temporal de prueba</h3>
-        </main>
-    </body>
+
+<head>
+    <title>Página de prueba Servidor web GitHub</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+        src="https://www.argentina.gob.ar/profiles/argentinagobar/themes/contrib/poncho/js/national-holidays.js"></script>
+</head>
+
+<body>
+    <main>
+        <h1>Hola mundo</h1>
+        <h3>Página temporal de prueba</h3>
+    </main>
+    <script>
+        let feriados = [
+            {
+                "fecha": "01/01/2025",
+                "descripcion": "Año Nuevo",
+                "tipo": "inamovible"
+            },
+            {
+                "fecha": "03/03/2025",
+                "descripcion": "Carnaval",
+                "tipo": "inamovible"
+            },
+            {
+                "fecha": "04/03/2025",
+                "descripcion": "Carnaval",
+                "tipo": "inamovible"
+            },
+            {
+                "fecha": "24/03/2025",
+                "descripcion": "Día Nacional de la Memoria por la Verdad y la Justicia",
+                "tipo": "inamovible"
+            },
+            {
+                "fecha": "02/04/2025",
+                "descripcion": "Día del Veterano y de los Caídos en la Guerra de Malvinas",
+                "tipo": "inamovible"
+            },
+            {
+                "fecha": "31/03/2025",
+                "descripcion": "Fiesta de la Ruptura del Ayuno del Sagrado Mes de Ramadán (Id al-Fitr) (c)",
+                "tipo": "no_laborable"
+            },
+            {
+                "fecha": "13/04/2025",
+                "descripcion": "Primeros dos días de la Pascua Judía (b)",
+                "tipo": "no_laborable"
+            },
+            {
+                "fecha": "14/04/2025",
+                "descripcion": "Primeros dos días de la Pascua Judía (b)",
+                "tipo": "no_laborable"
+            },
+            {
+                "fecha": "17/04/2025",
+                "descripcion": "Jueves Santo Festividad Cristiana",
+                "tipo": "no_laborable"
+            },
+            {
+                "fecha": "18/04/2025",
+                "descripcion": "Viernes Santo Festividad Cristiana",
+                "tipo": "inamovible"
+            },
+            {
+                "fecha": "19/04/2025",
+                "descripcion": "Últimos dos días de la Pascua Judía (b)",
+                "tipo": "no_laborable"
+            },
+            {
+                "fecha": "20/04/2025",
+                "descripcion": "Últimos dos días de la Pascua Judía (b)",
+                "tipo": "no_laborable"
+            },
+            {
+                "fecha": "24/04/2025",
+                "descripcion": "Día de acción por la tolerancia y el respeto entre los pueblos (a)",
+                "tipo": "no_laborable"
+            },
+            {
+                "fecha": "01/05/2025",
+                "descripcion": "Día del Trabajador",
+                "tipo": "inamovible"
+            },
+            {
+                "fecha": "02/05/2025",
+                "descripcion": "Día no laborable con fines turísticos",
+                "tipo": "turistico"
+            },
+            {
+                "fecha": "25/05/2025",
+                "descripcion": "Día de la Revolución de Mayo",
+                "tipo": "inamovible"
+            },
+            {
+                "fecha": "10/06/2025",
+                "descripcion": "Fiesta del Sacrificio (c)",
+                "tipo": "no_laborable"
+            },
+            {
+                "fecha": "16/06/2025",
+                "descripcion": "Paso a la Inmortalidad del Gral. Don Martín Miguel de Güemes (17/6)",
+                "tipo": "trasladable"
+            },
+            {
+                "fecha": "20/06/2025",
+                "descripcion": "Paso a la Inmortalidad del Gral. Manuel Belgrano",
+                "tipo": "inamovible"
+            },
+            {
+                "fecha": "26/06/2025",
+                "descripcion": "Año Nuevo Islámico (c)",
+                "tipo": "no_laborable"
+            },
+            {
+                "fecha": "09/07/2025",
+                "descripcion": "Día de la Independencia ",
+                "tipo": "inamovible"
+            },
+            {
+                "fecha": "15/08/2025",
+                "descripcion": "Día no laborable con fines turísticos",
+                "tipo": "turistico"
+            },
+            {
+                "fecha": "17/08/2025",
+                "descripcion": "Paso a la Inmortalidad del Gral. José de San Martín",
+                "tipo": "trasladable"
+            },
+            {
+                "fecha": "23/09/2025",
+                "descripcion": "Año Nuevo Judío (b)",
+                "tipo": "no_laborable"
+            },
+            {
+                "fecha": "24/09/2025",
+                "descripcion": "Año Nuevo Judío (b)",
+                "tipo": "no_laborable"
+            },
+            {
+                "fecha": "02/10/2025",
+                "descripcion": "Día del Perdón (b)",
+                "tipo": "no_laborable"
+            },
+            {
+                "fecha": "12/10/2025",
+                "descripcion": "Día de la  Raza",
+                "tipo": "trasladable"
+            },
+            {
+                "fecha": "21/11/2025",
+                "descripcion": "Día no laborable con fines turísticos",
+                "tipo": "turistico"
+            },
+            {
+                "fecha": "24/11/2025",
+                "descripcion": "Día de la Soberanía Nacional (20/11)",
+                "tipo": "trasladable"
+            },
+            {
+                "fecha": "08/12/2025",
+                "descripcion": "Inmaculada Concepción de María",
+                "tipo": "inamovible"
+            },
+            {
+                "fecha": "25/12/2025",
+                "descripcion": "Navidad",
+                "tipo": "inamovible"
+            },
+            {
+                "fecha": "01/01/2026",
+                "descripcion": "Año nuevo",
+                "tipo": "inamovible"
+            }
+        ];
+        let calendarioAnual = calcularDiasHabiles(2025);
+        let agendaEducativa = [];
+
+        // Agrego registro de feriados a calendario anual
+        feriados.forEach(f => {
+            for (let reg of calendarioAnual) {
+                for (let i=0; i < reg.dias.length; i++) {
+                    if (f.fecha == reg.dias[i].fecha.toLocaleString('es-AR', { day: "2-digit", month: "2-digit", year: "numeric" })) {
+                        const regFeriado = { descripcion: f.descripcion, tipo: f.tipo };
+                        reg.dias[i].feriado = regFeriado;
+                    }
+                }
+            }
+        });
+
+        // Funciones auxiliares
+        function calcularDiasHabiles(año) {
+            const esAñoBisiesto = (a) => a % 4 == 0 && a % 100 != 0 || a % 400 == 0;
+            const MESES = [
+                { nombre: 'enero', desde: 1, hasta: 31 },
+                { nombre: 'febrero', desde: 1, hasta: esAñoBisiesto(año) ? 29 : 28 },
+                { nombre: 'marzo', desde: 1, hasta: 31 },
+                { nombre: 'abril', desde: 1, hasta: 30 },
+                { nombre: 'mayo', desde: 1, hasta: 31 },
+                { nombre: 'junio', desde: 1, hasta: 30 },
+                { nombre: 'julio', desde: 1, hasta: 31 },
+                { nombre: 'agosto', desde: 1, hasta: 31 },
+                { nombre: 'septiembre', desde: 1, hasta: 30 },
+                { nombre: 'octubre', desde: 1, hasta: 31 },
+                { nombre: 'noviembre', desde: 1, hasta: 30 },
+                { nombre: 'diciembre', desde: 1, hasta: 31 },
+            ];
+            let respuesta = [];
+
+
+            for (let i = 1; i < 13; i++) {
+                respuesta.push({
+                    mes: MESES[i - 1].nombre,
+                    dias: generoVectorDiasDelMes(año, i - 1, MESES[i - 1].desde, MESES[i - 1].hasta)
+                });
+            }
+
+            return respuesta;
+        }
+
+        function generoVectorDiasDelMes(año, mes, diaInicial, diaFinal) {
+            const diaSemana = [
+                'domingo',
+                'lunes',
+                'martes',
+                'miércoles',
+                'jueves',
+                'viernes',
+                'sábado',
+            ];
+            let diasDelMes = [];
+
+            for (let i = diaInicial; i <= diaFinal; i++) {
+                let vFecha = new Date(año, mes, i);
+
+                diasDelMes.push({
+                    nroDia: i,
+                    nombreDia: diaSemana[vFecha.getDay()],
+                    esDiaSemana: (vFecha.getDay() > 0 && vFecha.getDay() < 6),
+                    fecha: vFecha
+                });
+            }
+
+            return diasDelMes;
+        }
+    </script>
+</body>
+
 </html>
