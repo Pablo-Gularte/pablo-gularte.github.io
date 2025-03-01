@@ -1,0 +1,29 @@
+body {
+    background-image: url(imgs/fondo-formulas-matem.jpg);
+    background-repeat: repeat;
+}
+
+.converter-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+.history-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.history-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.history-container li {
+    margin-bottom: 5px;
+}

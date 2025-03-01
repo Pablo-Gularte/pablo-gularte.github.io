@@ -1,50 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convertidor de Unidades</title>
     <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
-    <style>
-        body {
-            background-image: url(imgs/fondo-formulas-matem.jpg);
-            background-repeat: repeat;
-        }
-
-        .converter-container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .history-container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 10px;
-        }
-
-        .history-container ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .history-container li {
-            margin-bottom: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
     <div class="fondo">
-        <div class="w3-container" style="opacity: 1;">
-            <div class="converter-container w3-card-4 w3-round-large">
+        <div class="w3-container w3-display-middle" style="width:75%; opacity: 1;">
+            <div class="converter-container w3-card-4 w3-round-large w3-cell w3-margin-top">
                 <h2 class="w3-center">Convertidor de Unidades de Almacenamiento</h2>
-                <form id="converter-form">
+                <form id="formulario-convertir">
                     <div class="w3-margin">
                         <label for="bits">Bits</label>
                         <input type="number" class="w3-input w3-border" id="bits"
@@ -76,22 +46,22 @@
                             placeholder="Ingresa el valor en terabytes">
                     </div>
                     <div class="w3-margin w3-row">
-                        <button type="button" id="convert-btn"
+                        <button type="button" id="boton-convertir"
                             class="w3-button w3-blue w3-round w3-half">Convertir</button>
-                        <button type="button" id="clear-btn" class="w3-button w3-red w3-round w3-half">Borrar</button>
+                        <button type="button" id="boton-limpiar" class="w3-button w3-red w3-round w3-half">Borrar</button>
                     </div>
                 </form>
             </div>
 
-            <div class="history-container w3-card-4 w3-round-large">
+            <div class="history-container w3-card-4 w3-round-large w3-cell w3-margin-top">
                 <h4>Historial de Conversiones</h4>
-                <ul id="history-list" class="w3-ul"></ul>
+                <ul id="historial" class="w3-ul"></ul>
             </div>
         </div>
     </div>
 
     <script>
-        const units = {
+        const unidades = {
             bits: 1,
             bytes: 8,
             kilobytes: 8 * 1024,
@@ -100,46 +70,46 @@
             terabytes: 8 * 1024 ** 4
         };
 
-        const inputs = document.querySelectorAll('#converter-form input');
-        const convertButton = document.getElementById('convert-btn');
-        const clearButton = document.getElementById('clear-btn');
-        const historyList = document.getElementById('history-list');
+        const datosUsuario = document.querySelectorAll('#formulario-convertir input');
+        const botonConvertir = document.getElementById('boton-convertir');
+        const botonLimpiar = document.getElementById('boton-limpiar');
+        const historial = document.getElementById('historial');
 
-        function convertUnits(event) {
-            const target = Array.from(inputs).find(input => input.value !== '' && !isNaN(parseFloat(input.value)));
-            if (!target) return;
+        function convertirUnidades(evento) {
+            const valorAConvertir = Array.from(datosUsuario).find(input => input.value !== '' && !isNaN(parseFloat(input.value)));
+            if (!valorAConvertir) return;
 
-            const value = parseFloat(target.value);
-            const unit = target.id;
-            const valueInBits = value * units[unit];
+            const valor = parseFloat(valorAConvertir.value);
+            const unidad = valorAConvertir.id;
+            const valorEnBits = valor * unidades[unidad];
 
-            inputs.forEach(input => {
-                const otherUnit = input.id;
-                input.value = (valueInBits / units[otherUnit]).toFixed(6);
+            datosUsuario.forEach(input => {
+                const otraUnidad = input.id;
+                input.value = (valorEnBits / unidades[otraUnidad]);
             });
 
-            addToHistory(value, unit);
+            agregarHistorial(valor, unidad);
         }
 
-        function clearValues() {
-            inputs.forEach(input => {
+        function borrarValores() {
+            datosUsuario.forEach(input => {
                 input.value = '';
             });
         }
 
-        function addToHistory(value, unit) {
-            const listItem = document.createElement('li');
-            listItem.textContent = `${value} en ${unit}`;
-            historyList.appendChild(listItem);
+        function agregarHistorial(value, unit) {
+            const listadoValores = document.createElement('li');
+            listadoValores.textContent = `De ${value} ${unit} a las demás unidades`;
+            historial.appendChild(listadoValores);
         }
 
-        convertButton.addEventListener('click', convertUnits);
-        clearButton.addEventListener('click', clearValues);
+        botonConvertir.addEventListener('click', convertirUnidades);
+        botonLimpiar.addEventListener('click', borrarValores);
 
-        inputs.forEach(input => {
-            input.addEventListener('input', (event) => {
-                if (event.target.value === '') {
-                    clearValues();
+        datosUsuario.forEach(input => {
+            input.addEventListener('input', (evento) => {
+                if (evento.valorAConvertir.value === '') {
+                    borrarValores();
                 }
             });
         });
