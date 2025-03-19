@@ -1,0 +1,17 @@
+.contenedor-calculadora {
+  background-color: rgba(171, 212, 252, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.contenedor-historial {
+  background-color: #c5c4c4;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.contenedor-historial ul {
+  list-style-type: none;
+  padding: 0;
+}
+.contenedor-historial li {
+  margin-bottom: 5px;
+}

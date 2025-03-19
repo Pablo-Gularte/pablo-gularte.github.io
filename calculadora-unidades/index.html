@@ -1,23 +1,206 @@
 <!DOCTYPE html>
 <html lang="es-AR">
-    <head>
-        <title>Calculadora de unidades de Almacenamiento</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- W3.CSS -->
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <!-- Fin W3.CSS -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de unidades informáticas</title>
 
-        <!-- JQuery CDN -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <!-- Fin JQuery CDN -->
-    </head>
-    <body>
-        <main>
-            <section id="encabezado"></section>
-            <section id="contenedor-calculadora"></section>
-            <section id="pie"></section>
-        </main>
-    </body>
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- FIN JQuery -->
+
+    <!-- W3.CSS -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- FIN W3.CSS -->
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Contenedor principal */
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+
+        /* Columna izquierda (formulario) */
+        .left-column {
+            flex: 65%;
+            padding-right: 20px;
+        }
+
+        /* Columna derecha (historial) */
+        .right-column {
+            flex: 35%;
+            padding-left: 20px;
+        }
+
+        /* Formularios */
+        form input,
+        form select,
+        form button {
+            margin: 10px 0;
+            padding: 8px;
+            width: 75%;
+        }
+
+        /* Historial */
+        .history {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .history ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .history li {
+            padding: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Encabezado de paágina -->
+    <header>
+        <h1>Calculadora de unidades informáticas</h1>
+    </header>
+
+    <section class="w3-panel">
+        <section class="container">
+            <!-- Calculadora -->
+            <article class="left-column">
+                <div>
+                    <!-- Caja para introducir el valor a convertir -->
+                    <label for="valor-inicial">Ingrese el valor a convertir: </label>
+                    <input type="number" id="valor-inicial" placeholder="Ingrese el valor a convertir">
+                    <button type="button" id="borrar-valor" onclick="limpiarValor()">Borrar</button>
+                    <br>
+    
+                    <!-- Botonera para seleccionar la unidad de medida -->
+                    <div class="w3-panel" id="botonera-unidades">
+                        <button class="w3-btn w3-teal w3-hover-red" type="button" id="bits" onclick="convertir(this)">Bits</button>
+                        <button class="w3-btn w3-teal w3-hover-red" type="button" id="bytes" onclick="convertir(this)">Bytes</button>
+                        <button class="w3-btn w3-teal w3-hover-red" type="button" id="kilobytes" onclick="convertir(this)">Kilobytes</button>
+                        <button class="w3-btn w3-teal w3-hover-red" type="button" id="megabytes" onclick="convertir(this)">Megabytes</button>
+                        <button class="w3-btn w3-teal w3-hover-red" type="button" id="gigabytes" onclick="convertir(this)">Gigabytes</button>
+                        <button class="w3-btn w3-teal w3-hover-red" type="button" id="terabytes" onclick="convertir(this)">Terabytes</button>
+                    </div>
+    
+                    <!--  Panel para mostrar los valores convertidos a cada unidad -->
+                    <div id="panel-resultado">
+                        <h3>Resultado</h3>
+                        <p id="leyenda-resultado">Valor correspondiente a <span></span> en: </p>
+                        <ul>
+                            <li id="bits-resultado">bits: <span></span></li>
+                            <li id="bytes-resultado">bytes: <span></span></li>
+                            <li id="kilobytes-resultado">kilobytes: <span></span></li>
+                            <li id="megabytes-resultado">megabytes: <span></span></li>
+                            <li id="gigabytes-resultado">gigabytes: <span></span></li>
+                            <li id="terabytes-resultado">terabytes: <span></span></li>
+                        </ul>
+                    </div>
+            </article>
+    
+            <!-- Historial de conversiones -->
+            <article class="right-column">
+                <h2>Historial de conversiones</h2>
+                <div class="history">
+                    <ul id="historial">
+                        <!-- Las conversiones se agregarán aquí -->
+                    </ul>
+                </div>
+            </article>
+        </section>
+    </section>
+
+
+    <!-- Pié de página -->
+    <footer>
+        <p>Desarrollado por Pablo Gularte</p>
+    </footer>
+
+    <script>
+        const unidades = {
+            bits: 1,
+            bytes: 8,
+            kilobytes: 8 * 1024,
+            megabytes: 8 * 1024 ** 2,
+            gigabytes: 8 * 1024 ** 3,
+            terabytes: 8 * 1024 ** 4
+        };
+
+        function convertir(boton) {
+            const valor = Number($("#valor-inicial").val());
+            const unidad = boton.id
+            const valorEnBits = valor * unidades[unidad];
+
+            
+            if (!valor || isNaN(valor)) {
+                alert("Por favor, ingrese un valor válido.");
+                return;
+            }
+            
+            $(boton).toggleClass('w3-disabled');
+
+
+            // Creo el objeto resultado
+            const resultado = {
+                bits: valorEnBits,
+                bytes: valorEnBits / unidades.bytes,
+                kilobytes: valorEnBits / unidades.kilobytes,
+                megabytes: valorEnBits / unidades.megabytes,
+                gigabytes: valorEnBits / unidades.gigabytes,
+                terabytes: valorEnBits / unidades.terabytes
+            };
+
+            // Actualizar el panel de resultados
+            $("#leyenda-resultado span").text(`${valor} ${unidad}`);
+            for(let r in resultado) {
+                $(`#${r}-resultado span`).text(resultado[r]);
+            }
+
+
+            // Agregar al historial
+            if($(boton).hasClass('w3-disabled')) {
+                const historial = document.getElementById("historial");
+                const li = document.createElement("li");
+                li.innerHTML = `Se convierte el valor ${valor} de <b>${unidad}</b> al resto de las unidades`;
+                historial.appendChild(li);
+            }
+        }
+    
+        function limpiarValor() {
+            $('#valor-inicial').val('');
+            $('#panel-resultado ul li span').text('');
+            $('#botonera-unidades button').removeClass('w3-disabled');
+        }
+    </script>
+</body>
+
 </html>

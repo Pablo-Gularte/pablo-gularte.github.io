@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación con Rúbrica</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        select {
+            width: 100px;
+        }
+
+        h2 {
+            margin-top: 40px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .panel-controles {
+            margin: 15px 0;
+            padding: 10px;
+            background: #f8f8f8;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .control-columna {
+            margin: 5px;
+            padding: 8px 12px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .control-columna:hover {
+            background: #45a049;
+        }
+
+        .control-columna.oculto {
+            background: #008CBA;
+        }
+
+        .export-btn {
+            background-color: #008CBA;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .export-btn:hover {
+            background-color: #007399;
+        }
+    </style>
+    <script src="https://cdn.sheetjs.com/xlsx-0.18.12/package/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+    <h1>Evaluación con Rúbrica</h1>
+
+    <!-- Sección para Quinto B -->
+    <h2>Quinto B</h2>
+    <div class="panel-controles" id="controlesQuintoB"></div>
+    <table id="tableQuintoB"></table>
+
+    <!-- Sección para Cuarto B -->
+    <h2>Cuarto B</h2>
+    <div class="panel-controles" id="controlesCuartoB"></div>
+    <table id="tableCuartoB"></table>
+
+    <div>
+        <button class="export-btn" onclick="calcularResultados()">Calcular resultados</button>
+        <button class="export-btn" onclick="exportarExcel()">Exportar a Excel</button>
+    </div>
+
+    <script>
+        const actividades = [
+            {
+                nombre: "COMPRENSIÓN LECTORA",
+                preguntas: [
+                    { id: "1.1", texto: "Localizar información" },
+                    { id: "1.2", texto: "Reconocer correferencias" },
+                    { id: "1.3", texto: "Realizar inferencias" }
+                ]
+            },
+            {
+                nombre: "ORTOGRAFÍA",
+                preguntas: [
+                    { id: "2.1", texto: "Dictado" },
+                    { id: "2.2", texto: "Separar palabras" },
+                    { id: "2.3", texto: "Uso de mayúsculas" },
+                    { id: "2.4", texto: "Uso de puntuación" }
+                ]
+            },
+            {
+                nombre: "ESCRITURA CREATIVA",
+                preguntas: [
+                    { id: "3.1", texto: "Redacción" }
+                ]
+            }
+        ];
+
+        const quintoB = [
+            'Arizaga, De Los Ángeles Guadalupe',
+            'Britez Insfran, Laila Amira',
+            'Capponi, Miranda',
+            'Cid, Ignacio',
+            'De Antoni, Ciro Valentín',
+            'Fernández Esseiva, Juan Ignacio',
+            'Garnica Ojeda, Rosa Sofía',
+            'Gómez Visconti, Bruno Daniel',
+            'Intonio, Guadalupe Brunella',
+            'Ledesma Pugliese, Martín',
+            'Maresca, Lautaro Ezequiel',
+            'Merelez Salinas, Máximo Eduardo',
+            'Ni, Joana Iris',
+            'Olivera González, Luana Franchesca',
+            'Pascual Müller, Gonzalo Joaquín',
+            'Pereira Guanactolay, Thiago Agustín',
+            'Pérez De La Cruz, Luis Diego',
+            'Silva Felscher, Luciano Thiago',
+            'Van De Velde, Christian'
+        ];
+
+        const cuartoB = [
+            'Acuña Valles, Thiago',
+            'Artunduaga Perdomo, Camila',
+            'Avakyan Abrales, Malena',
+            'Benítez Sevares, Juana',
+            'Canevaro Allegra, Lucio',
+            'Cassará, Camila Jazmín',
+            'Cilento, Stefanía Mailén',
+            'Figueredo García, Isabella Fernanda',
+            'Fuselli, Santino',
+            'Genez, Emiliano Germán',
+            'Genez, Sofía Abigail',
+            'Guerrero Centurión, Ariadna Leila',
+            'Leanza, Benicio Benjamín',
+            'Naveiro, Alma Agostina',
+            'Pasten Ramirez, Luciano',
+            'Ponce Brambilla, Catalina Lourdes',
+            'Ponce Brambilla, Lucas Miguel',
+            'Quiroga, Matías',
+            'Quiroz, Mateo Alexander',
+            'Rodríguez Miglio, Carmelo'
+        ];
+
+        function interpretarResultado(total, numPreguntas) {
+            if (total === numPreguntas * 3) return "AVANZADO";
+            else if (total >= numPreguntas * 2) return "LOGRADO";
+            else return "NO LOGRADO";
+        }
+
+        function crearTabla(estudiantes, tableId) {
+            const table = document.getElementById(tableId);
+            table.innerHTML = "";
+
+            const thead = document.createElement("thead");
+            const headerRow1 = document.createElement("tr");
+            const headerRow2 = document.createElement("tr");
+
+            const thEstudiante = document.createElement("th");
+            thEstudiante.rowSpan = 2;
+            thEstudiante.textContent = "Estudiante";
+            headerRow1.appendChild(thEstudiante);
+
+            actividades.forEach((actividad, index) => {
+                const thActividad = document.createElement("th");
+                thActividad.colSpan = actividad.preguntas.length + 2;
+                thActividad.textContent = actividad.nombre;
+                thActividad.setAttribute("data-activity", index);
+                headerRow1.appendChild(thActividad);
+
+                actividad.preguntas.forEach(pregunta => {
+                    const thPregunta = document.createElement("th");
+                    thPregunta.innerHTML = `${pregunta.id}<br><small>${pregunta.texto}</small>`;
+                    thPregunta.setAttribute("data-activity", index);
+                    headerRow2.appendChild(thPregunta);
+                });
+
+                const thTotal = document.createElement("th");
+                thTotal.textContent = "Total";
+                thTotal.setAttribute("data-activity", index);
+                headerRow2.appendChild(thTotal);
+
+                const thResultado = document.createElement("th");
+                thResultado.textContent = "Resultado";
+                thResultado.setAttribute("data-activity", index);
+                headerRow2.appendChild(thResultado);
+            });
+
+            thead.appendChild(headerRow1);
+            thead.appendChild(headerRow2);
+            table.appendChild(thead);
+
+            const tbody = document.createElement("tbody");
+            estudiantes.forEach(estudiante => {
+                const fila = document.createElement("tr");
+                const tdNombre = document.createElement("td");
+                tdNombre.textContent = estudiante;
+                fila.appendChild(tdNombre);
+
+                actividades.forEach((actividad, index) => {
+                    actividad.preguntas.forEach(() => {
+                        const td = document.createElement("td");
+                        const select = document.createElement("select");
+
+                        const opcionDefault = document.createElement("option");
+                        opcionDefault.value = "";
+                        opcionDefault.textContent = "-";
+                        select.appendChild(opcionDefault);
+
+                        [3, 2, 1].forEach(valor => {
+                            const option = document.createElement("option");
+                            option.value = valor;
+                            option.textContent = ["AVANZADO", "LOGRADO", "NO LOGRADO"][3 - valor];
+                            select.appendChild(option);
+                        });
+
+                        td.setAttribute("data-activity", index);
+                        td.appendChild(select);
+                        fila.appendChild(td);
+                    });
+
+                    const tdTotal = document.createElement("td");
+                    tdTotal.className = "total";
+                    tdTotal.textContent = "0";
+                    tdTotal.setAttribute("data-activity", index);
+                    fila.appendChild(tdTotal);
+
+                    const tdResultado = document.createElement("td");
+                    tdResultado.className = "resultado";
+                    tdResultado.textContent = "";
+                    tdResultado.setAttribute("data-activity", index);
+                    fila.appendChild(tdResultado);
+                });
+                tbody.appendChild(fila);
+            });
+            table.appendChild(tbody);
+        }
+
+        function crearControles(tableId) {
+            const panel = document.getElementById(`controles${tableId.replace('table', '')}`);
+            panel.innerHTML = '';
+
+            actividades.forEach((actividad, index) => {
+                const btn = document.createElement("button");
+                btn.className = "control-columna";
+                btn.textContent = `${actividad.nombre} (Ocultar)`;
+                btn.onclick = () => toggleColumn(index, tableId);
+                btn.setAttribute("data-activity", index);
+                panel.appendChild(btn);
+            });
+        }
+
+        function toggleColumn(activityIndex, tableId) {
+            const table = document.getElementById(tableId);
+            const elements = table.querySelectorAll(`[data-activity="${activityIndex}"]`);
+            const btn = document.querySelector(`#controles${tableId.replace('table', '')} [data-activity="${activityIndex}"]`);
+
+            elements.forEach(element => {
+                element.classList.toggle("hidden");
+            });
+
+            const estaOculto = elements[0].classList.contains("hidden");
+            btn.textContent = `${actividades[activityIndex].nombre} (${estaOculto ? 'Mostrar' : 'Ocultar'})`;
+            btn.classList.toggle("oculto", !estaOculto);
+        }
+
+        function calcularResultados() {
+            ["tableQuintoB", "tableCuartoB"].forEach(tableId => {
+                const tbody = document.getElementById(tableId).getElementsByTagName("tbody")[0];
+                for (let i = 0; i < tbody.rows.length; i++) {
+                    const row = tbody.rows[i];
+                    let cellIndex = 1;
+                    actividades.forEach(actividad => {
+                        const numPreguntas = actividad.preguntas.length;
+                        let total = 0;
+
+                        for (let j = 0; j < numPreguntas; j++) {
+                            const select = row.cells[cellIndex].querySelector("select");
+                            const valor = parseInt(select.value);
+                            if (!isNaN(valor)) total += valor;
+                            cellIndex++;
+                        }
+
+                        row.cells[cellIndex].textContent = total;
+                        cellIndex++;
+
+                        row.cells[cellIndex].textContent = interpretarResultado(total, numPreguntas);
+                        cellIndex++;
+                    });
+                }
+            });
+        }
+
+        function exportarExcel() {
+            const workbook = XLSX.utils.book_new();
+
+            ["Quinto B", "Cuarto B"].forEach(grupo => {
+                const tableId = grupo === "Quinto B" ? "tableQuintoB" : "tableCuartoB";
+                const table = document.getElementById(tableId);
+                const data = [];
+
+                const headers = ["Estudiante"];
+                actividades.forEach(actividad => {
+                    actividad.preguntas.forEach(pregunta => {
+                        headers.push(`${actividad.nombre} - ${pregunta.id} ${pregunta.texto}`);
+                    });
+                    headers.push(`${actividad.nombre} - Total`);
+                    headers.push(`${actividad.nombre} - Resultado`);
+                });
+                data.push(headers);
+
+                Array.from(table.tBodies[0].rows).forEach(row => {
+                    const rowData = [row.cells[0].textContent];
+                    let cellIndex = 1;
+
+                    actividades.forEach(actividad => {
+                        actividad.preguntas.forEach(() => {
+                            const select = row.cells[cellIndex].querySelector("select");
+                            rowData.push(select.value || "-");
+                            cellIndex++;
+                        });
+                        rowData.push(row.cells[cellIndex].textContent);
+                        cellIndex++;
+                        rowData.push(row.cells[cellIndex].textContent);
+                        cellIndex++;
+                    });
+                    data.push(rowData);
+                });
+
+                const worksheet = XLSX.utils.aoa_to_sheet(data);
+                XLSX.utils.book_append_sheet(workbook, worksheet, grupo);
+            });
+
+            XLSX.writeFile(workbook, "Evaluaciones.xlsx");
+        }
+
+        window.onload = function () {
+            crearTabla(quintoB, "tableQuintoB");
+            crearTabla(cuartoB, "tableCuartoB");
+            crearControles("tableQuintoB");
+            crearControles("tableCuartoB");
+        };
+    </script>
+</body>
+
+</html>
