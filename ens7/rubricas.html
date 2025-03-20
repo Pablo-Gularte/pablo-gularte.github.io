@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Evaluación con Rúbrica</title>
     <style>
         body {
@@ -79,29 +80,173 @@
         .export-btn:hover {
             background-color: #007399;
         }
+
+        /* Nuevos estilos para botón de guardar */
+        .guardar-btn {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .guardar-btn:hover {
+            background-color: #f57c00;
+        }
+
+        .mensaje-guardado {
+            color: #4CAF50;
+            margin-left: 10px;
+            display: none;
+        }
     </style>
     <script src="https://cdn.sheetjs.com/xlsx-0.18.12/package/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body>
     <h1>Evaluación con Rúbrica</h1>
+    <div class="w3-bottom">
+        <div class="w3-bar w3-white">
+            <div>
+                <button class="export-btn" onclick="calcularResultados()">Calcular resultados</button>
+                <button class="export-btn" onclick="guardarProgreso()">Guardar Progreso</button>
+                <button class="export-btn" onclick="cargarProgreso()">Cargar Progreso guardado</button>
+                <button class="export-btn" onclick="exportarExcel()">Exportar a Excel</button>
+                <span id="mensajeGuardado" class="mensaje-guardado">¡Progreso guardado!</span>
+            </div>
+        </div>
+    </div>
+    <div class="w3-container" style="margin-bottom: 60px;">
+        <div class="w3-bar w3-black">
+            <button class="w3-bar-item w3-button tablink w3-red" onclick="abrirPanelGrado(event,'quintoA')">Quinto
+                A</button>
+            <button class="w3-bar-item w3-button tablink" onclick="abrirPanelGrado(event,'cuartoA')">Cuarto A</button>
+        </div>
 
-    <!-- Sección para Quinto B -->
-    <h2>Quinto B</h2>
-    <div class="panel-controles" id="controlesQuintoB"></div>
-    <table id="tableQuintoB"></table>
 
-    <!-- Sección para Cuarto B -->
-    <h2>Cuarto B</h2>
-    <div class="panel-controles" id="controlesCuartoB"></div>
-    <table id="tableCuartoB"></table>
+        <div id="quintoA" class="w3-container w3-border city">
+            <!-- Sección para Quinto A -->
+            <h2>Quinto A</h2>
+            <div class="panel-controles" id="controlesQuintoA"></div>
+            <table id="tableQuintoA"></table>
+        </div>
 
-    <div>
-        <button class="export-btn" onclick="calcularResultados()">Calcular resultados</button>
-        <button class="export-btn" onclick="exportarExcel()">Exportar a Excel</button>
+        <div id="cuartoA" class="w3-container w3-border city" style="display:none">
+            <!-- Sección para Cuarto A -->
+            <h2>Cuarto A</h2>
+            <div class="panel-controles" id="controlesCuartoA"></div>
+            <table id="tableCuartoA"></table>
+        </div>
     </div>
 
+
     <script>
+        // Función para guardar el progreso
+        function guardarProgreso() {
+            const datos = {
+                QuintoA: obtenerDatosGrupo('tableQuintoA'),
+                CuartoA: obtenerDatosGrupo('tableCuartoA')
+            };
+
+            localStorage.setItem('progresoEvaluacion', JSON.stringify(datos));
+            mostrarMensajeGuardado();
+        }
+
+        // Función para obtener datos de un grupo
+        function obtenerDatosGrupo(tableId) {
+            const tabla = document.getElementById(tableId);
+            const datos = [];
+
+            Array.from(tabla.tBodies[0].rows).forEach(fila => {
+                const estudiante = {
+                    nombre: fila.cells[0].textContent,
+                    evaluaciones: []
+                };
+
+                let cellIndex = 1;
+                actividades.forEach(actividad => {
+                    const evaluacionActividad = {
+                        actividad: actividad.nombre,
+                        respuestas: []
+                    };
+
+                    actividad.preguntas.forEach(() => {
+                        const select = fila.cells[cellIndex].querySelector("select");
+                        evaluacionActividad.respuestas.push(select.value);
+                        cellIndex++;
+                    });
+
+                    cellIndex += 2; // Saltar total y resultado
+                    estudiante.evaluaciones.push(evaluacionActividad);
+                });
+
+                datos.push(estudiante);
+            });
+
+            return datos;
+        }
+
+        // Función para cargar el progreso guardado
+        function cargarProgreso() {
+            const datosGuardados = localStorage.getItem('progresoEvaluacion');
+            if (!datosGuardados) return;
+
+            const datos = JSON.parse(datosGuardados);
+
+            cargarDatosGrupo('tableQuintoA', datos.QuintoA);
+            cargarDatosGrupo('tableCuartoA', datos.CuartoA);
+        }
+
+        // Función para cargar datos a un grupo
+        function cargarDatosGrupo(tableId, datosGrupo) {
+            const tabla = document.getElementById(tableId);
+
+            Array.from(tabla.tBodies[0].rows).forEach((fila, index) => {
+                const estudianteData = datosGrupo[index];
+                let cellIndex = 1;
+
+                estudianteData.evaluaciones.forEach(evaluacion => {
+                    evaluacion.respuestas.forEach(valor => {
+                        const select = fila.cells[cellIndex].querySelector("select");
+                        select.value = valor;
+                        cellIndex++;
+                    });
+                    cellIndex += 2; // Saltar total y resultado
+                });
+            });
+        }
+
+        function mostrarMensajeGuardado() {
+            const mensaje = document.getElementById('mensajeGuardado');
+            mensaje.style.display = 'inline';
+            setTimeout(() => mensaje.style.display = 'none', 2000);
+        }
+
+        // Modificar la inicialización para cargar progreso
+        window.onload = function () {
+            crearTabla(QuintoA, "tableQuintoA");
+            crearTabla(CuartoA, "tableCuartoA");
+            crearControles("tableQuintoA");
+            crearControles("tableCuartoA");
+            cargarProgreso();
+        };
+
+        function abrirPanelGrado(evt, grado) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+            }
+            document.getElementById(grado).style.display = "block";
+            evt.currentTarget.className += " w3-red";
+        }
         const actividades = [
             {
                 nombre: "COMPRENSIÓN LECTORA",
@@ -128,7 +273,7 @@
             }
         ];
 
-        const quintoB = [
+        const QuintoA = [
             'Arizaga, De Los Ángeles Guadalupe',
             'Britez Insfran, Laila Amira',
             'Capponi, Miranda',
@@ -150,7 +295,7 @@
             'Van De Velde, Christian'
         ];
 
-        const cuartoB = [
+        const CuartoA = [
             'Acuña Valles, Thiago',
             'Artunduaga Perdomo, Camila',
             'Avakyan Abrales, Malena',
@@ -296,7 +441,7 @@
         }
 
         function calcularResultados() {
-            ["tableQuintoB", "tableCuartoB"].forEach(tableId => {
+            ["tableQuintoA", "tableCuartoA"].forEach(tableId => {
                 const tbody = document.getElementById(tableId).getElementsByTagName("tbody")[0];
                 for (let i = 0; i < tbody.rows.length; i++) {
                     const row = tbody.rows[i];
@@ -325,8 +470,8 @@
         function exportarExcel() {
             const workbook = XLSX.utils.book_new();
 
-            ["Quinto B", "Cuarto B"].forEach(grupo => {
-                const tableId = grupo === "Quinto B" ? "tableQuintoB" : "tableCuartoB";
+            ["Quinto A", "Cuarto A"].forEach(grupo => {
+                const tableId = grupo === "Quinto A" ? "tableQuintoA" : "tableCuartoA";
                 const table = document.getElementById(tableId);
                 const data = [];
 
@@ -366,10 +511,10 @@
         }
 
         window.onload = function () {
-            crearTabla(quintoB, "tableQuintoB");
-            crearTabla(cuartoB, "tableCuartoB");
-            crearControles("tableQuintoB");
-            crearControles("tableCuartoB");
+            crearTabla(QuintoA, "tableQuintoA");
+            crearTabla(CuartoA, "tableCuartoA");
+            crearControles("tableQuintoA");
+            crearControles("tableCuartoA");
         };
     </script>
 </body>
