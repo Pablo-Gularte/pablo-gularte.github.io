@@ -247,6 +247,7 @@
             document.getElementById(grado).style.display = "block";
             evt.currentTarget.className += " w3-red";
         }
+        
         const actividades = [
             {
                 nombre: "COMPRENSIÓN LECTORA",
@@ -509,13 +510,6 @@
 
             XLSX.writeFile(workbook, "Evaluaciones.xlsx");
         }
-
-        window.onload = function () {
-            crearTabla(QuintoA, "tableQuintoA");
-            crearTabla(CuartoA, "tableCuartoA");
-            crearControles("tableQuintoA");
-            crearControles("tableCuartoA");
-        };
     </script>
 </body>
 

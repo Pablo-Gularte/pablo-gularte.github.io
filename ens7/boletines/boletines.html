@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+    <head>
+        <title>Informes boletines</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- W3.CSS -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- Fin W3.CSS -->
+
+        <!-- JQuery CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <!-- Fin JQuery CDN -->
+    </head>
+    <body>
+        <main></main>
+        <script>
+            let datos5toB;
+            $.getJSON("datos5toB.json", function(data) {
+                datos5toB = data.responseJSON;
+            });
+            console.log(datos5toB);
+            const datos4toB = "";
+        </script>
+    </body>
+</html>

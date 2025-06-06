@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Asistencia</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="header">
+        <div class="select-container">
+            <select id="grado-select"></select>
+        </div>
+        <input type="date" id="fecha" min="<?= date('Y-02-24') ?>" max="<?= date('Y-m-d') ?>">
+        <input type="text" id="busqueda" class="search-box" placeholder="Buscar estudiante...">
+    </div>
+    
+    <div id="tabla-container"></div>
+    <button onclick="guardarAsistencia()" class="save-btn">Guardar Asistencia</button>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
