@@ -458,13 +458,14 @@ function clickMenuPerfil() {
 // Apretar botón "Salir" para cerrar perfil
 function clickSalirPerfil() {
     // 1. Buscar el botón de salir del perfil
-    const botonSalir = document.querySelector("#yDmH0d > c-wiz > div.T4LgNb > div > div > div > div.sZ3gbf > div > div.oNTUye > div.qLP7kc.F249q.fJXtBe.kCsp2e.Nry6De > span > span.y5Iqsb.Voigeb.vZvJBb > a")
+    const botonSalir = document.querySelector("#yDmH0d > c-wiz > div > div > div > div > div:last-child > div").querySelector('a[href*="Logout"]');
     
     if (!botonSalir) {
         console.error('No se encontró el botón "Salir" del perfil');
         return;
     }
 
+    // 2. Dentro del contenedor, buscar el botón específico
     // 2. Simular clic en el botón
     botonSalir.click();
     console.log('Botón "Salir" presionado');
@@ -473,7 +474,7 @@ function clickSalirPerfil() {
 // Apretar botón "Usar otra cuenta" para cambiar de perfil
 function clickOtraCuenta() {
     // 1. Buscar el botón de "Otra cuenta"
-    const botonOtraCuenta = document.querySelector("#yDmH0d > c-wiz > div > div.UXFQgc > div > div > div > form > span > section > div > div > div > div > ul > li:nth-child(2) > div");
+    const botonOtraCuenta = document.querySelector('#yDmH0d > c-wiz').querySelector('ul > li:last-child').previousSibling.children[0];
     
     if (!botonOtraCuenta) {
         console.error('No se encontró el botón "Usar otra cuenta"');
