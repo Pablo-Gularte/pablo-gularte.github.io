@@ -438,3 +438,49 @@ function clickSoyEstudiante() {
   boton.click();
   console.log('Clic simulado en el botón “Soy estudiante”.');
 }
+
+
+// Desplegar menú de selección de perfil
+function clickMenuPerfil() {
+    // 1. Buscar el botón del menú de perfil
+    const menuPerfil = document.querySelector("#gb > div > div.gb_Re > div.gb_z.gb_dd.gb_Nf.gb_0 > div > a");
+    
+    if (!menuPerfil) {
+        console.error('No se encontró el menú de perfil');
+        return;
+    }
+
+    // 2. Simular clic en el menú
+    menuPerfil.click();
+    console.log('Menú de perfil desplegado');
+}
+
+// Apretar botón "Salir" para cerrar perfil
+function clickSalirPerfil() {
+    // 1. Buscar el botón de salir del perfil
+    const botonSalir = document.querySelector("#yDmH0d > c-wiz > div.T4LgNb > div > div > div > div.sZ3gbf > div > div.oNTUye > div.qLP7kc.F249q.fJXtBe.kCsp2e.Nry6De > span > span.y5Iqsb.Voigeb.vZvJBb > a")
+    
+    if (!botonSalir) {
+        console.error('No se encontró el botón "Salir" del perfil');
+        return;
+    }
+
+    // 2. Simular clic en el botón
+    botonSalir.click();
+    console.log('Botón "Salir" presionado');
+}
+
+// Apretar botón "Usar otra cuenta" para cambiar de perfil
+function clickOtraCuenta() {
+    // 1. Buscar el botón de "Otra cuenta"
+    const botonOtraCuenta = document.querySelector("#yDmH0d > c-wiz > div > div.UXFQgc > div > div > div > form > span > section > div > div > div > div > ul > li:nth-child(2) > div");
+    
+    if (!botonOtraCuenta) {
+        console.error('No se encontró el botón "Usar otra cuenta"');
+        return;
+    }
+
+    // 2. Simular clic en el botón
+    botonOtraCuenta.click();
+    console.log('Botón "Usar otra cuenta" presionado');
+}
