@@ -458,7 +458,7 @@ function clickMenuPerfil() {
 // Apretar botón "Salir" para cerrar perfil
 function clickSalirPerfil() {
     // 1. Buscar el botón de salir del perfil
-    const botonSalir = document.querySelector("#yDmH0d > c-wiz > div > div > div > div > div:last-child > div").querySelector('a[href*="Logout"]');
+    const botonSalir = document.querySelector("#yDmH0d > c-wiz > div > div > div > div").querySelector('a[href*="Logout"]');
     
     if (!botonSalir) {
         console.error('No se encontró el botón "Salir" del perfil');
