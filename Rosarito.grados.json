@@ -1,0 +1,932 @@
+[{
+  "_id": {
+    "$oid": "68431b1d1d97cb716287f379"
+  },
+  "grado": "6toA",
+  "estudiantes": [
+    {
+      "apellido": "ALEGRE MIÃ‘O",
+      "nombre": "JEREMIAS",
+      "segundo nombre": "NULL",
+      "documento": "53465301",
+      "correo": "jeremiasa5301@alu.bue.edu.ar",
+      "clave": "futbolairepaloma",
+      "anio": "2024"
+    },
+    {
+      "apellido": "BERNARDO",
+      "nombre": "JOAQUIN",
+      "segundo nombre": "",
+      "documento": "54101726",
+      "correo": "joaquinb726@alu.bue.edu.ar",
+      "clave": "fama.bici.BA",
+      "anio": "2024"
+    },
+    {
+      "apellido": "BONANNO",
+      "nombre": "FEDERICO",
+      "segundo nombre": "NULL",
+      "documento": "53586277",
+      "correo": "federicob277@alu.bue.edu.ar",
+      "clave": "voleymicrogusano",
+      "anio": "2024"
+    },
+    {
+      "apellido": "CABRAL",
+      "nombre": "EVA",
+      "segundo nombre": "NULL",
+      "documento": "53414775",
+      "correo": "evac775@alu.bue.edu.ar",
+      "clave": "ciervohockeysapo",
+      "anio": "2024"
+    },
+    {
+      "apellido": "CORTES",
+      "nombre": "NOAH",
+      "segundo nombre": "JOAQUIN",
+      "documento": "53950821",
+      "correo": "noahc821@alu.bue.edu.ar",
+      "clave": "buceoviajefoca",
+      "anio": "2024"
+    },
+    {
+      "apellido": "DE IBARRETA TOBAL",
+      "nombre": "CIRO",
+      "segundo nombre": "NULL",
+      "documento": "53751542",
+      "correo": "cirod542@alu.bue.edu.ar",
+      "clave": "futbolcielotero",
+      "anio": "2024"
+    },
+    {
+      "apellido": "DE VEDIA GODOY",
+      "nombre": "FRANCISCA",
+      "segundo nombre": "NULL",
+      "documento": "53770925",
+      "correo": "franciscad925@alu.bue.edu.ar",
+      "clave": "Recreopolobanco.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "DI GIOVANNI",
+      "nombre": "LUCIO",
+      "segundo nombre": "NULL",
+      "documento": "53983612",
+      "correo": "luciod612@alu.bue.edu.ar",
+      "clave": "Obrabillaraire.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ECHAURI MARINO",
+      "nombre": "MATEO",
+      "segundo nombre": "JULIAN",
+      "documento": "53724923",
+      "correo": "mateoe923@alu.bue.edu.ar",
+      "clave": "luchahimnotoro",
+      "anio": "2024"
+    },
+    {
+      "apellido": "EREU OVIEDO",
+      "nombre": "ALAN",
+      "segundo nombre": "DAVID",
+      "documento": "585682021",
+      "correo": "alane821@alu.bue.edu.ar",
+      "clave": "lago.cuna.BA",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ESPEJO",
+      "nombre": "LILA",
+      "segundo nombre": "NULL",
+      "documento": "53720862",
+      "correo": "lilae862@alu.bue.edu.ar",
+      "clave": "remoaulatoro",
+      "anio": "2024"
+    },
+    {
+      "apellido": "FONTENLA",
+      "nombre": "LEON",
+      "segundo nombre": "DAVID",
+      "documento": "53469788",
+      "correo": "leonf788@alu.bue.edu.ar",
+      "clave": "surfbancolobo",
+      "anio": "2024"
+    },
+    {
+      "apellido": "IANNONE",
+      "nombre": "CLARA",
+      "segundo nombre": "NULL",
+      "documento": "53851354",
+      "correo": "clarai354@alu.bue.edu.ar",
+      "clave": "teniscamaratucan",
+      "anio": "2024"
+    },
+    {
+      "apellido": "LERMAN",
+      "nombre": "FELIPE",
+      "segundo nombre": "",
+      "documento": "53647485",
+      "correo": "felipel485@alu.bue.edu.ar",
+      "clave": "muro.lino.BA",
+      "anio": "2024"
+    },
+    {
+      "apellido": "MAIDANA",
+      "nombre": "JULIA",
+      "segundo nombre": "NULL",
+      "documento": "53948254",
+      "correo": "juliam254@alu.bue.edu.ar",
+      "clave": "rugbyrecreopaloma",
+      "anio": "2024"
+    },
+    {
+      "apellido": "MARTINEZ",
+      "nombre": "JULIA",
+      "segundo nombre": "NULL",
+      "documento": "53724948",
+      "correo": "juliam4948@alu.bue.edu.ar",
+      "clave": "Patingusanovideo.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "MOSQUERA TORO",
+      "nombre": "DIEGO",
+      "segundo nombre": "ANDRÃ‰S",
+      "documento": "122055801",
+      "correo": "diegom801@alu.bue.edu.ar",
+      "clave": "tela.foca.BA",
+      "anio": "2024"
+    },
+    {
+      "apellido": "PADRINO MARTINEZ",
+      "nombre": "ISAIAS",
+      "segundo nombre": "ALEJANDRO",
+      "documento": "95836755",
+      "correo": "isaiasp755@alu.bue.edu.ar",
+      "clave": "skatecentropantera",
+      "anio": "2024"
+    },
+    {
+      "apellido": "PRIETTO",
+      "nombre": "THIAGO",
+      "segundo nombre": "RAMIRO",
+      "documento": "53468235",
+      "correo": "thiagop235@alu.bue.edu.ar",
+      "clave": "Buceocastorgusano.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "RATTO",
+      "nombre": "MARÃ□A",
+      "segundo nombre": "VALENTINA",
+      "documento": "53852920",
+      "correo": "mariar920@alu.bue.edu.ar",
+      "clave": "orcasumotiburon",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ROJAS CACERES",
+      "nombre": "SANTINO",
+      "segundo nombre": "NULL",
+      "documento": "533333333",
+      "correo": "santinor3333@alu.bue.edu.ar",
+      "clave": "Basketorcasilla.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "SALERNO BIAGGIO",
+      "nombre": "CAMILA",
+      "segundo nombre": "NULL",
+      "documento": "53412831",
+      "correo": "camilas831@alu.bue.edu.ar",
+      "clave": "dardosmicrogusano",
+      "anio": "2024"
+    },
+    {
+      "apellido": "VIGO TANTALEÃ□N",
+      "nombre": "MARTINA",
+      "segundo nombre": "BELÃ‰N",
+      "documento": "53652151",
+      "correo": "martinav151@alu.bue.edu.ar",
+      "clave": "remojuegotigre",
+      "anio": "2024"
+    },
+    {
+      "apellido": "VILLALBA TELLEZ",
+      "nombre": "CAMILA",
+      "segundo nombre": "ABRIL",
+      "documento": "53722578",
+      "correo": "camilav578@alu.bue.edu.ar",
+      "clave": "rugbyobramosca",
+      "anio": "2024"
+    },
+    {
+      "apellido": "WACHEL WEISSEL",
+      "nombre": "DARREN",
+      "segundo nombre": "EMRICK",
+      "documento": "53260079",
+      "correo": "darrenw079@alu.bue.edu.ar",
+      "clave": "sopa.bote.BA",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ZANARDI",
+      "nombre": "VICTORIA",
+      "segundo nombre": "NULL",
+      "documento": "53948431",
+      "correo": "victoriaz431@alu.bue.edu.ar",
+      "clave": "Golfgusanomosca.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ZHOU",
+      "nombre": "CAMILA",
+      "segundo nombre": "NULL",
+      "documento": "53646550",
+      "correo": "camilaz6550@alu.bue.edu.ar",
+      "clave": "Ayudaremoregla.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "BIANCOFIORE LUNA",
+      "nombre": "BENJAMIN",
+      "segundo nombre": "BAUTISTA",
+      "documento": "53236253",
+      "correo": "benjaminb253@alu.bue.edu.ar",
+      "clave": "Dardosteropuma.",
+      "anio": "2023"
+    },
+    {
+      "apellido": "DIAZ ARRAEZ",
+      "nombre": "FAVIO",
+      "segundo nombre": "ALFONZO",
+      "documento": "144714520",
+      "correo": "faviod1452@alu.bue.edu.ar",
+      "clave": "Surfgusanotigre.",
+      "anio": "2022"
+    },
+    {
+      "apellido": "GALINDEZ",
+      "nombre": "AGOSTINA",
+      "segundo nombre": "NULL",
+      "documento": "51552154",
+      "correo": "agostinag2154@alu.bue.edu.ar",
+      "clave": "copa.boca.BA",
+      "anio": "2022"
+    },
+    {
+      "apellido": "GIMENEZ VIVAS",
+      "nombre": "AZUL",
+      "segundo nombre": "LUJAN",
+      "documento": "53238086",
+      "correo": "azulg086@alu.bue.edu.ar",
+      "clave": "Skitucanmosca.",
+      "anio": "2023"
+    },
+    {
+      "apellido": "ORTA ARMANDO",
+      "nombre": "PAULINA",
+      "segundo nombre": "NULL",
+      "documento": "52762631",
+      "correo": "paulinao631@alu.bue.edu.ar",
+      "clave": "remocamaratucan",
+      "anio": "2023"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6844cf67bab9ff5aa7930f27"
+  },
+  "grado": "6toB",
+  "estudiantes": [
+    {
+      "apellido": "VAZQUEZ",
+      "nombre1": "JORGE",
+      "nombre2": "ABEL",
+      "documento": "53679755",
+      "correo": "jorgev755@alu.bue.edu.ar",
+      "clave": "Relojbillarsol.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ROTH FISCHER",
+      "nombre1": "LARA",
+      "nombre2": "NULL",
+      "documento": "50418405",
+      "correo": "larar405@alu.bue.edu.ar",
+      "clave": "velatiburonrugby",
+      "anio": "2021"
+    },
+    {
+      "apellido": "ACOSTA CASTRO",
+      "nombre1": "KAROLL",
+      "nombre2": "SOFIA",
+      "documento": "96018366",
+      "correo": "karolla366@alu.bue.edu.ar",
+      "clave": "luchatablapato",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ACOSTA PAIVA",
+      "nombre1": "MARIA",
+      "nombre2": "CLARA",
+      "documento": "53329362",
+      "correo": "mariaa362@alu.bue.edu.ar",
+      "clave": "tenisautosapo",
+      "anio": "2024"
+    },
+    {
+      "apellido": "BELLVER",
+      "nombre1": "MAFALDA",
+      "nombre2": "NULL",
+      "documento": "53851768",
+      "correo": "mafaldab768@alu.bue.edu.ar",
+      "clave": "luchacielotero",
+      "anio": "2024"
+    },
+    {
+      "apellido": "BERROTERAN MARTINEZ",
+      "nombre1": "DANNA",
+      "nombre2": "ISABEL",
+      "documento": "95578582",
+      "correo": "dannab582@alu.bue.edu.ar",
+      "clave": "Remofocatigre.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "BRUNO TATAY",
+      "nombre1": "EMMA",
+      "nombre2": "NULL",
+      "documento": "53990894",
+      "correo": "emmab894@alu.bue.edu.ar",
+      "clave": "remoplanoso",
+      "anio": "2024"
+    },
+    {
+      "apellido": "CHACON MEDINA",
+      "nombre1": "ROSSYMAR",
+      "nombre2": "MICHELL",
+      "documento": "95979958",
+      "correo": "rossymarc958@alu.bue.edu.ar",
+      "clave": "buceobancolobo",
+      "anio": "2024"
+    },
+    {
+      "apellido": "DALTON DIZ",
+      "nombre1": "LUKAS",
+      "nombre2": "NULL",
+      "documento": "53957841",
+      "correo": "lukasd841@alu.bue.edu.ar",
+      "clave": "surfplanoso",
+      "anio": "2024"
+    },
+    {
+      "apellido": "DIAZ YANOTTI",
+      "nombre1": "BENJAMIN",
+      "nombre2": "NULL",
+      "documento": "53725968",
+      "correo": "benjamind968@alu.bue.edu.ar",
+      "clave": "hockeycentropantera",
+      "anio": "2024"
+    },
+    {
+      "apellido": "GOLDOW",
+      "nombre1": "GONZALO",
+      "nombre2": "",
+      "documento": "54095242",
+      "correo": "gonzalog242@alu.bue.edu.ar",
+      "clave": "cine.sopa.BA",
+      "anio": "2024"
+    },
+    {
+      "apellido": "IANNONE",
+      "nombre1": "CUBA",
+      "nombre2": "NULL",
+      "documento": "53851353",
+      "correo": "cubai353@alu.bue.edu.ar",
+      "clave": "Danzapalomamono.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "JUÃ□REZ LA FUENTE",
+      "nombre1": "LAIA",
+      "nombre2": "AINHOA",
+      "documento": "53587832",
+      "correo": "laiaj832@alu.bue.edu.ar",
+      "clave": "danzamicrogusano",
+      "anio": "2024"
+    },
+    {
+      "apellido": "MORO OLIVERA",
+      "nombre1": "VALENTINO",
+      "nombre2": "HERNAN",
+      "documento": "54103416",
+      "correo": "valentinom3416@alu.bue.edu.ar",
+      "clave": "boxeotablapato",
+      "anio": "2024"
+    },
+    {
+      "apellido": "MOSQUERA TORO",
+      "nombre1": "YANDAR",
+      "nombre2": "DAVID",
+      "documento": "122055490",
+      "correo": "yandarm490@alu.bue.edu.ar",
+      "clave": "cosa.vino.BA",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ROSAS REBOREDA",
+      "nombre1": "LUCA",
+      "nombre2": "ERNESTO",
+      "documento": "54099498",
+      "correo": "lucar498@alu.bue.edu.ar",
+      "clave": "rugbyamigociervo",
+      "anio": "2024"
+    },
+    {
+      "apellido": "SALANITRO",
+      "nombre1": "SOFIA",
+      "nombre2": "AILEN",
+      "documento": "53465397",
+      "correo": "sofias397@alu.bue.edu.ar",
+      "clave": "skivideogusano",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ZANARDI",
+      "nombre1": "OCTAVIO",
+      "nombre2": "NULL",
+      "documento": "53948432",
+      "correo": "octavioz432@alu.bue.edu.ar",
+      "clave": "tenislibroperro",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ARROYO",
+      "nombre1": "IAN",
+      "nombre2": "ALEXIS",
+      "documento": "52115025",
+      "correo": "iana025@alu.bue.edu.ar",
+      "clave": "tenisdatocastor",
+      "anio": "2022"
+    },
+    {
+      "apellido": "BANCHIK",
+      "nombre1": "IAN",
+      "nombre2": "NULL",
+      "documento": "52187038",
+      "correo": "ianb038@alu.bue.edu.ar",
+      "clave": "billarvidajirafa",
+      "anio": "2022"
+    },
+    {
+      "apellido": "BELLINA",
+      "nombre1": "ADRIANO",
+      "nombre2": "ATILIO",
+      "documento": "23610049",
+      "correo": "adrianob049@alu.bue.edu.ar",
+      "clave": "Tenisconejoloro.",
+      "anio": "2022"
+    },
+    {
+      "apellido": "CAMPOS",
+      "nombre1": "AVRIL",
+      "nombre2": "LUNA",
+      "documento": "52136379",
+      "correo": "avrilc379@alu.bue.edu.ar",
+      "clave": "muro.pato.BA",
+      "anio": "2022"
+    },
+    {
+      "apellido": "GOMEZ ELORDIETA",
+      "nombre1": "BAUTISTA",
+      "nombre2": "NULL",
+      "documento": "52092659",
+      "correo": "bautistag659@alu.bue.edu.ar",
+      "clave": "surfautosapo",
+      "anio": "2022"
+    },
+    {
+      "apellido": "NAVARRO COTLER",
+      "nombre1": "YAMIL",
+      "nombre2": "",
+      "documento": "513792",
+      "correo": "yamiln792@alu.bue.edu.ar",
+      "clave": "ropa.lana.BA",
+      "anio": "2022"
+    },
+    {
+      "apellido": "OSZUST",
+      "nombre1": "TOMAS",
+      "nombre2": "NULL",
+      "documento": "51390347",
+      "correo": "tomaso347@alu.bue.edu.ar",
+      "clave": "hockeyjuegotigre",
+      "anio": "2022"
+    },
+    {
+      "apellido": "ROSSI",
+      "nombre1": "VICTORIA",
+      "nombre2": "SOL",
+      "documento": "52456476",
+      "correo": "victoriar6476@alu.bue.edu.ar",
+      "clave": "boda.beca.BA",
+      "anio": "2022"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6844d080bab9ff5aa7930f28"
+  },
+  "grado": "6toC",
+  "estudiantes": [
+    {
+      "apellido": "ANOTOGNINI ROMERO",
+      "nombre1": "MAITE",
+      "nombre2": "NULL",
+      "documento": "51342449",
+      "correo": "maitea2449@alu.bue.edu.ar",
+      "clave": "Remopumaresta.",
+      "anio": "2022"
+    },
+    {
+      "apellido": "HERNANDEZ",
+      "nombre1": "MARTINA",
+      "nombre2": "BELEN",
+      "documento": "53085022",
+      "correo": "martinah022@alu.bue.edu.ar",
+      "clave": "Remoosovaca.",
+      "anio": "2023"
+    },
+    {
+      "apellido": "PRAVATO CEGATTI",
+      "nombre1": "SIMÃ“N",
+      "nombre2": "NULL",
+      "documento": "52640517",
+      "correo": "simonp517@alu.bue.edu.ar",
+      "clave": "hockeydatocastor",
+      "anio": "2022"
+    },
+    {
+      "apellido": "BORDONARO",
+      "nombre1": "BAHIANO",
+      "nombre2": "TEO QUIMEY",
+      "documento": "52699167",
+      "correo": "bahianob167@alu.bue.edu.ar",
+      "clave": "Airerugbyhimno.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "AGUIRRE OCAMPO",
+      "nombre1": "VICTORIA",
+      "nombre2": "NULL",
+      "documento": "53949896",
+      "correo": "victoriaa896@alu.bue.edu.ar",
+      "clave": "futbolrecreopaloma",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ALMIRON SEGURA",
+      "nombre1": "HELENA",
+      "nombre2": "NULL",
+      "documento": "53951188",
+      "correo": "helenaa188@alu.bue.edu.ar",
+      "clave": "polopaistero",
+      "anio": "2024"
+    },
+    {
+      "apellido": "AREVALO",
+      "nombre1": "LUCIO",
+      "nombre2": "FRANCISCO",
+      "documento": "53416082",
+      "correo": "lucioa082@alu.bue.edu.ar",
+      "clave": "golfrecreopaloma",
+      "anio": "2024"
+    },
+    {
+      "apellido": "BRAUER",
+      "nombre1": "HELENA",
+      "nombre2": "BEATRIZ",
+      "documento": "53415943",
+      "correo": "helenab943@alu.bue.edu.ar",
+      "clave": "hockeyequipoaguila",
+      "anio": "2024"
+    },
+    {
+      "apellido": "CANULLAN WEISE",
+      "nombre1": "CATALINA",
+      "nombre2": "NULL",
+      "documento": "53470466",
+      "correo": "catalinac466@alu.bue.edu.ar",
+      "clave": "hockeymusicafoca",
+      "anio": "2024"
+    },
+    {
+      "apellido": "EGGELING",
+      "nombre1": "MARTINA",
+      "nombre2": "NULL",
+      "documento": "53333871",
+      "correo": "martinae871@alu.bue.edu.ar",
+      "clave": "karatemesaloro",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ESTEVEZ",
+      "nombre1": "DANTE",
+      "nombre2": "NULL",
+      "documento": "53415014",
+      "correo": "dantee014@alu.bue.edu.ar",
+      "clave": "billartablapato",
+      "anio": "2024"
+    },
+    {
+      "apellido": "FABIAN",
+      "nombre1": "BAUTISTA",
+      "nombre2": "ORLANDO",
+      "documento": "53956159",
+      "correo": "bautistaf159@alu.bue.edu.ar",
+      "clave": "velavideogusano",
+      "anio": "2024"
+    },
+    {
+      "apellido": "FEREIRA ZAMBRANO",
+      "nombre1": "EMANUEL",
+      "nombre2": "DAVID",
+      "documento": "96126279",
+      "correo": "emanuelf279@alu.bue.edu.ar",
+      "clave": "foca.cono.BA",
+      "anio": "2024"
+    },
+    {
+      "apellido": "FERNANDEZ",
+      "nombre1": "LEANDRO",
+      "nombre2": "AGUSTIN",
+      "documento": "53720727",
+      "correo": "leandrof727@alu.bue.edu.ar",
+      "clave": "patinhimnotoro",
+      "anio": "2024"
+    },
+    {
+      "apellido": "FLORES",
+      "nombre1": "JOHAN",
+      "nombre2": "ALBERTO",
+      "documento": "53581069",
+      "correo": "johanf069@alu.bue.edu.ar",
+      "clave": "danzavideogusano",
+      "anio": "2024"
+    },
+    {
+      "apellido": "LEVI",
+      "nombre1": "IARA",
+      "nombre2": "NULL",
+      "documento": "53716655",
+      "correo": "iaral655@alu.bue.edu.ar",
+      "clave": "karateplazacolibri",
+      "anio": "2024"
+    },
+    {
+      "apellido": "LUQUE",
+      "nombre1": "SOFIA",
+      "nombre2": "NULL",
+      "documento": "53652448",
+      "correo": "sofial448@alu.bue.edu.ar",
+      "clave": "skiplanoso",
+      "anio": "2024"
+    },
+    {
+      "apellido": "MOGOLLÃ“N",
+      "nombre1": "CARLA",
+      "nombre2": "SOFIA",
+      "documento": "53851119",
+      "correo": "carlam119@alu.bue.edu.ar",
+      "clave": "remorecreopaloma",
+      "anio": "2024"
+    },
+    {
+      "apellido": "MUSIKANT",
+      "nombre1": "EMILIA",
+      "nombre2": "ZOEL",
+      "documento": "53652294",
+      "correo": "emiliam294@alu.bue.edu.ar",
+      "clave": "danzaamigociervo",
+      "anio": "2024"
+    },
+    {
+      "apellido": "ORODE",
+      "nombre1": "SALVADOR",
+      "nombre2": "NULL",
+      "documento": "53332339",
+      "correo": "salvadoro339@alu.bue.edu.ar",
+      "clave": "Tiburonbasketvoley.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "RUIZ ORTIZ",
+      "nombre1": "NICOLAS",
+      "nombre2": "GABRIEL",
+      "documento": "53956946",
+      "correo": "nicolasr946@alu.bue.edu.ar",
+      "clave": "billarautosapo",
+      "anio": "2024"
+    },
+    {
+      "apellido": "TRONCOSO RODRIGUEZ",
+      "nombre1": "FRANCISCO",
+      "nombre2": "NULL",
+      "documento": "53578428",
+      "correo": "franciscot428@alu.bue.edu.ar",
+      "clave": "luchacuentatiburon",
+      "anio": "2024"
+    },
+    {
+      "apellido": "VALENTINO",
+      "nombre1": "ORNELLA",
+      "nombre2": "AGOSTINA",
+      "documento": "53724588",
+      "correo": "ornellav588@alu.bue.edu.ar",
+      "clave": "Buceoiguanahormiga.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "VERA JIMENEZ",
+      "nombre1": "FRANCO",
+      "nombre2": "VALENTINO",
+      "documento": "54095335",
+      "correo": "francov335@alu.bue.edu.ar",
+      "clave": "sumoairepaloma",
+      "anio": "2024"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6844d0e6bab9ff5aa7930f29"
+  },
+  "grado": "6toD",
+  "estudiantes": [
+    {
+      "apellido": "ABELEDO",
+      "nombre1": "TIZIANO",
+      "nombre2": "LIONEL",
+      "documento": "50866884",
+      "correo": "tizianoa6884@alu.bue.edu.ar",
+      "clave": "Dardosaguilafoca.",
+      "anio": "2022"
+    },
+    {
+      "apellido": "CAFAGGINI",
+      "nombre1": "IGNACIO",
+      "nombre2": "NULL",
+      "documento": "51343208",
+      "correo": "ignacioc3208@alu.bue.edu.ar",
+      "clave": "karateflorjirafa",
+      "anio": "2022"
+    },
+    {
+      "apellido": "GOMEZ LOPEZ",
+      "nombre1": "ALBERTO ALEXA",
+      "nombre2": "NaN",
+      "documento": "53849246",
+      "correo": "albertog246@alu.bue.edu.ar",
+      "clave": "mani.mate.BA",
+      "anio": "2024"
+    },
+    {
+      "apellido": "GOMEZ VARGAS",
+      "nombre1": "BRANDON MAN",
+      "nombre2": "NaN",
+      "documento": "53825872",
+      "correo": "brandong872@alu.bue.edu.ar",
+      "clave": "bono.cole.BA",
+      "anio": "2023"
+    },
+    {
+      "apellido": "HUAMAN CONDORI",
+      "nombre1": "THIAGO",
+      "nombre2": "MATIAS",
+      "documento": "54096331",
+      "correo": "thiagoh331@alu.bue.edu.ar",
+      "clave": "tenispatioleon",
+      "anio": "2023"
+    },
+    {
+      "apellido": "SANCHEZ CASTELLANOS",
+      "nombre1": "JAZMIN",
+      "nombre2": "NULL",
+      "documento": "53718136",
+      "correo": "jazmins136@alu.bue.edu.ar",
+      "clave": "Karateorcatiburon.",
+      "anio": "2023"
+    },
+    {
+      "apellido": "CANO",
+      "nombre1": "CAMILA",
+      "nombre2": "LUCIANA",
+      "documento": "53585848",
+      "correo": "camilac848@alu.bue.edu.ar",
+      "clave": "copo.mani.BA",
+      "anio": "2024"
+    },
+    {
+      "apellido": "DA SILVA",
+      "nombre1": "FRANCO",
+      "nombre2": "VALENTIN",
+      "documento": "53850852",
+      "correo": "francod852@alu.bue.edu.ar",
+      "clave": "voleyalumnotortuga",
+      "anio": "2024"
+    },
+    {
+      "apellido": "FABIAN",
+      "nombre1": "VALENTIN",
+      "nombre2": "GUIDO",
+      "documento": "53956158",
+      "correo": "valentinf158@alu.bue.edu.ar",
+      "clave": "luchacuentatiburon",
+      "anio": "2024"
+    },
+    {
+      "apellido": "FLORES",
+      "nombre1": "ANAHÃ□",
+      "nombre2": "SOLANGE",
+      "documento": "53652053",
+      "correo": "anahif053@alu.bue.edu.ar",
+      "clave": "billaraulatoro",
+      "anio": "2024"
+    },
+    {
+      "apellido": "MENDEZ ESCOT",
+      "nombre1": "AKANE",
+      "nombre2": "NULL",
+      "documento": "53160805",
+      "correo": "akanem805@alu.bue.edu.ar",
+      "clave": "golfcrayontiburon",
+      "anio": "2024"
+    },
+    {
+      "apellido": "MONTIEL LYNCH",
+      "nombre1": "FAUSTO",
+      "nombre2": "NULL",
+      "documento": "53466135",
+      "correo": "faustom135@alu.bue.edu.ar",
+      "clave": "Relojgolfsurf.",
+      "anio": "2024"
+    },
+    {
+      "apellido": "OJEDA",
+      "nombre1": "JUAN",
+      "nombre2": "CRUZ",
+      "documento": "53950818",
+      "correo": "juano818@alu.bue.edu.ar",
+      "clave": "basketcuentatiburon",
+      "anio": "2024"
+    },
+    {
+      "apellido": "PAZOS",
+      "nombre1": "TAHIEL",
+      "nombre2": "JOE",
+      "documento": "53471350",
+      "correo": "tahielp350@alu.bue.edu.ar",
+      "clave": "karatetablapato",
+      "anio": "2024"
+    },
+    {
+      "apellido": "RAMON",
+      "nombre1": "MALENA",
+      "nombre2": "NULL",
+      "documento": "53949923",
+      "correo": "malenar923@alu.bue.edu.ar",
+      "clave": "sumoaguacisne",
+      "anio": "2024"
+    },
+    {
+      "apellido": "SALINA DIAZ",
+      "nombre1": "RAMON",
+      "nombre2": "HUGO",
+      "documento": "53466599",
+      "correo": "ramons599@alu.bue.edu.ar",
+      "clave": "hockeyplatovaca",
+      "anio": "2024"
+    },
+    {
+      "apellido": "TOLIVIA",
+      "nombre1": "YAZMIN",
+      "nombre2": "MICAELA",
+      "documento": "53645093",
+      "correo": "yazmint093@alu.bue.edu.ar",
+      "clave": "cazaalumnotortuga",
+      "anio": "2024"
+    },
+    {
+      "apellido": "VIRTOS",
+      "nombre1": "LUCAS",
+      "nombre2": "AGUSTIN",
+      "documento": "53955589",
+      "correo": "lucasv589@alu.bue.edu.ar",
+      "clave": "patinaulatoro",
+      "anio": "2024"
+    }
+  ]
+}]
