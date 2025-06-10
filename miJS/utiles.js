@@ -187,6 +187,12 @@ function crearElementoHtml(objeto) {
   
   // Función para generar un objeto JS a partir de un elemento HTML
   function convertirHtmlEnJs(elemento) {
+    if(typeof elemento === 'string') {
+        const divTemporal = document.createElement('div');
+        divTemporal.innerHTML = elemento;
+        elemento = divTemporal;
+    }
+
     const objeto = {
       type: elemento.tagName.toLowerCase(),
     };
