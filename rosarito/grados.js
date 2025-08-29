@@ -14165,6 +14165,18 @@ function mostrarTabla(grado, area) {
             // `;
             // descBlock.appendChild(p);
         });
+        // Agrego al final columna de calificación general de bimestres para LENGUA y CIENCIAS SOCIALES
+        if(area === 'LENGUA' || area === 'CIENCIAS SOCIALES') {
+            const th = document.createElement('th');
+            th.setAttribute('colspan', String(colsPerItem));
+            th.textContent = 'Calificacion general';       // Calificacion general
+            th.setAttribute('data-bs-toggle', 'tooltip');            // tooltip con el texto completo del ítem
+            th.setAttribute('data-bs-placement', 'top');            // tooltip con el texto completo del ítem
+            th.setAttribute('data-bs-custom-class', 'custom-tooltip');            // tooltip con el texto completo del ítem
+            th.setAttribute('data-bs-title', `Nota final para ${area}`);            // tooltip con el texto completo del ítem
+            th.style.cursor = 'pointer'; // Indica que hay tooltip
+            topRow.appendChild(th);
+        }
     }
     thead.appendChild(topRow);
     // Inicializo los tooltips de Bootstrap
@@ -14189,6 +14201,14 @@ function mostrarTabla(grado, area) {
                 secondRow.appendChild(th);
             });
         });
+        // Agrego al final los encabezados de bimestres para calificación general de LENGUA y CIENCIAS SOCIALES
+        if(area === 'LENGUA' || area === 'CIENCIAS SOCIALES') {
+            bimestreArray.forEach(bm => {
+                const th = document.createElement('th');
+                th.textContent = `B${bm}`;
+                secondRow.appendChild(th);
+            });
+        }
     }
     thead.appendChild(secondRow);
 
@@ -14230,6 +14250,17 @@ function mostrarTabla(grado, area) {
                     row.appendChild(td);
                 });
             });
+            // Agrego al final columna de calificación general de bimestres para LENGUA y CIENCIAS SOCIALES
+            if(area === 'LENGUA' || area === 'CIENCIAS SOCIALES') {
+                bimestreArray.forEach(bm => {
+                    const td = document.createElement('td');
+                    td.className = 'text-center';
+                    const bmKey = String(bm);
+                    const bmArea = (est.bimestres && est.bimestres[bmKey]) ? est.bimestres[bmKey][area] : null;
+                    td.textContent = bmArea && bmArea.general ? bmArea.general : 'N/A';
+                    row.appendChild(td);
+                });
+            }
         }
 
         tbody.appendChild(row);
