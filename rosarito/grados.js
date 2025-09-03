@@ -14296,16 +14296,34 @@ function limpiarTabla() {
 }
 
 // Función de filtrado por nombre de estudiantes
+// Función de filtrado por nombre de estudiantes
 function filtrarNombres(filtro) {
     const tabla = document.querySelector('table');
     const tbody = tabla.querySelector('tbody');
     const filas = tbody.querySelectorAll('tr');
+
     filas.forEach(fila => {
-        const nombre = fila.querySelector('td').textContent.toLowerCase();
-        console.log(`Filtrando: ${filtro}, Nombre: ${nombre.includes(filtro.toLowerCase())}`);
-        if (nombre.includes(filtro.toLowerCase())) {
+        const celdaNombre = fila.querySelector('td');
+        const nombreCompleto = celdaNombre.textContent;
+        const nombreMin = nombreCompleto.toLowerCase();
+        const filtroMin = filtro.toLowerCase();
+
+        // Verificar si el nombre incluye el filtro
+        if (nombreMin.includes(filtroMin)) {
+            // Mostrar la fila
             fila.style.display = '';
+
+            // Encontrar la posición del filtro dentro del nombre
+            const indice = nombreMin.indexOf(filtroMin);
+
+            // Crear el HTML para el nombre con la parte coincidente en negrita
+            const parteInicial = nombreCompleto.substring(0, indice);
+            const parteCoincidente = nombreCompleto.substring(indice, indice + filtroMin.length);
+            const parteFinal = nombreCompleto.substring(indice + filtroMin.length);
+
+            celdaNombre.innerHTML = `${parteInicial}<b>${parteCoincidente}</b>${parteFinal}`;
         } else {
+            // Ocultar la fila
             fila.style.display = 'none';
         }
     });
