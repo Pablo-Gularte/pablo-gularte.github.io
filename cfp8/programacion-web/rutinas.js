@@ -5,6 +5,7 @@ const cursos = [
         dia: "martes",
         turno: "noche",
         profesor: "Jorge Sánchez",
+        imagen: "img-igw.png",
         trabajos: [
             {
                 id: "tp1igw",
@@ -50,6 +51,7 @@ const cursos = [
         dia: "miércoles",
         turno: "noche",
         profesor: "Jorge Sánchez",
+        imagen: "img-daw.png",
         trabajos: [
             {
                 id: "tp1daw",
@@ -68,6 +70,7 @@ const cursos = [
         dia: "jueves",
         turno: "noche",
         profesor: "Jorge Sánchez",
+        imagen: "img-gdb.png",
         trabajos: [
             {
                 id: "tp1gbd",
@@ -119,29 +122,64 @@ const cursos = [
 ];
 
 document.addEventListener("DOMContentLoaded", function() {
+    // Seleccionar el contenedor donde se insertarán el menú y los paneles
+    const divMenu = $('#menu-paneles');
+
     // Generar el contenedor de menú
     const menuPaneles = document.createElement("ul");
     menuPaneles.className = "nav nav-pills";
-
-    // Generar las opciones de menú a partir de vector de cursos
-    cursos.forEach(curso => {
-        const menu = document.createElement("li");
-        menu.className = "nav-item";
-        menu.innerHTML = `<a class="nav-link" data-bs-toggle="pill" href="#${curso.id}">${curso.nombre}</a>`;
-        menuPaneles.appendChild(menu);
-    });
 
     // Generar contenedor de los paneles de contenido a partir del vector de cursos
     const contenidoPaneles = document.createElement("div");
     contenidoPaneles.className = "tab-content";
 
-    // Generar paneles de contenido
     cursos.forEach(curso => {
-        const panel = document.createElement("div");
-        panel.className = "tab-pane fade";
-        panel.id = curso.id;
-        contenidoPaneles.appendChild(panel);
+        // Elementos del menú
+        const etqLiMenu = document.createElement("li");
+        etqLiMenu.className = "nav-item";
+        const etqEnlaceMenu = document.createElement("a");
+        etqEnlaceMenu.className = "nav-link";
+        etqEnlaceMenu.setAttribute("data-bs-toggle","pill");
+        etqEnlaceMenu.href = `#${curso.id}`;
+        etqEnlaceMenu.textContent = curso.nombre;
+        $(etqLiMenu).append(etqEnlaceMenu);
+        $(menuPaneles).append(etqLiMenu);
+
+        // Paneles de contenido
+        const etqDivPanel = document.createElement("div");
+        etqDivPanel.className = "tab-pane container fade";
+        etqDivPanel.id = curso.id;
+        etqDivPanel.textContent = ` <div class="card w-50 mx-auto">
+                                        <img class="card-img-top" src="${curso.imagen}" alt="Cartel curso">
+                                        <div class="card-body">
+                                            <h4 class="card-title">John Doe</h4>
+                                            <p class="card-text">Some example text.</p>
+                                            <a href="#" class="btn btn-outline-success">See Profile</a>
+                                        </div>
+                                    </div>`;
+        $(contenidoPaneles).append(etqDivPanel);
     });
+    $(divMenu).append(menuPaneles);
+    $(divMenu).append(contenidoPaneles);
+    $("a.nav-link")[0].click();
+    console.log(divMenu[0]);
+
+    // // Generar las opciones de menú a partir de vector de cursos
+    // cursos.forEach(curso => {
+    //     const menu = document.createElement("li");
+    //     menu.className = "nav-item";
+    //     menu.innerHTML = `<a class="nav-link" data-bs-toggle="pill" href="#${curso.id}">${curso.nombre}</a>`;
+    //     menuPaneles.appendChild(menu);
+    // });
+
+
+    // // Generar paneles de contenido
+    // cursos.forEach(curso => {
+    //     const panel = document.createElement("div");
+    //     panel.className = "tab-pane fade";
+    //     panel.id = curso.id;
+    //     contenidoPaneles.appendChild(panel);
+    // });
     
     // Insertar el menú y los paneles en el documento
     document.getElementById("menu-paneles").appendChild(menuPaneles);
