@@ -117,6 +117,15 @@ const cursos = [
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764250",
                 estado: "pendiente",
             },
+            {
+                id: "tp6gbd",
+                nombre: "Trabajo Práctico sobre Procedimientos Almacenados",
+                diaEntrega: "2025-10-30",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867786/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20sobre%20Procedimientos%20Almacenados.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764252",
+                estado: "pendiente",
+            },
         ],
     },
 ];
@@ -149,14 +158,29 @@ document.addEventListener("DOMContentLoaded", function() {
         const etqDivPanel = document.createElement("div");
         etqDivPanel.className = "tab-pane container fade";
         etqDivPanel.id = curso.id;
-        etqDivPanel.textContent = ` <div class="card w-50 mx-auto">
-                                        <img class="card-img-top" src="${curso.imagen}" alt="Cartel curso">
-                                        <div class="card-body">
-                                            <h4 class="card-title">John Doe</h4>
-                                            <p class="card-text">Some example text.</p>
-                                            <a href="#" class="btn btn-outline-success">See Profile</a>
-                                        </div>
-                                    </div>`;
+        etqDivPanel.innerHTML = `
+            <div class="border border-1 border-info bg-light p-3 rounded-3 mt-1">
+                <strong>Día:</strong> ${curso.dia}<br>
+                <strong>Turno:</strong> ${curso.turno}<br>
+                <strong>Profesor:</strong> ${curso.profesor}<br>
+                <span class="badge bg-success mt-2">Trabajos prácticos</span><br>
+                ${curso.trabajos.map(tp => {
+                    const fechaEntrega = new Date(tp.diaEntrega + " " + tp.horaEntrega);
+                    const fechaEntregaFormateada = fechaEntrega.toLocaleString("es-AR", {dateStyle: "full", timeStyle: "short", hour12: false});
+                    const fechaVigente = `<span class="text-success"><em>${fechaEntregaFormateada}</em></span>`;
+                    const fechaVencida = `<span class="text-secondary">${fechaEntregaFormateada}</span> <span class="badge bg-secondary">Entrega cerrada</span>`;
+                    const entregaVencida = fechaEntrega < new Date;
+                    return `
+                    <div class="border-start border-success border-3 rounded-3 p-1 my-2 bg-success-subtle">
+                        <strong>${tp.nombre}</strong><br>
+                        <strong>Fecha de entrega:</strong> ${entregaVencida ? fechaVencida : fechaVigente}<br>
+                        <strong><a href="${tp.consigna}" target="_blank" title="Click para abrir el archivo de consinga en el Aula Virtual">Enlace a la consigna</a></strong><br>
+                        <strong><a href="${tp.urlEntrega}" target="_blank" title="Click para abrir la sección de entrega del TP en el Aula Virtual">Enlace de entrega</a></strong><br>
+                    </div>
+                    `;
+                }).join("")}
+            </div>`;
+
         $(contenidoPaneles).append(etqDivPanel);
     });
     $(divMenu).append(menuPaneles);
@@ -164,23 +188,6 @@ document.addEventListener("DOMContentLoaded", function() {
     $("a.nav-link")[0].click();
     console.log(divMenu[0]);
 
-    // // Generar las opciones de menú a partir de vector de cursos
-    // cursos.forEach(curso => {
-    //     const menu = document.createElement("li");
-    //     menu.className = "nav-item";
-    //     menu.innerHTML = `<a class="nav-link" data-bs-toggle="pill" href="#${curso.id}">${curso.nombre}</a>`;
-    //     menuPaneles.appendChild(menu);
-    // });
-
-
-    // // Generar paneles de contenido
-    // cursos.forEach(curso => {
-    //     const panel = document.createElement("div");
-    //     panel.className = "tab-pane fade";
-    //     panel.id = curso.id;
-    //     contenidoPaneles.appendChild(panel);
-    // });
-    
     // Insertar el menú y los paneles en el documento
     document.getElementById("menu-paneles").appendChild(menuPaneles);
     document.getElementById("menu-paneles").appendChild(contenidoPaneles);
