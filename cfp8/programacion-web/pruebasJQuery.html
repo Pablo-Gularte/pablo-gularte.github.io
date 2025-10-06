@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de pruebas de código JQuery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="codigo-de-prueba"></div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="rutinas.js"></script>
+    <script>
+        $("#codigo-de-prueba").
+            append(
+                $("<ul></ul>").
+                    addClass("nav nav-pills").
+                    append(
+                        $("<li></li>").
+                            addClass("nav-item").
+                            append(
+                                $("<a></a>").
+                                    addClass("nav-link active").
+                                    attr("data-bs-toggle","pill").
+                                    attr("href","#id1").
+                                    text("Pestaña 1")
+                            )
+                    ).
+                    append(
+                        $("<li></li>").
+                            addClass("nav-item").
+                            append(
+                                $("<a></a>").
+                                    addClass("nav-link").
+                                    attr("data-bs-toggle","pill").
+                                    attr("href","#id2").
+                                    text("Pestaña 2")
+                            )
+                    ).
+                    append(
+                        $("<li></li>").
+                            addClass("nav-item").
+                            append(
+                                $("<a></a>").
+                                    addClass("nav-link").
+                                    attr("data-bs-toggle","pill").
+                                    attr("href","#id3").
+                                    text("Pestaña 3")
+                            )
+                    )
+            ).
+            append(
+                $("<div></div>").
+                    addClass("tab-content").
+                    append(
+                        $("<div></div>").
+                            addClass("tab-pane container active").
+                            attr("id","id1").
+                            text("Texto de panel 1")
+                    ).
+                    append(
+                        $("<div></div>").
+                            addClass("tab-pane container fade").
+                            attr("id","id2").
+                            text("Texto de panel 2")
+                    ).
+                    append(
+                        $("<div></div>").
+                            addClass("tab-pane container fade").
+                            attr("id","id3").
+                            text("Texto de panel 3")
+                    )
+            );
+    </script>
+</body>
+
+</html>
