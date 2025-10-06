@@ -164,13 +164,24 @@ document.addEventListener("DOMContentLoaded", function () {
         const cartelProximosVencimientos =
             `<div class="alert alert-warning my-2 alert-dismissible shadow">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                <h4 class="text-center text-danger">Entregas que cierran en los próximos 7 días</h4>
-                ${proximosVencimientos.map(curso => `${nombresCursos[curso.id.substr(-3)]}: <em><strong class="text-dark">${curso.nombre}</strong></em> (${new Date(curso.diaEntrega + " " + curso.horaEntrega).toLocaleString("es-AR", { weekday: "long", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false })})<br>`).join("")}
+                <h4 class="text-center text-danger">Entregas que cierran esta semana</h4>
+                ${proximosVencimientos.map(curso => {
+                    const nombreCurso = `<strong>${nombresCursos[curso.id.substr(-3)]}</strong>`;
+                    const nombreTP = `<em><strong class="text-dark">${curso.nombre}</strong></em>`;
+                    const formatoFecha = { weekday: "long", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }
+                    const fechaEntrega = `${new Date(curso.diaEntrega + " " + curso.horaEntrega).toLocaleString("es-AR", formatoFecha)} hs.`;
+                    const leyendaFecha = `${nombreCurso}: ${nombreTP} (${fechaEntrega})<br>`;
+                    
+                    return leyendaFecha;
+                }).join("")}
             </div>
             <hr>`;
 
         // Paneles de contenido
         const etqDivPanel = document.createElement("div");
+        let trabajosEntregados = 0;
+        curso.trabajos.forEach(t => { if(localStorage.getItem(t.id)) trabajosEntregados++ });
+        const trabajosPendientes = curso.trabajos.length - trabajosEntregados;
         etqDivPanel.className = "tab-pane container fade";
         etqDivPanel.id = curso.id;
         etqDivPanel.innerHTML = `
@@ -180,12 +191,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     <div class="col-sm-2">
                         <img src="img/${curso.imagen}" alt="Imagen del curso ${curso.nombre}" class="img-fluid rounded-3 mb-2">
                     </div>
-                    <div class="col-sm-10 align-items-sm-center">
+                    <div class="col-sm-10 align-items-sm-center pb-2">
                         <h3 class="w-100 bg-info text-center rounded-2">${curso.nombre}</h3>
                         <strong>Día:</strong> ${curso.dia}<br>
                         <strong>Turno:</strong> ${curso.turno}<br>
                         <strong>Profesor:</strong> ${curso.profesor}<br>
-                        <strong>Total de trabajos prácticos:</strong> ${curso.trabajos.length}
+                        <strong>Total de trabajos prácticos:</strong> ${curso.trabajos.length} <span class="badge bg-success">${trabajosEntregados} ${trabajosEntregados === 1 ? 'entregado' : 'entregados'}</span> <span class="badge bg-info">${trabajosPendientes} ${trabajosPendientes === 1 ? 'pendiente' : 'pendientes'}</span>
+                        </ul>
                     </div>
                 </div>
                 <div class="row mt-5 px-3">
@@ -213,17 +225,17 @@ document.addEventListener("DOMContentLoaded", function () {
                         const fondoContenedorTP = proximosVencimientos.map(d => d.id).includes(tp.id) ? "border-danger bg-danger-subtle" : entregaVencida || estaEntregado ? "border-secondary bg-secondary-subtle" : "border-success bg-success-subtle"
 
                         return `
-                                <div class="border-start border-3 rounded-3 p-2 my-2 ${fondoContenedorTP}">
-                                    <strong>${tp.nombre}</strong><br>
-                                    <strong>Fecha de entrega:</strong> ${entregaVencida ? fechaVencida : fechaVigente}<br>
-                                    <a href="${tp.consigna}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir el archivo de consinga en el Aula Virtual">Enlace a la consigna</a><br>
-                                    <a href="${tp.urlEntrega}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir la sección de entrega del TP en el Aula Virtual">Enlace de entrega</a><br>
-                                    <div class="form-check form-switch form-check-inline pt-1">
-                                        <input class="form-check-input estado-tp-checkbox" type="checkbox" id="check-${tp.id}" data-tpid="${tp.id}" ${checkedAttribute}>
-                                        <label class="form-check-label" for="check-${tp.id}">Trabajo entregado</label>
-                                    </div>
+                            <div class="border-start border-3 rounded-3 p-2 my-2 ${fondoContenedorTP}">
+                                <strong>${tp.nombre}</strong><br>
+                                <strong>Fecha de entrega:</strong> ${entregaVencida ? fechaVencida : fechaVigente}<br>
+                                <a href="${tp.consigna}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir el archivo de consinga en el Aula Virtual">Enlace a la consigna</a><br>
+                                <a href="${tp.urlEntrega}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir la sección de entrega del TP en el Aula Virtual">Enlace de entrega</a><br>
+                                <div class="form-check form-switch form-check-inline pt-1">
+                                    <input class="form-check-input estado-tp-checkbox" type="checkbox" id="check-${tp.id}" data-tpid="${tp.id}" ${checkedAttribute}>
+                                    <label class="form-check-label" for="check-${tp.id}">Trabajo entregado</label>
                                 </div>
-                                `;
+                            </div>
+                        `;
                     }).join("")}
                 </div>
             </div>`;
@@ -236,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Agregar controlador de eventos para los checkboxes
     // Se utiliza delegación de eventos para capturar el click en cualquier checkbox de TP
-    $(document).on('change', '.estado-tp-checkbox', function() {
+    $(document).on('change', '.estado-tp-checkbox', function () {
         const checkbox = $(this);
         const tpid = checkbox.data('tpid');
         const nuevoEstado = checkbox.prop('checked') ? 'entregado' : 'pendiente';
@@ -244,36 +256,48 @@ document.addEventListener("DOMContentLoaded", function () {
         // 4. Guardar el nuevo estado en LocalStorage
         localStorage.setItem(tpid, nuevoEstado);
     });
-
-    // Funciones auxiliares
-    /**
-     * Comprueba si una fecha dada está dentro de los próximos 7 días.
-     * El intervalo es inclusivo en ambos extremos: [hoy, hoy + 7 días].
-     *
-     * @param {Date} fechaRecibida - La fecha a evaluar.
-     * @returns {boolean} - Devuelve verdadero si la fecha está en el intervalo; falso en caso contrario.
-     */
-    function estaEnSemanaActual(fechaRecibida) {
-        // 1. Crear la fecha actual (hoy) y normalizarla al inicio del día (00:00:00) para una comparación precisa.
-        const hoy = new Date();
-        hoy.setHours(0, 0, 0, 0);
-
-        // 2. Crear la fecha límite superior (hoy + 7 días) y normalizarla al inicio del día.
-        const limiteSuperior = new Date(hoy);
-        // Sumamos 7 * 24 * 60 * 60 * 1000 milisegundos (7 días) a la fecha de 'hoy' ya normalizada.
-        limiteSuperior.setDate(hoy.getDate() + 7);
-        limiteSuperior.setHours(0, 0, 0, 0);
-
-        // 3. Normalizar la fecha recibida al inicio del día.
-        const fechaParaComparar = new Date(fechaRecibida);
-        fechaParaComparar.setHours(0, 0, 0, 0);
-
-        // 4. Realizar la comparación.
-        // La fecha debe ser mayor o igual a 'hoy' Y menor o igual al 'límite superior'.
-        const timestampHoy = hoy.getTime();
-        const timestampLimiteSuperior = limiteSuperior.getTime();
-        const timestampRecibido = fechaParaComparar.getTime();
-
-        return (timestampRecibido >= timestampHoy && timestampRecibido <= timestampLimiteSuperior);
-    }
 });
+
+// Funciones auxiliares
+/**
+ * Verifica si una fecha dada está en el intervalo entre el día actual
+ * y el viernes siguiente (ambos inclusive).
+ *
+ * @param {Date} fechaAValidar - El objeto Date a verificar.
+ * @returns {boolean} - Devuelve 'true' si la fecha está en el intervalo, 'false' en caso contrario.
+ */
+function estaEnSemanaActual(fechaAValidar) {
+    // 1. Establecer el inicio del intervalo (Hoy a las 00:00:00.000)
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0); // Establece la hora a medianoche
+
+    // 2. Calcular el final del intervalo (El próximo viernes a las 23:59:59.999)
+    const proximoViernes = new Date();
+    proximoViernes.setHours(0, 0, 0, 0); // Empezamos desde hoy a medianoche
+
+    // Obtener el día de la semana (0 = Domingo, 1 = Lunes, ..., 6 = Sábado)
+    const diaActual = proximoViernes.getDay();
+
+    // Calcular cuántos días faltan para el próximo viernes (día 5)
+    let diasHastaViernes;
+    if (diaActual <= 5) {
+        // Si hoy es de Domingo (0) a Viernes (5)
+        diasHastaViernes = 5 - diaActual;
+    } else {
+        // Si hoy es Sábado (6)
+        diasHastaViernes = 6; // Sábado(6) a Domingo(0) son 1 día, y luego de Domingo(0) a Viernes(5) son 5 días, en total 6 días
+    }
+
+    // Avanzar la fecha hasta el próximo viernes
+    proximoViernes.setDate(proximoViernes.getDate() + diasHastaViernes);
+
+    // Ajustar la hora al final del día del viernes (23:59:59.999)
+    proximoViernes.setHours(23, 59, 59, 999);
+
+    // 3. Obtener el valor numérico de la fecha a validar
+    const tiempoValidar = fechaAValidar.getTime();
+
+    // 4. Realizar la verificación
+    // La fecha debe ser mayor o igual a 'hoy' Y menor o igual a 'proximoViernes'
+    return tiempoValidar >= hoy.getTime() && tiempoValidar <= proximoViernes.getTime();
+}
