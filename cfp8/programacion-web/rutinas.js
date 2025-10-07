@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
         $(menuPaneles).append(etqLiMenu);
 
         // Filtro las fechas de entrega de la próxima semana para mostar aviso
-        const proximosVencimientos = cursos.flatMap(v => v.trabajos).filter(d => estaEnSemanaActual(new Date(d.diaEntrega)));
+        const proximosVencimientos = cursos.flatMap(v => v.trabajos).filter(d => estaEnSemanaActual(new Date(d.diaEntrega + " " + d.horaEntrega)));
         const nombresCursos = {
             igw: "Interface Gráfica Web",
             daw: "Desarrollo de Aplicaciones Web",
