@@ -43,6 +43,15 @@ const cursos = [
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764278",
                 estado: "pendiente",
             },
+            {
+                id: "tp5igw",
+                nombre: "TP Nro. 5 Manejo de Eventos",
+                diaEntrega: "2025-10-21",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/",
+                estado: "pendiente",
+            }
         ],
     },
     {
