@@ -71,6 +71,15 @@ const cursos = [
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764624",
                 estado: "pendiente",
             },
+            {
+                id: "tp2daw",
+                nombre: "TP N2 JPA Hibernate",
+                diaEntrega: "2025-10-16",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2876374/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro2%20JPA%20Hibernate.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=769192",
+                estado: "pendiente",
+            }
         ],
     },
     {
