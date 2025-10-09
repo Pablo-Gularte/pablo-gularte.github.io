@@ -28,7 +28,7 @@ const cursos = [
             {
                 id: "tp3igw",
                 nombre: "TP Nro. 3 Maquetación",
-                diaEntrega: "2025-10-07",
+                diaEntrega: "2025-10-14",
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867813/mod_assign/introattachment/0/Trabajo%20Practico%20Nro%203.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764278",
@@ -120,7 +120,7 @@ const cursos = [
             {
                 id: "tp4gbd",
                 nombre: "Trabajo Practico Vistas",
-                diaEntrega: "2025-10-09",
+                diaEntrega: "2025-10-13",
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867780/mod_assign/introattachment/0/Ejercitaci%C3%B3n%20sobre%20Vistas.docx.pdf?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764246",
