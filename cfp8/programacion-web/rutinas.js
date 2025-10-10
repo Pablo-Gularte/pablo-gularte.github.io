@@ -144,6 +144,15 @@ const cursos = [
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764252",
                 estado: "pendiente",
             },
+            {
+                id: "tp7gbd",
+                nombre: "Trabajo Practico Triggers",
+                diaEntrega: "2025-11-06",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867788/mod_assign/introattachment/0/Trabajo%20Practico%20triggers.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764254",
+                estado: "pendiente",
+            }
         ],
     },
 ];
