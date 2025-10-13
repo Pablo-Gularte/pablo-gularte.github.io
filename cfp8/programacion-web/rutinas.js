@@ -29,7 +29,7 @@ const cursos = [
             {
                 id: "tp3igw",
                 nombre: "TP Nro. 3 Maquetación",
-                diaEntrega: "2025-10-07",
+                diaEntrega: "2025-10-14",
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867813/mod_assign/introattachment/0/Trabajo%20Practico%20Nro%203.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764278",
@@ -44,6 +44,15 @@ const cursos = [
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764278",
                 estado: "pendiente",
             },
+            {
+                id: "tp5igw",
+                nombre: "TP Nro. 5 Manejo de Eventos",
+                diaEntrega: "2025-10-21",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/",
+                estado: "pendiente",
+            }
         ],
     },
     {
@@ -64,6 +73,15 @@ const cursos = [
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764624",
                 estado: "pendiente",
             },
+            {
+                id: "tp2daw",
+                nombre: "TP N2 JPA Hibernate",
+                diaEntrega: "2025-10-16",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2876374/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro2%20JPA%20Hibernate.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=769192",
+                estado: "pendiente",
+            }
         ],
     },
     {
@@ -105,7 +123,7 @@ const cursos = [
             {
                 id: "tp4gbd",
                 nombre: "Trabajo Practico Vistas",
-                diaEntrega: "2025-10-09",
+                diaEntrega: "2025-10-13",
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867780/mod_assign/introattachment/0/Ejercitaci%C3%B3n%20sobre%20Vistas.docx.pdf?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764246",
@@ -129,6 +147,15 @@ const cursos = [
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764252",
                 estado: "pendiente",
             },
+            {
+                id: "tp7gbd",
+                nombre: "Trabajo Practico Triggers",
+                diaEntrega: "2025-11-06",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867788/mod_assign/introattachment/0/Trabajo%20Practico%20triggers.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764254",
+                estado: "pendiente",
+            }
         ],
     },
 ];
@@ -158,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
         $(menuPaneles).append(etqLiMenu);
 
         // Filtro las fechas de entrega de la próxima semana para mostar aviso
-        const proximosVencimientos = cursos.flatMap(v => v.trabajos).filter(d => estaEnSemanaActual(new Date(d.diaEntrega)));
+        const proximosVencimientos = cursos.flatMap(v => v.trabajos).filter(d => estaEnSemanaActual(new Date(d.diaEntrega + " " + d.horaEntrega)));
         const nombresCursos = {
             igw: "Interface Gráfica Web",
             daw: "Desarrollo de Aplicaciones Web",
