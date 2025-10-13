@@ -308,3 +308,48 @@ function agregarAppML() {
     console.log("AppML ya está cargado");
   }
 }
+
+/**
+ * Obtiene y devuelve el objeto Document (DOM) de una URL dada.
+ * * NOTA IMPORTANTE: Esta función está sujeta a la política de seguridad
+ * de mismo origen (Same-Origin Policy). Solo funcionará si la URL de destino
+ * se encuentra en el mismo origen (protocolo, dominio y puerto) que la
+ * página actual, o si el servidor de la URL de destino ha habilitado
+ * el Intercambio de Recursos de Origen Cruzado (CORS) y lo permite.
+ * 
+ * Enlace GEMINI: https://gemini.google.com/app/f5b2713b81a94598?hl=es_419
+ * USuario GEMINI: pablog
+ *
+ * @param {string} url La dirección URL de la página web a obtener.
+ * @returns {Promise<Document | null>} Una promesa que se resuelve con el objeto Document (DOM)
+ * de la página, o null en caso de error (p. ej., fallo de fetch o CORS).
+ */
+async function obtenerDOMDeURL(url) {
+    try {
+        // 1. Obtener el contenido de la URL como texto (HTML)
+        const response = await fetch(url);
+        
+        // Verificar si la respuesta es exitosa (código 200-299)
+        if (!response.ok) {
+            console.error(`Error al hacer fetch: ${response.status} ${response.statusText}`);
+            return null;
+        }
+
+        const htmlText = await response.text();
+
+        // 2. Crear y devolver el objeto DOM a partir del texto HTML
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlText, "text/html");
+
+        return doc;
+
+    } catch (error) {
+        // Manejar errores de red, errores de CORS (si ocurre al inicio) o cualquier otro error
+        console.error("Error al obtener o parsear el DOM:", error);
+        
+        // El error de CORS se manifestará como un TypeError de fetch, por ejemplo.
+        console.warn("Recuerde: Si la URL es de un dominio diferente, puede que necesite CORS habilitado en el servidor de destino.");
+        
+        return null;
+    }
+}

@@ -6,6 +6,7 @@ const cursos = [
         turno: "noche",
         profesor: "Jorge Sánchez",
         imagen: "img-igw.png",
+		calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23842",
         trabajos: [
             {
                 id: "tp1igw",
@@ -52,6 +53,7 @@ const cursos = [
         turno: "noche",
         profesor: "Jorge Sánchez",
         imagen: "img-daw.png",
+		calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23843",
         trabajos: [
             {
                 id: "tp1daw",
@@ -71,6 +73,7 @@ const cursos = [
         turno: "noche",
         profesor: "Jorge Sánchez",
         imagen: "img-gbd.png",
+		calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23841",
         trabajos: [
             {
                 id: "tp1gbd",
