@@ -50,6 +50,7 @@ cursosAV.forEach(async curso => {
             diaEntrega: `${anio}-${cadenaMes.toString().padStart(2, "0")}-${cadenaDia.toString().padStart(2, "0")}`,
             consigna: domTP.querySelector("div.fileuploadsubmission > a").href,
             urlEntrega: tp.href,
+            estado: domTP.querySelector(".submissionstatussubmitted") ? "entregado" : "pendiente"
         });
     });
     console.info(`--> Recuperé ${listadoTPs.length} TPs para ${curso.nombreCurso}`);
@@ -57,6 +58,7 @@ cursosAV.forEach(async curso => {
 });
 console.info("Finalizo ejecución");
 console.info(cursosAV);
+trabajosPendientes();
 
 
 // Funciones auxiliares
@@ -103,8 +105,8 @@ function compararFechas(vectorAV, vectorPS) {
         const totalTPsPS = cursos.find(reg => reg.nombre === nombre).trabajos.length;
         const difTPs = totalTPsAV - totalTPsPS;
 
-        if(difTPs !== 0) {
-            if(difTPs > 0) {
+        if (difTPs !== 0) {
+            if (difTPs > 0) {
                 console.info(`==> El Aula Virtual tiene ${difTPs} ${difTPs === 1 ? "tp" : "tps"} más que la página de seguimiento`);
             } else {
                 console.info(`==> El Aula Virtual tiene ${difTPs} ${difTPs === 1 ? "tp" : "tps"} menos que la página de seguimiento`);
@@ -127,10 +129,35 @@ function compararFechas(vectorAV, vectorPS) {
     tpsAV.forEach(t => {
         const diaEntregaAV = t.diaEntrega;
         const diaEntregaPS = tpsPS.find(reg => reg.id === t.id).diaEntrega;
-        if(diaEntregaAV !== diaEntregaPS) {
+        if (diaEntregaAV !== diaEntregaPS) {
             console.log(`==> diaEntrega de AV: ${diaEntregaAV} - diaEntrega de PS: ${diaEntregaPS}`);
             cnt++;
         }
     });
     console.log(`${cnt !== 0 ? "Diferencias detectadas: " + cnt : "No se detectaron diferencias de fechas"}`);
+}
+
+// Rutina para listar los TPs pendientes de entregar
+function trabajosPendientes() {
+    cursosAV.forEach(curso => {
+        console.log(`[ ${curso.nombreCurso} ]`);
+        const pendientes = [];
+        curso.tps.forEach(tp => {
+            if (tp.estado === "pendiente") {
+                pendientes.push(tp);
+            }
+        });
+        if (pendientes.length > 0) {
+            console.log("-- PENDIENTES");
+            pendientes.forEach(p => {
+                const fechaEntrega = new Date(p.diaEntrega);
+                const fechaActual = new Date();
+                const fechaEntregaFormateada = p.diaEntrega.toLocaleString("es-AR", { dateStyle: "full" });
+                const tpVencido = fechaEntrega < fechaActual;
+                console.log(`----> ${p.nombre} (${fechaEntregaFormateada}) ${tpVencido ? "## VENCIDO ##" : ""}`)
+            });
+        } else {
+            console.log("---> No hay ningún TP pendiente de enterga");
+        }
+    });
 }
