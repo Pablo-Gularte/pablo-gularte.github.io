@@ -44,15 +44,15 @@ const cursos = [
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764278",
                 estado: "pendiente",
             },
-            // {
-            //     id: "tp5igw",
-            //     nombre: "TP Nro. 5 Manejo de Eventos",
-            //     diaEntrega: "2025-10-21",
-            //     horaEntrega: "23:59",
-            //     consigna: "https://aulasvirtuales.bue.edu.ar/",
-            //     urlEntrega: "https://aulasvirtuales.bue.edu.ar/",
-            //     estado: "pendiente",
-            // }
+            {
+                id: "tp5igw",
+                nombre: "TP Nro. 5 Manejo de Eventos",
+                diaEntrega: "2025-10-21",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/",
+                estado: "pendiente",
+            }
         ],
     },
     {
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const contenidoPaneles = document.createElement("div");
     contenidoPaneles.className = "tab-content";
 
-    cursosAV.forEach(curso => {
+    cursos.forEach(curso => {
         // Elementos del menú
         const etqLiMenu = document.createElement("li");
         etqLiMenu.className = "nav-item";
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
         $(menuPaneles).append(etqLiMenu);
 
         // Filtro las fechas de entrega de la próxima semana para mostar aviso
-        const proximosVencimientos = cursosAV.flatMap(v => v.trabajos).filter(d => estaEnSemanaActual(new Date(d.diaEntrega + " " + d.horaEntrega)));
+        const proximosVencimientos = cursos.flatMap(v => v.trabajos).filter(d => estaEnSemanaActual(new Date(d.diaEntrega + " " + d.horaEntrega)));
         const nombresCursos = {
             igw: "Interface Gráfica Web",
             daw: "Desarrollo de Aplicaciones Web",

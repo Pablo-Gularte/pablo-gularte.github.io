@@ -96,7 +96,7 @@ async function obtenerDOMDeURL(url) {
 // Se debe ejecutar esta rutina desde la consola de esa página luego de copiar el vector cursosAV
 // generado desde la consola de la página del aula virtual
 function compararFechas() {
-    cursos.forEach(curso => {
+    cursosAV.forEach(curso => {
         // Muestro los IDs de cada TP de cada curso
         curso.trabajos.forEach(t => {
             const diaEntregaMio = t.diaEntrega;
@@ -117,7 +117,7 @@ function compararFechas() {
 
     // comparo por cantidades de registros para detectar dónde hay más y mostar la diferenica
     const totalCursosAV = cursosAV.flatMap(c => c.tps).length;
-    const totalCursosPag = cursos.flatMap(c => c.trabajos).length;
+    const totalCursosPag = cursosAV.flatMap(c => c.trabajos).length;
     console.log("============================");
     console.info(" total registros de aula virtual         : " + totalCursosAV);
     console.info(" total registros de página de seguimiento: " + totalCursosPag);
@@ -126,13 +126,13 @@ function compararFechas() {
     // Tomo como base del bucle de búsqueda el vector que tenga más registros
     if(totalCursosAV > totalCursosPag) {
         cursosAV.flatMap(c => c.tps).forEach(reg => {
-            if(cursos.flatMap(c => c.trabajos).find(tp => tp.id === reg.id) === undefined) {
+            if(cursosAV.flatMap(c => c.trabajos).find(tp => tp.id === reg.id) === undefined) {
                 console.warn(`** El TP ${reg.id} (${reg.nombre}) del aula virtual no está en la página`);
 
             }
         });
     } else {
-        cursos.flatMap(c => c.trabajos).forEach(reg => {
+        cursosAV.flatMap(c => c.trabajos).forEach(reg => {
             if(cursosAV.flatMap(c => c.tps).find(tp => tp.id === reg.id) === undefined) {
                 console.warn(`** El TP ${reg.id} (${reg.nombre}) del aula virtual no está en la página`);
             } 
