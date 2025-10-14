@@ -44,15 +44,15 @@ const cursos = [
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764278",
                 estado: "pendiente",
             },
-            {
-                id: "tp5igw",
-                nombre: "TP Nro. 5 Manejo de Eventos",
-                diaEntrega: "2025-10-21",
-                horaEntrega: "23:59",
-                consigna: "https://aulasvirtuales.bue.edu.ar/",
-                urlEntrega: "https://aulasvirtuales.bue.edu.ar/",
-                estado: "pendiente",
-            }
+            // {
+            //     id: "tp5igw",
+            //     nombre: "TP Nro. 5 Manejo de Eventos",
+            //     diaEntrega: "2025-10-21",
+            //     horaEntrega: "23:59",
+            //     consigna: "https://aulasvirtuales.bue.edu.ar/",
+            //     urlEntrega: "https://aulasvirtuales.bue.edu.ar/",
+            //     estado: "pendiente",
+            // }
         ],
     },
     {
@@ -132,7 +132,7 @@ const cursos = [
             {
                 id: "tp5gbd",
                 nombre: "Trabajo Práctico sobre Funciones de Usuario",
-                diaEntrega: "2025-10-23",
+                diaEntrega: "2025-11-06",
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867784/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20sobre%20Funciones%20de%20Usuario.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764250",
@@ -150,7 +150,7 @@ const cursos = [
             {
                 id: "tp7gbd",
                 nombre: "Trabajo Practico Triggers",
-                diaEntrega: "2025-11-06",
+                diaEntrega: "2025-10-23",
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867788/mod_assign/introattachment/0/Trabajo%20Practico%20triggers.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764254",
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const contenidoPaneles = document.createElement("div");
     contenidoPaneles.className = "tab-content";
 
-    cursos.forEach(curso => {
+    cursosAV.forEach(curso => {
         // Elementos del menú
         const etqLiMenu = document.createElement("li");
         etqLiMenu.className = "nav-item";
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
         $(menuPaneles).append(etqLiMenu);
 
         // Filtro las fechas de entrega de la próxima semana para mostar aviso
-        const proximosVencimientos = cursos.flatMap(v => v.trabajos).filter(d => estaEnSemanaActual(new Date(d.diaEntrega + " " + d.horaEntrega)));
+        const proximosVencimientos = cursosAV.flatMap(v => v.trabajos).filter(d => estaEnSemanaActual(new Date(d.diaEntrega + " " + d.horaEntrega)));
         const nombresCursos = {
             igw: "Interface Gráfica Web",
             daw: "Desarrollo de Aplicaciones Web",
