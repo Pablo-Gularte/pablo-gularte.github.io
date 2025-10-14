@@ -91,51 +91,46 @@ async function obtenerDOMDeURL(url) {
     }
 }
 
-// Comparar los ve tores de fehas del aula virtual (cursosAV) y de la página de seguimiento (cursos)
+// Comparar los vectores de fehas del aula virtual (vectorAV) y de la página de seguimiento (vectorPS)
 // El vector "cursos" está definido en el js de la página de seguimiento.
 // Se debe ejecutar esta rutina desde la consola de esa página luego de copiar el vector cursosAV
 // generado desde la consola de la página del aula virtual
-function compararFechas() {
-    cursosAV.forEach(curso => {
-        // Muestro los IDs de cada TP de cada curso
-        curso.trabajos.forEach(t => {
-            const diaEntregaMio = t.diaEntrega;
-            try {
-                const diaEntregaAV = cursosAV.flatMap(c => c.tps).find(i => i.id === t.id).diaEntrega;
-                const fechaEntregaAV = new Date(diaEntregaAV).toDateString();
-                const fechaEntregaMio = new Date(diaEntregaMio).toDateString();
-                if (fechaEntregaAV !== fechaEntregaMio) {
-                    console.warn(`==> Encontré difrencias entre ${fechaEntregaAV} y ${fechaEntregaMio} (${t.id})`);
-                    console.info(`==> Reemplazar ${diaEntregaMio.toLocaleString("es-AR", { dateStyle: "full" })} por \ndiaEntrega: "${diaEntregaAV.toLocaleString("es-AR", { dateStyle: "full" })}"\n en curso ${t.id}`);
-                }
-            } catch (e) {
-                console.warn(`** El curso de id ${t.id} (${t.nombre}) no está definido en el aula virtual`);
-                console.error(e)
+function compararFechas(vectorAV, vectorPS) {
+    // Comparo las cantidades de TPs por cursos cargados en cada vector para detectar diferencias
+    const nombreCursos = cursos.map(reg => reg.nombre);
+    nombreCursos.forEach(nombre => {
+        const totalTPsAV = cursosAV.find(reg => reg.nombreCurso === nombre).tps.length;
+        const totalTPsPS = cursos.find(reg => reg.nombre === nombre).trabajos.length;
+        const difTPs = totalTPsAV - totalTPsPS;
+
+        if(difTPs !== 0) {
+            if(difTPs > 0) {
+                console.info(`==> El Aula Virtual tiene ${difTPs} ${difTPs === 1 ? "tp" : "tps"} más que la página de seguimiento`);
+            } else {
+                console.info(`==> El Aula Virtual tiene ${difTPs} ${difTPs === 1 ? "tp" : "tps"} menos que la página de seguimiento`);
             }
-        });
+            console.log(`==> TPs en AV: ${totalTPsAV} - TPS en página de seguimiento: ${totalTPsPS}`)
+            console.log("==[ DETALLES ]");
+            console.log("--AV--");
+            console.log(cursosAV.find(reg => reg.nombreCurso === nombre).tps);
+            console.log("--Página de segimiento--");
+            console.log(cursos.find(reg => reg.nombre === nombre).trabajos);
+        } else {
+            console.log("==> Las cantidades de TPs coinciden");
+        }
     });
 
-    // comparo por cantidades de registros para detectar dónde hay más y mostar la diferenica
-    const totalCursosAV = cursosAV.flatMap(c => c.tps).length;
-    const totalCursosPag = cursosAV.flatMap(c => c.trabajos).length;
-    console.log("============================");
-    console.info(" total registros de aula virtual         : " + totalCursosAV);
-    console.info(" total registros de página de seguimiento: " + totalCursosPag);
-    console.log("============================");
-
-    // Tomo como base del bucle de búsqueda el vector que tenga más registros
-    if(totalCursosAV > totalCursosPag) {
-        cursosAV.flatMap(c => c.tps).forEach(reg => {
-            if(cursosAV.flatMap(c => c.trabajos).find(tp => tp.id === reg.id) === undefined) {
-                console.warn(`** El TP ${reg.id} (${reg.nombre}) del aula virtual no está en la página`);
-
-            }
-        });
-    } else {
-        cursosAV.flatMap(c => c.trabajos).forEach(reg => {
-            if(cursosAV.flatMap(c => c.tps).find(tp => tp.id === reg.id) === undefined) {
-                console.warn(`** El TP ${reg.id} (${reg.nombre}) del aula virtual no está en la página`);
-            } 
-        });
-    }
+    // Recorro el vector de TPs del AV y comparo contar el de PS para detectar diferencias en las fechas
+    const tpsAV = vectorAV.flatMap(reg => reg.tps);
+    const tpsPS = vectorPS.flatMap(reg => reg.trabajos);
+    let cnt = 0;
+    tpsAV.forEach(t => {
+        const diaEntregaAV = t.diaEntrega;
+        const diaEntregaPS = tpsPS.find(reg => reg.id === t.id).diaEntrega;
+        if(diaEntregaAV !== diaEntregaPS) {
+            console.log(`==> diaEntrega de AV: ${diaEntregaAV} - diaEntrega de PS: ${diaEntregaPS}`);
+            cnt++;
+        }
+    });
+    console.log(`${cnt !== 0 ? "Diferencias detectadas: " + cnt : "No se detectaron diferencias de fechas"}`);
 }
