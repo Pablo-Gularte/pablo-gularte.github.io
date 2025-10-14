@@ -245,9 +245,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         // Variables con estilos para fondo de panel de TP según tiempo de entrega
                         const fondoProximoVencimiento = "border-danger bg-danger-subtle position-relative";
-                        const fondoVencidoEntregado = "border-secondary bg-secondary-subtle";
+                        const fondoVencidoEntregado = "border-secondary bg-secondary-subtle position-relative";
                         const fondoEntregaVigente = "border-success bg-success-subtle";
                         const etiquetaSupDerVenceEstaSemana = `<span class="badge bg-danger etiqueta-esquina-superior-derecha">Vence esta semana</span>`;
+                        const etiquetaSupDerTpEntregado = `<i class="bi bi-check-square text-success etiqueta-esquina-superior-derecha"></i>`;
 
                         // 2. Lógica para determinar el estado de entrega (Local Storage vs. Archivo JS)
                         const estadoLocal = localStorage.getItem(tp.id);
@@ -268,7 +269,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         return `
                             <div class="border-start border-3 rounded-3 p-2 my-2 ${fondoContenedorTP}">
-                                ${tpVenceEstaSemana ? etiquetaSupDerVenceEstaSemana : ""}
+                                ${estaEntregado ? etiquetaSupDerTpEntregado : "" ||
+                                    tpVenceEstaSemana ? etiquetaSupDerVenceEstaSemana : ""}
                                 <strong>${tp.nombre}</strong><br>
                                 <strong>Fecha de entrega:</strong> ${entregaVencida ? fechaVencida : fechaVigente}<br>
                                 <a href="${tp.consigna}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir el archivo de consinga en el Aula Virtual">Enlace a la consigna</a><br>
