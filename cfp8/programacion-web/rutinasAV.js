@@ -102,15 +102,15 @@ function compararFechas(vectorAV, vectorPS) {
     // Comparo las cantidades de TPs por cursos cargados en cada vector para detectar diferencias
     const nombreCursos = cursos.map(reg => reg.nombre);
     nombreCursos.forEach(nombre => {
-        const totalTPsAV = cursosAV.find(reg => reg.nombreCurso === nombre).tps.length;
-        const totalTPsPS = cursos.find(reg => reg.nombre === nombre).trabajos.length;
-        const difTPs = totalTPsAV - totalTPsPS;
+        const tpsAV = vectorAV.filter(c => c.nombreCurso === nombre).map(reg => reg.tps);
+        const tpsPS = vectorPS.filter(c => c.nombre === nombre).map(reg => reg.trabajos);
+        const difTPs = tpsAV.length - tpsPS.length;
 
         if (difTPs !== 0) {
             if (difTPs > 0) {
-                console.info(`==> El Aula Virtual tiene ${difTPs} ${difTPs === 1 ? "tp" : "tps"} más que la página de seguimiento`);
+                console.info(`==> El Aula Virtual tiene ${difTPs} ${difTPs === 1 ? "tp" : "tps"} más que la página de seguimiento para el curso ${nombre}`);
             } else {
-                console.info(`==> El Aula Virtual tiene ${difTPs} ${difTPs === 1 ? "tp" : "tps"} menos que la página de seguimiento`);
+                console.info(`==> El Aula Virtual tiene ${difTPs} ${difTPs === 1 ? "tp" : "tps"} menos que la página de seguimiento para el curso ${nombre}`);
             }
             console.log(`==> TPs en AV: ${totalTPsAV} - TPS en página de seguimiento: ${totalTPsPS}`)
             console.log("==[ DETALLES ]");
@@ -119,23 +119,21 @@ function compararFechas(vectorAV, vectorPS) {
             console.log("--Página de segimiento--");
             console.log(cursos.find(reg => reg.nombre === nombre).trabajos);
         } else {
-            console.log("==> Las cantidades de TPs coinciden");
+            console.log(`==> Las cantidades de TPs coinciden para el curso ${nombre}`);
+            // Recorro el vector de TPs del AV y comparo contra el de PS para detectar diferencias en las fechas
+            let cnt = 0;
+            tpsAV.forEach(t => {
+                const diaEntregaAV = t.diaEntrega;
+                const diaEntregaPS = tpsPS.find(reg => reg.id === t.id).diaEntrega;
+                if (diaEntregaAV !== diaEntregaPS) {
+                    console.log(`==> diaEntrega de AV: ${diaEntregaAV} - diaEntrega de PS: ${diaEntregaPS}`);
+                    cnt++;
+                }
+            });
+            console.log(`${cnt !== 0 ? "Diferencias de fechas detectadas: " + cnt : "No se detectaron diferencias de fechas"}`);
         }
     });
 
-    // Recorro el vector de TPs del AV y comparo contar el de PS para detectar diferencias en las fechas
-    const tpsAV = vectorAV.flatMap(reg => reg.tps);
-    const tpsPS = vectorPS.flatMap(reg => reg.trabajos);
-    let cnt = 0;
-    tpsAV.forEach(t => {
-        const diaEntregaAV = t.diaEntrega;
-        const diaEntregaPS = tpsPS.find(reg => reg.id === t.id).diaEntrega;
-        if (diaEntregaAV !== diaEntregaPS) {
-            console.log(`==> diaEntrega de AV: ${diaEntregaAV} - diaEntrega de PS: ${diaEntregaPS}`);
-            cnt++;
-        }
-    });
-    console.log(`${cnt !== 0 ? "Diferencias detectadas: " + cnt : "No se detectaron diferencias de fechas"}`);
 }
 
 // Rutina para listar los TPs pendientes de entregar
