@@ -48,8 +48,10 @@ cursosAV.forEach(async curso => {
             id: `tp${i + 1}${curso.idCurso}`,
             nombre: tp.textContent,
             diaEntrega: `${anio}-${cadenaMes.toString().padStart(2, "0")}-${cadenaDia.toString().padStart(2, "0")}`,
+            horaEntrega: "23:59",
             consigna: domTP.querySelector("div.fileuploadsubmission > a").href,
             urlEntrega: tp.href,
+            estado: "pendiente"
         });
     });
     console.info(`--> Recuperé ${listadoTPs.length} TPs para ${curso.nombreCurso}`);

@@ -6,7 +6,7 @@ const cursos = [
         turno: "noche",
         profesor: "Jorge Sánchez",
         imagen: "img-igw.png",
-		calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23842",
+        calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23842",
         trabajos: [
             {
                 id: "tp1igw",
@@ -49,8 +49,17 @@ const cursos = [
                 nombre: "TP Nro. 5 Manejo de Eventos",
                 diaEntrega: "2025-10-21",
                 horaEntrega: "23:59",
-                consigna: "https://aulasvirtuales.bue.edu.ar/",
-                urlEntrega: "https://aulasvirtuales.bue.edu.ar/",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867817/mod_assign/introattachment/0/TP%20Nro%205%20Javascript%20Manejo%20de%20Eventos.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764282",
+                estado: "pendiente",
+            },
+            {
+                id: "tp6igw",
+                nombre: "TP Nro. 6 Gestión de APIs mediante JavaScript",
+                diaEntrega: "2025-10-28",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2879323/mod_assign/introattachment/0/Trabajo%20Practico%20Nro%206.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=771727",
                 estado: "pendiente",
             }
         ],
@@ -62,7 +71,7 @@ const cursos = [
         turno: "noche",
         profesor: "Jorge Sánchez",
         imagen: "img-daw.png",
-		calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23843",
+        calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23843",
         trabajos: [
             {
                 id: "tp1daw",
@@ -91,7 +100,7 @@ const cursos = [
         turno: "noche",
         profesor: "Jorge Sánchez",
         imagen: "img-gbd.png",
-		calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23841",
+        calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23841",
         trabajos: [
             {
                 id: "tp1gbd",
@@ -196,21 +205,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 <h4 class="text-center text-danger">Entregas que cierran esta semana</h4>
                 ${proximosVencimientos.map(curso => {
-                    const nombreCurso = `<strong>${nombresCursos[curso.id.substr(-3)]}</strong>`;
-                    const nombreTP = `<em><strong class="text-dark">${curso.nombre}</strong></em>`;
-                    const formatoFecha = { weekday: "long", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }
-                    const fechaEntrega = `${new Date(curso.diaEntrega + " " + curso.horaEntrega).toLocaleString("es-AR", formatoFecha)} hs.`;
-                    const leyendaFecha = `${nombreCurso}: ${nombreTP} (${fechaEntrega})<br>`;
-                    
-                    return leyendaFecha;
-                }).join("")}
+                const nombreCurso = `<strong>${nombresCursos[curso.id.substr(-3)]}</strong>`;
+                const nombreTP = `<em><strong class="text-dark">${curso.nombre}</strong></em>`;
+                const formatoFecha = { weekday: "long", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }
+                const fechaEntrega = `${new Date(curso.diaEntrega + " " + curso.horaEntrega).toLocaleString("es-AR", formatoFecha)} hs.`;
+                const leyendaFecha = `${nombreCurso}: ${nombreTP} (${fechaEntrega})<br>`;
+
+                return leyendaFecha;
+            }).join("")}
             </div>
             <hr>`;
 
         // Paneles de contenido
         const etqDivPanel = document.createElement("div");
         let trabajosEntregados = 0;
-        curso.trabajos.forEach(t => { if(localStorage.getItem(t.id)) trabajosEntregados++ });
+        curso.trabajos.forEach(t => { if (localStorage.getItem(t.id)) trabajosEntregados++ });
         const trabajosPendientes = curso.trabajos.length - trabajosEntregados;
         etqDivPanel.className = "tab-pane container fade";
         etqDivPanel.id = curso.id;
@@ -235,26 +244,26 @@ document.addEventListener("DOMContentLoaded", function () {
                         <span class="badge bg-success w-100 py-2">Trabajos prácticos</span>
                     </p>
                     ${curso.trabajos.map(tp => {
-                        const fechaActual = new Date();
-                        const fechaEntrega = new Date(tp.diaEntrega + " " + tp.horaEntrega);
-                        const fechaEntregaFormateada = fechaEntrega.toLocaleString("es-AR", { dateStyle: "full", timeStyle: "short", hour12: false });
-                        const fechaVigente = `<span class="text-success"><em>${fechaEntregaFormateada}</em></span>`;
-                        const fechaVencida = `<span class="text-secondary">${fechaEntregaFormateada}</span> <span class="badge bg-secondary">Entrega cerrada</span>`;
-                        const entregaVencida = fechaEntrega < fechaActual;
+            const fechaActual = new Date();
+            const fechaEntrega = new Date(tp.diaEntrega + " " + tp.horaEntrega);
+            const fechaEntregaFormateada = fechaEntrega.toLocaleString("es-AR", { dateStyle: "full", timeStyle: "short", hour12: false });
+            const fechaVigente = `<span class="text-success"><em>${fechaEntregaFormateada}</em></span>`;
+            const fechaVencida = `<span class="text-secondary">${fechaEntregaFormateada}</span> <span class="badge bg-secondary">Entrega cerrada</span>`;
+            const entregaVencida = fechaEntrega < fechaActual;
 
-                        // 2. Lógica para determinar el estado de entrega (Local Storage vs. Archivo JS)
-                        const estadoLocal = localStorage.getItem(tp.id);
-                        // Si hay un estado en localStorage, se usa. Si no, se usa el estado inicial del objeto.
-                        const estadoActual = estadoLocal !== null ? estadoLocal : tp.estado;
+            // 2. Lógica para determinar el estado de entrega (Local Storage vs. Archivo JS)
+            const estadoLocal = localStorage.getItem(tp.id);
+            // Si hay un estado en localStorage, se usa. Si no, se usa el estado inicial del objeto.
+            const estadoActual = estadoLocal !== null ? estadoLocal : tp.estado;
 
-                        // Determinar si el checkbox debe estar marcado
-                        const estaEntregado = estadoActual === "entregado";
-                        const checkedAttribute = estaEntregado ? "checked" : "";
+            // Determinar si el checkbox debe estar marcado
+            const estaEntregado = estadoActual === "entregado";
+            const checkedAttribute = estaEntregado ? "checked" : "";
 
-                        // Cambiar el color de fondo del contenedor según el estado
-                        const fondoContenedorTP = proximosVencimientos.map(d => d.id).includes(tp.id) ? "border-danger bg-danger-subtle" : entregaVencida || estaEntregado ? "border-secondary bg-secondary-subtle" : "border-success bg-success-subtle"
+            // Cambiar el color de fondo del contenedor según el estado
+            const fondoContenedorTP = proximosVencimientos.map(d => d.id).includes(tp.id) ? "border-danger bg-danger-subtle" : entregaVencida || estaEntregado ? "border-secondary bg-secondary-subtle" : "border-success bg-success-subtle"
 
-                        return `
+            return `
                             <div class="border-start border-3 rounded-3 p-2 my-2 ${fondoContenedorTP}">
                                 <strong>${tp.nombre}</strong><br>
                                 <strong>Fecha de entrega:</strong> ${entregaVencida ? fechaVencida : fechaVigente}<br>
@@ -266,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                             </div>
                         `;
-                    }).join("")}
+        }).join("")}
                 </div>
             </div>`;
 
