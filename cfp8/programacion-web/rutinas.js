@@ -90,6 +90,15 @@ const cursos = [
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2876374/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro2%20JPA%20Hibernate.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=769192",
                 estado: "pendiente",
+            },
+            {
+                "id": "tp3daw",
+                "nombre": "TP Nro.3 DTO - Query Method",
+                "diaEntrega": "2025-11-05",
+                "horaEntrega": "23:59",
+                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2880046/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro3%20DTO-Method%20query.docx?forcedownload=1",
+                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=772390",
+                "estado": "pendiente"
             }
         ],
     },
