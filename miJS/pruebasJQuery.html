@@ -20,6 +20,14 @@
 
         <!-- Cuerpo principal -->
     <main class="container p-4 rounded-3" style="background-color: lightcyan;">
+        <!-- Panel de aviso de vencimientos -->
+        <div class="alert alert-warning my-2 alert-dismissible shadow">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <h4 class="text-center text-danger">Entregas que cierran esta semana</h4>
+            <strong>Desarrollo de Aplicaciones Web</strong>: <em><strong class="text-dark">TP N2 JPA Hibernate</strong></em> (jueves 16, 23:59 hs.)<br><strong>Gestión de Base de Datos</strong>: <em><strong class="text-dark">Trabajo Practico Indices</strong></em> (jueves 16, 23:59 hs.)<br>
+        </div>
+        <hr>
+        
         <!-- Contenedro del menú de paneles -->
         <div id="codigo-de-prueba"></div>
     </main>
@@ -223,8 +231,8 @@
 
         const htmlPaneles = cursos.map((registro, indice) => {
             return `
-                <div class="border border-1 border-info bg-light p-3 rounded-3 mt-1">
-                    <div class="tab-pane container ${indice === 0 ? "active" : ""}" id="${registro.id}">
+                <div class="tab-pane container ${indice === 0 ? "active" : ""}" id="${registro.id}">
+                    <div class="border border-1 border-info bg-light p-3 rounded-3 mt-1">
                         <div class="row mx-1 pt-2 bg-info-subtle roundes-3 shadow-lg">
                             <div class="col-sm-2">
                                 <img src="img/${registro.imagen}" alt="Imagen del curso ${registro.nombre}" class="img-fluid rounded-3 mb-2">
@@ -235,7 +243,6 @@
                                 <strong>Turno:</strong> ${registro.turno}<br>
                                 <strong>Profesor:</strong> ${registro.profesor}<br>
                                 <!-- <strong>Total de trabajos prácticos:</strong> 6 <span class="badge bg-success">5 entregados</span> <span class="badge bg-info">1 pendiente</span> -->
-                                
                             </div>
                         </div>
                     </div>
