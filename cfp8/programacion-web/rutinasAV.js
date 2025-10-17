@@ -77,7 +77,6 @@ function compararFechas(vectorAV, vectorPS) {
 // Rutina para listar los TPs pendientes de entregar
 function trabajosPendientes(cursosAV) {
     cursosAV.forEach(curso => {
-        console.log(`[ ${curso.nombreCurso} ]`);
         const pendientes = [];
         curso.tps.forEach(tp => {
             if (tp.estado === "pendiente") {
@@ -85,17 +84,18 @@ function trabajosPendientes(cursosAV) {
             }
         });
         if (pendientes.length > 0) {
-            console.log("-- PENDIENTES");
+            console.log(`[ ${curso.nombreCurso} ] -- TPs PENDIENTES`);
             pendientes.forEach(p => {
                 const fechaEntrega = new Date(p.diaEntrega);
                 const fechaActual = new Date();
                 const fechaEntregaFormateada = p.diaEntrega.toLocaleString("es-AR", { dateStyle: "full" });
                 const tpVencido = fechaEntrega < fechaActual;
-                console.log(`----> ${p.nombre} (${fechaEntregaFormateada}) ${tpVencido ? "## VENCIDO ##" : ""}`)
+                console.log(`--> ${p.nombre} (${fechaEntregaFormateada}) ${tpVencido ? "## VENCIDO ##" : ""}`)
             });
         } else {
             console.log("---> No hay ningún TP pendiente de enterga");
         }
+        console.log("\n");
     });
 }
 
