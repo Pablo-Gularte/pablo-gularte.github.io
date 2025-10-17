@@ -1,67 +1,3 @@
-const cursosAV = [{
-    idCurso: "igw",
-    nombreCurso: "Interface Gráfica Web",
-    calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23842",
-    tps: []
-},
-{
-    idCurso: "daw",
-    nombreCurso: "Desarrollo de Aplicaciones Web",
-    calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23843",
-    tps: []
-},
-{
-    idCurso: "gbd",
-    nombreCurso: "Gestión de Base de Datos",
-    calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23841",
-    tps: []
-}];
-
-// Recorro los cursos para completar los datos de los trabajos prácticos
-console.info(`Inicio recorrido de ${cursosAV.length} cursos en AulaVirtual`);
-cursosAV.forEach(async curso => {
-    console.info(`--> Curso: ${curso.nombreCurso}`);
-
-    // Obtengo los enlaces a los detaslles de cada TP
-    const domCalificaciones = await obtenerDOMDeURL(curso.calificaciones);
-    const listadoTPs = domCalificaciones.querySelectorAll("a.gradeitemheader");
-
-    // Recorro el listado de TPs para recuperar datos y guardarlos en "curso.tps"
-    listadoTPs.forEach(async (tp, i) => {
-        const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
-        const domTP = await obtenerDOMDeURL(tp.href);
-
-        // Genero la fecha a partir del DOM recibido
-        const rutaCSS = "div.activity-dates > div > div:nth-child(2)";
-        const cadenaFecha = domTP.querySelector(rutaCSS).textContent;
-        const cadenaDia = cadenaFecha.substring(cadenaFecha.search(",") + 2, cadenaFecha.search(" de"));
-        let cadenaMes;
-        const anio = "2025";
-        meses.forEach((m, i) => {
-            if (cadenaFecha.includes(m)) {
-                cadenaMes = i + 1;
-            }
-        });
-
-        // Guardo los datos de TPs
-        curso.tps.push({
-            id: `tp${i + 1}${curso.idCurso}`,
-            nombre: tp.textContent,
-            diaEntrega: `${anio}-${cadenaMes.toString().padStart(2, "0")}-${cadenaDia.toString().padStart(2, "0")}`,
-            horaEntrega: "23:59",
-            consigna: domTP.querySelector("div.fileuploadsubmission > a").href,
-            urlEntrega: tp.href,
-            estado: domTP.querySelector(".submissionstatussubmitted") ? "entregado" : "pendiente"
-        });
-    });
-    console.info(`--> Recuperé ${listadoTPs.length} TPs para ${curso.nombreCurso}`);
-
-});
-console.info("Finalizo ejecución");
-console.info(cursosAV);
-trabajosPendientes();
-
-
 // Funciones auxiliares
 // Obtener DOM de una página web a partir de un enlace
 async function obtenerDOMDeURL(url) {
@@ -161,4 +97,72 @@ function trabajosPendientes() {
             console.log("---> No hay ningún TP pendiente de enterga");
         }
     });
+}
+
+// Recupero los datos de los cursos desde el Aula Virtual
+// Recorro los cursos para completar los datos de los trabajos prácticos
+function recuperarDatosAV() {
+    const cursosAV = [{
+        idCurso: "igw",
+        nombreCurso: "Interface Gráfica Web",
+        calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23842",
+        tps: []
+    },
+    {
+        idCurso: "daw",
+        nombreCurso: "Desarrollo de Aplicaciones Web",
+        calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23843",
+        tps: []
+    },
+    {
+        idCurso: "gbd",
+        nombreCurso: "Gestión de Base de Datos",
+        calificaciones: "https://aulasvirtuales.bue.edu.ar/grade/report/user/index.php?id=23841",
+        tps: []
+    }];
+
+    console.info(`Inicio recorrido de ${cursosAV.length} cursos en AulaVirtual`);
+    cursosAV.forEach(async curso => {
+        console.info(`--> Curso: ${curso.nombreCurso}`);
+
+        // Obtengo los enlaces a los detaslles de cada TP
+        const domCalificaciones = await obtenerDOMDeURL(curso.calificaciones);
+        const listadoTPs = domCalificaciones.querySelectorAll("a.gradeitemheader");
+
+        // Recorro el listado de TPs para recuperar datos y guardarlos en "curso.tps"
+        listadoTPs.forEach(async (tp, i) => {
+            const meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+            const domTP = await obtenerDOMDeURL(tp.href);
+
+            // Genero la fecha a partir del DOM recibido
+            const rutaCSS = "div.activity-dates > div > div:nth-child(2)";
+            const cadenaFecha = domTP.querySelector(rutaCSS).textContent;
+            const cadenaDia = cadenaFecha.substring(cadenaFecha.search(",") + 2, cadenaFecha.search(" de"));
+            let cadenaMes;
+            const anio = "2025";
+            meses.forEach((m, i) => {
+                if (cadenaFecha.includes(m)) {
+                    cadenaMes = i + 1;
+                }
+            });
+
+            // Guardo los datos de TPs
+            curso.tps.push({
+                id: `tp${i + 1}${curso.idCurso}`,
+                nombre: tp.textContent,
+                diaEntrega: `${anio}-${cadenaMes.toString().padStart(2, "0")}-${cadenaDia.toString().padStart(2, "0")}`,
+                horaEntrega: "23:59",
+                consigna: domTP.querySelector("div.fileuploadsubmission > a").href,
+                urlEntrega: tp.href,
+                estado: domTP.querySelector(".submissionstatussubmitted") ? "entregado" : "pendiente"
+            });
+        });
+        console.info(`--> Recuperé ${listadoTPs.length} TPs para ${curso.nombreCurso}`);
+
+    });
+    console.info("Finalizo ejecución");
+    console.info(cursosAV);
+    trabajosPendientes();
+
+    return cursosAV;
 }
