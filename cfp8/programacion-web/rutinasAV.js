@@ -75,7 +75,7 @@ function compararFechas(vectorAV, vectorPS) {
 }
 
 // Rutina para listar los TPs pendientes de entregar
-function trabajosPendientes() {
+function trabajosPendientes(cursosAV) {
     cursosAV.forEach(curso => {
         console.log(`[ ${curso.nombreCurso} ]`);
         const pendientes = [];
@@ -162,7 +162,7 @@ function recuperarDatosAV() {
     });
     console.info("Finalizo ejecución");
     console.info(cursosAV);
-    trabajosPendientes();
+    trabajosPendientes(cursosAV);
 
     return cursosAV;
 }
