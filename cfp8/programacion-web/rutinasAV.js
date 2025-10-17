@@ -102,9 +102,11 @@ function compararFechas(vectorAV, vectorPS) {
     // Comparo las cantidades de TPs por cursos cargados en cada vector para detectar diferencias
     const nombreCursos = cursos.map(reg => reg.nombre);
     nombreCursos.forEach(nombre => {
-        const tpsAV = vectorAV.filter(c => c.nombreCurso === nombre).map(reg => reg.tps);
-        const tpsPS = vectorPS.filter(c => c.nombre === nombre).map(reg => reg.trabajos);
-        const difTPs = tpsAV.length - tpsPS.length;
+        const tpsAV = vectorAV.filter(c => c.nombreCurso === nombre).map(reg => reg.tps)[0];
+        const tpsPS = vectorPS.filter(c => c.nombre === nombre).map(reg => reg.trabajos)[0];
+        const totalTPsAV = tpsAV.length;
+        const totalTPsPS = tpsPS.length;
+        const difTPs = totalTPsAV - totalTPsPS;
 
         if (difTPs !== 0) {
             if (difTPs > 0) {
@@ -126,7 +128,7 @@ function compararFechas(vectorAV, vectorPS) {
                 const diaEntregaAV = t.diaEntrega;
                 const diaEntregaPS = tpsPS.find(reg => reg.id === t.id).diaEntrega;
                 if (diaEntregaAV !== diaEntregaPS) {
-                    console.log(`==> diaEntrega de AV: ${diaEntregaAV} - diaEntrega de PS: ${diaEntregaPS}`);
+                    console.log(`====> [${t.nombre}] diaEntrega de AV: ${diaEntregaAV} - diaEntrega de PS: ${diaEntregaPS}`);
                     cnt++;
                 }
             });
