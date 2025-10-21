@@ -295,19 +295,19 @@ document.addEventListener("DOMContentLoaded", function () {
                                 : fondoEntregaVigente;          // Si no vence esta semana, no está entregado ni vencido, el TP tiene entrega vigente
 
             return `
-                            <div class="border-start border-3 rounded-3 p-2 my-2 ${fondoContenedorTP}">
-                                ${estaEntregado ? etiquetaSupDerTpEntregado : "" ||
-                                    tpVenceEstaSemana ? etiquetaSupDerVenceEstaSemana : ""}
-                                <strong>${tp.nombre}</strong><br>
-                                <strong>Fecha de entrega:</strong> ${entregaVencida ? fechaVencida : fechaVigente}<br>
-                                <a href="${tp.consigna}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir el archivo de consinga en el Aula Virtual">Enlace a la consigna</a><br>
-                                <a href="${tp.urlEntrega}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir la sección de entrega del TP en el Aula Virtual">Enlace de entrega</a><br>
-                                <div class="form-check form-switch form-check-inline pt-1">
-                                    <input class="form-check-input estado-tp-checkbox" type="checkbox" id="check-${tp.id}" data-tpid="${tp.id}" ${checkedAttribute}>
-                                    <label class="form-check-label" for="check-${tp.id}">Trabajo entregado</label>
-                                </div>
-                            </div>
-                        `;
+                    <div class="border-start border-3 rounded-3 p-2 my-2 ${fondoContenedorTP}">
+                        ${estaEntregado ? etiquetaSupDerTpEntregado : "" ||
+                            tpVenceEstaSemana ? etiquetaSupDerVenceEstaSemana : ""}
+                        <strong>${tp.nombre}</strong><br>
+                        <strong>Fecha de entrega:</strong> ${entregaVencida ? fechaVencida : fechaVigente}<br>
+                        <a href="${tp.consigna}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir el archivo de consinga en el Aula Virtual">Enlace a la consigna</a><br>
+                        <a href="${tp.urlEntrega}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir la sección de entrega del TP en el Aula Virtual">Enlace de entrega</a><br>
+                        <div class="form-check form-switch form-check-inline pt-1">
+                            <input class="form-check-input estado-tp-checkbox" type="checkbox" id="check-${tp.id}" data-tpid="${tp.id}" ${checkedAttribute}>
+                            <label class="form-check-label" for="check-${tp.id}">Trabajo entregado</label>
+                        </div>
+                    </div>
+                `;
         }).join("")}
                 </div>
             </div>`;
