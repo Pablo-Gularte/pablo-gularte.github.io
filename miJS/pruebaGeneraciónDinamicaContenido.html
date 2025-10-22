@@ -1,26 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de prueba de generación de código de manera dinámica</title>
 
     <!-- Estilos Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Estilos personalizados -->
+    <style>
+        .etiqueta-esquina-superior-derecha {
+            position: absolute;
+            top: 0.5rem;        /* posición vertical */
+            right: 0.5rem;      /* posición horizontal */
+            font-size: 0.75rem; /* texto pequeño */
+        }
+    </style>
 </head>
-<body class="bg-warning">
-    <head></head>
+
+<body class="bg-warning" style="font-family: Arial, Helvetica, sans-serif;">
+    <!-- Encabezado -->
+    <header class="container text-center py-4 my-3 rounded-3 bg-light">
+        <h1>Página de seguimiento de TPs</h1>
+        <p class="small">La idea de esta página es poder tener en un solo lugar las fechas de entrega de los TPs de los
+            cursos que
+            componen el trayecto de especialización de Programación Web del CFP8-SMATA</p>
+    </header>
     <nav></nav>
-    <main class="container">
+
+    <!-- Cuerpo principal -->
+    <main class="container p-4 rounded-3" style="background-color: lightcyan;">
         <section id="paneles-pestanias"></section>
     </main>
-    <footer></footer>
+
+    <!-- Pié de página -->
+    <footer class="container text-secondary bg-dark my-3 p-2 rounded-3 text-end">
+        <p class="h6">Basado en la información publicada en el
+            <a href="https://aulasvirtuales.bue.edu.ar/" target="_blank" rel="noopener noreferrer"
+                title="Click para abrir en una nueva pestaña el aula virtual BA Aprende - Agencia de habilidades para el futuro">aula
+                virtual
+            </a> de CFP8 SMATA-CGBA
+        </p>
+    </footer>
 
     <!-- Rutinas Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
     <!-- Rutinas JQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- Rutinas propias -->
     <script src="contenidoDinamico.js"></script>
 </body>
+
 </html>
