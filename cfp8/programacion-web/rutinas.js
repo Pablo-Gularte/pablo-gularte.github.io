@@ -61,6 +61,15 @@ const cursos = [
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2879323/mod_assign/introattachment/0/Trabajo%20Practico%20Nro%206.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=771727",
                 estado: "pendiente",
+            },
+            {
+                "id": "tp7igw",
+                "nombre": "TP Nro. 7 Gestión de APIs mediante Axios",
+                "diaEntrega": "2025-11-11",
+                "horaEntrega": "23:59",
+                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2882583/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro%207.docx?forcedownload=1",
+                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=774618",
+                "estado": "pendiente"
             }
         ],
     },
