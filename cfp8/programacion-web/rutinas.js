@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", function () {
             ${curso.trabajos.map(tp => {
                 const fechaActual = new Date();
                 const fechaEntrega = new Date(tp.diaEntrega + " " + tp.horaEntrega);
-                const diasHastaEntrega = Math.ceil((fechaEntrega.getTime() - fechaActual.getTime()) / (1000 * 60 * 60 * 24));
+                const diasHastaEntrega = (Math.ceil((fechaEntrega.getTime() - fechaActual.getTime()) / (1000 * 60 * 60 * 24))) - 1;
                 const fechaEntregaFormateada = fechaEntrega.toLocaleString("es-AR", { dateStyle: "full", timeStyle: "short", hour12: false }) + " h";
                 const fechaVigente = `<span class="text-success"><em>${fechaEntregaFormateada}</em></span>`;
                 const fechaVencida = `<span class="text-secondary">${fechaEntregaFormateada}</span> <span class="badge bg-secondary">Entrega cerrada</span>`;
@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const fondoEntregaVigente = "border-success bg-success-subtle";
                 const etiquetaSupDerVenceEstaSemana = `<span class="badge bg-danger etiqueta-esquina-superior-derecha">Vence esta semana</span>`;
                 const etiquetaSupDerTpEntregado = `<i class="bi bi-check-square text-success etiqueta-esquina-superior-derecha"></i>`;
-                const etiquetaDiasHAstaEntrega = `<span class="badge bg-dark">${diasHastaEntrega} dias</span>`;
+                const etiquetaDiasHastaEntrega = `<span class="badge bg-dark">${diasHastaEntrega} dias</span>`;
 
                 // 2. Lógica para determinar el estado de entrega (Local Storage vs. Archivo JS)
                 const estadoLocal = localStorage.getItem(tp.id);
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         ${estaEntregado ? etiquetaSupDerTpEntregado : "" ||
                             tpVenceEstaSemana ? etiquetaSupDerVenceEstaSemana : ""}
                         <strong>${tp.nombre}</strong><br>
-                        <strong>Fecha de entrega:</strong> ${entregaVencida ? fechaVencida : fechaVigente} ${diasHastaEntrega > 1 && !estaEntregado ? etiquetaDiasHAstaEntrega : ""}<br>
+                        <strong>Fecha de entrega:</strong> ${entregaVencida ? fechaVencida : fechaVigente} ${diasHastaEntrega > 1 && !estaEntregado ? etiquetaDiasHastaEntrega : ""}<br>
                         <a href="${tp.consigna}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir el archivo de consinga en el Aula Virtual">Enlace a la consigna</a><br>
                         <a href="${tp.urlEntrega}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir la sección de entrega del TP en el Aula Virtual">Enlace de entrega</a><br>
                         <div class="form-check form-switch form-check-inline pt-1">
