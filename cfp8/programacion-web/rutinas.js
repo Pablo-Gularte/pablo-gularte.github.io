@@ -200,6 +200,15 @@ const cursos = [
                 "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867790/mod_assign/introattachment/0/Trabajo%20Practico%20sobre%20Transacciones%20en%20MySQL.docx?forcedownload=1",
                 "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764256",
                 "estado": "pendiente"
+            },
+            {
+                "id": "tp9gbd",
+                "nombre": "Trabajo practico sobre Usuarios y Permisos",
+                "diaEntrega": "2025-11-20",
+                "horaEntrega": "23:59",
+                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867792/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Sistema%20de%20Usuarios%20y%20Permisos.docx?forcedownload=1",
+                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764258",
+                "estado": "pendiente"
             }
         ],
     },
