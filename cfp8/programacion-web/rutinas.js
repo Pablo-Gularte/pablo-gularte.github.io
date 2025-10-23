@@ -236,19 +236,19 @@ document.addEventListener("DOMContentLoaded", function () {
             daw: "Desarrollo de Aplicaciones Web",
             gbd: "Gestión de Base de Datos",
         };
-        const cartelProximosVencimientos =
-            `<div class="alert alert-warning my-2 alert-dismissible shadow">
+        const cartelProximosVencimientos = `
+            <div class="alert alert-warning my-2 alert-dismissible shadow">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 <h4 class="text-center text-danger">Entregas que cierran esta semana</h4>
                 ${proximosVencimientos.map(curso => {
-                const nombreCurso = `<strong>${nombresCursos[curso.id.substr(-3)]}</strong>`;
-                const nombreTP = `<em><strong class="text-dark">${curso.nombre}</strong></em>`;
-                const formatoFecha = { weekday: "long", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }
-                const fechaEntrega = `${new Date(curso.diaEntrega + " " + curso.horaEntrega).toLocaleString("es-AR", formatoFecha)} hs.`;
-                const leyendaFecha = `${nombreCurso}: ${nombreTP} (${fechaEntrega})<br>`;
+                    const nombreCurso = `<strong>${nombresCursos[curso.id.substr(-3)]}</strong>`;
+                    const nombreTP = `<em><strong class="text-dark">${curso.nombre}</strong></em>`;
+                    const formatoFecha = { weekday: "long", day: "2-digit", hour: "2-digit", minute: "2-digit", hour12: false }
+                    const fechaEntrega = `${new Date(curso.diaEntrega + " " + curso.horaEntrega).toLocaleString("es-AR", formatoFecha)} h`;
+                    const leyendaFecha = `${nombreCurso}: ${nombreTP} (${fechaEntrega})<br>`;
 
-                return leyendaFecha;
-            }).join("")}
+                    return leyendaFecha;
+                }).join("")}
             </div>
             <hr>`;
 
@@ -279,54 +279,55 @@ document.addEventListener("DOMContentLoaded", function () {
                     <p class="h4 mt-2 p-0">
                         <span class="badge bg-success w-100 py-2">Trabajos prácticos</span>
                     </p>
-                    ${curso.trabajos.map(tp => {
-            const fechaActual = new Date();
-            const fechaEntrega = new Date(tp.diaEntrega + " " + tp.horaEntrega);
-            const fechaEntregaFormateada = fechaEntrega.toLocaleString("es-AR", { dateStyle: "full", timeStyle: "short", hour12: false });
-            const fechaVigente = `<span class="text-success"><em>${fechaEntregaFormateada}</em></span>`;
-            const fechaVencida = `<span class="text-secondary">${fechaEntregaFormateada}</span> <span class="badge bg-secondary">Entrega cerrada</span>`;
-            const entregaVencida = fechaEntrega < fechaActual;
-                        const tpVenceEstaSemana = proximosVencimientos.map(d => d.id).includes(tp.id);
+            ${curso.trabajos.map(tp => {
+                const fechaActual = new Date();
+                const fechaEntrega = new Date(tp.diaEntrega + " " + tp.horaEntrega);
+                const diasHastaEntrega = Math.ceil((fechaEntrega.getTime() - fechaActual.getTime()) / (1000 * 60 * 60 * 24));
+                const fechaEntregaFormateada = fechaEntrega.toLocaleString("es-AR", { dateStyle: "full", timeStyle: "short", hour12: false }) + " h";
+                const fechaVigente = `<span class="text-success"><em>${fechaEntregaFormateada}</em></span>`;
+                const fechaVencida = `<span class="text-secondary">${fechaEntregaFormateada}</span> <span class="badge bg-secondary">Entrega cerrada</span>`;
+                const entregaVencida = fechaEntrega < fechaActual;
+                const tpVenceEstaSemana = proximosVencimientos.map(d => d.id).includes(tp.id);
 
-                        // Variables con estilos para fondo de panel de TP según tiempo de entrega
-                        const fondoProximoVencimiento = "border-danger bg-danger-subtle position-relative";
-                        const fondoVencidoEntregado = "border-secondary bg-secondary-subtle position-relative";
-                        const fondoEntregaVigente = "border-success bg-success-subtle";
-                        const etiquetaSupDerVenceEstaSemana = `<span class="badge bg-danger etiqueta-esquina-superior-derecha">Vence esta semana</span>`;
-                        const etiquetaSupDerTpEntregado = `<i class="bi bi-check-square text-success etiqueta-esquina-superior-derecha"></i>`;
+                // Variables con estilos para fondo de panel de TP según tiempo de entrega
+                const fondoProximoVencimiento = "border-danger bg-danger-subtle position-relative";
+                const fondoVencidoEntregado = "border-secondary bg-secondary-subtle position-relative";
+                const fondoEntregaVigente = "border-success bg-success-subtle";
+                const etiquetaSupDerVenceEstaSemana = `<span class="badge bg-danger etiqueta-esquina-superior-derecha">Vence esta semana</span>`;
+                const etiquetaSupDerTpEntregado = `<i class="bi bi-check-square text-success etiqueta-esquina-superior-derecha"></i>`;
+                const etiquetaDiasHAstaEntrega = `<span class="badge bg-dark">${diasHastaEntrega} dias</span>`;
 
-            // 2. Lógica para determinar el estado de entrega (Local Storage vs. Archivo JS)
-            const estadoLocal = localStorage.getItem(tp.id);
-            // Si hay un estado en localStorage, se usa. Si no, se usa el estado inicial del objeto.
-            const estadoActual = estadoLocal !== null ? estadoLocal : tp.estado;
+                // 2. Lógica para determinar el estado de entrega (Local Storage vs. Archivo JS)
+                const estadoLocal = localStorage.getItem(tp.id);
+                // Si hay un estado en localStorage, se usa. Si no, se usa el estado inicial del objeto.
+                const estadoActual = estadoLocal !== null ? estadoLocal : tp.estado;
 
-            // Determinar si el checkbox debe estar marcado
-            const estaEntregado = estadoActual === "entregado";
-            const checkedAttribute = estaEntregado ? "checked" : "";
+                // Determinar si el checkbox debe estar marcado
+                const estaEntregado = estadoActual === "entregado";
+                const checkedAttribute = estaEntregado ? "checked" : "";
 
-            // Cambiar el color de fondo del contenedor según el estado
-            const fondoContenedorTP = 
-                            tpVenceEstaSemana                   // --> Si el TP vence esta semana
-                            ? fondoProximoVencimiento           // -> Aplico fondoProximoVencimientno
-                            : entregaVencida || estaEntregado   // --> Si ya venció o fue entregado
-                                ? fondoVencidoEntregado         // -> aplico fondoVencidoEntregado
-                                : fondoEntregaVigente;          // Si no vence esta semana, no está entregado ni vencido, el TP tiene entrega vigente
+                // Cambiar el color de fondo del contenedor según el estado
+                const fondoContenedorTP = 
+                    tpVenceEstaSemana                   // --> Si el TP vence esta semana (condición)
+                    ? fondoProximoVencimiento           // -> Aplico fondoProximoVencimientno
+                    : entregaVencida || estaEntregado   // --> Si ya venció o fue entregado (condición)
+                    ? fondoVencidoEntregado             // -> aplico fondoVencidoEntregado
+                    : fondoEntregaVigente;              // Si no vence esta semana, no está entregado ni vencido, el TP tiene entrega vigente
 
-            return `
+                return `
                     <div class="border-start border-3 rounded-3 p-2 my-2 ${fondoContenedorTP}">
                         ${estaEntregado ? etiquetaSupDerTpEntregado : "" ||
                             tpVenceEstaSemana ? etiquetaSupDerVenceEstaSemana : ""}
                         <strong>${tp.nombre}</strong><br>
-                        <strong>Fecha de entrega:</strong> ${entregaVencida ? fechaVencida : fechaVigente}<br>
+                        <strong>Fecha de entrega:</strong> ${entregaVencida ? fechaVencida : fechaVigente} ${diasHastaEntrega > 1 && !estaEntregado ? etiquetaDiasHAstaEntrega : ""}<br>
                         <a href="${tp.consigna}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir el archivo de consinga en el Aula Virtual">Enlace a la consigna</a><br>
                         <a href="${tp.urlEntrega}" class="link-underline link-underline-opacity-0" target="_blank" title="Click para abrir la sección de entrega del TP en el Aula Virtual">Enlace de entrega</a><br>
                         <div class="form-check form-switch form-check-inline pt-1">
                             <input class="form-check-input estado-tp-checkbox" type="checkbox" id="check-${tp.id}" data-tpid="${tp.id}" ${checkedAttribute}>
                             <label class="form-check-label" for="check-${tp.id}">Trabajo entregado</label>
                         </div>
-                    </div>
-                `;
-        }).join("")}
+                    </div>`;
+            }).join("")}
                 </div>
             </div>`;
 
