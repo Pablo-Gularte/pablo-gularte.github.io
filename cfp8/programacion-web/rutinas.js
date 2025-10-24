@@ -400,8 +400,8 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>`;
     
     // Agrego nuevo botón y panel
-    $(menuPaneles).append(botonAdicional);
-    $(contenidoPaneles).append(panelAdicional);
+    // $(menuPaneles).append(botonAdicional);
+    // $(contenidoPaneles).append(panelAdicional);
 
 
     // Agrego botonera y paneles con todo el contenido generado
