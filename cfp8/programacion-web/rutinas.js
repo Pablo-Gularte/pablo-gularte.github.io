@@ -323,6 +323,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
         $(contenidoPaneles).append(etqDivPanel);
     });
+
+    // Agrego un botón más en la botonera para mostrar una tabla con todos los cursos
+    // Boton para la tabla
+    const botonAdicional = `<li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#tabla-cursos">Todos los cursos</a></li>`;
+    
+    // Panel con la tabla de cursos
+    const filasTabla = [];
+    cursos.forEach(curso => curso.trabajos.map(t => {
+        filasTabla.push( {
+            idCurso: curso.id,
+            nombreCurso: curso.nombre,
+            diaCurso: curso.dia,
+            turnoCurso: curso.turno,
+            profecor: curso.profesor,
+            ...t
+        });
+    }));
+    const leyendasEncabezados = [
+        "Curso",
+        "Día",
+        "Trabajo práctico",
+        "Fecha de entrega",
+        "Estado"
+    ];
+    const celdasTabla = filasTabla.map(fila => [fila.nombreCurso, fila.diaCurso, fila.nombre, fila.diaEntrega + " " + fila.horaEntrega, fila.estado]);
+    const cntColumnasTabla = leyendasEncabezados.length;
+    const encabezadosTabla = `
+        <tr class="text-center">${leyendasEncabezados.map(leyenda => 
+            `<th>${leyenda}</th>`
+        ).join("")}</tr>`;
+    const datosTabla = `
+        ${filasTabla.map(fila => `
+            <tr class="item">
+                <td>${fila.nombreCurso}</td>
+                <td>${fila.diaCurso}</td>
+                <td>${fila.nombre}</td>
+                <td>${new Date(fila.diaEntrega + " " + fila.horaEntrega).toLocaleString("es-AR", {dateStyle: "full"})}</td>
+                <td>${fila.estado}</td>
+            </tr>`).join("")}`;
+    const pieTabla = `<tr><td colspan="${cntColumnasTabla}">Cantidad total de registros XXX</td></tr>`;
+    const panelAdicional = `
+        <div class="tab-pane container fade" id="tabla-cursos">
+            <div class="border border-1 border-info bg-light p-3 rounded-3 mt-1">
+                <table id="tabla-cursos" class="table table-bordered table-hover">
+                    <thead class="table-secondary">
+                        ${encabezadosTabla}
+                    </thead>
+                    <tbody class="table-success">
+                        ${datosTabla}
+                    </tbody>
+                    <tfoot class="bg-secondary">
+                        ${pieTabla}
+                    </tfoot>
+                </table>
+            </div>
+        </div>`;
+    
+    // Agrego nuevo botón y panel
+    $(menuPaneles).append(botonAdicional);
+    $(contenidoPaneles).append(panelAdicional);
+
+
+    // Agrego botonera y paneles con todo el contenido generado
     $(divMenu).append(menuPaneles);
     $(divMenu).append(contenidoPaneles);
     $("a.nav-link")[0].click(); // Selecciono la opción "Interface Gráfica Web" del menú
