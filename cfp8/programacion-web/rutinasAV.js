@@ -44,34 +44,36 @@ function compararFechas(vectorAV, vectorPS) {
         const totalTPsPS = tpsPS.length;
         const difTPs = totalTPsAV - totalTPsPS;
 
+        console.log(`[ ${nombre} ]`);
         if (difTPs !== 0) {
-            if (difTPs > 0) {
-                console.info(`==> El Aula Virtual tiene ${difTPs} ${difTPs === 1 ? "tp" : "tps"} más que la página de seguimiento para el curso ${nombre}`);
-            } else {
-                console.info(`==> El Aula Virtual tiene ${difTPs} ${difTPs === 1 ? "tp" : "tps"} menos que la página de seguimiento para el curso ${nombre}`);
-            }
-            console.log(`==> TPs en AV: ${totalTPsAV} - TPS en página de seguimiento: ${totalTPsPS}`)
-            console.log("==[ DETALLES ]");
+            const avMasQuePS = `==> El Aula Virtual tiene ${difTPs} ${difTPs === 1 ? "tp" : "tps"} más que la página de seguimiento`;
+            const avMenosQuePS = `==> El Aula Virtual tiene ${difTPs} ${difTPs === 1 ? "tp" : "tps"} menos que la página de seguimiento`;
+            const texto = difTPs > 0 ? avMasQuePS : avMenosQuePS;
+            const detalle = `(AV: ${totalTPsAV} - PS: ${totalTPsPS})`;
+            console.info(`${texto} ${detalle}`);
+            
+            console.log("==[ DETALLES TPs ]");
             console.log("--AV--");
             console.log(cursosAV.find(reg => reg.nombreCurso === nombre).tps);
             console.log("--Página de segimiento--");
             console.log(cursos.find(reg => reg.nombre === nombre).trabajos);
+            console.log("\n");
         } else {
-            console.log(`==> Las cantidades de TPs coinciden para el curso ${nombre}`);
+            console.log(`==> Las cantidades de TPs coinciden`);
             // Recorro el vector de TPs del AV y comparo contra el de PS para detectar diferencias en las fechas
             let cnt = 0;
             tpsAV.forEach(t => {
                 const diaEntregaAV = t.diaEntrega;
                 const diaEntregaPS = tpsPS.find(reg => reg.id === t.id).diaEntrega;
                 if (diaEntregaAV !== diaEntregaPS) {
-                    console.log(`====> [${t.nombre}] diaEntrega de AV: ${diaEntregaAV} - diaEntrega de PS: ${diaEntregaPS}`);
+                    // console.log(`====> [${t.nombre}] diaEntrega de AV: ${diaEntregaAV} - diaEntrega de PS: ${diaEntregaPS}`);
+                    console.log(`====> Actualizar fecha de [${nombre}]-[${t.nombre}] con: diaEntrega: '${diaEntregaAV}' (fecha en PS: ${diaEntregaPS})`);
                     cnt++;
                 }
             });
             console.log(`${cnt !== 0 ? "Diferencias de fechas detectadas: " + cnt : "No se detectaron diferencias de fechas"}`);
         }
     });
-
 }
 
 // Rutina para listar los TPs pendientes de entregar
@@ -83,17 +85,21 @@ function trabajosPendientes(cursosAV) {
                 pendientes.push(tp);
             }
         });
+        console.log("\n");
+        console.log(`[ ${curso.nombreCurso} ]`);
         if (pendientes.length > 0) {
-            console.log(`[ ${curso.nombreCurso} ] -- TPs PENDIENTES`);
+            console.log(`--> TPs PENDIENTES: ${pendientes.length}`);
             pendientes.forEach(p => {
+                const PASAR_MILISEGUNDOS_A_DIAS = 1000 * 60 * 60 * 24;
                 const fechaEntrega = new Date(p.diaEntrega);
                 const fechaActual = new Date();
+                const diasHastaEntrega = Math.ceil((fechaEntrega.getTime() - fechaActual.getTime()) / PASAR_MILISEGUNDOS_A_DIAS);
                 const fechaEntregaFormateada = p.diaEntrega.toLocaleString("es-AR", { dateStyle: "full" });
                 const tpVencido = fechaEntrega < fechaActual;
-                console.log(`--> ${p.nombre} (${fechaEntregaFormateada}) ${tpVencido ? "## VENCIDO ##" : ""}`)
+                console.log(`--> ${p.nombre} (${fechaEntregaFormateada}) ${tpVencido ? "## VENCIDO ##" : `(${diasHastaEntrega} días)`}`)
             });
         } else {
-            console.log("---> No hay ningún TP pendiente de enterga");
+            console.log("--> No hay ningún TP pendiente de enterga");
         }
         console.log("\n");
     });
@@ -162,7 +168,7 @@ function recuperarDatosAV() {
     });
     console.info("Finalizo ejecución");
     console.info(cursosAV);
-    trabajosPendientes(cursosAV);
+    // trabajosPendientes(cursosAV);
 
     return cursosAV;
 }

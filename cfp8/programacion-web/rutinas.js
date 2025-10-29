@@ -63,14 +63,14 @@ const cursos = [
                 estado: "pendiente",
             },
             {
-                "id": "tp7igw",
-                "nombre": "TP Nro. 7 Gestión de APIs mediante Axios",
-                "diaEntrega": "2025-11-11",
-                "horaEntrega": "23:59",
-                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2882583/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro%207.docx?forcedownload=1",
-                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=774618",
-                "estado": "pendiente"
-            }
+                id: "tp7igw",
+                nombre: "TP Nro. 7 Gestión de APIs mediante Axios",
+                diaEntrega: "2025-11-11",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2882583/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro%207.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=774618",
+                estado: "pendiente",
+            },
         ],
     },
     {
@@ -101,23 +101,23 @@ const cursos = [
                 estado: "pendiente",
             },
             {
-                "id": "tp3daw",
-                "nombre": "TP Nro.3 DTO - Query Method",
-                "diaEntrega": "2025-11-05",
-                "horaEntrega": "23:59",
-                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2880046/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro3%20DTO-Method%20query.docx?forcedownload=1",
-                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=772390",
-                "estado": "pendiente"
+                id: "tp3daw",
+                nombre: "TP Nro.3 DTO - Query Method",
+                diaEntrega: "2025-11-05",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2880046/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro3%20DTO-Method%20query.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=772390",
+                estado: "pendiente",
             },
             {
-                "id": "tp4daw",
-                "nombre": "TP Nro. 4 Thymeleaf",
-                "diaEntrega": "2025-11-05",
-                "horaEntrega": "23:59",
-                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2868319/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro%204%20Thymeleaf.docx?forcedownload=1",
-                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764626",
-                "estado": "pendiente"
-            }
+                id: "tp4daw",
+                nombre: "TP Nro. 4 Thymeleaf",
+                diaEntrega: "2025-11-08",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2868319/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro%204%20Thymeleaf.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764626",
+                estado: "pendiente",
+            },
         ],
     },
     {
@@ -193,26 +193,27 @@ const cursos = [
                 estado: "pendiente",
             },
             {
-                "id": "tp8gbd",
-                "nombre": "Trabajo Practico sobre Transacciones",
-                "diaEntrega": "2025-11-13",
-                "horaEntrega": "23:59",
-                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867790/mod_assign/introattachment/0/Trabajo%20Practico%20sobre%20Transacciones%20en%20MySQL.docx?forcedownload=1",
-                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764256",
-                "estado": "pendiente"
+                id: "tp8gbd",
+                nombre: "Trabajo Practico sobre Transacciones",
+                diaEntrega: "2025-11-13",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867790/mod_assign/introattachment/0/Trabajo%20Practico%20sobre%20Transacciones%20en%20MySQL.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764256",
+                estado: "pendiente",
             },
             {
-                "id": "tp9gbd",
-                "nombre": "Trabajo practico sobre Usuarios y Permisos",
-                "diaEntrega": "2025-11-20",
-                "horaEntrega": "23:59",
-                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867792/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Sistema%20de%20Usuarios%20y%20Permisos.docx?forcedownload=1",
-                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764258",
-                "estado": "pendiente"
-            }
+                id: "tp9gbd",
+                nombre: "Trabajo practico sobre Usuarios y Permisos",
+                diaEntrega: "2025-11-20",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867792/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Sistema%20de%20Usuarios%20y%20Permisos.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764258",
+                estado: "pendiente",
+            },
         ],
     },
 ];
+
 
 document.addEventListener("DOMContentLoaded", function () {
     // Seleccionar el contenedor donde se insertarán el menú y los paneles
