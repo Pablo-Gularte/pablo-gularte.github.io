@@ -38,7 +38,7 @@ const cursos = [
             {
                 id: "tp4igw",
                 nombre: "TP Nro. 4 Bootstrap",
-                diaEntrega: "2025-10-21",
+                diaEntrega: '2025-11-04',
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867815/mod_assign/introattachment/0/Trabajo%20Practico%20Nro%204.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764278",
@@ -47,7 +47,7 @@ const cursos = [
             {
                 id: "tp5igw",
                 nombre: "TP Nro. 5 Manejo de Eventos",
-                diaEntrega: "2025-10-28",
+                diaEntrega: '2025-11-04',
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867817/mod_assign/introattachment/0/TP%20Nro%205%20Javascript%20Manejo%20de%20Eventos.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764282",
@@ -94,7 +94,7 @@ const cursos = [
             {
                 id: "tp2daw",
                 nombre: "TP N2 JPA Hibernate",
-                diaEntrega: "2025-10-23",
+                diaEntrega: '2025-10-30',
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2876374/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro2%20JPA%20Hibernate.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=769192",
@@ -103,7 +103,7 @@ const cursos = [
             {
                 id: "tp3daw",
                 nombre: "TP Nro.3 DTO - Query Method",
-                diaEntrega: "2025-11-05",
+                diaEntrega: '2025-11-05',
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2880046/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro3%20DTO-Method%20query.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=772390",
@@ -112,7 +112,7 @@ const cursos = [
             {
                 id: "tp4daw",
                 nombre: "TP Nro. 4 Thymeleaf",
-                diaEntrega: "2025-11-08",
+                diaEntrega: '2025-11-08',
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2868319/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro%204%20Thymeleaf.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764626",
