@@ -466,12 +466,12 @@ function estaEnSemanaActual(fechaAValidar) {
     return tiempoValidar >= hoy.getTime() && tiempoValidar <= proximoViernes.getTime();
 }
 
-// Agrego rutina para cerrar automaticamente modal de aviso
-const modal = new bootstrap.Modal(document.getElementById("myModal"));
-const segEspera = 10 * 1000;
-window.onload = function () {
-    modal.show();
-    setTimeout(() => {
-        modal.hide();
-    }, segEspera);
-};
+// // Agrego rutina para cerrar automaticamente modal de aviso
+// const modal = new bootstrap.Modal(document.getElementById("myModal"));
+// const segEspera = 10 * 1000;
+// window.onload = function () {
+//     modal.show();
+//     setTimeout(() => {
+//         modal.hide();
+//     }, segEspera);
+// };
