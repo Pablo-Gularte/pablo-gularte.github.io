@@ -112,7 +112,7 @@ const cursos = [
             {
                 id: "tp4daw",
                 nombre: "TP Nro. 4 Thymeleaf",
-                diaEntrega: '2025-11-13',
+                diaEntrega: '2025-11-20',
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2868319/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro%204%20Thymeleaf.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764626",
