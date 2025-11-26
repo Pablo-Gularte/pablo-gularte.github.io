@@ -422,6 +422,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// Calculo días hasta entrega de trabajo final y relleno etiquetas
+const fechaEntregaTIF = new Date("2025-12-02 22:00:00");
+const hoy = new Date();
+const difEnMs = Math.abs(fechaEntregaTIF.getTime() - hoy.getTime());
+const factorDeConversionADias = 1000 * 60 * 60 * 24;
+const diasHastaEntregaTIF = Math.ceil(difEnMs / factorDeConversionADias) - 1;
+const textoDiasHastaEntregaTIF = diasHastaEntregaTIF === 1 ? 'mañana último día' : `quedan ${diasHastaEntregaTIF} días`;
+const fechaEntregaFormateada = fechaEntregaTIF.toLocaleString("es-AR", { dateStyle: "full", timeStyle: "short", hour12: false}) + "h";
+
+// Relleno las etiquetas con los datos
+document.getElementById("fecha-tif").textContent = fechaEntregaFormateada;
+document.getElementById("etiq-fecha-tif").textContent = textoDiasHastaEntregaTIF;
+
 // Funciones auxiliares
 /**
  * Verifica si una fecha dada está en el intervalo entre el día actual
