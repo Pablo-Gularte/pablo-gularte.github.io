@@ -224,10 +224,10 @@ const documentacionCursos = [
     },
     {
         curso: "daw",
-        titulo: "🚗 Proyecto Auto - Spring Boot",
-        subtitulo: "Documentación Técnica Completa - API REST con JPA, Hibernate y DTO",
-        ruta: "daw/Documentacion-Proyecto-Auto.html",
-        archivo: "Documentacion-Proyecto-Auto.html",
+        titulo: "📚 Documentación Técnica: Aplicación Spring Boot + Thymeleaf",
+        subtitulo: "",
+        ruta: "daw/Documentacion_Thymeleaf_Completa.html",
+        archivo: "Documentacion_Thymeleaf_Completa.html",
     },
     {
         curso: "daw",
@@ -235,13 +235,6 @@ const documentacionCursos = [
         subtitulo: "Sistema de gestión de relaciones entre Estudiantes y Cursos",
         ruta: "daw/documentacion-relaciones-jpa.html",
         archivo: "documentacion-relaciones-jpa.html",
-    },
-    {
-        curso: "daw",
-        titulo: "📚 Documentación Técnica: Aplicación Spring Boot + Thymeleaf",
-        subtitulo: "",
-        ruta: "daw/Documentacion_Thymeleaf_Completa.html",
-        archivo: "Documentacion_Thymeleaf_Completa.html",
     },
     {
         curso: "daw",
@@ -258,11 +251,11 @@ const documentacionCursos = [
         archivo: "explicacion-detallada.html",
     },
     {
-        curso: "daw",
-        titulo: "📚 Sistema de Inscripciones TOA",
+        curso: "igw",
+        titulo: "📚 Explicación Detallada del archivo App.js",
         subtitulo: "",
-        ruta: "daw/explicacion-inscripcion.html",
-        archivo: "explicacion-inscripcion.html",
+        ruta: "igw/explicacion-app-js.html",
+        archivo: "explicacion-app-js.html",
     },
     {
         curso: "daw",
@@ -270,20 +263,6 @@ const documentacionCursos = [
         subtitulo: "Análisis paso a paso de la transformación de colecciones con Streams",
         ruta: "daw/explicacion-streams-map.html",
         archivo: "explicacion-streams-map.html",
-    },
-    {
-        curso: "daw",
-        titulo: "⚡ Query Methods",
-        subtitulo: "Métodos de Consulta Derivados en Spring Data JPA",
-        ruta: "daw/Query_Methods_Guia_Completa.html",
-        archivo: "Query_Methods_Guia_Completa.html",
-    },
-    {
-        curso: "daw",
-        titulo: "🚗 Relaciones JPA OneToOne (1:1)",
-        subtitulo: "Guía completa sobre asociaciones unidireccionales Auto-Motor",
-        ruta: "daw/resumen-relaciones-1a1.html",
-        archivo: "resumen-relaciones-1a1.html",
     },
     {
         curso: "gbd",
@@ -300,13 +279,35 @@ const documentacionCursos = [
         archivo: "instalacion-mongodb.html",
     },
     {
-        curso: "igw",
-        titulo: "📚 Explicación Detallada del archivo App.js",
+        curso: "daw",
+        titulo: "🚗 Proyecto Auto - Spring Boot",
+        subtitulo: "Documentación Técnica Completa - API REST con JPA, Hibernate y DTO",
+        ruta: "daw/Documentacion-Proyecto-Auto.html",
+        archivo: "Documentacion-Proyecto-Auto.html",
+    },
+    {
+        curso: "daw",
+        titulo: "⚡ Query Methods",
+        subtitulo: "Métodos de Consulta Derivados en Spring Data JPA",
+        ruta: "daw/Query_Methods_Guia_Completa.html",
+        archivo: "Query_Methods_Guia_Completa.html",
+    },
+    {
+        curso: "daw",
+        titulo: "🚗 Relaciones JPA OneToOne (1:1)",
+        subtitulo: "Guía completa sobre asociaciones unidireccionales Auto-Motor",
+        ruta: "daw/resumen-relaciones-1a1.html",
+        archivo: "resumen-relaciones-1a1.html",
+    },
+    {
+        curso: "daw",
+        titulo: "📚 Sistema de Inscripciones TOA",
         subtitulo: "",
-        ruta: "igw/explicacion-app-js.html",
-        archivo: "explicacion-app-js.html",
+        ruta: "daw/explicacion-inscripcion.html",
+        archivo: "explicacion-inscripcion.html",
     },
 ];
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -340,7 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <ul>
                         ${doc.materiales.map(c => {
                                 return `
-                                <li><b>${c.titulo}</b>${c.subtitulo ? ' (' + c.subtitulo + ')': ''} <a href="${c.ruta}" target="_blank" title="Click para abrir la página con la documentación">(${c.archivo})</a></li>`
+                                <li><b>${c.titulo}</b>${c.subtitulo ? ' (' + c.subtitulo + ')': ''}: <a href="${c.ruta}" target="_blank" title="Click para abrir la página con la documentación">${c.archivo}</a></li>`
 
                             }
 
