@@ -214,8 +214,147 @@ const cursos = [
     },
 ];
 
+const documentacionCursos = [
+    {
+        curso: "daw",
+        titulo: "🏗️ Arquitectura del Proyecto Spring Boot",
+        subtitulo: "Estructura completa con DTOs, Validaciones y Reglas de Negocio",
+        ruta: "daw/Arquitectura_Proyecto_Completa.html",
+        archivo: "Arquitectura_Proyecto_Completa.html",
+    },
+    {
+        curso: "daw",
+        titulo: "🚗 Proyecto Auto - Spring Boot",
+        subtitulo: "Documentación Técnica Completa - API REST con JPA, Hibernate y DTO",
+        ruta: "daw/Documentacion-Proyecto-Auto.html",
+        archivo: "Documentacion-Proyecto-Auto.html",
+    },
+    {
+        curso: "daw",
+        titulo: "📚 Documentación Técnica: Relaciones JPA Many-to-Many",
+        subtitulo: "Sistema de gestión de relaciones entre Estudiantes y Cursos",
+        ruta: "daw/documentacion-relaciones-jpa.html",
+        archivo: "documentacion-relaciones-jpa.html",
+    },
+    {
+        curso: "daw",
+        titulo: "📚 Documentación Técnica: Aplicación Spring Boot + Thymeleaf",
+        subtitulo: "",
+        ruta: "daw/Documentacion_Thymeleaf_Completa.html",
+        archivo: "Documentacion_Thymeleaf_Completa.html",
+    },
+    {
+        curso: "daw",
+        titulo: "🚀 DTO: Data Transfer Object",
+        subtitulo: "Guía completa sobre qué es un DTO y para qué sirve en Spring Boot",
+        ruta: "daw/DTO_Guia_Completa.html",
+        archivo: "DTO_Guia_Completa.html",
+    },
+    {
+        curso: "daw",
+        titulo: "📚 Explicación Detallada: Spring Boot + Thymeleaf",
+        subtitulo: "",
+        ruta: "daw/explicacion-detallada.html",
+        archivo: "explicacion-detallada.html",
+    },
+    {
+        curso: "daw",
+        titulo: "📚 Sistema de Inscripciones TOA",
+        subtitulo: "",
+        ruta: "daw/explicacion-inscripcion.html",
+        archivo: "explicacion-inscripcion.html",
+    },
+    {
+        curso: "daw",
+        titulo: "🔍 Explicación Detallada: Streams y Map en Java",
+        subtitulo: "Análisis paso a paso de la transformación de colecciones con Streams",
+        ruta: "daw/explicacion-streams-map.html",
+        archivo: "explicacion-streams-map.html",
+    },
+    {
+        curso: "daw",
+        titulo: "⚡ Query Methods",
+        subtitulo: "Métodos de Consulta Derivados en Spring Data JPA",
+        ruta: "daw/Query_Methods_Guia_Completa.html",
+        archivo: "Query_Methods_Guia_Completa.html",
+    },
+    {
+        curso: "daw",
+        titulo: "🚗 Relaciones JPA OneToOne (1:1)",
+        subtitulo: "Guía completa sobre asociaciones unidireccionales Auto-Motor",
+        ruta: "daw/resumen-relaciones-1a1.html",
+        archivo: "resumen-relaciones-1a1.html",
+    },
+    {
+        curso: "gbd",
+        titulo: "🗃️ Funciones vs Procedimientos Almacenados",
+        subtitulo: "Guía completa de diferencias en MySQL",
+        ruta: "gbd/funciones-vs-procedimientos.html",
+        archivo: "funciones-vs-procedimientos.html",
+    },
+    {
+        curso: "gbd",
+        titulo: "🍃 Instalación de MongoDB en Windows",
+        subtitulo: "Guía completa para instalar MongoDB desde cero y configurarlo como servicio automático en Windows.",
+        ruta: "gbd/instalacion-mongodb.html",
+        archivo: "instalacion-mongodb.html",
+    },
+    {
+        curso: "igw",
+        titulo: "📚 Explicación Detallada del archivo App.js",
+        subtitulo: "",
+        ruta: "igw/explicacion-app-js.html",
+        archivo: "explicacion-app-js.html",
+    },
+];
+
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Cargo los datos en el acordeon de documentación de cursos
+    // Creo las colecciones correspondientes a los cursos
+    const datosTarjetas = [{
+        curso: "igw",
+        tituloCurso: "Interfaz Gráfica Web",
+        materiales: documentacionCursos.filter(d => d.curso === "igw")
+    },
+    {
+        curso: "daw",
+        tituloCurso: "Diseño de Aplicaciones web",
+        materiales: documentacionCursos.filter(d => d.curso === "daw")
+    },{
+        curso: "gbd",
+        tituloCurso: "Gestión de Base de Datos",
+        materiales: documentacionCursos.filter(d => d.curso === "gbd")
+    }
+    ];
+    const tarjetaAcordeon = datosTarjetas.map((doc, i) => {
+        const html = `
+        <div class="card">
+            <div class="card-header text-bg-info">
+                <a class="btn" data-bs-toggle="collapse" href="#${doc.curso}">
+                    ${doc.tituloCurso}
+                </a>
+            </div>
+            <div id="${doc.curso}" class="collapse ${i === 0 ? "show": ""}" data-bs-parent="#accordion">
+                <div class="card-body">
+                    <ul>
+                        ${doc.materiales.map(c => {
+                                return `
+                                <li><b>${c.titulo}</b>${c.subtitulo ? ' (' + c.subtitulo + ')': ''} <a href="${c.ruta}" target="_blank" title="Click para abrir la página con la documentación">(${c.archivo})</a></li>`
+
+                            }
+
+                            ).join("")
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>`;
+
+        return html;
+    }).join("");
+    $("#accordion").append(tarjetaAcordeon);
+
     // Seleccionar el contenedor donde se insertarán el menú y los paneles
     const divMenu = $('#menu-paneles');
 
