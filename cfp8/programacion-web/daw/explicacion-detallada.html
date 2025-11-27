@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explicación Detallada - Spring Boot + Thymeleaf</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+    <style>
+        .code-section {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .endpoint-get {
+            border-left-color: #28a745;
+        }
+        .endpoint-post {
+            border-left-color: #dc3545;
+        }
+        .thymeleaf-attr {
+            background-color: #e8f4f8;
+            border-left-color: #17a2b8;
+        }
+        .flow-step {
+            background-color: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        .badge-custom {
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-5">📚 Explicación Detallada: Spring Boot + Thymeleaf</h1>
+        
+        <!-- CONTROLLER SECTION -->
+        <div class="row">
+            <div class="col-12">
+                <h2>🎮 CONTROLLER - SaludoController.java</h2>
+                
+                <!-- GET ENDPOINT -->
+                <div class="code-section endpoint-get">
+                    <h3>🟢 Endpoint: GET <code>/cliente/form</code></h3>
+                    <pre><code class="language-java">@GetMapping("/cliente/form")
+public String mostrarFormulario(Model model) {
+    model.addAttribute("cliente", new Cliente());
+    return "cliente-form";
+}</code></pre>
+                    
+                    <h4>📋 Análisis paso a paso:</h4>
+                    <ol>
+                        <li><strong><code>@GetMapping("/cliente/form")</code></strong>
+                            <ul>
+                                <li>Define que este método responde a peticiones HTTP GET</li>
+                                <li>La URL será: <code>http://localhost:8080/cliente/form</code></li>
+                            </ul>
+                        </li>
+                        <li><strong><code>public String mostrarFormulario(Model model)</code></strong>
+                            <ul>
+                                <li>El método recibe un objeto <code>Model</code> (inyectado automáticamente por Spring)</li>
+                                <li><code>Model</code> permite pasar datos desde el controller a la vista</li>
+                            </ul>
+                        </li>
+                        <li><strong><code>model.addAttribute("cliente", new Cliente())</code></strong>
+                            <ul>
+                                <li>Crea una nueva instancia vacía de <code>Cliente</code></li>
+                                <li>La agrega al modelo con la clave <code>"cliente"</code></li>
+                                <li><span class="badge bg-info">¿Por qué?</span> Thymeleaf necesita un objeto para hacer el binding del formulario</li>
+                                <li>Esta instancia vacía será llenada cuando el usuario complete el formulario</li>
+                            </ul>
+                        </li>
+                        <li><strong><code>return "cliente-form"</code></strong>
+                            <ul>
+                                <li>Retorna el nombre de la vista (sin extensión)</li>
+                                <li>Spring resuelve esto como: <code>src/main/resources/templates/cliente-form.html</code></li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <!-- POST ENDPOINT -->
+                <div class="code-section endpoint-post">
+                    <h3>🔵 Endpoint: POST <code>/cliente/procesar</code></h3>
+                    <pre><code class="language-java">@PostMapping("/cliente/procesar")
+@ResponseBody
+public String procesarFormulario(@ModelAttribute Cliente cliente) {
+    return "Datos recibidos:\n" +
+           "Nombre: " + cliente.getNombre() + "\n" +
+           "Edad: " + cliente.getEdad() + " años\n\n";
+}</code></pre>
+                    
+                    <h4>📋 Análisis paso a paso:</h4>
+                    <ol>
+                        <li><strong><code>@PostMapping("/cliente/procesar")</code></strong>
+                            <ul>
+                                <li>Define que este método responde a peticiones HTTP POST</li>
+                                <li>La URL será: <code>http://localhost:8080/cliente/procesar</code></li>
+                            </ul>
+                        </li>
+                        <li><strong><code>@ResponseBody</code></strong>
+                            <ul>
+                                <li><span class="badge bg-danger">MUY IMPORTANTE:</span> Esta anotación indica que el valor retornado NO es el nombre de una vista</li>
+                                <li>En su lugar, el String retornado se envía directamente como respuesta HTTP</li>
+                                <li>Sin esta anotación, Spring buscaría una vista llamada "Datos recibidos..."</li>
+                            </ul>
+                        </li>
+                        <li><strong><code>@ModelAttribute Cliente cliente</code></strong>
+                            <ul>
+                                <li><span class="badge bg-success">Data Binding automático:</span> Spring toma los datos del formulario HTTP y los convierte automáticamente en un objeto <code>Cliente</code></li>
+                                <li>Los campos <code>nombre</code> y <code>edad</code> del formulario se mapean a las propiedades del objeto</li>
+                                <li><span class="badge bg-warning">Magia de Spring:</span> No necesitas extraer manualmente los parámetros</li>
+                            </ul>
+                        </li>
+                        <li><strong>Return String</strong>
+                            <ul>
+                                <li>Retorna texto plano que se mostrará directamente en el navegador</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <!-- VISTA SECTION -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2>🎨 VISTA - cliente-form.html</h2>
+                
+                <div class="code-section">
+                    <h3>📝 Código del formulario:</h3>
+                    <pre><code class="language-html">&lt;form th:action="@{/cliente/procesar}" th:object="${cliente}" method="post"&gt;
+    &lt;div class="mb-3"&gt;
+        &lt;label for="nombre" class="form-label"&gt;Nombre:&lt;/label&gt;
+        &lt;input type="text" id="nombre" th:field="*{nombre}" class="form-control" required/&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="mb-3"&gt;
+        &lt;label for="edad" class="form-label"&gt;Edad:&lt;/label&gt;
+        &lt;input type="number" id="edad" th:field="*{edad}" min="1" max="120" class="form-control" required/&gt;
+    &lt;/div&gt;
+    
+    &lt;button type="submit" class="btn btn-primary"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;div class="mt-3"&gt;
+    &lt;a th:href="@{/main}" class="btn btn-secondary"&gt;Volver al inicio&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                
+                <!-- ATRIBUTOS THYMELEAF -->
+                <h3>🔥 Atributos Thymeleaf explicados:</h3>
+                
+                <div class="code-section thymeleaf-attr">
+                    <h4>1. <code>th:action="@{/cliente/procesar}"</code></h4>
+                    <pre><code class="language-html">&lt;form th:action="@{/cliente/procesar}" ...&gt;</code></pre>
+                    <ul>
+                        <li><strong>Propósito:</strong> Define la URL a donde se enviará el formulario</li>
+                        <li><strong><code>@{...}</code>:</strong> Sintaxis de Thymeleaf para URL expressions</li>
+                        <li><strong>Ventaja:</strong> Thymeleaf construye automáticamente la URL completa considerando el context path</li>
+                        <li><strong>Resultado HTML:</strong> <code>&lt;form action="/cliente/procesar" ...&gt;</code></li>
+                    </ul>
+                </div>
+                
+                <div class="code-section thymeleaf-attr">
+                    <h4>2. <code>th:object="${cliente}"</code></h4>
+                    <pre><code class="language-html">&lt;form ... th:object="${cliente}" ...&gt;</code></pre>
+                    <ul>
+                        <li><strong>Propósito:</strong> Vincula el formulario con el objeto <code>cliente</code> que viene del Model</li>
+                        <li><strong><code>${cliente}</code>:</strong> Referencia al objeto que agregamos en el controller con <code>model.addAttribute("cliente", new Cliente())</code></li>
+                        <li><strong>Función:</strong> Permite usar <code>*{...}</code> en los campos internos para referenciar propiedades del objeto</li>
+                    </ul>
+                </div>
+                
+                <div class="code-section thymeleaf-attr">
+                    <h4>3. <code>th:field="*{nombre}"</code></h4>
+                    <pre><code class="language-html">&lt;input type="text" id="nombre" th:field="*{nombre}" .../&gt;</code></pre>
+                    <ul>
+                        <li><strong>Propósito:</strong> Hace el binding bidireccional entre el campo HTML y la propiedad del objeto</li>
+                        <li><strong><code>*{nombre}</code>:</strong> Sintaxis de selección de variable, equivale a <code>${cliente.nombre}</code></li>
+                        <li><strong>Magia automática:</strong>
+                            <ul>
+                                <li><span class="badge bg-info badge-custom">Al mostrar:</span> Si <code>cliente.nombre</code> tiene valor, lo muestra en el input</li>
+                                <li><span class="badge bg-success badge-custom">Al enviar:</span> El valor del input se asigna automáticamente a <code>cliente.nombre</code></li>
+                            </ul>
+                        </li>
+                        <li><strong>Resultado HTML:</strong> <code>&lt;input type="text" id="nombre" name="nombre" value="" ...&gt;</code></li>
+                    </ul>
+                </div>
+                
+                <div class="code-section thymeleaf-attr">
+                    <h4>4. <code>th:field="*{edad}"</code></h4>
+                    <pre><code class="language-html">&lt;input type="number" id="edad" th:field="*{edad}" .../&gt;</code></pre>
+                    <ul>
+                        <li><strong>Misma lógica que el anterior</strong></li>
+                        <li><strong>Binding automático:</strong> El valor numérico se convierte automáticamente a <code>int</code> en el objeto <code>Cliente</code></li>
+                    </ul>
+                </div>
+                
+                <div class="code-section thymeleaf-attr">
+                    <h4>5. <code>th:href="@{/main}"</code></h4>
+                    <pre><code class="language-html">&lt;a th:href="@{/main}" ...&gt;Volver al inicio&lt;/a&gt;</code></pre>
+                    <ul>
+                        <li><strong>Propósito:</strong> Genera un enlace dinámico</li>
+                        <li><strong><code>@{/main}</code>:</strong> URL expression que genera la URL completa</li>
+                        <li><strong>Resultado HTML:</strong> <code>&lt;a href="/main" ...&gt;Volver al inicio&lt;/a&gt;</code></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FLUJO COMPLETO -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2>🔄 FLUJO COMPLETO DE LA APLICACIÓN</h2>
+                
+                <div class="code-section flow-step">
+                    <ol class="fs-5">
+                        <li><strong>Usuario visita:</strong> <code>http://localhost:8080/cliente/form</code></li>
+                        <li><strong>Spring ejecuta:</strong> <code>mostrarFormulario()</code></li>
+                        <li><strong>Se crea:</strong> <code>new Cliente()</code> vacío y se pasa a la vista</li>
+                        <li><strong>Thymeleaf renderiza:</strong> <code>cliente-form.html</code> con formulario vacío</li>
+                        <li><strong>Usuario completa:</strong> nombre y edad</li>
+                        <li><strong>Usuario envía:</strong> formulario vía POST a <code>/cliente/procesar</code></li>
+                        <li><strong>Spring ejecuta:</strong> <code>procesarFormulario(@ModelAttribute Cliente cliente)</code></li>
+                        <li><strong>Binding automático:</strong> Los datos del form se mapean al objeto <code>Cliente</code></li>
+                        <li><strong>Retorna texto plano:</strong> Gracias a <code>@ResponseBody</code></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>
