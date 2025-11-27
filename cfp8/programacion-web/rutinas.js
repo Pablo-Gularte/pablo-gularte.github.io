@@ -38,7 +38,7 @@ const cursos = [
             {
                 id: "tp4igw",
                 nombre: "TP Nro. 4 Bootstrap",
-                diaEntrega: "2025-10-21",
+                diaEntrega: '2025-11-04',
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867815/mod_assign/introattachment/0/Trabajo%20Practico%20Nro%204.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764278",
@@ -47,7 +47,7 @@ const cursos = [
             {
                 id: "tp5igw",
                 nombre: "TP Nro. 5 Manejo de Eventos",
-                diaEntrega: "2025-10-28",
+                diaEntrega: '2025-11-11',
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867817/mod_assign/introattachment/0/TP%20Nro%205%20Javascript%20Manejo%20de%20Eventos.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764282",
@@ -56,21 +56,21 @@ const cursos = [
             {
                 id: "tp6igw",
                 nombre: "TP Nro. 6 Gestión de APIs mediante JavaScript",
-                diaEntrega: "2025-11-04",
+                diaEntrega: "2025-11-18",
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2879323/mod_assign/introattachment/0/Trabajo%20Practico%20Nro%206.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=771727",
                 estado: "pendiente",
             },
             {
-                "id": "tp7igw",
-                "nombre": "TP Nro. 7 Gestión de APIs mediante Axios",
-                "diaEntrega": "2025-11-11",
-                "horaEntrega": "23:59",
-                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2882583/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro%207.docx?forcedownload=1",
-                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=774618",
-                "estado": "pendiente"
-            }
+                id: "tp7igw",
+                nombre: "TP Nro. 7 Gestión de APIs mediante Axios",
+                diaEntrega: "2025-11-25",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2882583/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro%207.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=774618",
+                estado: "pendiente",
+            },
         ],
     },
     {
@@ -94,30 +94,30 @@ const cursos = [
             {
                 id: "tp2daw",
                 nombre: "TP N2 JPA Hibernate",
-                diaEntrega: "2025-10-23",
+                diaEntrega: '2025-10-30',
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2876374/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro2%20JPA%20Hibernate.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=769192",
                 estado: "pendiente",
             },
             {
-                "id": "tp3daw",
-                "nombre": "TP Nro.3 DTO - Query Method",
-                "diaEntrega": "2025-11-05",
-                "horaEntrega": "23:59",
-                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2880046/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro3%20DTO-Method%20query.docx?forcedownload=1",
-                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=772390",
-                "estado": "pendiente"
+                id: "tp3daw",
+                nombre: "TP Nro.3 DTO - Query Method",
+                diaEntrega: '2025-11-06',
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2880046/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro3%20DTO-Method%20query.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=772390",
+                estado: "pendiente",
             },
             {
-                "id": "tp4daw",
-                "nombre": "TP Nro. 4 Thymeleaf",
-                "diaEntrega": "2025-11-05",
-                "horaEntrega": "23:59",
-                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2868319/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro%204%20Thymeleaf.docx?forcedownload=1",
-                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764626",
-                "estado": "pendiente"
-            }
+                id: "tp4daw",
+                nombre: "TP Nro. 4 Thymeleaf",
+                diaEntrega: '2025-11-20',
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2868319/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Nro%204%20Thymeleaf.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764626",
+                estado: "pendiente",
+            },
         ],
     },
     {
@@ -177,7 +177,7 @@ const cursos = [
             {
                 id: "tp6gbd",
                 nombre: "Trabajo Práctico sobre Procedimientos Almacenados",
-                diaEntrega: "2025-10-30",
+                diaEntrega: "2025-11-06",
                 horaEntrega: "23:59",
                 consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867786/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20sobre%20Procedimientos%20Almacenados.docx?forcedownload=1",
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764252",
@@ -193,26 +193,27 @@ const cursos = [
                 estado: "pendiente",
             },
             {
-                "id": "tp8gbd",
-                "nombre": "Trabajo Practico sobre Transacciones",
-                "diaEntrega": "2025-11-13",
-                "horaEntrega": "23:59",
-                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867790/mod_assign/introattachment/0/Trabajo%20Practico%20sobre%20Transacciones%20en%20MySQL.docx?forcedownload=1",
-                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764256",
-                "estado": "pendiente"
+                id: "tp8gbd",
+                nombre: "Trabajo Practico sobre Transacciones",
+                diaEntrega: "2025-11-13",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867790/mod_assign/introattachment/0/Trabajo%20Practico%20sobre%20Transacciones%20en%20MySQL.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764256",
+                estado: "pendiente",
             },
             {
-                "id": "tp9gbd",
-                "nombre": "Trabajo practico sobre Usuarios y Permisos",
-                "diaEntrega": "2025-11-20",
-                "horaEntrega": "23:59",
-                "consigna": "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867792/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Sistema%20de%20Usuarios%20y%20Permisos.docx?forcedownload=1",
-                "urlEntrega": "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764258",
-                "estado": "pendiente"
-            }
+                id: "tp9gbd",
+                nombre: "Trabajo practico sobre Usuarios y Permisos",
+                diaEntrega: "2025-11-20",
+                horaEntrega: "23:59",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867792/mod_assign/introattachment/0/Trabajo%20Pr%C3%A1ctico%20Sistema%20de%20Usuarios%20y%20Permisos.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764258",
+                estado: "pendiente",
+            },
         ],
     },
 ];
+
 
 document.addEventListener("DOMContentLoaded", function () {
     // Seleccionar el contenedor donde se insertarán el menú y los paneles
@@ -400,8 +401,8 @@ document.addEventListener("DOMContentLoaded", function () {
         </div>`;
     
     // Agrego nuevo botón y panel
-    $(menuPaneles).append(botonAdicional);
-    $(contenidoPaneles).append(panelAdicional);
+    // $(menuPaneles).append(botonAdicional);
+    // $(contenidoPaneles).append(panelAdicional);
 
 
     // Agrego botonera y paneles con todo el contenido generado
@@ -420,6 +421,19 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem(tpid, nuevoEstado);
     });
 });
+
+// Calculo días hasta entrega de trabajo final y relleno etiquetas
+const fechaEntregaTIF = new Date("2025-12-02 22:00:00");
+const hoy = new Date();
+const difEnMs = Math.abs(fechaEntregaTIF.getTime() - hoy.getTime());
+const factorDeConversionADias = 1000 * 60 * 60 * 24;
+const diasHastaEntregaTIF = Math.ceil(difEnMs / factorDeConversionADias) - 1;
+const textoDiasHastaEntregaTIF = diasHastaEntregaTIF === 1 ? 'mañana último día' : `quedan ${diasHastaEntregaTIF} días`;
+const fechaEntregaFormateada = fechaEntregaTIF.toLocaleString("es-AR", { dateStyle: "full", timeStyle: "short", hour12: false}) + "h";
+
+// Relleno las etiquetas con los datos
+document.getElementById("fecha-tif").textContent = fechaEntregaFormateada;
+document.getElementById("etiq-fecha-tif").textContent = textoDiasHastaEntregaTIF;
 
 // Funciones auxiliares
 /**
@@ -464,3 +478,13 @@ function estaEnSemanaActual(fechaAValidar) {
     // La fecha debe ser mayor o igual a 'hoy' Y menor o igual a 'proximoViernes'
     return tiempoValidar >= hoy.getTime() && tiempoValidar <= proximoViernes.getTime();
 }
+
+// // Agrego rutina para cerrar automaticamente modal de aviso
+// const modal = new bootstrap.Modal(document.getElementById("myModal"));
+// const segEspera = 10 * 1000;
+// window.onload = function () {
+//     modal.show();
+//     setTimeout(() => {
+//         modal.hide();
+//     }, segEspera);
+// };
