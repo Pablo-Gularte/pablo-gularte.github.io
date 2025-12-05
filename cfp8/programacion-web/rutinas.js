@@ -210,6 +210,15 @@ const cursos = [
                 urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764258",
                 estado: "pendiente",
             },
+            {
+                id: "tp10gbd",
+                nombre: "Trabajo Práctico Final Gestión de Base de Datos",
+                diaEntrega: "2025-12-18",
+                horaEntrega: "21:00",
+                consigna: "https://aulasvirtuales.bue.edu.ar/pluginfile.php/2867798/mod_assign/introattachment/0/Trabajo%20Practico%20Final%20Gesti%C3%B3n%20de%20Base%20de%20Datos.docx?forcedownload=1",
+                urlEntrega: "https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764264",
+                estado: "pendiente",
+            },
         ],
     },
 ];
