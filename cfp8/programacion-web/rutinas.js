@@ -572,7 +572,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Calculo días hasta entrega de trabajo final y relleno etiquetas
-const fechaEntregaTIF = new Date("2025-12-02 22:00:00");
+const fechaEntregaTIF = new Date("2025-12-18 22:00:00");
 const hoy = new Date();
 const difEnMs = Math.abs(fechaEntregaTIF.getTime() - hoy.getTime());
 const factorDeConversionADias = 1000 * 60 * 60 * 24;
