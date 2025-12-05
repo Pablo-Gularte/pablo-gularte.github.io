@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Inscripciones TOA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h2 {
+            color: #667eea;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        h3 {
+            color: #764ba2;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        h4 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .code-block pre {
+            margin: 0;
+        }
+        
+        .keyword { color: #ff79c6; }
+        .string { color: #f1fa8c; }
+        .comment { color: #6272a4; font-style: italic; }
+        .type { color: #8be9fd; }
+        .function { color: #50fa7b; }
+        .annotation { color: #ff6b6b; }
+        
+        .info-box {
+            background: #e7f3ff;
+            border-left: 5px solid #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .success-box {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .endpoint {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .endpoint-method {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-right: 10px;
+            color: white;
+        }
+        
+        .get { background: #61affe; }
+        .post { background: #49cc90; }
+        .put { background: #fca130; }
+        .patch { background: #50e3c2; }
+        .delete { background: #f93e3e; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        ul, ol {
+            margin-left: 30px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .json-example {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+        }
+        
+        .toc {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            color: #667eea;
+        }
+        
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 8px;
+        }
+        
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .toc a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Sistema de Inscripciones TOA</h1>
+        </header>
+        
+        <div class="content">
+            <!-- Tabla de Contenidos -->
+            <div class="toc">
+                <h3>📋 Tabla de Contenidos</h3>
+                <ul>
+                    <li><a href="#inscripcion-id">1. InscripcionId - Clave Compuesta</a></li>
+                    <li><a href="#inscripcion">2. Inscripcion - Entidad Principal</a></li>
+                    <li><a href="#localdate">3. LocalDate - Manejo de Fechas</a></li>
+                    <li><a href="#enum">4. Enum - Estados de Inscripción</a></li>
+                    <li><a href="#valid">5. @Valid - Validación Automática</a></li>
+                    <li><a href="#hibernate-ddl">6. Ver DDL de Hibernate</a></li>
+                    <li><a href="#controller">7. InscripcionController - API REST</a></li>
+                    <li><a href="#endpoints">8. Endpoints Detallados</a></li>
+                    <li><a href="#ejemplos">9. Ejemplos de Uso</a></li>
+                </ul>
+            </div>
+
+            <!-- InscripcionId -->
+            <h2 id="inscripcion-id">1. InscripcionId - Clave Compuesta</h2>
+            
+            <div class="code-block">
+                <pre><span class="annotation">@Embeddable</span>
+<span class="annotation">@Data</span>
+<span class="annotation">@NoArgsConstructor</span>
+<span class="annotation">@AllArgsConstructor</span>
+<span class="keyword">public class</span> <span class="type">InscripcionId</span> <span class="keyword">implements</span> <span class="type">Serializable</span> {
+
+    <span class="annotation">@Column</span>(name = <span class="string">"id_estudiante"</span>)
+    <span class="keyword">private</span> <span class="type">Long</span> idEstudiante;
+
+    <span class="annotation">@Column</span>(name = <span class="string">"id_curso"</span>)
+    <span class="keyword">private</span> <span class="type">Long</span> idCurso;
+
+    <span class="comment">// equals() y hashCode() override...</span>
+}</pre>
+            </div>
+
+            <h3>🔍 ¿Qué hace @Embeddable?</h3>
+            <div class="info-box">
+                <p><strong>@Embeddable</strong> indica que esta clase puede ser <strong>embebida (incrustada)</strong> dentro de otra entidad como parte de su estructura, pero no es una entidad independiente con su propia tabla.</p>
+            </div>
+
+            <h4>Características principales:</h4>
+            <ul>
+                <li><strong>No tiene su propia tabla:</strong> Los campos <code>idEstudiante</code> e <code>idCurso</code> se mapean directamente como columnas en la tabla de <code>Inscripcion</code></li>
+                <li><strong>Se usa con @EmbeddedId:</strong> En la clase <code>Inscripcion</code> se declara como clave primaria embebida</li>
+                <li><strong>Representa una clave primaria compuesta:</strong> La combinación de <code>idEstudiante</code> + <code>idCurso</code> identifica únicamente cada inscripción</li>
+                <li><strong>Debe implementar Serializable:</strong> Requisito obligatorio de JPA para claves compuestas</li>
+            </ul>
+
+            <h3>⚙️ ¿Por qué debe implementar Serializable?</h3>
+            <div class="warning-box">
+                <h4>Requisitos de JPA:</h4>
+                <ol>
+                    <li><strong>Especificación JPA:</strong> La especificación de JPA requiere que todas las clases usadas como <code>@EmbeddedId</code> o <code>@IdClass</code> implementen <code>Serializable</code></li>
+                    <li><strong>Almacenamiento en caché:</strong> JPA/Hibernate necesita poder serializar las claves para:
+                        <ul>
+                            <li>Guardarlas en el caché de segundo nivel</li>
+                            <li>Mantener el estado de las entidades entre transacciones</li>
+                            <li>Transferir objetos entre diferentes contextos de persistencia</li>
+                        </ul>
+                    </li>
+                    <li><strong>Identificación de entidades:</strong> La clave primaria se usa para identificar entidades en el contexto de persistencia y debe poder convertirse a bytes</li>
+                    <li><strong>Prevención de errores:</strong> Sin <code>Serializable</code>, obtendrías <code>NotSerializableException</code> en tiempo de ejecución</li>
+                </ol>
+            </div>
+
+            <h3>🗂️ Niveles de Caché en Hibernate</h3>
+
+            <h4>📦 Caché de Primer Nivel (First-Level Cache)</h4>
+            <div class="info-box">
+                <p><strong>Características:</strong></p>
+                <ul>
+                    <li><strong>Automático y obligatorio</strong> - Siempre está activo</li>
+                    <li><strong>Alcance:</strong> Dentro de una misma sesión/transacción (<code>EntityManager</code> o <code>Session</code>)</li>
+                    <li><strong>Duración:</strong> Solo mientras dura la transacción</li>
+                    <li><strong>No configurable:</strong> No puedes desactivarlo</li>
+                </ul>
+            </div>
+
+            <h4>💡 Ejemplo de Caché de Primer Nivel:</h4>
+            <div class="code-block">
+                <pre><span class="comment">// Primera consulta - va a la BD</span>
+<span class="type">Estudiante</span> estudiante1 = entityManager.<span class="function">find</span>(<span class="type">Estudiante</span>.<span class="keyword">class</span>, <span class="string">1L</span>);
+
+<span class="comment">// Segunda consulta del MISMO estudiante en la MISMA transacción</span>
+<span class="comment">// NO va a la BD, lo toma del caché de primer nivel</span>
+<span class="type">Estudiante</span> estudiante2 = entityManager.<span class="function">find</span>(<span class="type">Estudiante</span>.<span class="keyword">class</span>, <span class="string">1L</span>);
+
+<span class="comment">// estudiante1 == estudiante2 (misma instancia en memoria)</span></pre>
+            </div>
+
+            <div class="success-box">
+                <p><strong>✅ Beneficios del Caché de Primer Nivel:</strong></p>
+                <ul>
+                    <li>Evita consultas duplicadas dentro de la misma transacción</li>
+                    <li>Garantiza consistencia de objetos (siempre la misma instancia)</li>
+                    <li>Reduce carga en la BD</li>
+                </ul>
+                <p><strong>❌ Limitación:</strong></p>
+                <ul>
+                    <li>Solo funciona dentro de una transacción</li>
+                    <li>Al cerrar la transacción, se pierde el caché</li>
+                </ul>
+            </div>
+
+            <h4>🌐 Caché de Segundo Nivel (Second-Level Cache)</h4>
+            <div class="info-box">
+                <p><strong>Características:</strong></p>
+                <ul>
+                    <li><strong>Opcional</strong> - Debes configurarlo explícitamente</li>
+                    <li><strong>Alcance:</strong> A nivel de aplicación (compartido entre todas las sesiones)</li>
+                    <li><strong>Duración:</strong> Persiste entre transacciones y requests</li>
+                    <li><strong>Configurable:</strong> Puedes elegir qué entidades cachear</li>
+                </ul>
+            </div>
+
+            <h4>💡 Ejemplo de Caché de Segundo Nivel:</h4>
+            <div class="code-block">
+                <pre><span class="comment">// Usuario A en transacción 1</span>
+<span class="type">Curso</span> curso1 = entityManager.<span class="function">find</span>(<span class="type">Curso</span>.<span class="keyword">class</span>, <span class="string">1L</span>); <span class="comment">// Va a la BD</span>
+
+<span class="comment">// Usuario B en transacción 2 (diferente)</span>
+<span class="type">Curso</span> curso2 = entityManager.<span class="function">find</span>(<span class="type">Curso</span>.<span class="keyword">class</span>, <span class="string">1L</span>); <span class="comment">// NO va a la BD</span>
+<span class="comment">// Lo toma del caché de segundo nivel</span></pre>
+            </div>
+
+            <div class="success-box">
+                <p><strong>✅ Beneficios del Caché de Segundo Nivel:</strong></p>
+                <ul>
+                    <li>Mejora rendimiento para datos consultados frecuentemente</li>
+                    <li>Reduce significativamente la carga en la BD</li>
+                    <li>Útil para datos que no cambian mucho (catálogos, configuraciones)</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>¿Cuándo usar Caché de Segundo Nivel?</strong></p>
+                <ul>
+                    <li>✅ Datos de solo lectura o que cambian poco</li>
+                    <li>✅ Datos consultados frecuentemente</li>
+                    <li>✅ Catálogos (países, categorías, roles)</li>
+                    <li>✅ Configuraciones del sistema</li>
+                </ul>
+                <p><strong>¿Cuándo NO usarlo?</strong></p>
+                <ul>
+                    <li>❌ Datos que cambian constantemente</li>
+                    <li>❌ Datos críticos que deben estar siempre actualizados</li>
+                    <li>❌ Aplicaciones distribuidas sin caché distribuido</li>
+                </ul>
+            </div>
+
+            <h4>⚙️ Configuración del Caché de Segundo Nivel:</h4>
+
+            <p><strong>1. Agregar dependencia (Ehcache):</strong></p>
+            <div class="code-block">
+                <pre><span class="keyword">&lt;dependency&gt;</span>
+    <span class="keyword">&lt;groupId&gt;</span>org.hibernate<span class="keyword">&lt;/groupId&gt;</span>
+    <span class="keyword">&lt;artifactId&gt;</span>hibernate-ehcache<span class="keyword">&lt;/artifactId&gt;</span>
+<span class="keyword">&lt;/dependency&gt;</span></pre>
+            </div>
+
+            <p><strong>2. Configurar en <code>application.properties</code>:</strong></p>
+            <div class="code-block">
+                <pre><span class="comment"># Habilitar caché de segundo nivel</span>
+spring.jpa.properties.hibernate.cache.use_second_level_cache=<span class="keyword">true</span>
+
+<span class="comment"># Proveedor de caché</span>
+spring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory
+
+<span class="comment"># Habilitar estadísticas para monitorear</span>
+spring.jpa.properties.hibernate.generate_statistics=<span class="keyword">true</span></pre>
+            </div>
+
+            <p><strong>3. Marcar entidades cacheables:</strong></p>
+            <div class="code-block">
+                <pre><span class="annotation">@Entity</span>
+<span class="annotation">@Cacheable</span>  <span class="comment">← Habilita caché para esta entidad</span>
+<span class="annotation">@org.hibernate.annotations.Cache</span>(usage = CacheConcurrencyStrategy.READ_ONLY)
+<span class="keyword">public class</span> <span class="type">Curso</span> {
+    <span class="comment">// ...</span>
+}</pre>
+            </div>
+
+            <p><strong>Estrategias de concurrencia:</strong></p>
+            <ul>
+                <li><code>READ_ONLY</code>: Datos que nunca cambian</li>
+                <li><code>READ_WRITE</code>: Datos que pueden modificarse</li>
+                <li><code>NONSTRICT_READ_WRITE</code>: Menor consistencia, mayor rendimiento</li>
+                <li><code>TRANSACTIONAL</code>: Transacciones distribuidas</li>
+            </ul>
+
+            <h4>🔍 Comparación de rendimiento:</h4>
+
+            <p><strong>Sin caché:</strong></p>
+            <div class="code-block">
+                <pre><span class="comment">// Request 1 - Usuario A</span>
+<span class="type">Curso</span> curso = cursoRepository.<span class="function">findById</span>(<span class="string">1L</span>); <span class="comment">// SELECT * FROM cursos WHERE id=1</span>
+
+<span class="comment">// Request 2 - Usuario B (diferente sesión)</span>
+<span class="type">Curso</span> curso = cursoRepository.<span class="function">findById</span>(<span class="string">1L</span>); <span class="comment">// SELECT * otra vez!</span>
+
+<span class="comment">// Request 3 - Usuario C</span>
+<span class="type">Curso</span> curso = cursoRepository.<span class="function">findById</span>(<span class="string">1L</span>); <span class="comment">// SELECT * otra vez!</span>
+
+<span class="comment">// Resultado: 3 consultas a la BD</span></pre>
+            </div>
+
+            <p><strong>Con caché de segundo nivel:</strong></p>
+            <div class="code-block">
+                <pre><span class="comment">// Request 1 - Usuario A</span>
+<span class="type">Curso</span> curso = cursoRepository.<span class="function">findById</span>(<span class="string">1L</span>); <span class="comment">// SELECT * FROM cursos WHERE id=1</span>
+
+<span class="comment">// Request 2 - Usuario B</span>
+<span class="type">Curso</span> curso = cursoRepository.<span class="function">findById</span>(<span class="string">1L</span>); <span class="comment">// Desde caché ✅</span>
+
+<span class="comment">// Request 3 - Usuario C</span>
+<span class="type">Curso</span> curso = cursoRepository.<span class="function">findById</span>(<span class="string">1L</span>); <span class="comment">// Desde caché ✅</span>
+
+<span class="comment">// Resultado: 1 consulta a la BD</span></pre>
+            </div>
+
+            <h4>📊 Resumen de Niveles de Caché:</h4>
+            <table>
+                <tr>
+                    <th>Caché</th>
+                    <th>Alcance</th>
+                    <th>Duración</th>
+                    <th>Automático</th>
+                    <th>Uso Principal</th>
+                </tr>
+                <tr>
+                    <td><strong>Primer Nivel</strong></td>
+                    <td>Una transacción</td>
+                    <td>Hasta cerrar transacción</td>
+                    <td>✅ Sí</td>
+                    <td>Evitar duplicados en misma transacción</td>
+                </tr>
+                <tr>
+                    <td><strong>Segundo Nivel</strong></td>
+                    <td>Toda la app</td>
+                    <td>Entre transacciones</td>
+                    <td>❌ No</td>
+                    <td>Datos consultados frecuentemente</td>
+                </tr>
+                <tr>
+                    <td><strong>Query Cache</strong></td>
+                    <td>Toda la app</td>
+                    <td>Entre transacciones</td>
+                    <td>❌ No</td>
+                    <td>Resultados de consultas complejas</td>
+                </tr>
+            </table>
+
+            <div class="info-box">
+                <p><strong>🔑 ¿Por qué necesita Serializable para cachear?</strong></p>
+                <p>El caché de segundo nivel almacena objetos fuera de la memoria de la JVM (disco, Redis, etc.). Para esto:</p>
+                <ol>
+                    <li><strong>Serializa</strong> el objeto (lo convierte a bytes)</li>
+                    <li>Lo guarda en el caché</li>
+                    <li>Lo <strong>deserializa</strong> cuando lo necesita (lo reconstruye desde bytes)</li>
+                </ol>
+                <p>Sin <code>Serializable</code>, no puede convertir el objeto a bytes y lanzaría <code>NotSerializableException</code>.</p>
+            </div>
+
+            <div class="success-box">
+                <p><strong>💡 Mejor práctica:</strong> Usa caché de segundo nivel solo para datos que cambien poco y se consulten mucho, como catálogos o configuraciones del sistema.</p>
+            </div>
+
+            <!-- Inscripcion -->
+            <h2 id="inscripcion">2. Inscripcion - Entidad Principal</h2>
+            
+            <div class="code-block">
+                <pre><span class="annotation">@Entity</span>
+<span class="annotation">@Table</span>(name = <span class="string">"inscripciones"</span>)
+<span class="annotation">@Data</span>
+<span class="annotation">@NoArgsConstructor</span>
+<span class="annotation">@AllArgsConstructor</span>
+<span class="keyword">public class</span> <span class="type">Inscripcion</span> {
+
+    <span class="annotation">@EmbeddedId</span>
+    <span class="keyword">private</span> <span class="type">InscripcionId</span> id;
+    
+    <span class="annotation">@ManyToOne</span>(fetch = FetchType.EAGER)
+    <span class="annotation">@MapsId</span>(<span class="string">"idEstudiante"</span>)
+    <span class="annotation">@JoinColumn</span>(name = <span class="string">"id_estudiante"</span>)
+    <span class="keyword">private</span> <span class="type">Estudiante</span> estudiante;
+    
+    <span class="annotation">@ManyToOne</span>(fetch = FetchType.EAGER)
+    <span class="annotation">@MapsId</span>(<span class="string">"idCurso"</span>)
+    <span class="annotation">@JoinColumn</span>(name = <span class="string">"id_curso"</span>)
+    <span class="keyword">private</span> <span class="type">Curso</span> curso;    
+    
+    <span class="annotation">@Column</span>(name = <span class="string">"fecha_inscripcion"</span>, nullable = <span class="keyword">false</span>)
+    <span class="keyword">private</span> <span class="type">LocalDate</span> fechaInscripcion;
+
+    <span class="annotation">@Enumerated</span>(EnumType.STRING)
+    <span class="annotation">@Column</span>(nullable = <span class="keyword">false</span>)
+    <span class="keyword">private</span> <span class="type">EstadoInscripcion</span> estado;
+
+    <span class="keyword">public enum</span> <span class="type">EstadoInscripcion</span> {
+        ACTIVA, COMPLETADA, ABANDONADA, EN_PROGRESO
+    }
+}</pre>
+            </div>
+
+            <h3>📌 Anotaciones Clave</h3>
+            <table>
+                <tr>
+                    <th>Anotación</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td><code>@Entity</code></td>
+                    <td>Define que es una entidad JPA (tabla en la BD)</td>
+                </tr>
+                <tr>
+                    <td><code>@Table</code></td>
+                    <td>Mapea a la tabla <code>inscripciones</code></td>
+                </tr>
+                <tr>
+                    <td><code>@EmbeddedId</code></td>
+                    <td>Usa la clase embebida <code>InscripcionId</code> como clave primaria compuesta</td>
+                </tr>
+                <tr>
+                    <td><code>@ManyToOne</code></td>
+                    <td>Muchas inscripciones pertenecen a un estudiante/curso</td>
+                </tr>
+                <tr>
+                    <td><code>@MapsId</code></td>
+                    <td>Mapea este objeto al campo correspondiente de <code>InscripcionId</code></td>
+                </tr>
+                <tr>
+                    <td><code>@JoinColumn</code></td>
+                    <td>Define la columna de clave foránea</td>
+                </tr>
+                <tr>
+                    <td><code>FetchType.EAGER</code></td>
+                    <td>Carga el estudiante/curso inmediatamente con la inscripción</td>
+                </tr>
+                <tr>
+                    <td><code>@Enumerated(EnumType.STRING)</code></td>
+                    <td>Guarda el enum como texto en la BD (no como número)</td>
+                </tr>
+            </table>
+
+            <div class="success-box">
+                <p><strong>💡 Concepto TOA:</strong> Esta clase representa la tabla de unión (TOA - Table Object Association) entre <code>Estudiante</code> y <code>Curso</code>, con atributos adicionales propios de la relación (<code>fechaInscripcion</code> y <code>estado</code>).</p>
+            </div>
+
+            <!-- LocalDate -->
+            <h2 id="localdate">3. LocalDate - Manejo de Fechas</h2>
+
+            <h3>🗓️ Crear fechas</h3>
+            <div class="code-block">
+                <pre><span class="comment">// Fecha actual</span>
+<span class="type">LocalDate</span> hoy = <span class="type">LocalDate</span>.<span class="function">now</span>();
+
+<span class="comment">// Fecha específica</span>
+<span class="type">LocalDate</span> fecha = <span class="type">LocalDate</span>.<span class="function">of</span>(<span class="string">2025</span>, <span class="string">11</span>, <span class="string">19</span>);  <span class="comment">// año, mes, día</span>
+<span class="type">LocalDate</span> fecha2 = <span class="type">LocalDate</span>.<span class="function">of</span>(<span class="string">2025</span>, Month.NOVEMBER, <span class="string">19</span>);
+
+<span class="comment">// Desde String</span>
+<span class="type">LocalDate</span> fecha3 = <span class="type">LocalDate</span>.<span class="function">parse</span>(<span class="string">"2025-11-19"</span>);</pre>
+            </div>
+
+            <h3>⚡ Operaciones con fechas</h3>
+            <div class="code-block">
+                <pre><span class="comment">// Sumar/restar días</span>
+<span class="type">LocalDate</span> manana = hoy.<span class="function">plusDays</span>(<span class="string">1</span>);
+<span class="type">LocalDate</span> ayer = hoy.<span class="function">minusDays</span>(<span class="string">1</span>);
+
+<span class="comment">// Sumar/restar meses o años</span>
+<span class="type">LocalDate</span> proximoMes = hoy.<span class="function">plusMonths</span>(<span class="string">1</span>);
+<span class="type">LocalDate</span> anoPasado = hoy.<span class="function">minusYears</span>(<span class="string">1</span>);
+
+<span class="comment">// Comparar</span>
+<span class="keyword">if</span> (fecha.<span class="function">isBefore</span>(hoy)) { }
+<span class="keyword">if</span> (fecha.<span class="function">isAfter</span>(hoy)) { }
+<span class="keyword">if</span> (fecha.<span class="function">equals</span>(hoy)) { }
+
+<span class="comment">// Obtener componentes</span>
+<span class="keyword">int</span> año = hoy.<span class="function">getYear</span>();
+<span class="keyword">int</span> mes = hoy.<span class="function">getMonthValue</span>();  <span class="comment">// 1-12</span>
+<span class="keyword">int</span> dia = hoy.<span class="function">getDayOfMonth</span>();</pre>
+            </div>
+
+            <h3>🔄 Uso en Controller</h3>
+            <div class="code-block">
+                <pre><span class="comment">// Crear inscripción con fecha actual</span>
+<span class="type">Inscripcion</span> inscripcion = <span class="keyword">new</span> <span class="type">Inscripcion</span>();
+inscripcion.<span class="function">setFechaInscripcion</span>(<span class="type">LocalDate</span>.<span class="function">now</span>());
+
+<span class="comment">// Spring Boot convierte automáticamente JSON a LocalDate</span>
+<span class="annotation">@PostMapping</span>
+<span class="keyword">public</span> <span class="type">Inscripcion</span> <span class="function">crear</span>(<span class="annotation">@RequestBody</span> <span class="type">Inscripcion</span> inscripcion) {
+    <span class="comment">// inscripcion.getFechaInscripcion() ya viene como LocalDate</span>
+    <span class="keyword">return</span> repository.<span class="function">save</span>(inscripcion);
+}</pre>
+            </div>
+
+            <div class="info-box">
+                <p><strong>📌 Conversión Automática:</strong> Spring Boot convierte automáticamente entre <code>LocalDate</code> ↔ <code>"2025-11-19"</code> (formato ISO) en JSON.</p>
+            </div>
+
+            <!-- Enum -->
+            <h2 id="enum">4. Enum - Estados de Inscripción</h2>
+
+            <h3>🎯 Uso del Enum</h3>
+            <div class="code-block">
+                <pre><span class="comment">// Asignar valor</span>
+<span class="type">Inscripcion</span> inscripcion = <span class="keyword">new</span> <span class="type">Inscripcion</span>();
+inscripcion.<span class="function">setEstado</span>(<span class="type">EstadoInscripcion</span>.ACTIVA);
+
+<span class="comment">// Comparar</span>
+<span class="keyword">if</span> (inscripcion.<span class="function">getEstado</span>() == <span class="type">EstadoInscripcion</span>.COMPLETADA) {
+    <span class="comment">// hacer algo</span>
+}
+
+<span class="comment">// Switch</span>
+<span class="keyword">switch</span> (inscripcion.<span class="function">getEstado</span>()) {
+    <span class="keyword">case</span> ACTIVA:
+        System.out.<span class="function">println</span>(<span class="string">"Inscripción activa"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> COMPLETADA:
+        System.out.<span class="function">println</span>(<span class="string">"Curso completado"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> ABANDONADA:
+        System.out.<span class="function">println</span>(<span class="string">"Curso abandonado"</span>);
+        <span class="keyword">break</span>;
+    <span class="keyword">case</span> EN_PROGRESO:
+        System.out.<span class="function">println</span>(<span class="string">"En progreso"</span>);
+        <span class="keyword">break</span>;
+}
+
+<span class="comment">// Obtener todos los valores</span>
+<span class="type">EstadoInscripcion</span>[] estados = <span class="type">EstadoInscripcion</span>.<span class="function">values</span>();
+
+<span class="comment">// Desde String</span>
+<span class="type">EstadoInscripcion</span> estado = <span class="type">EstadoInscripcion</span>.<span class="function">valueOf</span>(<span class="string">"ACTIVA"</span>);</pre>
+            </div>
+
+            <h3>🔧 En el Controller</h3>
+            <div class="code-block">
+                <pre><span class="comment">// Cambiar estado de inscripción</span>
+<span class="annotation">@PutMapping</span>(<span class="string">"/{idEstudiante}/{idCurso}/estado"</span>)
+<span class="keyword">public</span> <span class="type">Inscripcion</span> <span class="function">cambiarEstado</span>(
+    <span class="annotation">@PathVariable</span> <span class="type">Long</span> idEstudiante,
+    <span class="annotation">@PathVariable</span> <span class="type">Long</span> idCurso,
+    <span class="annotation">@RequestParam</span> <span class="type">EstadoInscripcion</span> nuevoEstado) {
+    
+    <span class="type">InscripcionId</span> id = <span class="keyword">new</span> <span class="type">InscripcionId</span>(idEstudiante, idCurso);
+    <span class="type">Inscripcion</span> inscripcion = repository.<span class="function">findById</span>(id)
+        .<span class="function">orElseThrow</span>(() -> <span class="keyword">new</span> <span class="type">RuntimeException</span>(<span class="string">"No encontrada"</span>));
+    
+    inscripcion.<span class="function">setEstado</span>(nuevoEstado);
+    <span class="keyword">return</span> repository.<span class="function">save</span>(inscripcion);
+}</pre>
+            </div>
+
+            <div class="info-box">
+                <p><strong>📌 Conversión Automática:</strong> Spring Boot convierte automáticamente entre <code>EstadoInscripcion</code> ↔ <code>"ACTIVA"</code> (nombre del enum como String) en JSON.</p>
+            </div>
+
+            <!-- @Valid -->
+            <h2 id="valid">5. @Valid - Validación Automática</h2>
+
+            <p><code>@Valid</code> es una anotación de <strong>Java Bean Validation</strong> que activa la validación automática de los datos que llegan al controller.</p>
+
+            <h3>🔍 ¿Qué hace?</h3>
+            <div class="info-box">
+                <p>Cuando usas <code>@Valid</code> antes de <code>@RequestBody</code>, Spring Boot valida automáticamente el objeto según las anotaciones de validación que tenga la clase.</p>
+            </div>
+
+            <h3>📋 Anotaciones de validación comunes</h3>
+            <div class="code-block">
+                <pre><span class="keyword">public class</span> <span class="type">Inscripcion</span> {
+    
+    <span class="annotation">@NotNull</span>(message = <span class="string">"La fecha de inscripción es obligatoria"</span>)
+    <span class="keyword">private</span> <span class="type">LocalDate</span> fechaInscripcion;
+    
+    <span class="annotation">@NotNull</span>(message = <span class="string">"El estado es obligatorio"</span>)
+    <span class="keyword">private</span> <span class="type">EstadoInscripcion</span> estado;
+}
+
+<span class="keyword">public class</span> <span class="type">Estudiante</span> {
+    
+    <span class="annotation">@NotBlank</span>(message = <span class="string">"El nombre es obligatorio"</span>)
+    <span class="annotation">@Size</span>(min = <span class="string">2</span>, max = <span class="string">100</span>, message = <span class="string">"El nombre debe tener entre 2 y 100 caracteres"</span>)
+    <span class="keyword">private</span> <span class="type">String</span> nombre;
+    
+    <span class="annotation">@Email</span>(message = <span class="string">"Email inválido"</span>)
+    <span class="annotation">@NotBlank</span>(message = <span class="string">"El email es obligatorio"</span>)
+    <span class="keyword">private</span> <span class="type">String</span> email;
+    
+    <span class="annotation">@Min</span>(value = <span class="string">18</span>, message = <span class="string">"Debe ser mayor de edad"</span>)
+    <span class="keyword">private</span> <span class="type">Integer</span> edad;
+}</pre>
+            </div>
+
+            <h3>⚙️ Cómo funciona en el Controller</h3>
+            <div class="code-block">
+                <pre><span class="annotation">@PostMapping</span>
+<span class="keyword">public</span> <span class="type">ResponseEntity</span>&lt;?&gt; <span class="function">createInscripcion</span>(
+    <span class="annotation">@Valid</span> <span class="annotation">@RequestBody</span> <span class="type">Inscripcion</span> inscripcion) {  <span class="comment">← @Valid aquí</span>
+    
+    <span class="comment">// Si la validación falla, Spring automáticamente:</span>
+    <span class="comment">// - Retorna código 400 (Bad Request)</span>
+    <span class="comment">// - Incluye los mensajes de error en la respuesta</span>
+    <span class="comment">// - NO ejecuta este código</span>
+    
+    <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">ok</span>(inscripcionRepository.<span class="function">save</span>(inscripcion));
+}</pre>
+            </div>
+
+            <h3>❌ Ejemplo de error cuando falla la validación</h3>
+            <p><strong>Request enviado:</strong></p>
+            <div class="json-example">
+{
+  "fechaInscripcion": null,
+  "estado": null
+}
+            </div>
+
+            <p><strong>Response automático de Spring (400 Bad Request):</strong></p>
+            <div class="json-example">
+{
+  "timestamp": "2025-11-19T10:30:00",
+  "status": 400,
+  "errors": [
+    {
+      "field": "fechaInscripcion",
+      "message": "La fecha de inscripción es obligatoria"
+    },
+    {
+      "field": "estado",
+      "message": "El estado es obligatorio"
+    }
+  ]
+}
+            </div>
+
+            <h3>📚 Principales anotaciones de validación</h3>
+            <table>
+                <tr>
+                    <th>Anotación</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td><code>@NotNull</code></td>
+                    <td>El campo no puede ser <code>null</code></td>
+                </tr>
+                <tr>
+                    <td><code>@NotBlank</code></td>
+                    <td>No puede ser <code>null</code>, vacío o solo espacios (String)</td>
+                </tr>
+                <tr>
+                    <td><code>@NotEmpty</code></td>
+                    <td>No puede ser <code>null</code> o vacío (String, Collection, Array)</td>
+                </tr>
+                <tr>
+                    <td><code>@Size(min, max)</code></td>
+                    <td>Longitud mínima/máxima (String, Collection, Array)</td>
+                </tr>
+                <tr>
+                    <td><code>@Min(value)</code></td>
+                    <td>Valor mínimo (números)</td>
+                </tr>
+                <tr>
+                    <td><code>@Max(value)</code></td>
+                    <td>Valor máximo (números)</td>
+                </tr>
+                <tr>
+                    <td><code>@Email</code></td>
+                    <td>Valida formato de email</td>
+                </tr>
+                <tr>
+                    <td><code>@Pattern(regexp)</code></td>
+                    <td>Valida contra expresión regular</td>
+                </tr>
+                <tr>
+                    <td><code>@Positive</code></td>
+                    <td>Número positivo (> 0)</td>
+                </tr>
+                <tr>
+                    <td><code>@PositiveOrZero</code></td>
+                    <td>Número >= 0</td>
+                </tr>
+                <tr>
+                    <td><code>@Past</code></td>
+                    <td>Fecha en el pasado</td>
+                </tr>
+                <tr>
+                    <td><code>@Future</code></td>
+                    <td>Fecha en el futuro</td>
+                </tr>
+            </table>
+
+            <h3>🔄 Diferencia PUT vs PATCH con @Valid</h3>
+            <div class="code-block">
+                <pre><span class="comment">// PUT con @Valid - TODOS los campos son obligatorios</span>
+<span class="annotation">@PutMapping</span>(<span class="string">"/{id}"</span>)
+<span class="keyword">public</span> <span class="type">ResponseEntity</span>&lt;?&gt; <span class="function">update</span>(
+    <span class="annotation">@PathVariable</span> <span class="type">Long</span> id,
+    <span class="annotation">@Valid</span> <span class="annotation">@RequestBody</span> <span class="type">Estudiante</span> estudiante) {  <span class="comment">← Con @Valid</span>
+    <span class="comment">// ...</span>
+}
+
+<span class="comment">// PATCH sin @Valid - Campos opcionales (actualización parcial)</span>
+<span class="annotation">@PatchMapping</span>(<span class="string">"/{id}"</span>)
+<span class="keyword">public</span> <span class="type">ResponseEntity</span>&lt;?&gt; <span class="function">partialUpdate</span>(
+    <span class="annotation">@PathVariable</span> <span class="type">Long</span> id,
+    <span class="annotation">@RequestBody</span> <span class="type">Estudiante</span> estudiante) {  <span class="comment">← Sin @Valid</span>
+    
+    <span class="comment">// Manualmente verificas qué campos vienen</span>
+    <span class="keyword">if</span> (estudiante.<span class="function">getNombre</span>() != <span class="keyword">null</span>) {
+        existingEstudiante.<span class="function">setNombre</span>(estudiante.<span class="function">getNombre</span>());
+    }
+    <span class="comment">// ...</span>
+}</pre>
+            </div>
+
+            <div class="warning-box">
+                <h4>⚠️ Importante:</h4>
+                <ul>
+                    <li><strong>PUT con @Valid:</strong> Todos los campos marcados con anotaciones de validación deben cumplirse</li>
+                    <li><strong>PATCH sin @Valid:</strong> Permite campos nulos, solo se actualizan los campos enviados</li>
+                    <li><strong>Sin @Valid:</strong> No hay validación automática, debes validar manualmente</li>
+                </ul>
+            </div>
+
+            <h3>🛠️ Capturar errores de validación manualmente</h3>
+            <div class="code-block">
+                <pre><span class="annotation">@PostMapping</span>
+<span class="keyword">public</span> <span class="type">ResponseEntity</span>&lt;?&gt; <span class="function">create</span>(
+    <span class="annotation">@Valid</span> <span class="annotation">@RequestBody</span> <span class="type">Inscripcion</span> inscripcion,
+    <span class="type">BindingResult</span> result) {  <span class="comment">← Captura los errores</span>
+    
+    <span class="keyword">if</span> (result.<span class="function">hasErrors</span>()) {
+        <span class="type">Map</span>&lt;<span class="type">String</span>, <span class="type">String</span>&gt; errors = <span class="keyword">new</span> <span class="type">HashMap</span>&lt;&gt;();
+        result.<span class="function">getFieldErrors</span>().<span class="function">forEach</span>(error -> 
+            errors.<span class="function">put</span>(error.<span class="function">getField</span>(), error.<span class="function">getDefaultMessage</span>())
+        );
+        <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">badRequest</span>().<span class="function">body</span>(errors);
+    }
+    
+    <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">ok</span>(repository.<span class="function">save</span>(inscripcion));
+}</pre>
+            </div>
+
+            <div class="success-box">
+                <p><strong>✅ Resumen:</strong> <code>@Valid</code> automatiza la validación de datos de entrada según las reglas definidas en la clase del modelo, evitando código repetitivo de validación manual y mejorando la seguridad y calidad de los datos.</p>
+            </div>
+
+            <!-- Hibernate DDL -->
+            <h2 id="hibernate-ddl">6. Ver DDL de Hibernate</h2>
+
+            <p>Puedes ver el SQL que genera Hibernate al mapear tus entidades a tablas. Esto es útil para entender cómo se traduce tu modelo JPA a la base de datos.</p>
+
+            <h3>🖥️ Opción 1: Ver SQL en la consola (Desarrollo)</h3>
+            
+            <p>Agrega estas propiedades en <code>application.properties</code>:</p>
+            
+            <div class="code-block">
+                <pre><span class="comment"># Mostrar el SQL generado</span>
+spring.jpa.show-sql=<span class="keyword">true</span>
+
+<span class="comment"># Formatear el SQL para que sea legible</span>
+spring.jpa.properties.hibernate.format_sql=<span class="keyword">true</span>
+
+<span class="comment"># Mostrar los valores de los parámetros</span>
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+
+<span class="comment"># Mostrar comentarios en el SQL</span>
+spring.jpa.properties.hibernate.use_sql_comments=<span class="keyword">true</span></pre>
+            </div>
+
+            <h4>📋 Salida en la consola:</h4>
+            <div class="code-block">
+                <pre>Hibernate: 
+    <span class="keyword">create table</span> cursos (
+        id <span class="type">bigint</span> <span class="keyword">not null</span>,
+        nombre <span class="type">varchar</span>(<span class="string">255</span>),
+        creditos <span class="type">integer</span>,
+        <span class="keyword">primary key</span> (id)
+    )
+
+Hibernate: 
+    <span class="keyword">create table</span> estudiantes (
+        id <span class="type">bigint</span> <span class="keyword">not null</span>,
+        nombre <span class="type">varchar</span>(<span class="string">255</span>),
+        email <span class="type">varchar</span>(<span class="string">255</span>),
+        <span class="keyword">primary key</span> (id)
+    )
+
+Hibernate: 
+    <span class="keyword">create table</span> inscripciones (
+        id_curso <span class="type">bigint</span> <span class="keyword">not null</span>,
+        id_estudiante <span class="type">bigint</span> <span class="keyword">not null</span>,
+        fecha_inscripcion <span class="type">date</span> <span class="keyword">not null</span>,
+        estado <span class="type">varchar</span>(<span class="string">255</span>) <span class="keyword">not null</span>,
+        <span class="keyword">primary key</span> (id_curso, id_estudiante)
+    )
+
+Hibernate: 
+    <span class="keyword">alter table</span> inscripciones 
+        <span class="keyword">add constraint</span> FKxxx <span class="keyword">foreign key</span> (id_curso) 
+        <span class="keyword">references</span> cursos
+
+Hibernate: 
+    <span class="keyword">alter table</span> inscripciones 
+        <span class="keyword">add constraint</span> FKyyy <span class="keyword">foreign key</span> (id_estudiante) 
+        <span class="keyword">references</span> estudiantes</pre>
+            </div>
+
+            <h3>📁 Opción 2: Exportar el DDL a un archivo</h3>
+            
+            <p>Agrega en <code>application.properties</code>:</p>
+            
+            <div class="code-block">
+                <pre><span class="comment"># Genera el script DDL en un archivo</span>
+spring.jpa.properties.javax.persistence.schema-generation.scripts.action=create
+spring.jpa.properties.javax.persistence.schema-generation.scripts.create-target=create.sql
+spring.jpa.properties.javax.persistence.schema-generation.scripts.create-source=metadata</pre>
+            </div>
+
+            <div class="info-box">
+                <p><strong>📌 Resultado:</strong> Esto creará un archivo <code>create.sql</code> en la raíz del proyecto con todo el DDL al iniciar la aplicación.</p>
+            </div>
+
+            <h3>⚙️ Opción 3: Configurar spring.jpa.hibernate.ddl-auto</h3>
+            
+            <div class="code-block">
+                <pre><span class="comment"># Muestra el DDL completo en consola y crea las tablas</span>
+spring.jpa.hibernate.ddl-auto=create
+
+<span class="comment"># O para actualizar sin borrar datos:</span>
+spring.jpa.hibernate.ddl-auto=update
+
+<span class="comment"># O para validar sin modificar:</span>
+spring.jpa.hibernate.ddl-auto=validate</pre>
+            </div>
+
+            <h4>📋 Valores de ddl-auto:</h4>
+            <table>
+                <tr>
+                    <th>Valor</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr>
+                    <td><code>create</code></td>
+                    <td>Borra y crea las tablas cada vez <strong>⚠️ PIERDE DATOS</strong></td>
+                </tr>
+                <tr>
+                    <td><code>create-drop</code></td>
+                    <td>Crea al iniciar, borra al cerrar la aplicación</td>
+                </tr>
+                <tr>
+                    <td><code>update</code></td>
+                    <td>Actualiza el esquema sin borrar datos existentes</td>
+                </tr>
+                <tr>
+                    <td><code>validate</code></td>
+                    <td>Solo valida que el esquema coincida con las entidades</td>
+                </tr>
+                <tr>
+                    <td><code>none</code></td>
+                    <td>No hace nada (recomendado para producción)</td>
+                </tr>
+            </table>
+
+            <h3>🔧 Configuración completa recomendada para desarrollo</h3>
+            
+            <p>Archivo <code>application.properties</code> completo:</p>
+            
+            <div class="code-block">
+                <pre><span class="comment"># Base de datos (ejemplo con H2 en memoria)</span>
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+<span class="comment"># JPA/Hibernate</span>
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.show-sql=<span class="keyword">true</span>
+spring.jpa.properties.hibernate.format_sql=<span class="keyword">true</span>
+spring.jpa.properties.hibernate.use_sql_comments=<span class="keyword">true</span>
+
+<span class="comment"># Logging</span>
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE</pre>
+            </div>
+
+            <h3>💾 DDL generado para el proyecto TOA</h3>
+            
+            <p>El SQL generado para la tabla <code>inscripciones</code> se vería así:</p>
+            
+            <div class="code-block">
+                <pre><span class="keyword">CREATE TABLE</span> inscripciones (
+    id_estudiante <span class="type">BIGINT</span> <span class="keyword">NOT NULL</span>,
+    id_curso <span class="type">BIGINT</span> <span class="keyword">NOT NULL</span>,
+    fecha_inscripcion <span class="type">DATE</span> <span class="keyword">NOT NULL</span>,
+    estado <span class="type">VARCHAR</span>(<span class="string">255</span>) <span class="keyword">NOT NULL</span>,
+    <span class="keyword">PRIMARY KEY</span> (id_estudiante, id_curso),
+    <span class="keyword">CONSTRAINT</span> fk_inscripcion_estudiante 
+        <span class="keyword">FOREIGN KEY</span> (id_estudiante) <span class="keyword">REFERENCES</span> estudiantes(id),
+    <span class="keyword">CONSTRAINT</span> fk_inscripcion_curso 
+        <span class="keyword">FOREIGN KEY</span> (id_curso) <span class="keyword">REFERENCES</span> cursos(id)
+);</pre>
+            </div>
+
+            <div class="info-box">
+                <p><strong>💡 Nota importante:</strong> La <strong>clave primaria compuesta</strong> (<code>id_estudiante</code>, <code>id_curso</code>) se genera automáticamente gracias a <code>@EmbeddedId</code> en la clase <code>InscripcionId</code>.</p>
+            </div>
+
+            <h3>⚠️ Importante en Producción</h3>
+            
+            <div class="warning-box">
+                <h4>En producción, NUNCA uses:</h4>
+                <ul>
+                    <li><code>spring.jpa.hibernate.ddl-auto=create</code> (borra todos los datos)</li>
+                    <li><code>spring.jpa.hibernate.ddl-auto=update</code> (puede causar inconsistencias)</li>
+                </ul>
+                
+                <h4>En producción, usa:</h4>
+                <div class="code-block" style="margin-top: 10px;">
+                    <pre>spring.jpa.hibernate.ddl-auto=none
+spring.jpa.show-sql=<span class="keyword">false</span></pre>
+                </div>
+                
+                <p style="margin-top: 10px;">Y gestiona el esquema con herramientas de migración como <strong>Flyway</strong> o <strong>Liquibase</strong>.</p>
+            </div>
+
+            <h3>🔍 Ejemplo práctico</h3>
+            
+            <p>Si quieres ver el DDL generado para tu proyecto TOA:</p>
+            
+            <ol>
+                <li>Abre <code>src/main/resources/application.properties</code></li>
+                <li>Agrega las propiedades de configuración de desarrollo</li>
+                <li>Ejecuta la aplicación</li>
+                <li>Revisa la consola para ver el SQL generado</li>
+            </ol>
+
+            <div class="success-box">
+                <p><strong>✅ Beneficios:</strong> Ver el DDL generado te ayuda a entender cómo Hibernate traduce tus anotaciones JPA a estructuras de base de datos reales, facilitando la depuración y optimización del esquema.</p>
+            </div>
+
+            <!-- Controller -->
+            <h2 id="controller">7. InscripcionController - API REST</h2>
+
+            <h3>📦 Estructura del Controller</h3>
+            <div class="code-block">
+                <pre><span class="annotation">@RestController</span>
+<span class="annotation">@RequestMapping</span>(<span class="string">"/api/inscripciones"</span>)
+<span class="keyword">public class</span> <span class="type">InscripcionController</span> {
+
+    <span class="annotation">@Autowired</span>
+    <span class="keyword">private</span> <span class="type">InscripcionRepository</span> inscripcionRepository;
+
+    <span class="annotation">@Autowired</span>
+    <span class="keyword">private</span> <span class="type">EstudianteRepository</span> estudianteRepository;
+
+    <span class="annotation">@Autowired</span>
+    <span class="keyword">private</span> <span class="type">CursoRepository</span> cursoRepository;
+    
+    <span class="comment">// ... endpoints ...</span>
+}</pre>
+            </div>
+
+            <h4>🔑 Anotaciones Principales:</h4>
+            <ul>
+                <li><strong>@RestController:</strong> Combina <code>@Controller</code> + <code>@ResponseBody</code>. Las respuestas se serializan automáticamente a JSON</li>
+                <li><strong>@RequestMapping:</strong> Todas las rutas de este controller empiezan con <code>/api/inscripciones</code></li>
+                <li><strong>@Autowired:</strong> Spring inyecta automáticamente las instancias de los repositorios</li>
+            </ul>
+
+            <div class="warning-box">
+                <p><strong>⚠️ Tres repositorios necesarios:</strong> Se necesitan los 3 repositorios porque al crear/actualizar inscripciones, hay que validar que existan el estudiante y el curso.</p>
+            </div>
+
+            <!-- Endpoints -->
+            <h2 id="endpoints">8. Endpoints Detallados</h2>
+
+            <h3>📥 GET - Obtener Inscripciones</h3>
+
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <code>/api/inscripciones</code>
+                <p><strong>Descripción:</strong> Obtiene todas las inscripciones</p>
+            </div>
+            <div class="code-block">
+                <pre><span class="annotation">@GetMapping</span>
+<span class="keyword">public</span> <span class="type">ResponseEntity</span>&lt;<span class="type">List</span>&lt;<span class="type">Inscripcion</span>&gt;&gt; <span class="function">getAllInscripciones</span>() {
+    <span class="type">List</span>&lt;<span class="type">Inscripcion</span>&gt; inscripciones = inscripcionRepository.<span class="function">findAll</span>();
+    <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">ok</span>(inscripciones);
+}</pre>
+            </div>
+
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <code>/api/inscripciones/estudiante/{estudianteId}</code>
+                <p><strong>Descripción:</strong> Obtiene todas las inscripciones de un estudiante</p>
+            </div>
+            <div class="code-block">
+                <pre><span class="annotation">@GetMapping</span>(<span class="string">"/estudiante/{estudianteId}"</span>)
+<span class="keyword">public</span> <span class="type">ResponseEntity</span>&lt;<span class="type">List</span>&lt;<span class="type">Inscripcion</span>&gt;&gt; <span class="function">getInscripcionesByEstudiante</span>(
+        <span class="annotation">@PathVariable</span> <span class="type">Long</span> estudianteId) {
+    <span class="type">List</span>&lt;<span class="type">Inscripcion</span>&gt; inscripciones = inscripcionRepository.<span class="function">findByEstudianteId</span>(estudianteId);
+    <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">ok</span>(inscripciones);
+}</pre>
+            </div>
+
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <code>/api/inscripciones/curso/{cursoId}</code>
+                <p><strong>Descripción:</strong> Obtiene todas las inscripciones de un curso</p>
+            </div>
+
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <code>/api/inscripciones/{idEstudiante}/{idCurso}</code>
+                <p><strong>Descripción:</strong> Obtiene una inscripción específica por su clave compuesta</p>
+            </div>
+            <div class="code-block">
+                <pre><span class="annotation">@GetMapping</span>(<span class="string">"/{idEstudiante}/{idCurso}"</span>)
+<span class="keyword">public</span> <span class="type">ResponseEntity</span>&lt;<span class="type">Inscripcion</span>&gt; <span class="function">getInscripcionById</span>(
+        <span class="annotation">@PathVariable</span> <span class="type">Long</span> idEstudiante,
+        <span class="annotation">@PathVariable</span> <span class="type">Long</span> idCurso) {
+    
+    <span class="type">InscripcionId</span> id = <span class="keyword">new</span> <span class="type">InscripcionId</span>(idEstudiante, idCurso);
+    <span class="keyword">return</span> inscripcionRepository.<span class="function">findById</span>(id)
+            .<span class="function">map</span>(<span class="type">ResponseEntity</span>::ok)
+            .<span class="function">orElse</span>(<span class="type">ResponseEntity</span>.<span class="function">notFound</span>().<span class="function">build</span>());
+}</pre>
+            </div>
+
+            <div class="info-box">
+                <p><strong>💡 Optional Pattern:</strong></p>
+                <ul>
+                    <li><code>.map(ResponseEntity::ok)</code> → Si existe, retorna 200 con la inscripción</li>
+                    <li><code>.orElse(ResponseEntity.notFound().build())</code> → Si no existe, retorna 404</li>
+                </ul>
+            </div>
+
+            <h3>📤 POST - Crear Inscripción</h3>
+
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <code>/api/inscripciones</code>
+                <p><strong>Descripción:</strong> Crea una nueva inscripción</p>
+            </div>
+            <div class="code-block">
+                <pre><span class="annotation">@PostMapping</span>
+<span class="keyword">public</span> <span class="type">ResponseEntity</span>&lt;?&gt; <span class="function">createInscripcion</span>(<span class="annotation">@Valid</span> <span class="annotation">@RequestBody</span> <span class="type">Inscripcion</span> inscripcion) {
+    <span class="comment">// Validar que existan los IDs</span>
+    <span class="keyword">if</span> (inscripcion.<span class="function">getId</span>() == <span class="keyword">null</span> || inscripcion.<span class="function">getId</span>().<span class="function">getIdEstudiante</span>() == <span class="keyword">null</span>) {
+        <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">badRequest</span>().<span class="function">body</span>(<span class="string">"Debe especificar un estudiante"</span>);
+    }
+    <span class="keyword">if</span> (inscripcion.<span class="function">getId</span>().<span class="function">getIdCurso</span>() == <span class="keyword">null</span>) {
+        <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">badRequest</span>().<span class="function">body</span>(<span class="string">"Debe especificar un curso"</span>);
+    }
+    
+    <span class="comment">// Validar que existan en la BD</span>
+    <span class="keyword">if</span> (!estudianteRepository.<span class="function">existsById</span>(inscripcion.<span class="function">getId</span>().<span class="function">getIdEstudiante</span>())) {
+        <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">badRequest</span>().<span class="function">body</span>(<span class="string">"Estudiante no encontrado"</span>);
+    }
+    <span class="keyword">if</span> (!cursoRepository.<span class="function">existsById</span>(inscripcion.<span class="function">getId</span>().<span class="function">getIdCurso</span>())) {
+        <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">badRequest</span>().<span class="function">body</span>(<span class="string">"Curso no encontrado"</span>);
+    }
+
+    <span class="comment">// Cargar las entidades completas</span>
+    <span class="keyword">var</span> estudiante = estudianteRepository.<span class="function">findById</span>(inscripcion.<span class="function">getId</span>().<span class="function">getIdEstudiante</span>()).<span class="function">orElseThrow</span>();
+    <span class="keyword">var</span> curso = cursoRepository.<span class="function">findById</span>(inscripcion.<span class="function">getId</span>().<span class="function">getIdCurso</span>()).<span class="function">orElseThrow</span>();
+    
+    inscripcion.<span class="function">setEstudiante</span>(estudiante);
+    inscripcion.<span class="function">setCurso</span>(curso);
+
+    <span class="type">Inscripcion</span> savedInscripcion = inscripcionRepository.<span class="function">save</span>(inscripcion);
+    <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">status</span>(<span class="type">HttpStatus</span>.CREATED).<span class="function">body</span>(savedInscripcion);
+}</pre>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>⚠️ Validaciones importantes:</strong></p>
+                <ol>
+                    <li>Verificar que vengan los IDs del estudiante y curso</li>
+                    <li>Validar que el estudiante y curso existan en la BD</li>
+                    <li>Cargar las entidades completas (no solo IDs)</li>
+                    <li>Retornar código 201 (CREATED) si es exitoso</li>
+                </ol>
+            </div>
+
+            <h3>🔄 PUT - Actualización Completa</h3>
+
+            <div class="endpoint">
+                <span class="endpoint-method put">PUT</span>
+                <code>/api/inscripciones/{idEstudiante}/{idCurso}</code>
+                <p><strong>Descripción:</strong> Actualiza todos los campos de una inscripción</p>
+            </div>
+            <div class="code-block">
+                <pre><span class="annotation">@PutMapping</span>(<span class="string">"/{idEstudiante}/{idCurso}"</span>)
+<span class="keyword">public</span> <span class="type">ResponseEntity</span>&lt;?&gt; <span class="function">updateInscripcion</span>(
+        <span class="annotation">@PathVariable</span> <span class="type">Long</span> idEstudiante,
+        <span class="annotation">@PathVariable</span> <span class="type">Long</span> idCurso,
+        <span class="annotation">@Valid</span> <span class="annotation">@RequestBody</span> <span class="type">Inscripcion</span> inscripcionDetails) {
+    
+    <span class="type">InscripcionId</span> id = <span class="keyword">new</span> <span class="type">InscripcionId</span>(idEstudiante, idCurso);
+    
+    <span class="keyword">return</span> inscripcionRepository.<span class="function">findById</span>(id)
+            .<span class="function">map</span>(inscripcion -> {
+                inscripcion.<span class="function">setFechaInscripcion</span>(inscripcionDetails.<span class="function">getFechaInscripcion</span>());
+                inscripcion.<span class="function">setEstado</span>(inscripcionDetails.<span class="function">getEstado</span>());
+                <span class="type">Inscripcion</span> updatedInscripcion = inscripcionRepository.<span class="function">save</span>(inscripcion);
+                <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">ok</span>(updatedInscripcion);
+            })
+            .<span class="function">orElse</span>(<span class="type">ResponseEntity</span>.<span class="function">notFound</span>().<span class="function">build</span>());
+}</pre>
+            </div>
+
+            <h3>🔧 PATCH - Actualización Parcial</h3>
+
+            <div class="endpoint">
+                <span class="endpoint-method patch">PATCH</span>
+                <code>/api/inscripciones/{idEstudiante}/{idCurso}</code>
+                <p><strong>Descripción:</strong> Actualiza solo los campos enviados</p>
+            </div>
+            <div class="code-block">
+                <pre><span class="annotation">@PatchMapping</span>(<span class="string">"/{idEstudiante}/{idCurso}"</span>)
+<span class="keyword">public</span> <span class="type">ResponseEntity</span>&lt;?&gt; <span class="function">partialUpdateInscripcion</span>(
+        <span class="annotation">@PathVariable</span> <span class="type">Long</span> idEstudiante,
+        <span class="annotation">@PathVariable</span> <span class="type">Long</span> idCurso,
+        <span class="annotation">@RequestBody</span> <span class="type">Inscripcion</span> inscripcionDetails) {
+    
+    <span class="type">InscripcionId</span> id = <span class="keyword">new</span> <span class="type">InscripcionId</span>(idEstudiante, idCurso);
+    
+    <span class="keyword">return</span> inscripcionRepository.<span class="function">findById</span>(id)
+            .<span class="function">map</span>(inscripcion -> {
+                <span class="keyword">if</span> (inscripcionDetails.<span class="function">getFechaInscripcion</span>() != <span class="keyword">null</span>) {
+                    inscripcion.<span class="function">setFechaInscripcion</span>(inscripcionDetails.<span class="function">getFechaInscripcion</span>());
+                }
+                <span class="keyword">if</span> (inscripcionDetails.<span class="function">getEstado</span>() != <span class="keyword">null</span>) {
+                    inscripcion.<span class="function">setEstado</span>(inscripcionDetails.<span class="function">getEstado</span>());
+                }
+                <span class="type">Inscripcion</span> updatedInscripcion = inscripcionRepository.<span class="function">save</span>(inscripcion);
+                <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">ok</span>(updatedInscripcion);
+            })
+            .<span class="function">orElse</span>(<span class="type">ResponseEntity</span>.<span class="function">notFound</span>().<span class="function">build</span>());
+}</pre>
+            </div>
+
+            <div class="info-box">
+                <h4>🔍 Diferencia entre PUT y PATCH:</h4>
+                <ul>
+                    <li><strong>PUT:</strong> Actualización completa - debe enviar todos los campos</li>
+                    <li><strong>PATCH:</strong> Actualización parcial - envía solo los campos que quieres cambiar</li>
+                    <li><strong>PATCH sin @Valid:</strong> Permite que algunos campos vengan como null</li>
+                </ul>
+            </div>
+
+            <h3>🗑️ DELETE - Eliminar Inscripción</h3>
+
+            <div class="endpoint">
+                <span class="endpoint-method delete">DELETE</span>
+                <code>/api/inscripciones/{idEstudiante}/{idCurso}</code>
+                <p><strong>Descripción:</strong> Elimina una inscripción</p>
+            </div>
+            <div class="code-block">
+                <pre><span class="annotation">@DeleteMapping</span>(<span class="string">"/{idEstudiante}/{idCurso}"</span>)
+<span class="keyword">public</span> <span class="type">ResponseEntity</span>&lt;<span class="type">Void</span>&gt; <span class="function">deleteInscripcion</span>(
+        <span class="annotation">@PathVariable</span> <span class="type">Long</span> idEstudiante,
+        <span class="annotation">@PathVariable</span> <span class="type">Long</span> idCurso) {
+    
+    <span class="type">InscripcionId</span> id = <span class="keyword">new</span> <span class="type">InscripcionId</span>(idEstudiante, idCurso);
+    
+    <span class="keyword">return</span> inscripcionRepository.<span class="function">findById</span>(id)
+            .<span class="function">map</span>(inscripcion -> {
+                inscripcionRepository.<span class="function">delete</span>(inscripcion);
+                <span class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">noContent</span>().&lt;<span class="type">Void</span>&gt;<span class="function">build</span>();
+            })
+            .<span class="function">orElse</span>(<span class="type">ResponseEntity</span>.<span class="function">notFound</span>().<span class="function">build</span>());
+}</pre>
+            </div>
+
+            <h3>📊 Códigos HTTP Utilizados</h3>
+            <table>
+                <tr>
+                    <th>Código</th>
+                    <th>Método</th>
+                    <th>Significado</th>
+                </tr>
+                <tr>
+                    <td><strong>200</strong></td>
+                    <td>GET, PUT, PATCH</td>
+                    <td>OK - Operación exitosa con contenido</td>
+                </tr>
+                <tr>
+                    <td><strong>201</strong></td>
+                    <td>POST</td>
+                    <td>Created - Recurso creado exitosamente</td>
+                </tr>
+                <tr>
+                    <td><strong>204</strong></td>
+                    <td>DELETE</td>
+                    <td>No Content - Eliminado exitosamente</td>
+                </tr>
+                <tr>
+                    <td><strong>400</strong></td>
+                    <td>POST</td>
+                    <td>Bad Request - Error de validación</td>
+                </tr>
+                <tr>
+                    <td><strong>404</strong></td>
+                    <td>GET, PUT, PATCH, DELETE</td>
+                    <td>Not Found - Recurso no existe</td>
+                </tr>
+            </table>
+
+            <!-- Ejemplos -->
+            <h2 id="ejemplos">9. Ejemplos de Uso</h2>
+
+            <h3>🔄 Orden correcto para crear datos en Postman</h3>
+            
+            <div class="warning-box">
+                <h4>⚠️ Orden de creación obligatorio:</h4>
+                <ol>
+                    <li><strong>1️⃣ Primero:</strong> Estudiantes y Cursos (en cualquier orden o paralelo)</li>
+                    <li><strong>2️⃣ Último:</strong> Inscripciones (requieren que existan estudiantes y cursos)</li>
+                </ol>
+                <p><strong>¿Por qué?</strong> Las inscripciones necesitan referencias a estudiantes y cursos existentes. El controller valida su existencia antes de crear la inscripción.</p>
+            </div>
+
+            <h3>📝 Flujo completo de requests listo para usar</h3>
+
+            <h4>Paso 1: Crear Estudiantes</h4>
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <code>http://localhost:8080/api/estudiantes</code>
+            </div>
+            <div class="json-example">
+{
+    "apellido": "García"
+}
+            </div>
+            <div class="success-box">
+                <p><strong>✅ Respuesta esperada (201 Created):</strong></p>
+                <div class="json-example" style="margin-top: 10px;">
+{
+    "idEstudiante": 1,
+    "apellido": "García",
+    "inscripciones": []
+}
+                </div>
+            </div>
+
+            <p><strong>Crear más estudiantes:</strong></p>
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <code>http://localhost:8080/api/estudiantes</code>
+            </div>
+            <div class="json-example">
+{
+    "apellido": "Pérez"
+}
+            </div>
+            <div class="json-example">
+{
+    "apellido": "Rodríguez"
+}
+            </div>
+
+            <h4>Paso 2: Crear Cursos</h4>
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <code>http://localhost:8080/api/cursos</code>
+            </div>
+            <div class="json-example">
+{
+    "nombre": "Matemáticas"
+}
+            </div>
+            <div class="success-box">
+                <p><strong>✅ Respuesta esperada (201 Created):</strong></p>
+                <div class="json-example" style="margin-top: 10px;">
+{
+    "idCurso": 1,
+    "nombre": "Matemáticas",
+    "inscripciones": []
+}
+                </div>
+            </div>
+
+            <p><strong>Crear más cursos:</strong></p>
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <code>http://localhost:8080/api/cursos</code>
+            </div>
+            <div class="json-example">
+{
+    "nombre": "Física"
+}
+            </div>
+            <div class="json-example">
+{
+    "nombre": "Química"
+}
+            </div>
+            <div class="json-example">
+{
+    "nombre": "Desarrollo Web"
+}
+            </div>
+
+            <h4>Paso 3: Crear Inscripciones</h4>
+            <div class="info-box">
+                <p><strong>💡 Importante:</strong> Usa los IDs de los estudiantes y cursos que acabas de crear. Los ejemplos usan ID 1 para ambos, pero ajusta según tus respuestas anteriores.</p>
+            </div>
+
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <code>http://localhost:8080/api/inscripciones</code>
+            </div>
+            <div class="json-example">
+{
+    "id": {
+        "idEstudiante": 1,
+        "idCurso": 1
+    },
+    "fechaInscripcion": "2025-11-19",
+    "estado": "ACTIVA"
+}
+            </div>
+            <div class="success-box">
+                <p><strong>✅ Respuesta esperada (201 Created):</strong></p>
+                <div class="json-example" style="margin-top: 10px;">
+{
+    "id": {
+        "idEstudiante": 1,
+        "idCurso": 1
+    },
+    "estudiante": {
+        "idEstudiante": 1,
+        "apellido": "García"
+    },
+    "curso": {
+        "idCurso": 1,
+        "nombre": "Matemáticas"
+    },
+    "fechaInscripcion": "2025-11-19",
+    "estado": "ACTIVA"
+}
+                </div>
+            </div>
+
+            <p><strong>Crear más inscripciones (García inscrito en varios cursos):</strong></p>
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <code>http://localhost:8080/api/inscripciones</code>
+            </div>
+            <div class="json-example">
+{
+    "id": {
+        "idEstudiante": 1,
+        "idCurso": 2
+    },
+    "fechaInscripcion": "2025-11-19",
+    "estado": "ACTIVA"
+}
+            </div>
+            <div class="json-example">
+{
+    "id": {
+        "idEstudiante": 1,
+        "idCurso": 4
+    },
+    "fechaInscripcion": "2025-11-20",
+    "estado": "EN_PROGRESO"
+}
+            </div>
+
+            <p><strong>Varios estudiantes en el mismo curso:</strong></p>
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <code>http://localhost:8080/api/inscripciones</code>
+            </div>
+            <div class="json-example">
+{
+    "id": {
+        "idEstudiante": 2,
+        "idCurso": 1
+    },
+    "fechaInscripcion": "2025-11-19",
+    "estado": "ACTIVA"
+}
+            </div>
+            <div class="json-example">
+{
+    "id": {
+        "idEstudiante": 3,
+        "idCurso": 1
+    },
+    "fechaInscripcion": "2025-11-18",
+    "estado": "ACTIVA"
+}
+            </div>
+
+            <h4>❌ Error si intentas crear sin datos previos</h4>
+            <p>Si intentas crear una inscripción sin tener el estudiante o curso creados:</p>
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <code>http://localhost:8080/api/inscripciones</code>
+            </div>
+            <div class="json-example">
+{
+    "id": {
+        "idEstudiante": 999,
+        "idCurso": 1
+    },
+    "fechaInscripcion": "2025-11-19",
+    "estado": "ACTIVA"
+}
+            </div>
+            <div class="warning-box">
+                <p><strong>❌ Respuesta (400 Bad Request):</strong></p>
+                <div class="json-example" style="margin-top: 10px;">
+"Estudiante no encontrado"
+                </div>
+            </div>
+
+            <h3>🔍 Consultas útiles después de crear datos</h3>
+
+            <h4>Ver todos los cursos de un estudiante:</h4>
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <code>http://localhost:8080/api/inscripciones/estudiante/1</code>
+            </div>
+            <p>Retorna todas las inscripciones del estudiante García (ID 1)</p>
+
+            <h4>Ver todos los estudiantes de un curso:</h4>
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <code>http://localhost:8080/api/inscripciones/curso/1</code>
+            </div>
+            <p>Retorna todas las inscripciones del curso Matemáticas (ID 1)</p>
+
+            <h4>Ver una inscripción específica:</h4>
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <code>http://localhost:8080/api/inscripciones/1/1</code>
+            </div>
+            <p>Retorna la inscripción de García en Matemáticas</p>
+
+            <h3>🔄 Actualizar datos</h3>
+
+            <h4>Cambiar solo el estado (PATCH):</h4>
+            <div class="endpoint">
+                <span class="endpoint-method patch">PATCH</span>
+                <code>http://localhost:8080/api/inscripciones/1/1</code>
+            </div>
+            <div class="json-example">
+{
+    "estado": "COMPLETADA"
+}
+            </div>
+
+            <h4>Actualizar todo (PUT):</h4>
+            <div class="endpoint">
+                <span class="endpoint-method put">PUT</span>
+                <code>http://localhost:8080/api/inscripciones/1/1</code>
+            </div>
+            <div class="json-example">
+{
+    "fechaInscripcion": "2025-11-20",
+    "estado": "EN_PROGRESO"
+}
+            </div>
+
+            <h3>📊 Resumen del flujo completo</h3>
+            <table>
+                <tr>
+                    <th>Orden</th>
+                    <th>Acción</th>
+                    <th>Endpoint</th>
+                    <th>Resultado</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>POST Estudiante</td>
+                    <td><code>/api/estudiantes</code></td>
+                    <td>García → ID: 1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>POST Estudiante</td>
+                    <td><code>/api/estudiantes</code></td>
+                    <td>Pérez → ID: 2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>POST Curso</td>
+                    <td><code>/api/cursos</code></td>
+                    <td>Matemáticas → ID: 1</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>POST Curso</td>
+                    <td><code>/api/cursos</code></td>
+                    <td>Física → ID: 2</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>POST Inscripción</td>
+                    <td><code>/api/inscripciones</code></td>
+                    <td>García (1) + Matemáticas (1)</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>POST Inscripción</td>
+                    <td><code>/api/inscripciones</code></td>
+                    <td>García (1) + Física (2)</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>POST Inscripción</td>
+                    <td><code>/api/inscripciones</code></td>
+                    <td>Pérez (2) + Matemáticas (1)</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>GET Inscripciones</td>
+                    <td><code>/api/inscripciones/estudiante/1</code></td>
+                    <td>Ver cursos de García</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>PATCH Inscripción</td>
+                    <td><code>/api/inscripciones/1/1</code></td>
+                    <td>Cambiar estado a COMPLETADA</td>
+                </tr>
+            </table>
+
+            <div class="success-box">
+                <p><strong>✅ Consejo:</strong> Guarda los IDs que recibes en cada respuesta para usarlos en las siguientes peticiones. Los ejemplos usan IDs secuenciales (1, 2, 3...) asumiendo que empiezas con una base de datos vacía.</p>
+            </div>
+
+            <h3>💡 Otros ejemplos de uso</h3>
+
+            <h4>📝 Ejemplo: Crear inscripción con fecha actual</h4>
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <code>/api/inscripciones</code>
+            </div>
+            <div class="json-example">
+{
+  "id": {
+    "idEstudiante": 5,
+    "idCurso": 3
+  },
+  "fechaInscripcion": "2025-11-19",
+  "estado": "ACTIVA"
+}
+            </div>
+            <div class="success-box">
+                <p><strong>✅ Respuesta:</strong> Código 201 (Created) con la inscripción creada, incluyendo los objetos completos de <code>estudiante</code> y <code>curso</code>.</p>
+            </div>
+
+            <h4>📝 Ejemplo: Crear inscripción con todos los estados</h4>
+            <div class="endpoint">
+                <span class="endpoint-method post">POST</span>
+                <code>/api/inscripciones</code>
+            </div>
+            <p><strong>Estado ACTIVA:</strong></p>
+            <div class="json-example">
+{
+  "id": {
+    "idEstudiante": 5,
+    "idCurso": 3
+  },
+  "fechaInscripcion": "2025-11-19",
+  "estado": "ACTIVA"
+}
+            </div>
+            <p><strong>Estado EN_PROGRESO:</strong></p>
+            <div class="json-example">
+{
+  "id": {
+    "idEstudiante": 5,
+    "idCurso": 4
+  },
+  "fechaInscripcion": "2025-10-15",
+  "estado": "EN_PROGRESO"
+}
+            </div>
+            <p><strong>Estado COMPLETADA:</strong></p>
+            <div class="json-example">
+{
+  "id": {
+    "idEstudiante": 5,
+    "idCurso": 2
+  },
+  "fechaInscripcion": "2025-08-01",
+  "estado": "COMPLETADA"
+}
+            </div>
+            <p><strong>Estado ABANDONADA:</strong></p>
+            <div class="json-example">
+{
+  "id": {
+    "idEstudiante": 5,
+    "idCurso": 1
+  },
+  "fechaInscripcion": "2025-09-10",
+  "estado": "ABANDONADA"
+}
+            </div>
+
+            <h4>🔍 Ejemplo: Consultar inscripción específica</h4>
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <code>/api/inscripciones/5/3</code>
+            </div>
+            <div class="json-example">
+{
+  "id": {
+    "idEstudiante": 5,
+    "idCurso": 3
+  },
+  "estudiante": {
+    "id": 5,
+    "nombre": "Juan Pérez",
+    "email": "juan@example.com"
+  },
+  "curso": {
+    "id": 3,
+    "nombre": "Desarrollo Web",
+    "creditos": 4
+  },
+  "fechaInscripcion": "2025-11-19",
+  "estado": "ACTIVA"
+}
+            </div>
+
+            <h4>📚 Ejemplo: Obtener cursos de un estudiante</h4>
+            <div class="endpoint">
+                <span class="endpoint-method get">GET</span>
+                <code>/api/inscripciones/estudiante/5</code>
+            </div>
+            <p>Retorna un array con todas las inscripciones del estudiante 5.</p>
+
+            <h4>🔄 Ejemplo: Actualización parcial (solo estado)</h4>
+            <div class="endpoint">
+                <span class="endpoint-method patch">PATCH</span>
+                <code>/api/inscripciones/5/3</code>
+            </div>
+            <div class="json-example">
+{
+  "estado": "COMPLETADA"
+}
+            </div>
+            <p>Solo cambia el estado, mantiene la fecha sin modificar.</p>
+
+            <h4>🔄 Ejemplo: Actualización completa</h4>
+            <div class="endpoint">
+                <span class="endpoint-method put">PUT</span>
+                <code>/api/inscripciones/5/3</code>
+            </div>
+            <div class="json-example">
+{
+  "fechaInscripcion": "2025-11-20",
+  "estado": "EN_PROGRESO"
+}
+            </div>
+            <p>Debe enviar todos los campos modificables.</p>
+
+            <h4>🗑️ Ejemplo: Eliminar inscripción</h4>
+            <div class="endpoint">
+                <span class="endpoint-method delete">DELETE</span>
+                <code>/api/inscripciones/5/3</code>
+            </div>
+            <div class="success-box">
+                <p><strong>✅ Respuesta:</strong> Código 204 (No Content) - La inscripción fue eliminada exitosamente.</p>
+            </div>
+
+            <h4>💡 Ejemplo: Código Java completo</h4>
+            <div class="code-block">
+                <pre><span class="comment">// Crear inscripción desde el controller</span>
+<span class="annotation">@PostMapping</span>
+<span class="keyword">public</span> <span class="type">Inscripcion</span> <span class="function">crearInscripcion</span>(
+    <span class="annotation">@RequestParam</span> <span class="type">Long</span> idEstudiante,
+    <span class="annotation">@RequestParam</span> <span class="type">Long</span> idCurso) {
+    
+    <span class="comment">// Crear la clave compuesta</span>
+    <span class="type">InscripcionId</span> id = <span class="keyword">new</span> <span class="type">InscripcionId</span>(idEstudiante, idCurso);
+    
+    <span class="comment">// Buscar estudiante y curso</span>
+    <span class="type">Estudiante</span> estudiante = estudianteRepo.<span class="function">findById</span>(idEstudiante)
+        .<span class="function">orElseThrow</span>(() -> <span class="keyword">new</span> <span class="type">RuntimeException</span>(<span class="string">"Estudiante no encontrado"</span>));
+    <span class="type">Curso</span> curso = cursoRepo.<span class="function">findById</span>(idCurso)
+        .<span class="function">orElseThrow</span>(() -> <span class="keyword">new</span> <span class="type">RuntimeException</span>(<span class="string">"Curso no encontrado"</span>));
+    
+    <span class="comment">// Crear inscripción</span>
+    <span class="type">Inscripcion</span> inscripcion = <span class="keyword">new</span> <span class="type">Inscripcion</span>();
+    inscripcion.<span class="function">setId</span>(id);
+    inscripcion.<span class="function">setEstudiante</span>(estudiante);
+    inscripcion.<span class="function">setCurso</span>(curso);
+    inscripcion.<span class="function">setFechaInscripcion</span>(<span class="type">LocalDate</span>.<span class="function">now</span>());  <span class="comment">← LocalDate</span>
+    inscripcion.<span class="function">setEstado</span>(<span class="type">EstadoInscripcion</span>.ACTIVA);   <span class="comment">← Enum</span>
+    
+    <span class="keyword">return</span> inscripcionRepo.<span class="function">save</span>(inscripcion);
+}</pre>
+            </div>
+
+            <div class="success-box">
+                <h4>✨ Características Destacadas del Sistema TOA:</h4>
+                <ul>
+                    <li>✅ Clave compuesta para identificación única de inscripciones</li>
+                    <li>✅ Validaciones completas en el controller</li>
+                    <li>✅ Manejo automático de conversión JSON ↔ Java</li>
+                    <li>✅ Códigos HTTP apropiados para cada operación</li>
+                    <li>✅ Soporte para actualización completa (PUT) y parcial (PATCH)</li>
+                    <li>✅ Estados de inscripción mediante Enum type-safe</li>
+                    <li>✅ Fechas con LocalDate (sin zona horaria)</li>
+                    <li>✅ Carga EAGER de relaciones para respuestas completas</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación Técnica - Aplicación Thymeleaf de Gestión de Autos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 25px;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .thymeleaf-syntax {
+            background-color: #e8f5e8;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .annotation {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #f39c12;
+        }
+        .info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #17a2b8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Documentación Técnica: Aplicación Spring Boot + Thymeleaf</h1>
+        
+        <div class="info">
+            <strong>Proyecto:</strong> Sistema de Gestión de Autos<br>
+            <strong>Tecnologías:</strong> Spring Boot 3.5.0, Thymeleaf, Spring Data JPA, MySQL<br>
+            <strong>Arquitectura:</strong> MVC (Model-View-Controller) con renderizado del lado del servidor<br>
+        </div>
+
+        <h2>🎯 1. AutoController - Controlador Principal</h2>
+        
+        <h3>1.1 Configuración Base</h3>
+        <div class="code-block">
+            <pre><code>@Controller
+public class AutoController {
+    
+    @Autowired
+    private IAutoService autoServ;
+}</code></pre>
+        </div>
+        
+        <div class="annotation">
+            <strong>@Controller:</strong> Indica que esta clase es un controlador MVC de Spring. A diferencia de @RestController, permite devolver nombres de vistas (templates) en lugar de datos JSON.
+        </div>
+
+        <h3>1.2 Método Principal - Página de Inicio</h3>
+        <div class="code-block">
+            <pre><code>@GetMapping("/")
+public String mostrarIndex(Model model) {
+    List&lt;Auto&gt; autos = autoServ.getAutos();
+    model.addAttribute("autos", autos);
+    model.addAttribute("nuevoAuto", new Auto());
+    return "index";
+}</code></pre>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Descripción</th>
+                        <th>Propósito en Thymeleaf</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>@GetMapping("/")</code></td>
+                        <td>Mapea peticiones GET a la raíz del sitio</td>
+                        <td>Punto de entrada principal de la aplicación</td>
+                    </tr>
+                    <tr>
+                        <td><code>Model model</code></td>
+                        <td>Objeto que transporta datos hacia la vista</td>
+                        <td>Permite pasar datos del controlador al template Thymeleaf</td>
+                    </tr>
+                    <tr>
+                        <td><code>model.addAttribute("autos", autos)</code></td>
+                        <td>Agrega la lista de autos al modelo</td>
+                        <td>Disponible en el template como ${autos}</td>
+                    </tr>
+                    <tr>
+                        <td><code>model.addAttribute("nuevoAuto", new Auto())</code></td>
+                        <td>Crea un objeto Auto vacío</td>
+                        <td>Para enlazar el formulario de creación</td>
+                    </tr>
+                    <tr>
+                        <td><code>return "index"</code></td>
+                        <td>Nombre de la vista a renderizar</td>
+                        <td>Busca templates/index.html</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>1.3 Crear Nuevo Auto</h3>
+        <div class="code-block">
+            <pre><code>@PostMapping("/autos/crear")
+public String crearAuto(@ModelAttribute Auto auto, RedirectAttributes redirectAttributes) {
+    try {
+        autoServ.saveAuto(auto);
+        redirectAttributes.addFlashAttribute("mensaje", "El auto fue creado correctamente");
+        redirectAttributes.addFlashAttribute("exito", true);
+    } catch (Exception e) {
+        redirectAttributes.addFlashAttribute("mensaje", "Error al crear el auto: " + e.getMessage());
+        redirectAttributes.addFlashAttribute("exito", false);
+    }
+    return "redirect:/";
+}</code></pre>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Descripción</th>
+                        <th>Integración con Thymeleaf</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>@ModelAttribute Auto auto</code></td>
+                        <td>Spring automáticamente mapea los campos del formulario a un objeto Auto</td>
+                        <td>Se corresponde con th:object="${nuevoAuto}" en el template</td>
+                    </tr>
+                    <tr>
+                        <td><code>RedirectAttributes</code></td>
+                        <td>Permite pasar datos entre redirecciones</td>
+                        <td>Los flash attributes están disponibles una sola vez en la siguiente vista</td>
+                    </tr>
+                    <tr>
+                        <td><code>addFlashAttribute("mensaje", ...)</code></td>
+                        <td>Agrega un mensaje temporal</td>
+                        <td>Accesible como ${mensaje} en el template</td>
+                    </tr>
+                    <tr>
+                        <td><code>return "redirect:/"</code></td>
+                        <td>Redirecciona a la página principal</td>
+                        <td>Evita reenvío de formulario al refrescar</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>1.4 Editar Auto - Mostrar Formulario</h3>
+        <div class="code-block">
+            <pre><code>@GetMapping("/autos/editar/{id}")
+public String mostrarFormularioEdicion(@PathVariable Long id, Model model, 
+                                     RedirectAttributes redirectAttributes) {
+    try {
+        Auto auto = autoServ.findAuto(id);
+        if (auto != null) {
+            model.addAttribute("auto", auto);
+            return "editar";
+        } else {
+            redirectAttributes.addFlashAttribute("mensaje", "Auto no encontrado");
+            return "redirect:/";
+        }
+    } catch (Exception e) {
+        redirectAttributes.addFlashAttribute("mensaje", "Error: " + e.getMessage());
+        return "redirect:/";
+    }
+}</code></pre>
+        </div>
+
+        <div class="annotation">
+            <strong>@PathVariable Long id:</strong> Extrae el ID de la URL. Ejemplo: /autos/editar/5 → id=5<br>
+            <strong>model.addAttribute("auto", auto):</strong> Pasa el auto específico al template de edición
+        </div>
+
+        <h2>🖥️ 2. Templates Thymeleaf</h2>
+
+        <h3>2.1 Configuración Base de Thymeleaf</h3>
+        <div class="thymeleaf-syntax">
+            <pre><code>&lt;html xmlns:th="http://www.thymeleaf.org"&gt;</code></pre>
+        </div>
+        <div class="info">
+            Esta declaración habilita todas las funcionalidades de Thymeleaf en el template y proporciona autocompletado en IDEs.
+        </div>
+
+        <h3>2.2 index.html - Análisis Detallado</h3>
+
+        <h4>2.2.1 Mensajes Flash</h4>
+        <div class="code-block">
+            <pre><code>&lt;div th:if="${mensaje}" 
+     th:text="${mensaje}" 
+     th:class="${exito} ? 'alert alert-success' : 'alert alert-danger'" 
+     class="alert" 
+     role="alert"&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Atributo Thymeleaf</th>
+                        <th>Función</th>
+                        <th>Explicación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>th:if="${mensaje}"</code></td>
+                        <td>Renderizado condicional</td>
+                        <td>Solo muestra el div si existe un mensaje</td>
+                    </tr>
+                    <tr>
+                        <td><code>th:text="${mensaje}"</code></td>
+                        <td>Inserción de texto</td>
+                        <td>Coloca el contenido del mensaje (escapa HTML automáticamente)</td>
+                    </tr>
+                    <tr>
+                        <td><code>th:class="${exito} ? '...' : '...'"</code></td>
+                        <td>Clase CSS condicional</td>
+                        <td>Aplica clase success o danger según el valor de 'exito'</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>2.2.2 Formulario de Creación</h4>
+        <div class="code-block">
+            <pre><code>&lt;form th:action="@{/autos/crear}" method="post" th:object="${nuevoAuto}"&gt;
+    &lt;input type="text" th:field="*{marca}" required&gt;
+    &lt;input type="number" th:field="*{precio}" step="0.01" required&gt;
+    &lt;button type="submit"&gt;Guardar Auto&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Atributo</th>
+                        <th>Función</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>th:action="@{/autos/crear}"</code></td>
+                        <td>URL de envío del formulario</td>
+                        <td>Genera la URL correcta considerando context path</td>
+                    </tr>
+                    <tr>
+                        <td><code>th:object="${nuevoAuto}"</code></td>
+                        <td>Objeto de enlace del formulario</td>
+                        <td>Vincula todo el formulario con el objeto Auto</td>
+                    </tr>
+                    <tr>
+                        <td><code>th:field="*{marca}"</code></td>
+                        <td>Enlace bidireccional de campo</td>
+                        <td>Genera name="marca", id="marca" y maneja el valor</td>
+                    </tr>
+                    <tr>
+                        <td><code>th:field="*{precio}"</code></td>
+                        <td>Enlace bidireccional de campo</td>
+                        <td>Genera name="precio", id="precio" y maneja el valor</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="highlight">
+            <strong>¿Por qué *{marca} en lugar de ${nuevoAuto.marca}?</strong><br>
+            El asterisco (*) es la sintaxis de "selección de objeto" de Thymeleaf. Cuando usas th:object, puedes referenciar las propiedades del objeto directamente con *{propiedad} en lugar de ${objeto.propiedad}.
+        </div>
+
+        <h4>2.2.3 Tabla de Datos</h4>
+        <div class="code-block">
+            <pre><code>&lt;div th:if="${#lists.isEmpty(autos)}" class="alert alert-info"&gt;
+    No hay autos registrados.
+&lt;/div&gt;
+
+&lt;div th:unless="${#lists.isEmpty(autos)}"&gt;
+    &lt;table class="table"&gt;
+        &lt;tbody&gt;
+            &lt;tr th:each="auto : ${autos}"&gt;
+                &lt;td th:text="${auto.id}"&gt;&lt;/td&gt;
+                &lt;td th:text="${auto.marca}"&gt;&lt;/td&gt;
+                &lt;td th:text="${'$' + #numbers.formatDecimal(auto.precio, 0, 2)}"&gt;&lt;/td&gt;
+                &lt;td&gt;
+                    &lt;a th:href="@{/autos/editar/{id}(id=${auto.id})}"&gt;Editar&lt;/a&gt;
+                    &lt;a th:href="@{/autos/eliminar/{id}(id=${auto.id})}"&gt;Eliminar&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Elemento Thymeleaf</th>
+                        <th>Función</th>
+                        <th>Explicación Detallada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>th:if="${#lists.isEmpty(autos)}"</code></td>
+                        <td>Condición para lista vacía</td>
+                        <td>#lists es un objeto utilitario de Thymeleaf para operaciones con listas</td>
+                    </tr>
+                    <tr>
+                        <td><code>th:unless="${#lists.isEmpty(autos)}"</code></td>
+                        <td>Condición inversa</td>
+                        <td>Equivale a "if NOT isEmpty" - muestra solo si hay elementos</td>
+                    </tr>
+                    <tr>
+                        <td><code>th:each="auto : ${autos}"</code></td>
+                        <td>Iteración sobre colección</td>
+                        <td>Crea una fila por cada auto en la lista</td>
+                    </tr>
+                    <tr>
+                        <td><code>#numbers.formatDecimal(auto.precio, 0, 2)</code></td>
+                        <td>Formateo numérico</td>
+                        <td>Formatea precio: 0 dígitos enteros mín., 2 decimales</td>
+                    </tr>
+                    <tr>
+                        <td><code>@{/autos/editar/{id}(id=${auto.id})}</code></td>
+                        <td>URL con parámetro</td>
+                        <td>Genera URL reemplazando {id} con el valor actual</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>2.3 editar.html - Análisis Detallado</h3>
+
+        <h4>2.3.1 Formulario de Edición</h4>
+        <div class="code-block">
+            <pre><code>&lt;form th:action="@{/autos/actualizar}" method="post" th:object="${auto}"&gt;
+    &lt;input type="hidden" th:field="*{id}"&gt;
+    
+    &lt;input type="text" th:field="*{marca}" required&gt;
+    &lt;input type="number" th:field="*{precio}" step="0.01" required&gt;
+    
+    &lt;button type="submit"&gt;Actualizar Auto&lt;/button&gt;
+    &lt;a th:href="@{/}"&gt;Cancelar&lt;/a&gt;
+&lt;/form&gt;</code></pre>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Elemento</th>
+                        <th>Propósito</th>
+                        <th>Importancia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>th:object="${auto}"</code></td>
+                        <td>Enlaza el formulario con el auto a editar</td>
+                        <td>Los campos se pre-llenan con los valores actuales</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;input type="hidden" th:field="*{id}"&gt;</code></td>
+                        <td>Incluye el ID del auto en el formulario</td>
+                        <td>CRÍTICO: Permite al servidor saber qué auto actualizar</td>
+                    </tr>
+                    <tr>
+                        <td><code>th:field="*{marca}"</code></td>
+                        <td>Campo de texto pre-llenado</td>
+                        <td>Muestra la marca actual y captura cambios</td>
+                    </tr>
+                    <tr>
+                        <td><code>th:field="*{precio}"</code></td>
+                        <td>Campo numérico pre-llenado</td>
+                        <td>Muestra el precio actual y captura cambios</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Punto Crítico:</strong> El campo hidden con th:field="*{id}" es fundamental. Sin él, el servidor no sabría qué registro actualizar en la base de datos.
+        </div>
+
+        <h2>🔄 3. Flujo de Datos Completo</h2>
+
+        <h3>3.1 Creación de Auto</h3>
+        <ol>
+            <li><strong>GET /:</strong> Controller envía <code>nuevoAuto = new Auto()</code> al template</li>
+            <li><strong>Template:</strong> <code>th:object="${nuevoAuto}"</code> enlaza el formulario</li>
+            <li><strong>Usuario:</strong> Completa marca y precio</li>
+            <li><strong>POST /autos/crear:</strong> Spring mapea automáticamente los campos a un objeto Auto</li>
+            <li><strong>Controller:</strong> Guarda el auto y agrega mensaje flash</li>
+            <li><strong>Redirect:</strong> Vuelve a GET / mostrando el mensaje</li>
+        </ol>
+
+        <h3>3.2 Edición de Auto</h3>
+        <ol>
+            <li><strong>GET /autos/editar/{id}:</strong> Controller busca el auto por ID</li>
+            <li><strong>Template:</strong> <code>th:object="${auto}"</code> pre-llena el formulario</li>
+            <li><strong>Usuario:</strong> Modifica los valores</li>
+            <li><strong>POST /autos/actualizar:</strong> Spring mapea a objeto Auto (incluyendo ID hidden)</li>
+            <li><strong>Controller:</strong> Actualiza y redirecciona con mensaje</li>
+        </ol>
+
+        <h2>🛠️ 4. Características Avanzadas de Thymeleaf</h2>
+
+        <h3>4.1 Objetos Utilitarios</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Objeto</th>
+                        <th>Ejemplo de Uso</th>
+                        <th>Propósito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>#lists</code></td>
+                        <td><code>${#lists.isEmpty(autos)}</code></td>
+                        <td>Operaciones con listas (vacía, tamaño, etc.)</td>
+                    </tr>
+                    <tr>
+                        <td><code>#numbers</code></td>
+                        <td><code>${#numbers.formatDecimal(precio, 0, 2)}</code></td>
+                        <td>Formateo de números</td>
+                    </tr>
+                    <tr>
+                        <td><code>#dates</code></td>
+                        <td><code>${#dates.format(fecha, 'dd/MM/yyyy')}</code></td>
+                        <td>Formateo de fechas</td>
+                    </tr>
+                    <tr>
+                        <td><code>#strings</code></td>
+                        <td><code>${#strings.toUpperCase(marca)}</code></td>
+                        <td>Manipulación de strings</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>4.2 Expresiones Condicionales</h3>
+        <div class="thymeleaf-syntax">
+            <pre><code>&lt;!-- Operador ternario --&gt;
+th:class="${exito} ? 'alert-success' : 'alert-danger'"
+
+&lt;!-- Condicionales múltiples --&gt;
+th:text="${auto.precio > 50000} ? 'Caro' : (${auto.precio > 20000} ? 'Moderado' : 'Económico')"
+
+&lt;!-- Verificación de nulos --&gt;
+th:text="${auto.marca != null} ? ${auto.marca} : 'Sin marca'"</code></pre>
+        </div>
+
+        <h3>4.3 Generación de URLs</h3>
+        <div class="thymeleaf-syntax">
+            <pre><code>&lt;!-- URL simple --&gt;
+th:href="@{/autos/crear}"
+
+&lt;!-- URL con parámetro en el path --&gt;
+th:href="@{/autos/editar/{id}(id=${auto.id})}"
+
+&lt;!-- URL con parámetros de query --&gt;
+th:href="@{/autos/buscar(marca=${filtro.marca},precio=${filtro.precio})}"
+
+&lt;!-- URL con fragmento --&gt;
+th:href="@{/autos#lista}"</code></pre>
+        </div>
+
+        <h2>📋 5. Ventajas de este Enfoque</h2>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Beneficio</th>
+                        <th>Comparación con SPA/API</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>SEO</strong></td>
+                        <td>HTML generado en servidor</td>
+                        <td>Superior a SPAs con JavaScript</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tiempo de carga inicial</strong></td>
+                        <td>Página completa en primera respuesta</td>
+                        <td>Más rápido que cargar JS + hacer API calls</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Complejidad</strong></td>
+                        <td>Menos código JavaScript</td>
+                        <td>Más simple que manejar estado en frontend</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Seguridad</strong></td>
+                        <td>Lógica en servidor</td>
+                        <td>Menos exposición de lógica de negocio</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Accesibilidad</strong></td>
+                        <td>Funciona sin JavaScript</td>
+                        <td>Mejor compatibilidad con lectores de pantalla</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>🎯 6. Mejores Prácticas Implementadas</h2>
+
+        <div class="annotation">
+            <h4>✅ Validación y Manejo de Errores</h4>
+            <ul>
+                <li>Try-catch en todos los métodos del controller</li>
+                <li>Mensajes flash informativos para el usuario</li>
+                <li>Validación HTML5 en los formularios (required, type="number")</li>
+            </ul>
+        </div>
+
+        <div class="annotation">
+            <h4>✅ UX (Experiencia de Usuario)</h4>
+            <ul>
+                <li>Confirmación JavaScript para eliminar</li>
+                <li>Mensajes de éxito/error visualmente diferenciados</li>
+                <li>Formularios pre-llenados para edición</li>
+                <li>Navegación clara con botones de cancelar</li>
+            </ul>
+        </div>
+
+        <div class="annotation">
+            <h4>✅ Separación de Responsabilidades</h4>
+            <ul>
+                <li>Controller: lógica de navegación y manejo de requests</li>
+                <li>Service: lógica de negocio</li>
+                <li>Templates: presentación y interacción</li>
+                <li>Model: estructura de datos</li>
+            </ul>
+        </div>
+
+        <h2>🚀 7. Conclusión</h2>
+
+        <div class="highlight">
+            <p><strong>Esta implementación demuestra cómo Thymeleaf facilita la creación de aplicaciones web robustas con:</strong></p>
+            <ul>
+                <li>🔄 <strong>Enlace bidireccional:</strong> th:field maneja automáticamente el mapping entre objetos y formularios</li>
+                <li>🎨 <strong>Renderizado dinámico:</strong> th:if, th:each, th:text permiten contenido condicional y iterativo</li>
+                <li>🛡️ <strong>Seguridad:</strong> Escape automático de HTML, URLs generadas correctamente</li>
+                <li>📱 <strong>Responsividad:</strong> Integración perfecta con Bootstrap</li>
+                <li>🔧 <strong>Mantenibilidad:</strong> Separación clara entre lógica y presentación</li>
+            </ul>
+        </div>
+
+        <div class="info">
+            <h4>💡 Puntos Clave para Recordar:</h4>
+            <ol>
+                <li><strong>th:object + th:field</strong> = Enlace automático entre formularios y objetos Java</li>
+                <li><strong>Model.addAttribute()</strong> = Forma de pasar datos del controller al template</li>
+                <li><strong>RedirectAttributes</strong> = Mensajes temporales entre redirecciones</li>
+                <li><strong>@{} expresiones</strong> = URLs seguras y context-aware</li>
+                <li><strong>Objetos utilitarios (#lists, #numbers)</strong> = Funcionalidades avanzadas sin JavaScript</li>
+            </ol>
+        </div>
+
+        <footer style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666;">
+            <p>📖 Documentación generada automáticamente - Sistema de Gestión de Autos con Spring Boot + Thymeleaf</p>
+            <p><em>Tecnologías: Java 17, Spring Boot 3.5.0, Thymeleaf, JPA, MySQL, Bootstrap 5</em></p>
+        </footer>
+    </div>
+</body>
+</html>

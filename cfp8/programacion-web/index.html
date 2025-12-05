@@ -15,11 +15,13 @@
     <style>
         .etiqueta-esquina-superior-derecha {
             position: absolute;
-            top: 0.5rem; /* posición vertical */
-            right: 0.5rem; /* posición horizontal */
-            font-size: 0.75rem; /* texto pequeño */
+            top: 0.5rem;
+            /* posición vertical */
+            right: 0.5rem;
+            /* posición horizontal */
+            font-size: 0.75rem;
+            /* texto pequeño */
         }
-
     </style>
 </head>
 
@@ -33,25 +35,23 @@
     </header>
 
     <!-- Modal con cartel de aviso -->
-      <div class="modal" id="myModal">
+    <div class="modal" id="myModal">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header text-bg-warning">
-              <h4 class="modal-title">Aviso importante</h4>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-              ></button>
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header text-bg-warning">
+                    <h4 class="modal-title">Aviso importante</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">El próximo <strong style="color: red;">jueves 6 de noviembre</strong> no hay
+                    clases de <em style="color: red;">Gestión de base de datos</em> debido a que el CFP realizará
+                    jornada <em>Espacio de Mejora Institucional (EMI)</em></div>
+
             </div>
-
-            <!-- Modal body -->
-            <div class="modal-body">El próximo <strong style="color: red;">jueves 6 de noviembre</strong> no hay clases de <em style="color: red;">Gestión de base de datos</em> debido a que el CFP realizará jornada <em>Espacio de Mejora Institucional (EMI)</em></div>
-
-          </div>
         </div>
-      </div>
+    </div>
 
     <!-- Cartel de entrega TP final  -->
     <div id="cartel-tp-final" class="container alert alert-warning border border-3 border-danger rounded-2 shadow-lg">
@@ -62,25 +62,25 @@
             </li>
             <li>
                 <strong>Consigna:</strong>
-                <em><a
-                        href="https://aulasvirtuales.bue.edu.ar/pluginfile.php/2868320/mod_assign/introattachment/0/Trabajo%20Integrador%20Final.docx?forcedownload=1"
-                        target="_blank"
-                        title="Click para abrir el documento"
-                        >Trabajo Integrador Final.docx</a></em>
+                <em><a href="https://aulasvirtuales.bue.edu.ar/pluginfile.php/2868320/mod_assign/introattachment/0/Trabajo%20Integrador%20Final.docx?forcedownload=1"
+                        target="_blank" title="Click para abrir el documento">Trabajo Integrador Final.docx</a></em>
             </li>
             <li>
                 <strong>Enlace de entrega:</strong>
-                <em
-                    ><a
-                        href="https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764627&amp;action=editsubmission"
-                        target="_blank"
-                        title="Click para abrir la ventana de entrega"
-                        >aula virtual</a
-                    ></em
-                >
+                <em><a href="https://aulasvirtuales.bue.edu.ar/mod/assign/view.php?id=764627&amp;action=editsubmission"
+                        target="_blank" title="Click para abrir la ventana de entrega">aula virtual</a></em>
             </li>
         </ul>
     </div>
+
+    <!-- Acordeón de documentación de cursada -->
+    <section class="container p-4 mb-3 bg-primary-subtle border border-2 border-primary rounded-3">
+        <h3 class="text-center text-primary">Documentación de cursada</h3>
+        <p>Aquí podés consultar la recopilación del material en formato HTML que fue pasando el profe en cada clase de cada tema. Está agrupado por curso</p>
+        <br>
+        <div id="accordion">
+        </div>
+    </section>
 
     <!-- Cuerpo principal -->
     <main class="container p-4 rounded-3" style="background-color: lightcyan;">
@@ -90,17 +90,15 @@
 
     <!-- Pié de página -->
     <footer class="container text-secondary bg-dark my-3 p-2 rounded-3 text-end">
-        <p class="h6">Basado en la información publicada en el 
-            <a href="https://aulasvirtuales.bue.edu.ar/"
-                target="_blank" 
-                rel="noopener noreferrer"
+        <p class="h6">Basado en la información publicada en el
+            <a href="https://aulasvirtuales.bue.edu.ar/" target="_blank" rel="noopener noreferrer"
                 title="Click para abrir en una nueva pestaña el aula virtual BA Aprende - Agencia de habilidades para el futuro">aula
                 virtual
             </a> de CFP8 SMATA-CGBA
         </p>
     </footer>
 
-    
+
     <!-- JQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>

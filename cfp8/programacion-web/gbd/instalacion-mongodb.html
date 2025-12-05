@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instalación de MongoDB en Windows</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        h1 {
+            color: #00ED64;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #13AA52;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+            border-left: 5px solid #00ED64;
+            padding-left: 15px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+        
+        strong {
+            color: #13AA52;
+            font-weight: 600;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #e83e8c;
+            font-size: 0.95em;
+        }
+        
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+            border-left: 4px solid #00ED64;
+            position: relative;
+        }
+        
+        pre code {
+            background: none;
+            color: #f8f8f2;
+            padding: 0;
+        }
+        
+        .code-container {
+            position: relative;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #13AA52;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .copy-btn:hover {
+            background-color: #00ED64;
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        .copy-btn.copied {
+            background-color: #28a745;
+        }
+        
+        .copy-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .note {
+            background-color: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .important {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .step {
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .step h2 {
+            margin-top: 0;
+        }
+        
+        a {
+            color: #13AA52;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        a:hover {
+            color: #00ED64;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍃 Instalación de MongoDB en Windows</h1>
+        <p>Guía completa para instalar MongoDB desde cero y configurarlo como servicio automático en Windows.</p>
+        
+        <div class="step">
+            <h2>1. Descargar MongoDB</h2>
+            <ul>
+                <li>Ve a <a href="https://www.mongodb.com/try/download/community" target="_blank">https://www.mongodb.com/try/download/community</a></li>
+                <li>Descarga la versión <strong>Community</strong> para Windows (MSI)</li>
+            </ul>
+        </div>
+        
+        <div class="step">
+            <h2>2. Instalación</h2>
+            <p>Durante la instalación:</p>
+            <ul>
+                <li>Selecciona <strong>"Complete"</strong> (instalación completa)</li>
+                <li><span class="important" style="display: inline; padding: 5px 10px;"><strong>Importante:</strong> Marca la opción <strong>"Install MongoDB as a Service"</strong></span></li>
+                <li>Deja marcado <strong>"Run service as Network Service user"</strong></li>
+                <li>Marca <strong>"Install MongoDB Compass"</strong> (GUI opcional pero útil)</li>
+            </ul>
+        </div>
+        
+        <div class="step">
+            <h2>3. Variables de entorno (opcional pero recomendado)</h2>
+            <p>Si quieres usar <code>mongod</code> desde cualquier terminal:</p>
+            <ol>
+                <li>Abre <strong>"Variables de entorno"</strong> (busca en Windows)</li>
+                <li>En <strong>"Variables del sistema"</strong>, edita <strong>Path</strong></li>
+                <li>Agrega la ruta: 
+                    <div class="code-container">
+                        <code style="display: block; background-color: #f4f4f4; padding: 10px; border-radius: 5px; margin-top: 10px;">C:\Program Files\MongoDB\Server\6.0\bin</code>
+                        <button class="copy-btn" onclick="copyToClipboard('C:\\Program Files\\MongoDB\\Server\\6.0\\bin', this)">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                            Copiar
+                        </button>
+                    </div>
+                </li>
+                <li>Acepta y cierra</li>
+            </ol>
+        </div>
+        
+        <div class="step">
+            <h2>4. Verificar instalación</h2>
+            <p>Abre una nueva terminal y ejecuta:</p>
+            <div class="code-container">
+                <pre><code>mongod --version</code></pre>
+                <button class="copy-btn" onclick="copyToClipboard('mongod --version', this)">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copiar
+                </button>
+            </div>
+        </div>
+        
+        <div class="step">
+            <h2>5. Verificar servicio</h2>
+            <p>Para verificar que el servicio está corriendo:</p>
+            <div class="code-container">
+                <pre><code>net start MongoDB</code></pre>
+                <button class="copy-btn" onclick="copyToClipboard('net start MongoDB', this)">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                    </svg>
+                    Copiar
+                </button>
+            </div>
+        </div>
+        
+        <div class="note">
+            <strong>📝 Nota:</strong> El instalador MSI configura todo automáticamente: servicio, rutas de datos (<code>C:\data\db</code>), logs, y configuración. No necesitas configuración manual adicional.
+        </div>
+        
+        <div class="important">
+            <strong>✅ Resultado final:</strong> MongoDB quedará instalado como servicio de Windows que se inicia automáticamente con el sistema, listo para usar desde aplicaciones o VS Code.
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(text, button) {
+            navigator.clipboard.writeText(text).then(function() {
+                // Cambiar el texto y estilo del botón
+                const originalHTML = button.innerHTML;
+                button.innerHTML = `
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Copiado!
+                `;
+                button.classList.add('copied');
+                
+                // Restaurar después de 2 segundos
+                setTimeout(function() {
+                    button.innerHTML = originalHTML;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Error al copiar: ', err);
+                alert('No se pudo copiar al portapapeles');
+            });
+        }
+    </script>
+</body>
+</html>
