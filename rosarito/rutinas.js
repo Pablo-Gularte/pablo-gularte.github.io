@@ -19,10 +19,10 @@ const formatearCadena = (cadena) => {
 };
 
 const grados = [
-    { id: "sextoA", leyenda: "Sexto A" },
-    { id: "sextoB", leyenda: "Sexto B" },
-    { id: "sextoC", leyenda: "Sexto C" },
-    { id: "sextoD", leyenda: "Sexto D" },
+    { id: "sextoA", leyenda: "Sexto A", turno: "mañana" },
+    { id: "sextoB", leyenda: "Sexto B", turno: "mañana" },
+    { id: "sextoC", leyenda: "Sexto C", turno: "tarde" },
+    { id: "sextoD", leyenda: "Sexto D", turno: "tarde" },
 ];
 
 const listadoCrudoDelServidor = {
@@ -7014,6 +7014,7 @@ const estudiantes = {
             idAlumno: r.idAlumno,
             apellido: formatearCadena(r.apellido),
             nombre: formatearCadena(r.nombre),
+            apeNom: formatearCadena(r.apellido) + ", " + formatearCadena(r.nombre),
             documento: r.documento
         }
     }),
@@ -7022,6 +7023,7 @@ const estudiantes = {
             idAlumno: r.idAlumno,
             apellido: formatearCadena(r.apellido),
             nombre: formatearCadena(r.nombre),
+            apeNom: formatearCadena(r.apellido) + ", " + formatearCadena(r.nombre),
             documento: r.documento
         }
     }),
@@ -7030,6 +7032,7 @@ const estudiantes = {
             idAlumno: r.idAlumno,
             apellido: formatearCadena(r.apellido),
             nombre: formatearCadena(r.nombre),
+            apeNom: formatearCadena(r.apellido) + ", " + formatearCadena(r.nombre),
             documento: r.documento
         }
     }),
@@ -7038,6 +7041,7 @@ const estudiantes = {
             idAlumno: r.idAlumno,
             apellido: formatearCadena(r.apellido),
             nombre: formatearCadena(r.nombre),
+            apeNom: formatearCadena(r.apellido) + ", " + formatearCadena(r.nombre),
             documento: r.documento
         }
     })
@@ -7047,36 +7051,71 @@ function cargarTabla(grado) {
     // Obtengo la tabla del DOM
     var $tabla = $('#estudiantes');
     $tabla.html();
-    $("h3#titulo-grado").text("Listado de estudiantes de " + grados.find(g => g.id === grado).leyenda);
+    const leyendaGrado = grados.find(g => g.id === grado).leyenda;
+    const leyendaTurno = grados.find(g => g.id === grado).turno
+    $("h3#titulo-grado")
+        .addClass("alert alert-dark mt-3 text-center")
+        .html(`Listado de estudiantes de <strong>${leyendaGrado}</strong> <small>turno ${leyendaTurno}</small>`);
 
     // Cargar datos en la tabla
     $tabla.bootstrapTable('destroy').bootstrapTable({
         data: estudiantes[grado],
         theadClasses: "text-center table-success",
+        pagination: true,
+        locale: "es-AR",
+        stickyHeader: true,
+        search: true,
+        searchAccentNeutralise: true,
+        formatSearch: function () {
+            return 'Buscar estudiante...';
+        },
+        showColumns: true,
+        showPrint: true,
+        showAdvancedSearch: false,
+        showExport: true,
+        exportTypes: ['json', 'csv', 'txt', 'pdf'],
+        trimOnSearch: false,
+        iconsPrefix: 'bi',
+        icons: {
+            print: 'bi-printer'
+        },
+        minimumCountColumns: 0,
         columns: [
             {
                 field: 'rowNumber',
-                title: '#',
+                title: 'Orden',
                 align: 'center',
+                sortable: true,
                 formatter: function (value, row, index) {
                     return index + 1; // Devuelve el índice + 1 (empezando en 1)
                 }
-
+                
             },
             {
-                field: 'apellido',
-                title: "Apellido",
-            },
-            {
-                field: 'nombre',
-                title: "Nombre",
+                field: 'apeNom',
+                title: "Apellido y Nombre",
+                sortable: true,
+                switchable: false
             },
             {
                 field: 'documento',
                 title: "Documento",
-                align: 'center'
+                align: 'center',
+                sortable: true,
             }
-        ]
+        ],
+        formatSearchHighlight: true,
+        // 1. FILTRADO (¿Qué filas pasan?)
+        customSearch: function (data, text) {
+            if (!text) return data;
+            var queryWords = text.toUpperCase().split(' ').filter(word => word.trim() !== "");
+
+            return data.filter(function (row) {
+                var textoFila = (row.apeNom || "").toString().toUpperCase();
+                // Solo pasan las filas que contienen todas las palabras
+                return queryWords.every(word => textoFila.indexOf(word) !== -1);
+            });
+        }
     });
 }
 
