@@ -1,3 +1,749 @@
+const agendaEducativaGuardada = {
+    "_id": {
+        "$oid": "69725494280414e53a5d9691"
+    },
+    "nivel": "Nivel Primario",
+    "ciclo_lectivo": 2026,
+    "agenda": {
+        "enero": [
+            {
+                "fecha": "2 al 31",
+                "actividad": "Guardias pasivas de equipos de supervisión y equipos de conducción"
+            },
+            {
+                "fecha": "26 al 8/2",
+                "actividad": "Inscripción a través de IEL para la segunda toma de la prueba de admisión de postulantes externos (Gestión Privada y otras jurisdicciones), aspirantes a ingresar de 2° a 7° grado de los establecimientos con intensificación en lenguas adicionales y/o bilingüismo. ENS N.º 1, ENS N.º 2, ENS en Lenguas Vivas «S. B. de Spangenberg», IES en Lenguas Vivas J. R. Fernández e IES en Lenguas Vivas «Juan B. Justo» (DENS)."
+            }
+        ],
+        "febrero": [
+            {
+                "fecha": "2 al 6",
+                "actividad": "Guardias pasivas de equipos de supervisión y equipos de conducción. Guardia administrativa con el personal correspondiente"
+            },
+            {
+                "fecha": "6",
+                "actividad": "Finalización del período de Licencia Anual Ordinaria (Estatuto del Docente, Ordenanza N.º 40593, Art. 68 y sus modificatorias/complementarias)"
+            },
+            {
+                "fecha": "9",
+                "actividad": "Inicio del Período Escolar 2026"
+            },
+            {
+                "fecha": "9",
+                "actividad": "Presentación de todo el personal"
+            },
+            {
+                "fecha": "9",
+                "actividad": "Presentación de todo el personal miembros del Área de Servicios Profesionales"
+            },
+            {
+                "fecha": "9",
+                "actividad": "Toma de posesión vocales de junta de clasificación y disciplina docente (Estatuto del docente, ordenanza N.º 40.593, Art. 10, acapite III) (DENS-DGEGE)"
+            },
+            {
+                "fecha": "9",
+                "actividad": "Toma de posesión del personal afectado a permutas (DGEGE-DENS)"
+            },
+            {
+                "fecha": "9 al 23",
+                "actividad": "Segundo corte de Promoción Acompañada - (Acompañamiento a la Promoción 2024)"
+            },
+            {
+                "fecha": "9 al 31/3",
+                "actividad": "Inclusión de la Educación Digital en el diseño del Proyecto Escuela y la planificación"
+            },
+            {
+                "fecha": "10",
+                "actividad": "Toma de posesión de ganadores de concurso de ascenso, readmisión y traslado de todos los cargos de Supervisor, Supervisor Adjunto y Director (DGEGE-DENS)"
+            },
+            {
+                "fecha": "10",
+                "actividad": "Acto público y toma de posesión IyS de los cargos de Supervisor, Supervisor Adjunto y Director (DGEGE-DENS)"
+            },
+            {
+                "fecha": "11",
+                "actividad": "Toma de posesión de ganadores de concurso de ascenso, readmisión y traslado de los cargos de Vicedirector, Maestro Secretario, MACTE y Maestro especialista (DGEGE-DENS)"
+            },
+            {
+                "fecha": "11",
+                "actividad": "Acto público y toma de posesión IyS de los cargos de Vicedirector, Maestro Secretario, Maestro especialista, Maestro/a Coordinador/a de Trayectorias Escolares (DGEGE-DENS)"
+            },
+            {
+                "fecha": "11",
+                "actividad": "Toma de posesión de los cargos Titulares de los miembros del Área de Servicios Profesionales en el departamento de RRHH de la Gerencia Operativa de Equipos de Apoyo"
+            },
+            {
+                "fecha": "12",
+                "actividad": "Turno Mañana - Toma de posesión de cargos de base (incluye curriculares) - Traslado, acumulación e ingreso (Jornada completa y turno mañana) - (DGEGE-DENS)"
+            },
+            {
+                "fecha": "12",
+                "actividad": "Turno Tarde - Toma de posesión de cargos de base (incluye curriculares) - Traslado, acumulación e ingreso Jornada Simple (turno tarde) - (DGEGE-DENS)"
+            },
+            {
+                "fecha": "13",
+                "actividad": "Turno Mañana - 1er Acto público y toma de posesión IyS de cargos de base (incluye curriculares) - (Jornada simple turno mañana y Jornada completa) - (DGEGE-DENS)"
+            },
+            {
+                "fecha": "13",
+                "actividad": "Turno Tarde - 2do Acto público y toma de posesión IyS de cargos de base (incluye curriculares) (Jornada simple turno tarde) (DGEGE-DENS)"
+            },
+            {
+                "fecha": "12, 13, 18, 19, 20, 23",
+                "actividad": "Encuentros de Formación Situada"
+            },
+            {
+                "fecha": "18",
+                "actividad": "Examen de ubicación en Centros Educativos Complementarios de Idioma Extranjero (CECIE)"
+            },
+            {
+                "fecha": "18 y 19",
+                "actividad": "Programa Escuelas En Foco: Encuentro de Equipos de coordinación institucional (Referentes de Gestión, Lengua y Matemática) agrupados por distritos escolares (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "18 al 23",
+                "actividad": "Reuniones con familias de 1° grado"
+            },
+            {
+                "fecha": "19",
+                "actividad": "Primera toma de prueba de admisión para los postulantes externos que aspiran a ingresar de 2° a 7° grado de los establecimientos con intensificación en lenguas adicionales y/o bilingüismo. ENS N.º 1, ENS N.º 2, ENS en Lenguas Vivas «S. B. de Spangenberg», IES en Lenguas Vivas «J. R. Fernández» e IES en Lenguas Vivas «Juan B. Justo» (DENS). Vacantes sujetas a la disponibilidad de las instituciones escolares."
+            },
+            {
+                "fecha": "20",
+                "actividad": "Determinación y difusión del orden de mérito y adjudicación de vacantes para los aspirantes a ingresar de 2° a 7° grado de los establecimientos con intensificación en lenguas adicionales y/o bilingüismo. ENS N.º 1, ENS N.º 2, ENS en Lenguas Vivas «S. B. de Spangenberg», IES en Lenguas Vivas «J. R. Fernández» e IES en Lenguas Vivas «Juan B. Justo» (DENS). Vacantes sujetas a la disponibilidad de las instituciones escolares."
+            },
+            {
+                "fecha": "23",
+                "actividad": "Inicio de designación de Referentes Ambientales de establecimientos educativos"
+            },
+            {
+                "fecha": "24",
+                "actividad": "1° Espacio para la Mejora Institucional (EMI)"
+            },
+            {
+                "fecha": "24",
+                "actividad": "Finalización del ciclo lectivo 2025"
+            },
+            {
+                "fecha": "25",
+                "actividad": "Inicio de ciclo lectivo 2026. Inicio de clases"
+            },
+            {
+                "fecha": "25",
+                "actividad": "Inicio de clases de Jornada Extendida en escuelas para Nivel Primario"
+            },
+            {
+                "fecha": "25",
+                "actividad": "Inicio del 1º bimestre/1° cuatrimestre 2026 (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "25",
+                "actividad": "Inicio período de realización del Plan Anual Institucional - Asociaciones Cooperadoras (Ley N.º 3372-LCABA-09, Art. 7)"
+            }
+        ],
+        "marzo": [
+            {
+                "fecha": "1 al 15",
+                "actividad": "De la Escuela al Museo: Miradas que Dialogan - Museo Benito Quinquela Martin (DEP)"
+            },
+            {
+                "fecha": "1 al 31",
+                "actividad": "Primera reunión con familias de cada grado para la presentación: Personal - PE - DC"
+            },
+            {
+                "fecha": "2 al 6",
+                "actividad": "Elevación de documentación mensual - Becas Alimentarias (Almuerzo y Refrigerio) Elevación del cuadro único mensual de becas y servicios (DENS-DGEGE)"
+            },
+            {
+                "fecha": "2 al 6",
+                "actividad": "Inicio de clases en Centros educativos Complementarios de Natación (CEC)"
+            },
+            {
+                "fecha": "2 al 6",
+                "actividad": "Inicio Plan de Natación 4º grados y Escuelas intensificadas en Educación Física (1° a 7° grados)"
+            },
+            {
+                "fecha": "5 y 6",
+                "actividad": "Exámenes libres (DGEGE)"
+            },
+            {
+                "fecha": "12",
+                "actividad": "Vence plazo para presentar DDJJ de cursos y cargos para nivel Inicial, Primario común, Primaria adultos, Primaria Especial y Formación Laboral (DGEGP)"
+            },
+            {
+                "fecha": "16 al 20",
+                "actividad": "Periodo de exámenes para aquellos/as estudiantes provenientes de otras jurisdicciones y/o paises que adeuden asignaturas para completar estudios primarios a fin de poder inscribirse en escuelas secundarias de la CABA (Resolución N.º 57-MEGC-10, art. 5)"
+            },
+            {
+                "fecha": "16 al 20",
+                "actividad": "Semana del Bienestar socioemocional (BSE)"
+            },
+            {
+                "fecha": "17, 18 y 19",
+                "actividad": "Encuentros de Formación Docente Situada para Directivos"
+            },
+            {
+                "fecha": "20",
+                "actividad": "Charla informativa de la Feria de Educación para todos los niveles y modalidades donde se explica el funcionamiento y en qué consiste (Virtual)"
+            },
+            {
+                "fecha": "20 al 31",
+                "actividad": "Reuniones de supervisión pedagógica con Equipos directivos (DGEGP)"
+            },
+            {
+                "fecha": "21",
+                "actividad": "Día Internacional de la poesía"
+            },
+            {
+                "fecha": "25 al 27",
+                "actividad": "Periodo de elevación del Proyecto Escuela a la Supervisión (DGEGE-DENS)"
+            },
+            {
+                "fecha": "25 al 31",
+                "actividad": "Programa Escuelas En Foco: Presentación final del PEAP vía Plataforma de programa (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "27",
+                "actividad": "Finaliza el periodo para la presentación de Rendiciones, Cuadro Demostrativo de Recursos y Gastos (balance) Año 2024, Memoria e Informe de la Comisión Revisora de Cuentas (Ley N.º 3372-LCABA-09, Art. 11)"
+            },
+            {
+                "fecha": "27",
+                "actividad": "Finaliza el período de realización de las Asambleas Ordinarias de las Asociaciones Cooperadoras (Ley N.º 6613, Art. 22)"
+            },
+            {
+                "fecha": "31",
+                "actividad": "Vence el plazo para homologar la nómina de estudiantes becados 'Beca en Línea 2026'"
+            },
+            {
+                "fecha": "31",
+                "actividad": "Vence plazo para la presentación de la rendición anual 2025 (balance escuelas con aporte estatal - DGEGP)"
+            }
+        ],
+        "abril": [
+            {
+                "fecha": "1",
+                "actividad": "DGPDYND, Apertura del periodo de validación del padrón de sueldos correspondiente al mes de marzo (padrón web)"
+            },
+            {
+                "fecha": "1",
+                "actividad": "DGPDYND, Inicio del periodo de carga de NOVEDADES POF"
+            },
+            {
+                "fecha": "1 al 9",
+                "actividad": "Elevación de documentación mensual - Becas Alimentarias (Almuerzo y Refrigerio) Elevación del cuadro único mensual de becas y servicios (DENS-DGEGE)"
+            },
+            {
+                "fecha": "2",
+                "actividad": "Día Internacional del libro infantil y juvenil"
+            },
+            {
+                "fecha": "6 al 10",
+                "actividad": "Inscripción Feria de Educación para los docentes todos los niveles y modalidades del sistema educativo"
+            },
+            {
+                "fecha": "6 al 10",
+                "actividad": "Semana de la Actividad Física y de la Salud"
+            },
+            {
+                "fecha": "6 al 17",
+                "actividad": "Evento: 'Uso de resultados Fepba-Tesba' Docentes y directivos de Nivel Primario y Secundario"
+            },
+            {
+                "fecha": "9",
+                "actividad": "Segunda toma de prueba de admisión para los postulantes externos que aspiran a ingresar de 2° a 7° grado de los establecimientos con intensificación en lenguas adicionales y/o bilingüismo (DENS). Vacantes sujetas a la disponibilidad."
+            },
+            {
+                "fecha": "11",
+                "actividad": "Charla para los inscriptos a la feria (Virtual)"
+            },
+            {
+                "fecha": "13 al 17",
+                "actividad": "Programa Escuelas En Foco Encuentro de Referentes de Matemática (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "14",
+                "actividad": "Finaliza el periodo de remisión de la documentación correspondiente a la Asamblea Anual Ordinaria de las Asociaciones Cooperadoras"
+            },
+            {
+                "fecha": "15",
+                "actividad": "DGPDYND, Cierre del periodo de validación del Padrón Web del mes de marzo"
+            },
+            {
+                "fecha": "16",
+                "actividad": "DGPDYND, Cierre del periodo de carga de NOVEDADES POF"
+            },
+            {
+                "fecha": "20 al 24",
+                "actividad": "Programa Escuelas En Foco Encuentro de Referentes de Lengua (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "20 al 24",
+                "actividad": "1era Semana de 'Sensibilización y Estrategias Preventivas sobre los Consumos Problemáticos'"
+            },
+            {
+                "fecha": "20 al 24",
+                "actividad": "Torneo Metropolitano de Fútbol instancia distrital (DGEGE-DENS)"
+            },
+            {
+                "fecha": "20 al 8/5",
+                "actividad": "Evaluaciones formativas - Toma 1 (1° a 4° grado)"
+            },
+            {
+                "fecha": "23",
+                "actividad": "Día Internacional del Libro Infantojuvenil y del Derecho de Autor"
+            },
+            {
+                "fecha": "25",
+                "actividad": "1ra capacitación de la Feria de Educación para los docentes todos los niveles y modalidades del sistema educativo previamente inscriptos. (Presencial)"
+            }
+        ],
+        "mayo": [
+            {
+                "fecha": "2",
+                "actividad": "Día Mundial contra el Acoso Escolar"
+            },
+            {
+                "fecha": "4 al 8",
+                "actividad": "Elevación de documentación mensual - Becas Alimentarias (Almuerzo y Refrigerio) Elevación del cuadro único mensual de becas y servicios (DENS-DGEGE)"
+            },
+            {
+                "fecha": "4 al 30/6",
+                "actividad": "Carga web del Relevamiento Anual 2025 (DENS-DGEGE-DGEGP)"
+            },
+            {
+                "fecha": "4",
+                "actividad": "DGPDYND, Apertura del periodo de validación del padrón de sueldos correspondiente al mes de abril (padrón web)"
+            },
+            {
+                "fecha": "5",
+                "actividad": "Finaliza el período de realización del Plan Anual Institucional - Asociaciones Cooperadoras (Ley N.º 3372-LCABA-09, Art. 7)"
+            },
+            {
+                "fecha": "7",
+                "actividad": "Fin del 1º bimestre (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "8",
+                "actividad": "Inicio del 2º bimestre (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "11 al 16",
+                "actividad": "Semana de la Familia"
+            },
+            {
+                "fecha": "14",
+                "actividad": "2º Espacio para la Mejora Institucional (EMI) sin presencia de estudiantes en las escuelas"
+            },
+            {
+                "fecha": "16",
+                "actividad": "Expo Familias"
+            },
+            {
+                "fecha": "18",
+                "actividad": "DGPDYND, Cierre del periodo de validación del Padrón Web del mes de abril"
+            },
+            {
+                "fecha": "18 al 22",
+                "actividad": "Torneo Metropolitano de Handball instancia distrital (DGEGE-DGSFD)"
+            },
+            {
+                "fecha": "23",
+                "actividad": "2da Capacitación de la Feria de Educación para los docentes todos los niveles y modalidades del sistema educativo previamente inscriptos. (Presencial)"
+            },
+            {
+                "fecha": "25 al 29",
+                "actividad": "1ª Jornada de Educación Sexual Integral (ESI)"
+            },
+            {
+                "fecha": "26",
+                "actividad": "Inscripción para la Feria de Educación (Instancia Regional)"
+            },
+            {
+                "fecha": "29",
+                "actividad": "Vencimiento para la presentación de la Declaración Jurada de alumnos/as becados/as para escuelas con aporte estatal (DGEGP)"
+            }
+        ],
+        "junio": [
+            {
+                "fecha": "1",
+                "actividad": "DGPDYND, Apertura del periodo de validación del padrón de sueldos correspondiente al mes de mayo (padrón web)"
+            },
+            {
+                "fecha": "1 al 5",
+                "actividad": "Elevación de documentación mensual - Becas Alimentarias (Almuerzo y Refrigerio) Elevación del cuadro único mensual de becas y servicios (DENS-DGEGE)"
+            },
+            {
+                "fecha": "1 al 5",
+                "actividad": "Programa Escuelas En Foco Encuentro de Referentes de Matemática (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "8 al 12",
+                "actividad": "Programa Escuelas En Foco Encuentro de Referentes de Lengua (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "11",
+                "actividad": "Día del Supervisor"
+            },
+            {
+                "fecha": "13",
+                "actividad": "Día de la escritora y del escritor"
+            },
+            {
+                "fecha": "15",
+                "actividad": "Día Nacional del Libro"
+            },
+            {
+                "fecha": "15",
+                "actividad": "DGPDYND, Cierre del periodo de validación del Padrón Web del mes de mayo"
+            },
+            {
+                "fecha": "15 al 19",
+                "actividad": "2da Semana de 'Sensibilización y Estrategias Preventivas sobre los Consumos Problemáticos'"
+            },
+            {
+                "fecha": "15 al 26",
+                "actividad": "Encuentro Metropolitano distrital de deportes alternativos y actividades en el medio natural (DGEGE-DENS)"
+            },
+            {
+                "fecha": "22 al 26",
+                "actividad": "Feria de Educación (Instancia Regional) etapa donde se exponen todas las escuela que inscribieron sus proyectos"
+            },
+            {
+                "fecha": "24",
+                "actividad": "VII Jornada Metropolitana de Bibliotecarias y Bibliotecarios"
+            },
+            {
+                "fecha": "25",
+                "actividad": "Jornadas Metropolitanas de Bibliotecarios/as Escolares"
+            },
+            {
+                "fecha": "A/D",
+                "actividad": "Acto de Promesa de Lealtad a la Bandera"
+            },
+            {
+                "fecha": "30",
+                "actividad": "Primer Evaluación del Plan anual institucional. Ley 3372 art. 13 Asociaciones Cooperadoras"
+            }
+        ],
+        "julio": [
+            {
+                "fecha": "A/D",
+                "actividad": "'Puentes' espacio para intercambios entre alumnos de Escuelas intensificadas en Actividades científicas"
+            },
+            {
+                "fecha": "1 al 7",
+                "actividad": "Elevación de documentación mensual - Becas Alimentarias (Almuerzo y Refrigerio) Elevación del cuadro único mensual de becas y servicios (DENS-DGEGE)"
+            },
+            {
+                "fecha": "1 al 8",
+                "actividad": "4 Encuentro de Natación para Escuelas Intensificadas en Educación Física. 1º Cuatrimestre."
+            },
+            {
+                "fecha": "1 al 8",
+                "actividad": "Torneo Metropolitano de Gimnasia instancia distrital (DGEGE-DENS)"
+            },
+            {
+                "fecha": "1 al 15",
+                "actividad": "2da Reunión de supervisión pedagógica con Equipos directivos (DGEGP)"
+            },
+            {
+                "fecha": "10",
+                "actividad": "Cierre registro Primer Semestre de envíos de Documentación Obligatoria de Becas y Servicios (cuadro único mensual de becas y servicios [Febrero a Junio])"
+            },
+            {
+                "fecha": "15",
+                "actividad": "DGPDYND, Cierre del periodo de validación del Padrón Web del mes de junio"
+            },
+            {
+                "fecha": "17",
+                "actividad": "Reclamo incumplimiento - Primer Semestre de envío de Documentación Obligatoria Becas y Servicios"
+            },
+            {
+                "fecha": "17",
+                "actividad": "Fin del 2º bimestre/1º cuatrimestre 2026 (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "20 al 31",
+                "actividad": "Receso escolar"
+            }
+        ],
+        "agosto": [
+            {
+                "fecha": "3",
+                "actividad": "Inicio del 3º bimestre/2 cuatrimestre 2026 (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "3",
+                "actividad": "DGPDYND, Apertura del periodo de validación del padrón de sueldos correspondiente al mes de julio (padrón web)"
+            },
+            {
+                "fecha": "3 al 7",
+                "actividad": "Elevación de documentación mensual - Becas Alimentarias (Almuerzo y Refrigerio) Elevación del cuadro único mensual de becas y servicios (DENS-DGEGE)"
+            },
+            {
+                "fecha": "12",
+                "actividad": "Inscripción de la Feria de Educación (instancia Jurisdiccional)"
+            },
+            {
+                "fecha": "12",
+                "actividad": "3° Espacio para la Mejora Institucional (EMI) sin presencia de estudiantes en las escuelas"
+            },
+            {
+                "fecha": "15",
+                "actividad": "DGPDYND, Cierre del periodo de validación del Padrón Web del mes de julio"
+            },
+            {
+                "fecha": "24",
+                "actividad": "Día del Lector (Ley N.º 26.754 del Congreso de la Nación)"
+            },
+            {
+                "fecha": "24 al 28",
+                "actividad": "Feria de Educación (Instancia Jurisdiccional) etapa donde se exponen todas las escuela que inscribieron sus proyectos. Selección de trabajos que nos representarán a nivel nacional."
+            },
+            {
+                "fecha": "24 al 28",
+                "actividad": "2ª Jornada de Educación Sexual Integral (ESI)"
+            }
+        ],
+        "septiembre": [
+            {
+                "fecha": "1",
+                "actividad": "DGPDYND, Apertura del periodo de validación del padrón de sueldos correspondiente al mes de agosto (padrón web)"
+            },
+            {
+                "fecha": "1 al 7",
+                "actividad": "Elevación de documentación mensual - Becas Alimentarias (Almuerzo y Refrigerio) Elevación del cuadro único mensual de becas y servicios (DENS-DGEGE)"
+            },
+            {
+                "fecha": "1 al 11",
+                "actividad": "Inscripción Complementaria I - Becas Alimentarias"
+            },
+            {
+                "fecha": "7 al 11",
+                "actividad": "Semana de la Alfabetización"
+            },
+            {
+                "fecha": "11",
+                "actividad": "Día del Maestro"
+            },
+            {
+                "fecha": "14 al 18",
+                "actividad": "Semana del 'Derecho a jugar' Decreto N° 1436/05"
+            },
+            {
+                "fecha": "15",
+                "actividad": "DGPDYND, Cierre del periodo de validación del Padrón Web del mes de agosto"
+            },
+            {
+                "fecha": "15 al 18",
+                "actividad": "FEPBA (Piloto) - 7mo grado"
+            },
+            {
+                "fecha": "21 al 25",
+                "actividad": "Semana de la lectura poética"
+            },
+            {
+                "fecha": "21 al 25",
+                "actividad": "Semana de Protección integral y Promoción de los derechos de Niños, Niñas y Adolescentes"
+            },
+            {
+                "fecha": "21 al 28",
+                "actividad": "Muestra Anual del Área Artes Visuales - 'Reversible 2026' (DGEGE)"
+            },
+            {
+                "fecha": "28 al 2/10",
+                "actividad": "Semana del Bienestar socioemocional (BSE)"
+            },
+            {
+                "fecha": "28 al 30",
+                "actividad": "Conciertos de Primavera (Escuelas de Música)"
+            },
+            {
+                "fecha": "28 al 2/10",
+                "actividad": "Jornadas de Lenguas en la Ciudad"
+            }
+        ],
+        "octubre": [
+            {
+                "fecha": "1",
+                "actividad": "DGPDYND, Apertura del periodo de validación del padrón de sueldos correspondiente al mes de septiembre (padrón web)"
+            },
+            {
+                "fecha": "1",
+                "actividad": "Inicio del proceso de solicitud de Beca Alimentaria - Ciclo Lectivo 2027"
+            },
+            {
+                "fecha": "A/D",
+                "actividad": "Semana de la Intensificación en Artes Visuales"
+            },
+            {
+                "fecha": "5 al 9",
+                "actividad": "Semana de la lectura"
+            },
+            {
+                "fecha": "1 al 7",
+                "actividad": "Elevación de documentación mensual - Becas Alimentarias (Almuerzo y Refrigerio) Elevación del cuadro único mensual de becas y servicios (DENS-DGEGE)"
+            },
+            {
+                "fecha": "2",
+                "actividad": "Fin del 3º bimestre (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "5",
+                "actividad": "Inicio del 4º bimestre (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "5 al 7",
+                "actividad": "Conciertos de Primavera (Escuelas de Música)"
+            },
+            {
+                "fecha": "5 al 4/12",
+                "actividad": "Primer período de Acompañamiento para la promoción (AP): implementación de los dispositivos y acciones de apoyo diseñadas en el marco del AP para los/as estudiantes que requieren intensificar aprendizajes nodales para lograr la promoción"
+            },
+            {
+                "fecha": "8 y 9",
+                "actividad": "Jornadas 'Puertas Abiertas' (DENS)."
+            },
+            {
+                "fecha": "13",
+                "actividad": "Premio Ciudad Autónoma de Buenos Aires - Ley N.º 735-LCABA-01 (Primer etapa - Nivel Primario) (DGEGE-DENS)."
+            },
+            {
+                "fecha": "12 al 16",
+                "actividad": "Semana de las Cooperadoras Escolares (Ley 3938/2011)"
+            },
+            {
+                "fecha": "15",
+                "actividad": "DGPDYND, Cierre del periodo de validación del Padrón Web del mes de septiembre"
+            },
+            {
+                "fecha": "19",
+                "actividad": "4° Espacio para la Mejora Institucional (EMI) sin presencia de estudiantes en las escuelas"
+            },
+            {
+                "fecha": "19 al 23",
+                "actividad": "Semana de Galas de Educación Física y clases abiertas a la comunidad (DGEGE-DENS)."
+            },
+            {
+                "fecha": "20",
+                "actividad": "Evaluación TESBA 7mo grado - Censal"
+            },
+            {
+                "fecha": "26 al 30",
+                "actividad": "3ª Jornada de Educación Sexual Integral (ESI) - Educar en igualdad. Prevención y erradicación de la violencia por motivos de género. Ley N.º 27.234"
+            }
+        ],
+        "noviembre": [
+            {
+                "fecha": "2",
+                "actividad": "DGPDYND, Apertura del periodo de validación del padrón de sueldos correspondiente al mes de octubre (padrón web)"
+            },
+            {
+                "fecha": "2 al 6",
+                "actividad": "Elevación de documentación mensual - Becas Alimentarias (Almuerzo y Refrigerio) Elevación del cuadro único mensual de becas y servicios (DENS-DGEGE)"
+            },
+            {
+                "fecha": "A/D",
+                "actividad": "Evaluación Aprender 3° grado - Censal"
+            },
+            {
+                "fecha": "16",
+                "actividad": "DGPDYND, Cierre del periodo de validación del Padrón Web del mes de octubre"
+            },
+            {
+                "fecha": "23 al 27",
+                "actividad": "'Puentes' espacio para intercambios entre alumnos de Escuelas intensificadas en Actividades Científicas."
+            },
+            {
+                "fecha": "23 al 27",
+                "actividad": "Semana de la 17° Fiesta Metropolitana de la Educación Física (DGEGE-DENS)"
+            },
+            {
+                "fecha": "26 al 30",
+                "actividad": "3ª Jornada de Educación Sexual Integral (ESI)"
+            },
+            {
+                "fecha": "A/D",
+                "actividad": "Feria de Educación (Instancias nacionales) Exponen todos los trabajos destacados de la Instancia Jurisdiccional."
+            },
+            {
+                "fecha": "A/D",
+                "actividad": "Semana de la Intensificación en Artes Visuales"
+            },
+            {
+                "fecha": "30",
+                "actividad": "Segunda evaluación del Plan Anual Institucional, Ley 3372 art. 13-Asociaciones Cooperadoras"
+            },
+            {
+                "fecha": "30 al 4/12",
+                "actividad": "Finalización del Plan de Natación 4° grados y escuelas intensificadas en Educación Física (1° a 7° grados) y clase abierta"
+            }
+        ],
+        "diciembre": [
+            {
+                "fecha": "1",
+                "actividad": "DGPDYND, Apertura del periodo de validación del padrón de sueldos correspondiente al mes de noviembre (padrón web)"
+            },
+            {
+                "fecha": "1 al 7",
+                "actividad": "Elevación de documentación mensual - Becas Alimentarias (Almuerzo y Refrigerio) Elevación del cuadro único mensual de becas y servicios (DENS-DGEGE)"
+            },
+            {
+                "fecha": "3",
+                "actividad": "Fin del 4º bimestre/2º cuatrimestre 2026 (DGEGE-DENS-DGEGP)"
+            },
+            {
+                "fecha": "7",
+                "actividad": "Vence el plazo para la presentación de la DDJJ de Aranceles 2027 para escuelas con aporte estatal (DGEGP)"
+            },
+            {
+                "fecha": "7 al 11",
+                "actividad": "Primer corte de acompañamiento a la promoción, cada escuela define qué estudiantes no han promocionado"
+            },
+            {
+                "fecha": "11",
+                "actividad": "Cierre registro Segundo Semestre de envíos de Documentación Obligatoria de Becas y Servicios (cuadro único mensual de becas y servicios [Julio a Noviembre])"
+            },
+            {
+                "fecha": "14",
+                "actividad": "Inicio del Período de Intensificación de los aprendizajes diciembre (PIA)"
+            },
+            {
+                "fecha": "15",
+                "actividad": "DGPDYND, Cierre del periodo de validación del Padrón Web del mes de noviembre"
+            },
+            {
+                "fecha": "15, 16, 17",
+                "actividad": "Encuentros de Formación Situada"
+            },
+            {
+                "fecha": "17",
+                "actividad": "5° Espacio para la Mejora Institucional (EMI)"
+            },
+            {
+                "fecha": "18",
+                "actividad": "Reclamo incumplimiento - Segundo Semestre de envío de Documentación Obligatoria Becas y Servicios"
+            },
+            {
+                "fecha": "18",
+                "actividad": "Finalización de clases regulares 2026"
+            },
+            {
+                "fecha": "18",
+                "actividad": "Finalización del periodo escolar 2026"
+            },
+            {
+                "fecha": "22",
+                "actividad": "Finalización del Período de Intensificación de los aprendizajes diciembre (PIA)"
+            },
+            {
+                "fecha": "30",
+                "actividad": "Cierre del Ejercicio Contable de la Asociación Cooperadora"
+            }
+        ]
+    }
+};
+
 const formatearCadena = (cadena) => {
     if (!cadena) return "";
 
@@ -7047,7 +7793,7 @@ const estudiantes = {
     })
 };
 
-let currentSearchTerm = '';
+const agenda = agruparActividadesPorFecha(agendaEducativaGuardada).agenda;
 
 // Obtengo la tabla del DOM
 var $tabla = $('#estudiantes');
@@ -7115,6 +7861,42 @@ function cargarTabla(grado) {
             });
         }
     });
+}
+
+/**
+ * Agrupa las actividades de la agenda por fecha, combinando
+ * las descripciones en un array para cada día/rango único.
+ * * @param {Object} data - El objeto JSON original.
+ * @returns {Object} - Un nuevo objeto con la agenda agrupada.
+ */
+function agruparActividadesPorFecha(data) {
+    const nuevaAgenda = {};
+
+    // Iteramos sobre cada mes dentro de la agenda
+    for (const mes in data.agenda) {
+        const actividadesMes = data.agenda[mes];
+
+        // Usamos un mapa temporal para agrupar por la llave "fecha"
+        const agrupado = actividadesMes.reduce((acc, curr) => {
+            if (!acc[curr.fecha]) {
+                acc[curr.fecha] = [];
+            }
+            acc[curr.fecha].push(curr.actividad);
+            return acc;
+        }, {});
+
+        // Convertimos el mapa temporal de nuevo a un array de objetos
+        nuevaAgenda[mes] = Object.keys(agrupado).map(fecha => ({
+            fecha: fecha,
+            actividades: agrupado[fecha] // Ahora es un array de strings
+        }));
+    }
+
+    // Devolvemos una copia del objeto original con la agenda actualizada
+    return {
+        ...data,
+        agenda: nuevaAgenda
+    };
 }
 
 // Disparo eventos al cargar la página

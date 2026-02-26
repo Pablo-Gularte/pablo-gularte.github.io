@@ -15,9 +15,121 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.27.0/dist/bootstrap-table.min.css">
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/bootstrap-table@1.27.0/dist/extensions/sticky-header/bootstrap-table-sticky-header.css">
+
+    <!-- FUentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Estilos personalizados -->
+    <style>
+        /* Variables para modo claro (por defecto) */
+        :root {
+            --bg-body: #f9fafb;
+            --text-primary: #111827;
+            --text-secondary: #4b5563;
+            --accent-primary: #2563eb;
+            --accent-secondary: #7c3aed;
+            --table-header-bg: #f3f4f6;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Variables para modo oscuro (se activan con data-bs-theme="dark") */
+        [data-bs-theme="dark"] {
+            --bg-body: #1a1d21;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #8b5cf6;
+            --table-header-bg: #2d2f33;
+            --border-color: #374151;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            background-color: var(--bg-body) !important;
+            /* Forzar sobre cualquier clase de Bootstrap */
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.2s, color 0.2s;
+            /* Suave al cambiar tema */
+        }
+
+        /* Ajusta el header para que también use variables */
+        header {
+            background-color: var(--table-header-bg) !important;
+            color: var(--text-primary);
+            border-bottom-color: var(--border-color) !important;
+        }
+
+        /* El resto de tus estilos (tabla, dropdown, etc.) ya usan variables, así que se adaptan */
+        .table {
+            background-color: var(--bg-body);
+            border-color: var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .table thead th {
+            background-color: var(--table-header-bg);
+            color: var(--text-secondary);
+            border-bottom-color: var(--border-color);
+        }
+
+        .table tbody td {
+            border-color: var(--border-color);
+        }
+
+        .table-striped>tbody>tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 0.02);
+            /* Se mantiene sutil */
+        }
+
+        .table-hover tbody tr:hover {
+            background-color: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+        }
+
+        /* Botones y dropdown */
+        .btn-secondary {
+            background-color: var(--bg-body);
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--table-header-bg);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .dropdown-menu {
+            background-color: var(--bg-body);
+            border-color: var(--border-color);
+        }
+
+        .dropdown-item {
+            color: var(--text-secondary);
+        }
+
+        .dropdown-item:hover {
+            background-color: color-mix(in srgb, var(--accent-primary) 10%, transparent);
+            color: var(--accent-primary);
+        }
+
+        .alert-dark {
+            background-color: var(--bg-body);
+            border-color: var(--border-color);
+            color: var(--text-primary);
+        }
+
+        /* Ajusta también el footer si es necesario */
+        footer {
+            color: var(--text-secondary);
+        }
+    </style>
 </head>
 
-<body class="bg-primary-subtle" data-bs-theme="light">
+<body data-bs-theme="light">
     <header class="text-center text-bg-info mb-3 pt-3 border-bottom border-3 border-primary">
         <section>
             <h1>Grilla de estudiantes de sexto grado</h1>
@@ -50,11 +162,15 @@
     <!-- Bootstrap Table -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.27.0/dist/bootstrap-table.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.27.0/dist/bootstrap-table-locale-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.27.0/dist/extensions/sticky-header/bootstrap-table-sticky-header.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.27.0/dist/extensions/print/bootstrap-table-print.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.27.0/dist/extensions/export/bootstrap-table-export.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.27.0/dist/extensions/sticky-header/bootstrap-table-sticky-header.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.27.0/dist/extensions/print/bootstrap-table-print.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.27.0/dist/extensions/export/bootstrap-table-export.js"></script>
     <!-- Bootstrap 3 TYpeahead -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-3-typeahead@4.0.2/bootstrap3-typeahead.min.js" integrity="sha256-LOnFraxKlOhESwdU/dX+K0GArwymUDups0czPWLEg4E=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-3-typeahead@4.0.2/bootstrap3-typeahead.min.js"
+        integrity="sha256-LOnFraxKlOhESwdU/dX+K0GArwymUDups0czPWLEg4E=" crossorigin="anonymous"></script>
 
     <!-- Rutinas propias -->
     <script src="rutinas.js"></script>
