@@ -19,10 +19,10 @@ const formatearCadena = (cadena) => {
 };
 
 const grados = [
-    { id: "sextoA", leyenda: "Sexto A", turno: "mañana" },
-    { id: "sextoB", leyenda: "Sexto B", turno: "mañana" },
-    { id: "sextoC", leyenda: "Sexto C", turno: "tarde" },
-    { id: "sextoD", leyenda: "Sexto D", turno: "tarde" },
+    { id: "sextoA", leyenda: "Sexto A", turno: "mañana", titular: true },
+    { id: "sextoB", leyenda: "Sexto B", turno: "mañana", titular: false },
+    { id: "sextoC", leyenda: "Sexto C", turno: "tarde", titular: true },
+    { id: "sextoD", leyenda: "Sexto D", turno: "tarde", titular: false },
 ];
 
 const listadoCrudoDelServidor = {
@@ -7047,10 +7047,14 @@ const estudiantes = {
     })
 };
 
+let currentSearchTerm = '';
+
+// Obtengo la tabla del DOM
+var $tabla = $('#estudiantes');
+
+// Cargo los datos de la tabla
 function cargarTabla(grado) {
-    // Obtengo la tabla del DOM
-    var $tabla = $('#estudiantes');
-    $tabla.html();
+    // Genero la leyenda que acompaña a la tabla para indicar el grado seleccionado
     const leyendaGrado = grados.find(g => g.id === grado).leyenda;
     const leyendaTurno = grados.find(g => g.id === grado).turno
     $("h3#titulo-grado")
@@ -7075,27 +7079,22 @@ function cargarTabla(grado) {
         showExport: true,
         exportTypes: ['json', 'csv', 'txt', 'pdf'],
         trimOnSearch: false,
-        iconsPrefix: 'bi',
-        icons: {
-            print: 'bi-printer'
-        },
         minimumCountColumns: 0,
         columns: [
             {
                 field: 'rowNumber',
                 title: 'Orden',
                 align: 'center',
-                sortable: true,
                 formatter: function (value, row, index) {
                     return index + 1; // Devuelve el índice + 1 (empezando en 1)
                 }
-                
+
             },
             {
                 field: 'apeNom',
                 title: "Apellido y Nombre",
                 sortable: true,
-                switchable: false
+                switchable: false,
             },
             {
                 field: 'documento',
@@ -7104,7 +7103,6 @@ function cargarTabla(grado) {
                 sortable: true,
             }
         ],
-        formatSearchHighlight: true,
         // 1. FILTRADO (¿Qué filas pasan?)
         customSearch: function (data, text) {
             if (!text) return data;
@@ -7119,8 +7117,20 @@ function cargarTabla(grado) {
     });
 }
 
-
+// Disparo eventos al cargar la página
 $(document).ready(function () {
+    // Alternar tema oscuro/claro
+    const themeSwitch = $('#themeSwitch');
+    themeSwitch.on('change', function () {
+        if ($(this).is(':checked')) {
+            $('body').attr('data-bs-theme', 'dark');
+            $('label.form-check-label').removeClass('text-dark').addClass('text-light');
+        } else {
+            $('body').attr('data-bs-theme', 'light');
+            $('label.form-check-label').removeClass('text-light').addClass('text-dark');
+        }
+    });
+
     // Genero el menú desplegable
     const menuDesplegableGrados = `
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -7133,4 +7143,23 @@ $(document).ready(function () {
 
     // Agrego el menpu desplegable al DOM
     $("div.dropdown").html(menuDesplegableGrados);
+});
+
+// Agrego lista desplegable para filtrar búsquedas
+$tabla.on('post-body.bs.table', function () {
+    // Selecciona el input de búsqueda generado por la tabla
+    $('.search-input').typeahead({
+        source: function (query, process) {
+            // Obtiene todos los datos actuales de la tabla para las sugerencias
+            var data = $tabla.bootstrapTable('getData');
+            var results = data.map(function (row) {
+                return row.apeNom; // La columna que quieras sugerir
+            });
+            process(results);
+        },
+        afterSelect: function (selection) {
+            // Al seleccionar una sugerencia, dispara la búsqueda en la tabla
+            $tabla.bootstrapTable('resetSearch', selection);
+        }
+    });
 });
