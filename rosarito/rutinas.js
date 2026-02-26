@@ -7073,6 +7073,7 @@ function cargarTabla(grado) {
         showPrint: true,
         showAdvancedSearch: false,
         showExport: true,
+        exportDataType: "all",
         exportTypes: ['json', 'csv', 'txt', 'pdf'],
         trimOnSearch: false,
         iconsPrefix: 'bi',
