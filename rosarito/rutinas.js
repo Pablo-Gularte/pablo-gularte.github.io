@@ -7787,13 +7787,28 @@ const estudiantes = {
 };
 
 const grados = [
-    { id: "sextoA", leyenda: "6to A", turno: "mañana", titular: true, totalEstudiantes: estudiantes.sextoA.length},
-    { id: "sextoB", leyenda: "6to B", turno: "mañana", titular: false, totalEstudiantes: estudiantes.sextoB.length},
-    { id: "sextoC", leyenda: "6to C", turno: "tarde", titular: true, totalEstudiantes: estudiantes.sextoC.length},
-    { id: "sextoD", leyenda: "6to D", turno: "tarde", titular: false, totalEstudiantes: estudiantes.sextoD.length},
+    { id: "sextoA", leyenda: "6to A", turno: "mañana", titular: true, totalEstudiantes: estudiantes.sextoA.length, areas: ["Aspectos Generales", "Trabajos en el aula", "Convivencia", "Matemática", "Ciencias Sociales"] },
+    { id: "sextoB", leyenda: "6to B", turno: "mañana", titular: false, totalEstudiantes: estudiantes.sextoB.length, areas: ["Matemática", "Ciencias Sociales"] },
+    { id: "sextoC", leyenda: "6to C", turno: "tarde", titular: true, totalEstudiantes: estudiantes.sextoC.length, areas: ["Aspectos Generales", "Trabajos en el aula", "Convivencia", "Matemática", "Ciencias Sociales"] },
+    { id: "sextoD", leyenda: "6to D", turno: "tarde", titular: false, totalEstudiantes: estudiantes.sextoD.length, areas: ["Matemática", "Ciencias Sociales"] },
 ];
 
 const agenda = agruparActividadesPorFecha(agendaEducativaGuardada).agenda;
+
+const meses = [
+    "enero",
+    "febrero",
+    "marzo",
+    "abril",
+    "mayo",
+    "junio",
+    "julio",
+    "agosto",
+    "septiembre",
+    "octubre",
+    "noviembre",
+    "diciembre"
+];
 
 // Obtengo la tabla del DOM
 var $tabla = $('#estudiantes');
@@ -7926,6 +7941,32 @@ $(document).ready(function () {
 
     // Agrego el menpu desplegable al DOM
     $("div.dropdown").html(menuDesplegableGrados);
+
+    // Genero las tarjetas de grados para visualizar estudiantes
+    const crearTarjeta = (param) => {
+        return `
+        <div class="card mb-3 me-3 mx-auto" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">${param.titulo}</h5>
+            <p class="card-text">${param.texto}</p>
+            <a href="${param.enlace}" class="${param.estilo || 'btn btn-primary'}" onclick="cargarTabla('${param.idGrado}')">${param.leyendaBoton}</a>
+          </div>
+        </div>`;
+    }
+
+    const $contTarjetasGrados = $("#tarjetas-grados");
+    const tarjetas = [];
+    grados.forEach(grado => {
+        tarjetas.push(crearTarjeta({
+            titulo: grado.leyenda,
+            texto: `Turno: ${grado.turno} - Estudiantes: ${grado.totalEstudiantes}${grado.titular ? ' (titular)' : ''}`,
+            enlace: "#",
+            estilo: "btn btn-success",
+            leyendaBoton: `Ver estudiantes de ${grado.leyenda}`,
+            idGrado: grado.id
+        }))
+    });
+    $contTarjetasGrados.append(tarjetas);
 });
 
 // Agrego lista desplegable para filtrar búsquedas
