@@ -764,13 +764,6 @@ const formatearCadena = (cadena) => {
         .join(" ");
 };
 
-const grados = [
-    { id: "sextoA", leyenda: "Sexto A", turno: "mañana", titular: true },
-    { id: "sextoB", leyenda: "Sexto B", turno: "mañana", titular: false },
-    { id: "sextoC", leyenda: "Sexto C", turno: "tarde", titular: true },
-    { id: "sextoD", leyenda: "Sexto D", turno: "tarde", titular: false },
-];
-
 const listadoCrudoDelServidor = {
     sextoA: [
         {
@@ -7792,6 +7785,13 @@ const estudiantes = {
         }
     })
 };
+
+const grados = [
+    { id: "sextoA", leyenda: "6to A", turno: "mañana", titular: true, totalEstudiantes: estudiantes.sextoA.length},
+    { id: "sextoB", leyenda: "6to B", turno: "mañana", titular: false, totalEstudiantes: estudiantes.sextoB.length},
+    { id: "sextoC", leyenda: "6to C", turno: "tarde", titular: true, totalEstudiantes: estudiantes.sextoC.length},
+    { id: "sextoD", leyenda: "6to D", turno: "tarde", titular: false, totalEstudiantes: estudiantes.sextoD.length},
+];
 
 const agenda = agruparActividadesPorFecha(agendaEducativaGuardada).agenda;
 
