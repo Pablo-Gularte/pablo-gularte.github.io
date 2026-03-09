@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .grilla-horaria {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .grilla-horaria th, .grilla-horaria td {
+            border: 1px solid black;
+            padding: 8px;
+            width: 15%;
+            height: 40px;
+        }
+        .celda-recreo {
+            background-color: #f9f9f9;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .col-hora { font-weight: bold; background-color: #eee; }
+        .materia {
+            background-color: #e3f2fd;
+            border: 1px dashed #2196f3;
+            padding: 5px;
+            cursor: grab;
+            border-radius: 4px;
+            user-select: none;
+        }
+        .materia:active { cursor: grabbing; }
+        .drop-zone { min-width: 100px; }
+    </style>
+</head>
+<body>
+
+    <button onclick="crearGrillaHoraria('mañana')">Ver Turno Mañana (6to A)</button>
+    <button onclick="crearGrillaHoraria('tarde')">Ver Turno Tarde (6to C)</button>
+
+    <div id="contenedor-grilla" style="margin-top: 20px;"></div>
+
+    <script>
+        function crearGrillaHoraria(turno) {
+            const contenedor = document.getElementById('contenedor-grilla');
+            contenedor.innerHTML = '';
+
+            // Datos 6to C - Turno Tarde 
+            const datosTT = {
+                titulo: "6to C",
+                filas: [
+                    { tipo: 'clase', hora: 'INGRESO 9:30', lunes: 'INGRESO 9:30', martes: 'INGRESO 9:30', jueves: 'INGRESO 9:30' },
+                    { tipo: 'clase', hora: '9:45 a 10:45' },
+                    { tipo: 'recreo', texto: 'RECREO DE 10:45 a 11:00' },
+                    { tipo: 'clase', hora: '11:00 a 12:00' },
+                    { tipo: 'recreo', texto: 'COMEDOR DE 12 a 12:50 // INGRESO 12:50' },
+                    { tipo: 'clase', bloque: '1°', hora: '13 a 13:40', lunes: 'ED. FÍSICA', viernes: 'MÚSICA' },
+                    { tipo: 'clase', bloque: '2°', hora: '13:40 a 14:20', lunes: 'ED. FÍSICA' },
+                    { tipo: 'recreo', texto: 'RECREO DE 14:20 a 14:30' },
+                    { tipo: 'clase', bloque: '3°', hora: '14:30 a 15:10', martes: 'ARTES VISUALES' },
+                    { tipo: 'clase', bloque: '4°', hora: '15:10 a 15:50', lunes: 'INGLÉS', jueves: 'TECNOLOGÍA' },
+                    { tipo: 'recreo', texto: 'RECREO DE 15:50 a 16:00' },
+                    { tipo: 'clase', bloque: '5°', hora: '16:00 a 16:40', lunes: 'INGLÉS' },
+                    { tipo: 'clase', bloque: '6°', hora: '16:40 a 17:15', martes: 'INGLÉS' }
+                ]
+            };
+
+            // Datos 6to A - Turno Mañana 
+            const datosTM = {
+                titulo: "6to A",
+                filas: [
+                    { tipo: 'clase', bloque: '1°', hora: '8 a 8:40', martes: 'INGLÉS' },
+                    { tipo: 'clase', bloque: '2°', hora: '8:40 a 9:20', martes: 'MÚSICA' },
+                    { tipo: 'recreo', texto: 'RECREO DE 9:20 A 9:30' },
+                    { tipo: 'clase', bloque: '3°', hora: '9:30 a 10:10', lunes: 'ED. FÍSICA', miercoles: 'TECNOLOGÍA' },
+                    { tipo: 'clase', bloque: '4°', hora: '10:10 a 10:50', lunes: 'ED. FÍSICA', viernes: 'ARTES VISUALES' },
+                    { tipo: 'recreo', texto: 'RECREO DE 10:50 A 11:00' },
+                    { tipo: 'clase', bloque: '5°', hora: '11:00 a 11:40', miercoles: 'INGLÉS' },
+                    { tipo: 'clase', bloque: '6°', hora: '11:40 a 12:15', miercoles: 'INGLÉS' },
+                    { tipo: 'recreo', texto: 'COMEDOR DE 12 A 13:00' },
+                    { tipo: 'clase', hora: '13:15 a 14:15' },
+                    { tipo: 'recreo', texto: 'RECREO DE 14:15 A 14:30' },
+                    { tipo: 'clase', hora: '14:30 a 15:15' },
+                    { tipo: 'clase', hora: '', lunes: 'SALIDA 15.30', martes: 'SALIDA 15.30', jueves: 'SALIDA 15.30' }
+                ]
+            };
+
+            const info = (turno === 'mañana') ? datosTM : datosTT;
+            const tabla = document.createElement('table');
+            tabla.className = 'grilla-horaria';
+            
+            let html = `<thead><tr><th>${info.titulo}</th><th>LUNES</th><th>MARTES</th><th>MIÉRCOLES</th><th>JUEVES</th><th>VIERNES</th></tr></thead><tbody>`;
+
+            info.filas.forEach((fila, idx) => {
+                if (fila.tipo === 'recreo') {
+                    html += `<tr><td colspan="6" class="celda-recreo">${fila.texto}</td></tr>`;
+                } else {
+                    const label = fila.bloque ? `${fila.bloque}<br>${fila.hora}` : fila.hora;
+                    html += `<tr><td class="col-hora">${label}</td>`;
+                    ['lunes', 'martes', 'miercoles', 'jueves', 'viernes'].forEach(dia => {
+                        const contenido = fila[dia] || '';
+                        // Solo permitimos drag & drop en celdas que no sean etiquetas fijas (Ingreso/Salida)
+                        const esEstatico = (contenido.includes('INGRESO') || contenido.includes('SALIDA'));
+                        html += `<td class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                    ${contenido ? `<div class="materia" draggable="${!esEstatico}" ondragstart="drag(event)" id="item-${turno}-${idx}-${dia}">${contenido}</div>` : ''}
+                                 </td>`;
+                    });
+                    html += `</tr>`;
+                }
+            });
+
+            tabla.innerHTML = html + '</tbody>';
+            contenedor.appendChild(tabla);
+        }
+
+        // Manejadores Drag & Drop
+        function allowDrop(ev) { ev.preventDefault(); }
+        function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+        function drop(ev) {
+            ev.preventDefault();
+            const idMateria = ev.dataTransfer.getData("text");
+            const elMateria = document.getElementById(idMateria);
+            if (ev.target.classList.contains('drop-zone') && ev.target.tagName === 'TD') {
+                ev.target.appendChild(elMateria);
+            }
+        }
+    </script>
+</body>
+</html>

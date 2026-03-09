@@ -7793,10 +7793,26 @@ const grados = [
     { id: "sextoD", leyenda: "6to D", turno: "tarde", titular: false, totalEstudiantes: estudiantes.sextoD.length},
 ];
 
+const meses = [
+    "enero",
+    "febrero",
+    "marzo",
+    "abril",
+    "mayo",
+    "junio",
+    "julio",
+    "agosto",
+    "septiembre",
+    "octubre",
+    "noviembre",
+    "diciembre"
+];
+
 const agenda = agruparActividadesPorFecha(agendaEducativaGuardada).agenda;
 
-// Obtengo la tabla del DOM
+// Obtengo elementos del DOM
 var $tabla = $('#estudiantes');
+const $tablaAgenda = $("#tabla-agenda");
 
 // Cargo los datos de la tabla
 function cargarTabla(grado) {
