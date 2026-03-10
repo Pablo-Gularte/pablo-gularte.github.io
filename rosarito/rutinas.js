@@ -7939,13 +7939,13 @@ $(document).ready(function () {
             ${grados.map(g => `<li><a class="dropdown-item" href="#" onclick="cargarTabla('${g.id}')">${g.leyenda}</a></li>`).join("")}
         </ul>`;
 
-    // Agrego el menpu desplegable al DOM
+    // Agrego el menú desplegable al DOM
     $("div.dropdown").html(menuDesplegableGrados);
 
     // Genero las tarjetas de grados para visualizar estudiantes
     const crearTarjeta = (param) => {
         return `
-        <div class="card mb-3 me-3 mx-auto" style="width: 18rem;">
+        <div class="card mb-2 me-2 col">
           <div class="card-body">
             <h5 class="card-title">${param.titulo}</h5>
             <p class="card-text">${param.texto}</p>
@@ -7959,10 +7959,10 @@ $(document).ready(function () {
     grados.forEach(grado => {
         tarjetas.push(crearTarjeta({
             titulo: grado.leyenda,
-            texto: `Turno: ${grado.turno} - Estudiantes: ${grado.totalEstudiantes}${grado.titular ? ' (titular)' : ''}`,
+            texto: `Texto`,
             enlace: "#",
             estilo: "btn btn-success",
-            leyendaBoton: `Ver estudiantes de ${grado.leyenda}`,
+            leyendaBoton: `Estudiantes`,
             idGrado: grado.id
         }))
     });
