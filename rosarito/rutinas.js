@@ -7787,10 +7787,10 @@ const estudiantes = {
 };
 
 const grados = [
-    { id: "sextoA", leyenda: "6to A", turno: "mañana", titular: true, totalEstudiantes: estudiantes.sextoA.length},
-    { id: "sextoB", leyenda: "6to B", turno: "mañana", titular: false, totalEstudiantes: estudiantes.sextoB.length},
-    { id: "sextoC", leyenda: "6to C", turno: "tarde", titular: true, totalEstudiantes: estudiantes.sextoC.length},
-    { id: "sextoD", leyenda: "6to D", turno: "tarde", titular: false, totalEstudiantes: estudiantes.sextoD.length},
+    { id: "sextoA", leyenda: "6to A", turno: "mañana", titular: true, totalEstudiantes: estudiantes.sextoA.length },
+    { id: "sextoB", leyenda: "6to B", turno: "mañana", titular: false, totalEstudiantes: estudiantes.sextoB.length },
+    { id: "sextoC", leyenda: "6to C", turno: "tarde", titular: true, totalEstudiantes: estudiantes.sextoC.length },
+    { id: "sextoD", leyenda: "6to D", turno: "tarde", titular: false, totalEstudiantes: estudiantes.sextoD.length },
 ];
 
 const meses = [
@@ -7808,11 +7808,218 @@ const meses = [
     "diciembre"
 ];
 
+const feriadosNacionales = [
+    {
+        "fecha": "1/01/2026",
+        "etiqueta": "Año Nuevo.",
+        "tipo": "inamovible"
+    },
+    {
+        "fecha": "16/02/2026",
+        "etiqueta": "Carnaval",
+        "tipo": "inamovible"
+    },
+    {
+        "fecha": "17/02/2026",
+        "etiqueta": "Carnaval",
+        "tipo": "inamovible"
+    },
+    {
+        "fecha": "20/03/2026",
+        "etiqueta": "Fiesta de la Ruptura del Ayuno del Sagrado Mes de Ramadán (c)",
+        "tipo": "no_laborable"
+    },
+    {
+        "fecha": "23/03/2026",
+        "etiqueta": "Día no laborable con fines turísticos",
+        "tipo": "turistico"
+    },
+    {
+        "fecha": "24/03/2026",
+        "etiqueta": "Día Nacional de la Memoria por la Verdad y la Justicia",
+        "tipo": "inamovible"
+    },
+    {
+        "fecha": "02/04/2026",
+        "etiqueta": "Día del Veterano y de los Caídos en la Guerra de Malvinas",
+        "tipo": "inamovible"
+    },
+    {
+        "fecha": "02/04/2026",
+        "etiqueta": "Jueves Santo Festividad Cristiana",
+        "tipo": "no_laborable"
+    },
+    {
+        "fecha": "02/04/2026",
+        "etiqueta": "Primeros dos días de la Pascua Judía (b)",
+        "tipo": "no_laborable"
+    },
+    {
+        "fecha": "03/04/2026",
+        "etiqueta": "Viernes Santo Festividad Cristiana",
+        "tipo": "inamovible"
+    },
+    {
+        "fecha": "03/04/2026",
+        "etiqueta": "Primeros dos días de la Pascua Judía (b)",
+        "tipo": "no_laborable"
+    },
+    {
+        "fecha": "08/04/2026",
+        "etiqueta": "Últimos dos días de la Pascua Judía (b)",
+        "tipo": "no_laborable"
+    },
+    {
+        "fecha": "09/04/2026",
+        "etiqueta": "Últimos dos días de la Pascua Judía (b)",
+        "tipo": "no_laborable"
+    },
+    {
+        "fecha": "24/04/2026",
+        "etiqueta": "Día de acción por la tolerancia y el respeto entre los pueblos (a)",
+        "tipo": "no_laborable"
+    },
+    {
+        "fecha": "01/05/2026",
+        "etiqueta": "Día del Trabajador",
+        "tipo": "inamovible"
+    },
+    {
+        "fecha": "25/05/2026",
+        "etiqueta": "Día de la Revolución de Mayo",
+        "tipo": "inamovible"
+    },
+    {
+        "fecha": "27/05/2026",
+        "etiqueta": "Fiesta del Sacrificio (c)",
+        "tipo": "no_laborable"
+    },
+    {
+        "fecha": "15/06/2026",
+        "etiqueta": "Paso a la Inmortalidad del Gral. Don Martín Miguel de Güemes (17/6)",
+        "tipo": "trasladable"
+    },
+    {
+        "fecha": "17/06/2026",
+        "etiqueta": "Año Nuevo Islámico (c)",
+        "tipo": "no_laborable"
+    },
+    {
+        "fecha": "20/06/2026",
+        "etiqueta": "Paso a la Inmortalidad del Gral. Manuel Belgrano",
+        "tipo": "inamovible"
+    },
+    {
+        "fecha": "09/07/2026",
+        "etiqueta": "Día de la Independencia",
+        "tipo": "inamovible"
+    },
+    {
+        "fecha": "10/07/2026",
+        "etiqueta": "Día no laborable con fines turísticos",
+        "tipo": "turistico"
+    },
+    {
+        "fecha": "17/08/2026",
+        "etiqueta": "Paso a la Inmortalidad del Gral. José de San Martín",
+        "tipo": "trasladable"
+    },
+    {
+        "fecha": "12/09/2026",
+        "etiqueta": "Año Nuevo Judío (b)",
+        "tipo": "no_laborable"
+    },
+    {
+        "fecha": "13/09/2026",
+        "etiqueta": "Año Nuevo Judío (b)",
+        "tipo": "no_laborable"
+    },
+    {
+        "fecha": "21/09/2026",
+        "etiqueta": "Día del Perdón (b)",
+        "tipo": "no_laborable"
+    },
+    {
+        "fecha": "12/10/2026",
+        "etiqueta": "Día de la  Raza",
+        "tipo": "trasladable"
+    },
+    {
+        "fecha": "23/11/2026",
+        "etiqueta": "Día de la Soberanía Nacional (20/11)",
+        "tipo": "trasladable"
+    },
+    {
+        "fecha": "07/12/2026",
+        "etiqueta": "Día no laborable con fines turísticos",
+        "tipo": "turistico"
+    },
+    {
+        "fecha": "08/12/2026",
+        "etiqueta": "Inmaculada Concepción de María",
+        "tipo": "inamovible"
+    },
+    {
+        "fecha": "25/12/2026",
+        "etiqueta": "Navidad",
+        "tipo": "inamovible"
+    },
+    {
+        "fecha": "01/01/2027",
+        "etiqueta": "Año nuevo",
+        "tipo": "inamovible"
+    }
+];
+
 const agenda = agruparActividadesPorFecha(agendaEducativaGuardada).agenda;
 
 // Obtengo elementos del DOM
 var $tabla = $('#estudiantes');
 const $tablaAgenda = $("#tabla-agenda");
+const $tablaFeriados = $("#tabla-feriados");
+const hoy = new Date();
+const mesActual = meses[hoy.getMonth()];
+
+// Genero la tabla de actividades de la agenda educativa para el mes actual
+$("#mes-agenda").text("Actividades de " + mesActual);
+$tablaAgenda.bootstrapTable({
+    data: agenda[mesActual],
+    columns: [
+        {
+            field: 'fecha',
+            title: 'Fecha',
+            align: 'center'
+        },
+        {
+            field: 'actividades',
+            title: 'Actividades'
+        }
+    ],
+    theadClasses: 'text-center text-bg-success',
+    classes: 'table table-bordered table-hover table-striped table-sm'
+});
+
+// Genero la tabla de feriados nacionales del mes actual
+const criterioFiltro = `/${hoy.toLocaleString("es-AR", { month: "2-digit" })}/`;
+$tablaFeriados.bootstrapTable({
+    data: feriadosNacionales.filter(f => f.fecha.includes(criterioFiltro)),
+    columns: [
+        {
+            field: 'fecha',
+            title: 'Fecha',
+            align: 'center'
+        },
+        {
+            field: 'etiqueta',
+            title: 'Feriado'
+        },
+        {
+            field: 'tipo',
+            title: 'Tipo feriado',
+            align: 'center'
+        }
+    ]
+});
 
 // Cargo los datos de la tabla
 function cargarTabla(grado) {
@@ -7864,6 +8071,9 @@ function cargarTabla(grado) {
                 title: "Documento",
                 align: 'center',
                 sortable: true,
+                formatter: function (value) {
+                    return Number(value).toLocaleString("es-AR");
+                }
             }
         ],
         // 1. FILTRADO (¿Qué filas pasan?)
@@ -7914,6 +8124,13 @@ function agruparActividadesPorFecha(data) {
         ...data,
         agenda: nuevaAgenda
     };
+}
+
+function validarBoton(btn) {
+    const revisarBoton = btn === "agenda" ? "#btn-feriados" : "#btn-agenda";
+    if ($("#" + btn).attr("class").includes("show")) {
+        $(revisarBoton).click();
+    }
 }
 
 // Disparo eventos al cargar la página
