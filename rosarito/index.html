@@ -39,9 +39,8 @@
                     id="btn-agenda"
                     type="button" 
                     class="btn btn-primary mb-1" 
-                    data-bs-toggle="collapse"
+                    data-bs-toggle="modal"
                     data-bs-target="#agenda"
-                    onclick="validarBoton(this)"
                 >
                     Ver agenda educativa
                 </button>
@@ -51,22 +50,46 @@
                     id="btn-feriados"
                     type="button" 
                     class="btn btn-primary mb-1" 
-                    data-bs-toggle="collapse"
+                    data-bs-toggle="modal"
                     data-bs-target="#feriados"
-                    onclick="validarBoton(this)"
                 >
                     Ver feriados
                 </button>
 
-                <!-- Panel agenda escolar del mes -->
-                <div id="agenda" class="collapse">
-                    <h6 id="mes-agenda"></h6>
-                    <table id="tabla-agenda"></table>
+                <!-- Modal agenda escolar del mes -->
+                <div id="agenda" class="modal fade" tabindex="-1" aria-labelledby="agendaLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header text-light bg-success">
+                                <h5 id="mes-agenda"></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body bg-success-subtle">
+                                <table id="tabla-agenda" class="table table-bordered table-striped"></table>
+                            </div>
+                            <div class="modal-footer bg-success-subtle">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Panel feriados nacionales -->
-                <div id="feriados" class="collapse">
-                    <table id="tabla-feriados"></table>
+                <div id="feriados" class="modal fade" tabindex="-1" aria-labelledby="feriadosLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header text-light bg-success">
+                                <h5>Feriados nacionales del mes en curso</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body bg-success-subtle">
+                                <table id="tabla-feriados" class="table table-bordered table-striped"></table>
+                            </div>
+                            <div class="modal-footer bg-success-subtle">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

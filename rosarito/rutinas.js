@@ -7981,9 +7981,10 @@ const hoy = new Date();
 const mesActual = meses[hoy.getMonth()];
 
 // Genero la tabla de actividades de la agenda educativa para el mes actual
-$("#mes-agenda").text("Actividades de " + mesActual);
+$("#mes-agenda").text("Actividades de " + mesActual + " de la Agenda Educativa");
 $tablaAgenda.bootstrapTable({
     data: agenda[mesActual],
+    theadClasses: "text-center table-info",
     columns: [
         {
             field: 'fecha',
@@ -7995,19 +7996,36 @@ $tablaAgenda.bootstrapTable({
             title: 'Actividades'
         }
     ],
-    theadClasses: 'text-center text-bg-success',
-    classes: 'table table-bordered table-hover table-striped table-sm'
 });
 
 // Genero la tabla de feriados nacionales del mes actual
 const criterioFiltro = `/${hoy.toLocaleString("es-AR", { month: "2-digit" })}/`;
+const etiquetaMes = mesActual.charAt(0).toUpperCase() + mesActual.slice(1).toLowerCase();
 $tablaFeriados.bootstrapTable({
     data: feriadosNacionales.filter(f => f.fecha.includes(criterioFiltro)),
+    theadClasses: "text-center table-info",
     columns: [
         {
             field: 'fecha',
-            title: 'Fecha',
-            align: 'center'
+            title: etiquetaMes,
+            align: 'center',
+            formatter: function (valor) {
+                const [dia, mes, anio] = valor.split("/");
+                const fecha = new Date(anio, mes, dia);
+                return fecha.toLocaleString("es-AR", {
+                    weekday: "long",
+                    day: "2-digit"
+                })
+            },
+            headerStyle: function (column) {
+                return {
+                    css: {
+                        'background-color': '#007bff',
+                        'color': 'white',
+                        'font-weight': 'bold'
+                    }
+                };
+            }
         },
         {
             field: 'etiqueta',
