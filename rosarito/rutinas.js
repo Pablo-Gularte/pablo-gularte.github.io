@@ -8090,7 +8090,8 @@ function cargarTabla(grado) {
                 align: 'center',
                 sortable: true,
                 formatter: function (value) {
-                    return Number(value).toLocaleString("es-AR");
+                    const documento = Number(value).toLocaleString("es-AR");
+                    return documento === "NaN" ? "N/D" : documento;
                 }
             }
         ],
