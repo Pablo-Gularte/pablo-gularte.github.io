@@ -8145,13 +8145,6 @@ function agruparActividadesPorFecha(data) {
     };
 }
 
-function validarBoton(btn) {
-    const revisarBoton = btn === "agenda" ? "#btn-feriados" : "#btn-agenda";
-    if ($("#" + btn).attr("class").includes("show")) {
-        $(revisarBoton).click();
-    }
-}
-
 // Disparo eventos al cargar la página
 $(document).ready(function () {
     // Alternar tema oscuro/claro
