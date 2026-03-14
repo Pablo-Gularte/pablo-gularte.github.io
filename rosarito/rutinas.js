@@ -8083,16 +8083,6 @@ function cargarTabla(grado) {
                 title: "Apellido y Nombre",
                 sortable: true,
                 switchable: false,
-            },
-            {
-                field: 'documento',
-                title: "Documento",
-                align: 'center',
-                sortable: true,
-                formatter: function (value) {
-                    const documento = Number(value).toLocaleString("es-AR");
-                    return documento === "NaN" ? "N/D" : documento;
-                }
             }
         ],
         // 1. FILTRADO (¿Qué filas pasan?)
