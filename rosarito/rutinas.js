@@ -1,3 +1,12 @@
+function formatearFecha(valor) {
+    const [dia, mes, anio] = valor.split("/").map(v => Number(v));
+    const fecha = new Date(anio, mes-1, dia);
+    return fecha.toLocaleString("es-AR", {
+        weekday: "long",
+        day: "2-digit"
+    })
+}
+
 const agendaEducativaGuardada = {
     "_id": {
         "$oid": "69725494280414e53a5d9691"
@@ -8009,14 +8018,7 @@ $tablaFeriados.bootstrapTable({
             field: 'fecha',
             title: etiquetaMes,
             align: 'center',
-            formatter: function (valor) {
-                const [dia, mes, anio] = valor.split("/");
-                const fecha = new Date(anio, mes, dia);
-                return fecha.toLocaleString("es-AR", {
-                    weekday: "long",
-                    day: "2-digit"
-                })
-            },
+            formatter: formatearFecha,
             headerStyle: function (column) {
                 return {
                     css: {
