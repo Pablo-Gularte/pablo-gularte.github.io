@@ -33,27 +33,22 @@
             </div>
 
             <!-- Contenedor del botones de agenda educativa y feriados -->
-            <div class="col-8">
+            <div class="col-4">
                 <!-- Botón agenda escolar del mes -->
-                <button 
-                    id="btn-agenda"
-                    type="button" 
-                    class="btn btn-primary mb-1" 
-                    data-bs-toggle="modal"
-                    data-bs-target="#agenda"
-                >
-                    Ver agenda educativa
+                <button id="btn-agenda" type="button" class="btn btn-outline-primary mb-1" data-bs-toggle="modal"
+                    data-bs-target="#agenda">
+                    <i class="bi bi-journal-check"></i> Ver agenda educativa
                 </button>
 
                 <!-- Botón feriados nacionales -->
-                <button 
-                    id="btn-feriados"
-                    type="button" 
-                    class="btn btn-primary mb-1" 
-                    data-bs-toggle="modal"
-                    data-bs-target="#feriados"
-                >
-                    Ver feriados
+                <button id="btn-feriados" type="button" class="btn btn-outline-primary mb-1" data-bs-toggle="modal"
+                    data-bs-target="#feriados">
+                    <i class="bi bi-calendar-event"></i> Ver feriados
+                </button>
+
+                <button id="btn-almuerzo" type="button" class="btn btn-outline-primary mb-1" data-bs-toggle="modal"
+                    data-bs-target="#almuerzos">
+                    <i class="bi bi-fork-knife"></i> Almuerzos
                 </button>
 
                 <!-- Modal agenda escolar del mes -->
@@ -62,7 +57,8 @@
                         <div class="modal-content">
                             <div class="modal-header text-light bg-success">
                                 <h5 id="mes-agenda"></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body bg-success-subtle">
                                 <table id="tabla-agenda" class="table table-bordered table-striped"></table>
@@ -74,13 +70,14 @@
                     </div>
                 </div>
 
-                <!-- Panel feriados nacionales -->
+                <!-- Modal feriados nacionales -->
                 <div id="feriados" class="modal fade" tabindex="-1" aria-labelledby="feriadosLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header text-light bg-success">
                                 <h5>Feriados nacionales del mes en curso</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body bg-success-subtle">
                                 <table id="tabla-feriados" class="table table-bordered table-striped"></table>
@@ -89,6 +86,44 @@
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Modal de almuerzos -->
+                <div id="almuerzos" class="modal fade" tabindex="-1" aria-labelledby="almuerzosLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-fullscreen">
+                        <div class="modal-content">
+                            <div class="modal-header text-light bg-success">
+                                <h5>Menú semanal de almuerzos</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body bg-success-subtle">
+                                <img src="img/IMG-20260311-WA0651.jpg" class="img-fluid rounded mx-auto d-block" alt="grilla de almuerzos">
+                            </div>
+                            <div class="modal-footer bg-success-subtle">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel de visualización de tareas semanales -->
+            <div class="col">
+                <div class="card shadow-sm border-secondary" style="max-width: 350px;">
+                    <div class="card-header bg-secondary text-white py-1 px-2">
+                        <a class="text-light text-decoration-none" data-bs-toggle="collapse" href="#panelTareasSemana"
+                            role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <small class="fw-bold"><i class="bi bi-list-task"></i> Actividades de la Semana</small>
+                        </a>
+                    </div>
+                    <div id="panelTareasSemana" class="collapse show">
+                        <ul class="list-group list-group-flush" style="font-size: 0.85rem;">
+                            <li class="list-group-item"><strong>Miércoles:</strong> Reunión de familias TM</li>
+                            <li class="list-group-item"><strong>Viernes:</strong> Reunión de familias TT</li>
+                        </ul>
                     </div>
                 </div>
             </div>

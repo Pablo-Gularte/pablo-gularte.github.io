@@ -1,6 +1,6 @@
 function formatearFecha(valor) {
     const [dia, mes, anio] = valor.split("/").map(v => Number(v));
-    const fecha = new Date(anio, mes-1, dia);
+    const fecha = new Date(anio, mes - 1, dia);
     return fecha.toLocaleString("es-AR", {
         weekday: "long",
         day: "2-digit"
@@ -8163,6 +8163,18 @@ $(document).ready(function () {
 
     // Agrego el menpu desplegable al DOM
     $("div.dropdown").html(menuDesplegableGrados);
+
+    // Función para resaltar la actividad del día actual (Opcional)
+    const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+    const hoy = diasSemana[new Date().getDay()];
+
+    // Resalta el día actual en el panel si coincide con lunes-viernes
+    $(".list-group-item").each(function () {
+        if ($(this).text().startsWith(hoy)) {
+            $(this).addClass("bg-warning-subtle fw-bold border-3 border-warning");
+        }
+    });
+
 });
 
 // Agrego lista desplegable para filtrar búsquedas
