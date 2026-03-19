@@ -32,61 +32,81 @@
                 <div class="dropdown d-inline mt-2"></div>
             </div>
 
-            <!-- Contenedor del botones de agenda educativa y feriados -->
+            <!-- Panel de visualización de tareas semanales -->
             <div class="col-8">
-                <!-- Botón agenda escolar del mes -->
-                <button 
-                    id="btn-agenda"
-                    type="button" 
-                    class="btn btn-primary mb-1" 
-                    data-bs-toggle="modal"
-                    data-bs-target="#agenda"
-                >
-                    Ver agenda educativa
-                </button>
-
-                <!-- Botón feriados nacionales -->
-                <button 
-                    id="btn-feriados"
-                    type="button" 
-                    class="btn btn-primary mb-1" 
-                    data-bs-toggle="modal"
-                    data-bs-target="#feriados"
-                >
-                    Ver feriados
-                </button>
-
-                <!-- Modal agenda escolar del mes -->
-                <div id="agenda" class="modal fade" tabindex="-1" aria-labelledby="agendaLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
-                        <div class="modal-content">
-                            <div class="modal-header text-light bg-success">
-                                <h5 id="mes-agenda"></h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body bg-success-subtle">
-                                <table id="tabla-agenda" class="table table-bordered table-striped"></table>
-                            </div>
-                            <div class="modal-footer bg-success-subtle">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
+                <div class="card shadow-sm border-secondary">
+                    <div class="card-header bg-secondary text-white py-1 px-2">
+                        <a class="text-light text-decoration-none d-block" data-bs-toggle="collapse"
+                            href="#panelTareasSemana" role="button" aria-expanded="false"
+                            aria-controls="collapseExample">
+                            <small class="fw-bold"><i class="bi bi-list-task"></i> Actividades de la Semana</small>
+                        </a>
                     </div>
-                </div>
-
-                <!-- Panel feriados nacionales -->
-                <div id="feriados" class="modal fade" tabindex="-1" aria-labelledby="feriadosLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                            <div class="modal-header text-light bg-success">
-                                <h5>Feriados nacionales del mes en curso</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body bg-success-subtle">
-                                <table id="tabla-feriados" class="table table-bordered table-striped"></table>
-                            </div>
-                            <div class="modal-footer bg-success-subtle">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <div id="panelTareasSemana" class="collapse show bg-warning-subtle">
+                        <table id="tablaPanelTareasSemana" class="table table-sm table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th id="leyendaSemana" colspan="4" class="text-bg-warning text-center">Semana del xx al xx</th>
+                                </tr>
+                                <tr class="text-center">
+                                    <th class="text-bg-warning">Día</th>
+                                    <th class="text-bg-warning">TM</th>
+                                    <th class="text-bg-warning">TT</th>
+                                    <th class="text-bg-warning">Almuerzo</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-warning">
+                                <tr>
+                                    <th>Lunes</th>
+                                    <td>Alguna actividad para el lunes a la mañana con 6to A</td>
+                                    <td>Alguna actividad para el lunes a la mañana con 6to C</td>
+                                    <td>Comida con acompañamiento y postre</td>
+                                </tr>
+                                <tr>
+                                    <th>Martes</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Miércoles</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Jueves</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th>Viernes</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- Contenedor del botones de agenda educativa y feriados -->
+                        <div class="d-flex justify-content-center">
+                            <div class="btn-group" role="group" aria-label="Botonera de datos">
+                                <!-- Botón agenda escolar del mes -->
+                                <button id="btn-agenda" type="button" class="btn btn-outline-primary mb-1"
+                                    data-bs-toggle="modal" data-bs-target="#agenda">
+                                    <i class="bi bi-journal-check"></i> Ver agenda educativa
+                                </button>
+    
+                                <!-- Botón feriados nacionales -->
+                                <button id="btn-feriados" type="button" class="btn btn-outline-primary mb-1"
+                                    data-bs-toggle="modal" data-bs-target="#feriados">
+                                    <i class="bi bi-calendar-event"></i> Ver feriados
+                                </button>
+    
+                                <button id="btn-almuerzo" type="button" class="btn btn-outline-primary mb-1"
+                                    data-bs-toggle="modal" data-bs-target="#almuerzos">
+                                    <i class="bi bi-fork-knife"></i> Almuerzos
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -106,6 +126,65 @@
         <!-- Table de estudiantes -->
         <h3 id="titulo-grado"></h3>
         <table id="estudiantes" class="table table-bordered table-hover table-striped"></table>
+
+        <!-- ---------------------------------------------------- -->
+        <!-- Sección para alojar los respectivos Modal de botones -->
+        <!-- ---------------------------------------------------- -->
+        <!-- Modal agenda escolar del mes -->
+        <div id="agenda" class="modal fade" tabindex="-1" aria-labelledby="agendaLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header text-light bg-success">
+                        <h5 id="mes-agenda"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body bg-success-subtle">
+                        <table id="tabla-agenda" class="table table-bordered table-striped"></table>
+                    </div>
+                    <div class="modal-footer bg-success-subtle">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal feriados nacionales -->
+        <div id="feriados" class="modal fade" tabindex="-1" aria-labelledby="feriadosLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header text-light bg-success">
+                        <h5>Feriados nacionales del mes en curso</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body bg-success-subtle">
+                        <table id="tabla-feriados" class="table table-bordered table-striped"></table>
+                    </div>
+                    <div class="modal-footer bg-success-subtle">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de almuerzos -->
+        <div id="almuerzos" class="modal fade" tabindex="-1" aria-labelledby="almuerzosLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header text-light bg-success">
+                        <h5>Menú semanal de almuerzos</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body bg-success-subtle">
+                        <img src="img/IMG-20260311-WA0651.jpg" class="img-fluid rounded mx-auto d-block"
+                            alt="grilla de almuerzos">
+                    </div>
+                    <div class="modal-footer bg-success-subtle">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
     <footer>
         <h6></h6>
