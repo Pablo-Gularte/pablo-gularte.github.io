@@ -1,3 +1,29 @@
+function obtenerRangoSemana(fechaActual) {
+  const lunes = new Date(fechaActual);
+  const viernes = new Date(fechaActual);
+
+  // Ajustar al lunes de la semana actual (lunes = 1)
+  const diaSemana = fechaActual.getDay();
+  const diferenciaLunes = diaSemana === 0 ? -6 : 1 - diaSemana;
+  lunes.setDate(fechaActual.getDate() + diferenciaLunes);
+
+  // El viernes es 4 días después del lunes
+  viernes.setDate(lunes.getDate() + 4);
+
+  const diaL = lunes.getDate();
+  const diaV = viernes.getDate();
+
+  let resultado = `Semana del ${diaL} al ${diaV}`;
+
+  // Si los meses son distintos, añadir el nombre del mes del viernes
+  if (lunes.getMonth() !== viernes.getMonth()) {
+    const nombreMes = viernes.toLocaleString('es-ES', { month: 'short' }).replace('.', '');
+    resultado += ` (de ${nombreMes.toLowerCase()})`;
+  }
+
+  return resultado;
+}
+
 function formatearFecha(valor) {
     const [dia, mes, anio] = valor.split("/").map(v => Number(v));
     const fecha = new Date(anio, mes - 1, dia);
@@ -8161,7 +8187,7 @@ $(document).ready(function () {
             ${grados.map(g => `<li><a class="dropdown-item" href="#" onclick="cargarTabla('${g.id}')">${g.leyenda}</a></li>`).join("")}
         </ul>`;
 
-    // Agrego el menpu desplegable al DOM
+    // Agrego el menú desplegable al DOM
     $("div.dropdown").html(menuDesplegableGrados);
 
     // Función para resaltar la actividad del día actual (Opcional)
@@ -8169,9 +8195,9 @@ $(document).ready(function () {
     const hoy = diasSemana[new Date().getDay()];
 
     // Resalta el día actual en el panel si coincide con lunes-viernes
-    $(".list-group-item").each(function () {
-        if ($(this).text().startsWith(hoy)) {
-            $(this).addClass("bg-warning-subtle fw-bold border-3 border-warning");
+    $("table#tablaPanelTareasSemana > tbody > tr").each(function () {
+        if ($(this).text().includes(hoy)) {
+            $(this).addClass("fw-bold border-3 border-warning");
         }
     });
 
