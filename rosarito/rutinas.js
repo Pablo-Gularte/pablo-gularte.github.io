@@ -10651,8 +10651,6 @@ const calendarioEscolar = [
     }
 ];
 
-
-
 const agenda = agruparActividadesPorFecha(agendaEducativaGuardada).agenda;
 
 // Obtengo elementos del DOM
@@ -10851,11 +10849,14 @@ $(document).ready(function () {
     $(selectorFilasTablaGrillaSemanal).html(
         menuSemanal.map(dia => {
             const resaltarFila = hoy.toLowerCase().trim() === dia.menu.dia.toLowerCase().trim();
+            const celdaDiaSemana = `<th>${dia.menu.dia}</th>`;
+            const celdasTareasSemanales = `<td>...</td>
+                <td>...</td>
+                <td>${dia.menu.plato_principal}. <em>(${dia.menu.postre})</em></td>`;
+            const celdasFeriado = `<td spancol="3">FERIADO</td>`;
             return `<tr ${resaltarFila ? estiloFilaDiaActual : ""}>
-                <th>${dia.menu.dia}</th>
-                <td>...</td>
-                <td>...</td>
-                <td>${dia.menu.plato_principal}. <em>(${dia.menu.postre})</em></td>
+                ${celdaDiaSemana}
+                ${celdasTareasSemanales}
             </tr>`
         }).join("")
     );
