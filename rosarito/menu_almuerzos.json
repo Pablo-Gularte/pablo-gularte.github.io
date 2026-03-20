@@ -1,0 +1,62 @@
+[
+    {
+        "numero_menu": 1,
+        "dia": "Lunes",
+        "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+        "postre": "Fruta"
+    },
+    {
+        "numero_menu": 2,
+        "dia": "Martes",
+        "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+        "postre": "Fruta"
+    },
+    {
+        "numero_menu": 3,
+        "dia": "Miércoles",
+        "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+        "postre": "Ensalada de fruta"
+    },
+    {
+        "numero_menu": 4,
+        "dia": "Jueves",
+        "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+        "postre": "Fruta"
+    },
+    {
+        "numero_menu": 5,
+        "dia": "Viernes",
+        "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+        "postre": "Fruta"
+    },
+    {
+        "numero_menu": 6,
+        "dia": "Lunes",
+        "plato_principal": "Fideos cortos semolados con estofado de carne",
+        "postre": "Fruta"
+    },
+    {
+        "numero_menu": 7,
+        "dia": "Martes",
+        "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+        "postre": "Fruta"
+    },
+    {
+        "numero_menu": 8,
+        "dia": "Miércoles",
+        "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+        "postre": "Fruta"
+    },
+    {
+        "numero_menu": 9,
+        "dia": "Jueves",
+        "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+        "postre": "Fruta"
+    },
+    {
+        "numero_menu": 10,
+        "dia": "Viernes",
+        "plato_principal": "Pastel de papa",
+        "postre": "Fruta"
+    }
+]

@@ -1,27 +1,27 @@
 function obtenerRangoSemana(fechaActual) {
-  const lunes = new Date(fechaActual);
-  const viernes = new Date(fechaActual);
+    const lunes = new Date(fechaActual);
+    const viernes = new Date(fechaActual);
 
-  // Ajustar al lunes de la semana actual (lunes = 1)
-  const diaSemana = fechaActual.getDay();
-  const diferenciaLunes = diaSemana === 0 ? -6 : 1 - diaSemana;
-  lunes.setDate(fechaActual.getDate() + diferenciaLunes);
+    // Ajustar al lunes de la semana actual (lunes = 1)
+    const diaSemana = fechaActual.getDay();
+    const diferenciaLunes = diaSemana === 0 ? -6 : 1 - diaSemana;
+    lunes.setDate(fechaActual.getDate() + diferenciaLunes);
 
-  // El viernes es 4 días después del lunes
-  viernes.setDate(lunes.getDate() + 4);
+    // El viernes es 4 días después del lunes
+    viernes.setDate(lunes.getDate() + 4);
 
-  const diaL = lunes.getDate();
-  const diaV = viernes.getDate();
+    const diaL = lunes.getDate();
+    const diaV = viernes.getDate();
 
-  let resultado = `Semana del ${diaL} al ${diaV}`;
+    let resultado = `Semana del ${diaL} al ${diaV}`;
 
-  // Si los meses son distintos, añadir el nombre del mes del viernes
-  if (lunes.getMonth() !== viernes.getMonth()) {
-    const nombreMes = viernes.toLocaleString('es-ES', { month: 'short' }).replace('.', '');
-    resultado += ` (de ${nombreMes.toLowerCase()})`;
-  }
+    // Si los meses son distintos, añadir el nombre del mes del viernes
+    if (lunes.getMonth() !== viernes.getMonth()) {
+        const nombreMes = viernes.toLocaleString('es-ES', { month: 'short' }).replace('.', '');
+        resultado += ` (de ${nombreMes.toLowerCase()})`;
+    }
 
-  return resultado;
+    return resultado;
 }
 
 function formatearFecha(valor) {
@@ -7843,6 +7843,8 @@ const meses = [
     "diciembre"
 ];
 
+const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+
 const feriadosNacionales = [
     {
         "fecha": "1/01/2026",
@@ -8008,2990 +8010,2561 @@ const feriadosNacionales = [
 
 const diasHabiles = [
     {
-        fecha: "2026-02-25",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-02-26",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-02-27",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-02",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-03",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-04",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-05",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-06",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-09",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-10",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-11",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-12",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-13",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-16",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-17",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-18",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-19",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-20",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-23",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-24",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-25",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-26",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-27",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-30",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-03-31",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-01",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-02",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-03",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-06",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-07",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-08",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-09",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-10",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-13",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-14",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-15",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-16",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-17",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-20",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-21",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-22",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-23",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-24",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-27",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-28",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-29",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-04-30",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-01",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-04",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-05",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-06",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-07",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-08",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-11",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-12",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-13",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-14",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-15",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-18",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-19",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-20",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-21",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-22",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-25",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-26",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-27",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-28",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-05-29",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-01",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-02",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-03",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-04",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-05",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-08",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-09",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-10",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-11",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-12",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-15",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-16",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-17",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-18",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-19",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-22",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-23",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-24",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-25",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-26",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-29",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-06-30",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-01",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-02",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-03",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-06",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-07",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-08",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-09",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-10",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-13",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-14",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-15",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-16",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-17",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-07-20",
-        tipo: "receso",
-    },
-    {
-        fecha: "2026-07-21",
-        tipo: "receso",
-    },
-    {
-        fecha: "2026-07-22",
-        tipo: "receso",
-    },
-    {
-        fecha: "2026-07-23",
-        tipo: "receso",
-    },
-    {
-        fecha: "2026-07-24",
-        tipo: "receso",
-    },
-    {
-        fecha: "2026-07-27",
-        tipo: "receso",
-    },
-    {
-        fecha: "2026-07-28",
-        tipo: "receso",
-    },
-    {
-        fecha: "2026-07-29",
-        tipo: "receso",
-    },
-    {
-        fecha: "2026-07-30",
-        tipo: "receso",
-    },
-    {
-        fecha: "2026-07-31",
-        tipo: "receso",
-    },
-    {
-        fecha: "2026-08-03",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-04",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-05",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-06",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-07",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-10",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-11",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-12",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-13",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-14",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-17",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-18",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-19",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-20",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-21",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-24",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-25",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-26",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-27",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-28",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-08-31",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-01",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-02",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-03",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-04",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-07",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-08",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-09",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-10",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-11",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-14",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-15",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-16",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-17",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-18",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-21",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-22",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-23",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-24",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-25",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-28",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-29",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-09-30",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-01",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-02",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-05",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-06",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-07",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-08",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-09",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-12",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-13",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-14",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-15",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-16",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-19",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-20",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-21",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-22",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-23",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-26",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-27",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-28",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-29",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-10-30",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-02",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-03",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-04",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-05",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-06",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-09",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-10",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-11",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-12",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-13",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-16",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-17",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-18",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-19",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-20",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-23",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-24",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-25",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-26",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-27",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-11-30",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-01",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-02",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-03",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-04",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-07",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-08",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-09",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-10",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-11",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-14",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-15",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-16",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-17",
-        tipo: "escolar",
-    },
-    {
-        fecha: "2026-12-18",
-        tipo: "escolar",
-    },
-];
-
-const menuGeneral = [
-    {
-        fecha: "2026-02-25",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-02-26",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-02-27",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-02",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-03",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-04",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-05",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-06",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-09",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-10",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-11",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-12",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-13",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-16",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-17",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-18",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-19",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-20",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-23",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-24",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-25",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-26",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-27",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-30",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-03-31",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-01",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-02",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-03",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-06",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-07",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-08",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-09",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-10",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-13",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-14",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-15",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-16",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-17",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-20",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-21",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-22",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-23",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-24",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-27",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-28",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-29",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-04-30",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-01",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-04",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-05",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-06",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-07",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-08",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-11",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-12",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-13",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-14",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-15",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-18",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-19",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-20",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-21",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-22",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-25",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-26",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-27",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-28",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-05-29",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-01",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-02",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-03",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-04",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-05",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-08",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-09",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-10",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-11",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-12",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-15",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-16",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-17",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-18",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-19",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-22",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-23",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-24",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-25",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-26",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-29",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-06-30",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-01",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-02",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-03",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-06",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-07",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-08",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-09",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-10",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-13",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-14",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-15",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-16",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-17",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-20",
-        tipo: "receso",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-21",
-        tipo: "receso",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-22",
-        tipo: "receso",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-23",
-        tipo: "receso",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-24",
-        tipo: "receso",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-27",
-        tipo: "receso",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-28",
-        tipo: "receso",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-29",
-        tipo: "receso",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-30",
-        tipo: "receso",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-07-31",
-        tipo: "receso",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-03",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-04",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-05",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-06",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-07",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-10",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-11",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-12",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-13",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-14",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-17",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-18",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-19",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-20",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-21",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-24",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-25",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-26",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-27",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-28",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-08-31",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-01",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-02",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-03",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-04",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-07",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-08",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-09",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-10",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-11",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-14",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-15",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-16",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-17",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-18",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-21",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-22",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-23",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-24",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-25",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-28",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-29",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-09-30",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-01",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-02",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-05",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-06",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-07",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-08",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-09",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-12",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-13",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-14",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-15",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-16",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-19",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-20",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-21",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-22",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-23",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-26",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-27",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-28",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-29",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-10-30",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-02",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-03",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-04",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-05",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-06",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-09",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-10",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-11",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-12",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-13",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-16",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-17",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-18",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-19",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-20",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-23",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-24",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-25",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-26",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-27",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-11-30",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-01",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-02",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-03",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-04",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-07",
-        tipo: "escolar",
-        menu: {
-            numero: 4,
-            dia: "Jueves",
-            platos: ["Pollo al horno", "Ens. de lechuga y tomate"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-08",
-        tipo: "escolar",
-        menu: {
-            numero: 5,
-            dia: "Viernes",
-            platos: ["Salteado de cerdo con vegetales y puré mixto"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-09",
-        tipo: "escolar",
-        menu: {
-            numero: 6,
-            dia: "Lunes",
-            platos: ["Fideos cortos semolados con estofado de carne"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-10",
-        tipo: "escolar",
-        menu: {
-            numero: 7,
-            dia: "Martes",
-            platos: ["Tortillita de verdura", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-11",
-        tipo: "escolar",
-        menu: {
-            numero: 8,
-            dia: "Miércoles",
-            platos: ["Pollo a la portuguesa con papa y batata dore"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-14",
-        tipo: "escolar",
-        menu: {
-            numero: 9,
-            dia: "Jueves",
-            platos: ["Milanesa", "Ensalada de zanahoria, tomate y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-15",
-        tipo: "escolar",
-        menu: {
-            numero: 10,
-            dia: "Viernes",
-            platos: ["Pastel de papa"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-16",
-        tipo: "escolar",
-        menu: {
-            numero: 1,
-            dia: "Lunes",
-            platos: ["Carne a la cacerola", "Arroz con manteca y queso"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-17",
-        tipo: "escolar",
-        menu: {
-            numero: 2,
-            dia: "Martes",
-            platos: ["Medallón de pescado", "Ens. de tomate zanahoria y huevo"],
-            postre: "Fruta",
-        },
-    },
-    {
-        fecha: "2026-12-18",
-        tipo: "escolar",
-        menu: {
-            numero: 3,
-            dia: "Miércoles",
-            platos: ["Fideos cortos semolados con salsa bolognesa"],
-            postre: "Ensalada de Fruta",
-        },
-    },
+        "dia": "miércoles",
+        "semana": 9,
+        "fecha": "2026-02-25",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 9,
+        "fecha": "2026-02-26",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 9,
+        "fecha": "2026-02-27",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 10,
+        "fecha": "2026-03-02",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 10,
+        "fecha": "2026-03-03",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 10,
+        "fecha": "2026-03-04",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 10,
+        "fecha": "2026-03-05",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 10,
+        "fecha": "2026-03-06",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 11,
+        "fecha": "2026-03-09",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 11,
+        "fecha": "2026-03-10",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 11,
+        "fecha": "2026-03-11",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 11,
+        "fecha": "2026-03-12",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 11,
+        "fecha": "2026-03-13",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 12,
+        "fecha": "2026-03-16",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 12,
+        "fecha": "2026-03-17",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 12,
+        "fecha": "2026-03-18",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 12,
+        "fecha": "2026-03-19",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 12,
+        "fecha": "2026-03-20",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 13,
+        "fecha": "2026-03-23",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 13,
+        "fecha": "2026-03-24",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 13,
+        "fecha": "2026-03-25",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 13,
+        "fecha": "2026-03-26",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 13,
+        "fecha": "2026-03-27",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 14,
+        "fecha": "2026-03-30",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 14,
+        "fecha": "2026-03-31",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 14,
+        "fecha": "2026-04-01",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 14,
+        "fecha": "2026-04-02",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 14,
+        "fecha": "2026-04-03",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 15,
+        "fecha": "2026-04-06",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 15,
+        "fecha": "2026-04-07",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 15,
+        "fecha": "2026-04-08",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 15,
+        "fecha": "2026-04-09",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 15,
+        "fecha": "2026-04-10",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 16,
+        "fecha": "2026-04-13",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 16,
+        "fecha": "2026-04-14",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 16,
+        "fecha": "2026-04-15",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 16,
+        "fecha": "2026-04-16",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 16,
+        "fecha": "2026-04-17",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 17,
+        "fecha": "2026-04-20",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 17,
+        "fecha": "2026-04-21",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 17,
+        "fecha": "2026-04-22",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 17,
+        "fecha": "2026-04-23",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 17,
+        "fecha": "2026-04-24",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 18,
+        "fecha": "2026-04-27",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 18,
+        "fecha": "2026-04-28",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 18,
+        "fecha": "2026-04-29",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 18,
+        "fecha": "2026-04-30",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 18,
+        "fecha": "2026-05-01",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 19,
+        "fecha": "2026-05-04",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 19,
+        "fecha": "2026-05-05",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 19,
+        "fecha": "2026-05-06",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 19,
+        "fecha": "2026-05-07",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 19,
+        "fecha": "2026-05-08",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 20,
+        "fecha": "2026-05-11",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 20,
+        "fecha": "2026-05-12",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 20,
+        "fecha": "2026-05-13",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 20,
+        "fecha": "2026-05-14",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 20,
+        "fecha": "2026-05-15",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 21,
+        "fecha": "2026-05-18",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 21,
+        "fecha": "2026-05-19",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 21,
+        "fecha": "2026-05-20",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 21,
+        "fecha": "2026-05-21",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 21,
+        "fecha": "2026-05-22",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 22,
+        "fecha": "2026-05-25",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 22,
+        "fecha": "2026-05-26",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 22,
+        "fecha": "2026-05-27",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 22,
+        "fecha": "2026-05-28",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 22,
+        "fecha": "2026-05-29",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 23,
+        "fecha": "2026-06-01",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 23,
+        "fecha": "2026-06-02",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 23,
+        "fecha": "2026-06-03",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 23,
+        "fecha": "2026-06-04",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 23,
+        "fecha": "2026-06-05",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 24,
+        "fecha": "2026-06-08",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 24,
+        "fecha": "2026-06-09",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 24,
+        "fecha": "2026-06-10",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 24,
+        "fecha": "2026-06-11",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 24,
+        "fecha": "2026-06-12",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 25,
+        "fecha": "2026-06-15",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 25,
+        "fecha": "2026-06-16",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 25,
+        "fecha": "2026-06-17",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 25,
+        "fecha": "2026-06-18",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 25,
+        "fecha": "2026-06-19",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 26,
+        "fecha": "2026-06-22",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 26,
+        "fecha": "2026-06-23",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 26,
+        "fecha": "2026-06-24",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 26,
+        "fecha": "2026-06-25",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 26,
+        "fecha": "2026-06-26",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 27,
+        "fecha": "2026-06-29",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 27,
+        "fecha": "2026-06-30",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 27,
+        "fecha": "2026-07-01",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 27,
+        "fecha": "2026-07-02",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 27,
+        "fecha": "2026-07-03",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 28,
+        "fecha": "2026-07-06",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 28,
+        "fecha": "2026-07-07",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 28,
+        "fecha": "2026-07-08",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 28,
+        "fecha": "2026-07-09",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 28,
+        "fecha": "2026-07-10",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 29,
+        "fecha": "2026-07-13",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 29,
+        "fecha": "2026-07-14",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 29,
+        "fecha": "2026-07-15",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 29,
+        "fecha": "2026-07-16",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 29,
+        "fecha": "2026-07-17",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 30,
+        "fecha": "2026-07-20",
+        "tipo": "receso",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 30,
+        "fecha": "2026-07-21",
+        "tipo": "receso",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 30,
+        "fecha": "2026-07-22",
+        "tipo": "receso",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 30,
+        "fecha": "2026-07-23",
+        "tipo": "receso",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 30,
+        "fecha": "2026-07-24",
+        "tipo": "receso",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 31,
+        "fecha": "2026-07-27",
+        "tipo": "receso",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 31,
+        "fecha": "2026-07-28",
+        "tipo": "receso",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 31,
+        "fecha": "2026-07-29",
+        "tipo": "receso",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 31,
+        "fecha": "2026-07-30",
+        "tipo": "receso",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 31,
+        "fecha": "2026-07-31",
+        "tipo": "receso",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 32,
+        "fecha": "2026-08-03",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 32,
+        "fecha": "2026-08-04",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 32,
+        "fecha": "2026-08-05",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 32,
+        "fecha": "2026-08-06",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 32,
+        "fecha": "2026-08-07",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 33,
+        "fecha": "2026-08-10",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 33,
+        "fecha": "2026-08-11",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 33,
+        "fecha": "2026-08-12",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 33,
+        "fecha": "2026-08-13",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 33,
+        "fecha": "2026-08-14",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 34,
+        "fecha": "2026-08-17",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 34,
+        "fecha": "2026-08-18",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 34,
+        "fecha": "2026-08-19",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 34,
+        "fecha": "2026-08-20",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 34,
+        "fecha": "2026-08-21",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 35,
+        "fecha": "2026-08-24",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 35,
+        "fecha": "2026-08-25",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 35,
+        "fecha": "2026-08-26",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 35,
+        "fecha": "2026-08-27",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 35,
+        "fecha": "2026-08-28",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 36,
+        "fecha": "2026-08-31",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 36,
+        "fecha": "2026-09-01",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 36,
+        "fecha": "2026-09-02",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 36,
+        "fecha": "2026-09-03",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 36,
+        "fecha": "2026-09-04",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 37,
+        "fecha": "2026-09-07",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 37,
+        "fecha": "2026-09-08",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 37,
+        "fecha": "2026-09-09",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 37,
+        "fecha": "2026-09-10",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 37,
+        "fecha": "2026-09-11",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 38,
+        "fecha": "2026-09-14",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 38,
+        "fecha": "2026-09-15",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 38,
+        "fecha": "2026-09-16",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 38,
+        "fecha": "2026-09-17",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 38,
+        "fecha": "2026-09-18",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 39,
+        "fecha": "2026-09-21",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 39,
+        "fecha": "2026-09-22",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 39,
+        "fecha": "2026-09-23",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 39,
+        "fecha": "2026-09-24",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 39,
+        "fecha": "2026-09-25",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 40,
+        "fecha": "2026-09-28",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 40,
+        "fecha": "2026-09-29",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 40,
+        "fecha": "2026-09-30",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 40,
+        "fecha": "2026-10-01",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 40,
+        "fecha": "2026-10-02",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 41,
+        "fecha": "2026-10-05",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 41,
+        "fecha": "2026-10-06",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 41,
+        "fecha": "2026-10-07",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 41,
+        "fecha": "2026-10-08",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 41,
+        "fecha": "2026-10-09",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 42,
+        "fecha": "2026-10-12",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 42,
+        "fecha": "2026-10-13",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 42,
+        "fecha": "2026-10-14",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 42,
+        "fecha": "2026-10-15",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 42,
+        "fecha": "2026-10-16",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 43,
+        "fecha": "2026-10-19",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 43,
+        "fecha": "2026-10-20",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 43,
+        "fecha": "2026-10-21",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 43,
+        "fecha": "2026-10-22",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 43,
+        "fecha": "2026-10-23",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 44,
+        "fecha": "2026-10-26",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 44,
+        "fecha": "2026-10-27",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 44,
+        "fecha": "2026-10-28",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 44,
+        "fecha": "2026-10-29",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 44,
+        "fecha": "2026-10-30",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 45,
+        "fecha": "2026-11-02",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 45,
+        "fecha": "2026-11-03",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 45,
+        "fecha": "2026-11-04",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 45,
+        "fecha": "2026-11-05",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 45,
+        "fecha": "2026-11-06",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 46,
+        "fecha": "2026-11-09",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 46,
+        "fecha": "2026-11-10",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 46,
+        "fecha": "2026-11-11",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 46,
+        "fecha": "2026-11-12",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 46,
+        "fecha": "2026-11-13",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 47,
+        "fecha": "2026-11-16",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 47,
+        "fecha": "2026-11-17",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 47,
+        "fecha": "2026-11-18",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 47,
+        "fecha": "2026-11-19",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 47,
+        "fecha": "2026-11-20",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 48,
+        "fecha": "2026-11-23",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 48,
+        "fecha": "2026-11-24",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 48,
+        "fecha": "2026-11-25",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 48,
+        "fecha": "2026-11-26",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 48,
+        "fecha": "2026-11-27",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 49,
+        "fecha": "2026-11-30",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 49,
+        "fecha": "2026-12-01",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 49,
+        "fecha": "2026-12-02",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 49,
+        "fecha": "2026-12-03",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 49,
+        "fecha": "2026-12-04",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 50,
+        "fecha": "2026-12-07",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 6,
+            "dia": "Lunes",
+            "plato_principal": "Fideos cortos semolados con estofado de carne",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 50,
+        "fecha": "2026-12-08",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 7,
+            "dia": "Martes",
+            "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 50,
+        "fecha": "2026-12-09",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 8,
+            "dia": "Miércoles",
+            "plato_principal": "Pollo a la portuguesa con papa y batata doré",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 50,
+        "fecha": "2026-12-10",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 9,
+            "dia": "Jueves",
+            "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 50,
+        "fecha": "2026-12-11",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 10,
+            "dia": "Viernes",
+            "plato_principal": "Pastel de papa",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "lunes",
+        "semana": 51,
+        "fecha": "2026-12-14",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 1,
+            "dia": "Lunes",
+            "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "martes",
+        "semana": 51,
+        "fecha": "2026-12-15",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 2,
+            "dia": "Martes",
+            "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "miércoles",
+        "semana": 51,
+        "fecha": "2026-12-16",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 3,
+            "dia": "Miércoles",
+            "plato_principal": "Fideos cortos semolados con salsa bolognesa",
+            "postre": "Ensalada de fruta"
+        }
+    },
+    {
+        "dia": "jueves",
+        "semana": 51,
+        "fecha": "2026-12-17",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 4,
+            "dia": "Jueves",
+            "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
+            "postre": "Fruta"
+        }
+    },
+    {
+        "dia": "viernes",
+        "semana": 51,
+        "fecha": "2026-12-18",
+        "tipo": "escolar",
+        "menu": {
+            "numero_menu": 5,
+            "dia": "Viernes",
+            "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
+            "postre": "Fruta"
+        }
+    }
 ];
 
 
@@ -11181,13 +10754,35 @@ $(document).ready(function () {
     $("div.dropdown").html(menuDesplegableGrados);
 
     // Función para resaltar la actividad del día actual (Opcional)
-    const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
     const hoy = diasSemana[new Date().getDay()];
 
+    // Genero la grilla de tareas semanales
+    const idTablaGrilalSemanal = "#tablaPanelTareasSemana";
+    const idLeyensaSemana = "#leyendaSemana";
+    const selectorTablaGrillaSemanal = `table${idTablaGrilalSemanal} > tbody > tr`;
+    const selectorFilasTablaGrillaSemanal = `${idTablaGrilalSemanal} > tbody`;
+    // Leyenda de cabecera (Semana del xx al xx)
+    $(idLeyensaSemana).text(obtenerRangoSemana(new Date()));
+    // Genero las filas de la tabla
+    const idSemana = diasHabiles.find(m => m.fecha === new Date().toISOString().slice(0,10)).semana;
+    const menuSemanal = diasHabiles.filter(d => d.semana === idSemana);
+    $(selectorFilasTablaGrillaSemanal).html(
+        menuSemanal.map(dia => {
+            return `<tr>
+                <th>${dia.menu.dia}</th>
+                <td>...</td>
+                <td>...</td>
+                <td>${dia.menu.plato_principal}. <em>(${dia.menu.postre})</em></td>
+            </tr>`
+        }).join("")
+    );
+
+
+
     // Resalta el día actual en el panel si coincide con lunes-viernes
-    $("table#tablaPanelTareasSemana > tbody > tr").each(function () {
+    $(selectorTablaGrillaSemanal).each(function () {
         if ($(this).text().includes(hoy)) {
-            $(this).addClass("fw-bold border-3 border-warning");
+            $(this).addClass("border-3 border-warning bg-dark-subtle");
         }
     });
 
