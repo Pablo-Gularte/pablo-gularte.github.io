@@ -8008,9 +8008,9 @@ const feriadosNacionales = [
     }
 ];
 
-const diasHabiles = [
+const calendarioEscolar = [
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 9,
         "fecha": "2026-02-25",
         "tipo": "escolar",
@@ -8022,7 +8022,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 9,
         "fecha": "2026-02-26",
         "tipo": "escolar",
@@ -8034,7 +8034,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 9,
         "fecha": "2026-02-27",
         "tipo": "escolar",
@@ -8046,7 +8046,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 10,
         "fecha": "2026-03-02",
         "tipo": "escolar",
@@ -8058,7 +8058,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 10,
         "fecha": "2026-03-03",
         "tipo": "escolar",
@@ -8070,7 +8070,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 10,
         "fecha": "2026-03-04",
         "tipo": "escolar",
@@ -8082,7 +8082,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 10,
         "fecha": "2026-03-05",
         "tipo": "escolar",
@@ -8094,7 +8094,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 10,
         "fecha": "2026-03-06",
         "tipo": "escolar",
@@ -8106,7 +8106,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 11,
         "fecha": "2026-03-09",
         "tipo": "escolar",
@@ -8118,7 +8118,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 11,
         "fecha": "2026-03-10",
         "tipo": "escolar",
@@ -8130,7 +8130,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 11,
         "fecha": "2026-03-11",
         "tipo": "escolar",
@@ -8142,7 +8142,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 11,
         "fecha": "2026-03-12",
         "tipo": "escolar",
@@ -8154,7 +8154,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 11,
         "fecha": "2026-03-13",
         "tipo": "escolar",
@@ -8166,7 +8166,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 12,
         "fecha": "2026-03-16",
         "tipo": "escolar",
@@ -8178,7 +8178,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 12,
         "fecha": "2026-03-17",
         "tipo": "escolar",
@@ -8190,7 +8190,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 12,
         "fecha": "2026-03-18",
         "tipo": "escolar",
@@ -8202,7 +8202,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 12,
         "fecha": "2026-03-19",
         "tipo": "escolar",
@@ -8214,43 +8214,55 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 12,
         "fecha": "2026-03-20",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 10,
             "dia": "Viernes",
             "plato_principal": "Pastel de papa",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Fiesta de la Ruptura del Ayuno del Sagrado Mes de Ramadán (c)",
+            "tipo": "no_laborable"
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 13,
         "fecha": "2026-03-23",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 1,
             "dia": "Lunes",
             "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Día no laborable con fines turísticos",
+            "tipo": "turistico"
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 13,
         "fecha": "2026-03-24",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 2,
             "dia": "Martes",
             "plato_principal": "Medallón de pescado con ensalada de tomate, zanahoria y huevo",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Día Nacional de la Memoria por la Verdad y la Justicia",
+            "tipo": "inamovible"
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 13,
         "fecha": "2026-03-25",
         "tipo": "escolar",
@@ -8262,7 +8274,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 13,
         "fecha": "2026-03-26",
         "tipo": "escolar",
@@ -8274,7 +8286,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 13,
         "fecha": "2026-03-27",
         "tipo": "escolar",
@@ -8286,7 +8298,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 14,
         "fecha": "2026-03-30",
         "tipo": "escolar",
@@ -8298,7 +8310,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 14,
         "fecha": "2026-03-31",
         "tipo": "escolar",
@@ -8310,7 +8322,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 14,
         "fecha": "2026-04-01",
         "tipo": "escolar",
@@ -8322,31 +8334,39 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 14,
         "fecha": "2026-04-02",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 9,
             "dia": "Jueves",
             "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Día del Veterano y de los Caídos en la Guerra de Malvinas",
+            "tipo": "inamovible"
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 14,
         "fecha": "2026-04-03",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 10,
             "dia": "Viernes",
             "plato_principal": "Pastel de papa",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Viernes Santo Festividad Cristiana",
+            "tipo": "inamovible"
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 15,
         "fecha": "2026-04-06",
         "tipo": "escolar",
@@ -8358,7 +8378,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 15,
         "fecha": "2026-04-07",
         "tipo": "escolar",
@@ -8370,31 +8390,39 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 15,
         "fecha": "2026-04-08",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 3,
             "dia": "Miércoles",
             "plato_principal": "Fideos cortos semolados con salsa bolognesa",
             "postre": "Ensalada de fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Últimos dos días de la Pascua Judía (b)",
+            "tipo": "no_laborable"
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 15,
         "fecha": "2026-04-09",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 4,
             "dia": "Jueves",
             "plato_principal": "Pollo al horno con ensalada de lechuga y tomate",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Últimos dos días de la Pascua Judía (b)",
+            "tipo": "no_laborable"
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 15,
         "fecha": "2026-04-10",
         "tipo": "escolar",
@@ -8406,7 +8434,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 16,
         "fecha": "2026-04-13",
         "tipo": "escolar",
@@ -8418,7 +8446,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 16,
         "fecha": "2026-04-14",
         "tipo": "escolar",
@@ -8430,7 +8458,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 16,
         "fecha": "2026-04-15",
         "tipo": "escolar",
@@ -8442,7 +8470,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 16,
         "fecha": "2026-04-16",
         "tipo": "escolar",
@@ -8454,7 +8482,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 16,
         "fecha": "2026-04-17",
         "tipo": "escolar",
@@ -8466,7 +8494,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 17,
         "fecha": "2026-04-20",
         "tipo": "escolar",
@@ -8478,7 +8506,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 17,
         "fecha": "2026-04-21",
         "tipo": "escolar",
@@ -8490,7 +8518,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 17,
         "fecha": "2026-04-22",
         "tipo": "escolar",
@@ -8502,7 +8530,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 17,
         "fecha": "2026-04-23",
         "tipo": "escolar",
@@ -8514,19 +8542,23 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 17,
         "fecha": "2026-04-24",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 5,
             "dia": "Viernes",
             "plato_principal": "Salteado de cerdo con vegetales y puré mixto",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Día de acción por la tolerancia y el respeto entre los pueblos (a)",
+            "tipo": "no_laborable"
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 18,
         "fecha": "2026-04-27",
         "tipo": "escolar",
@@ -8538,7 +8570,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 18,
         "fecha": "2026-04-28",
         "tipo": "escolar",
@@ -8550,7 +8582,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 18,
         "fecha": "2026-04-29",
         "tipo": "escolar",
@@ -8562,7 +8594,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 18,
         "fecha": "2026-04-30",
         "tipo": "escolar",
@@ -8574,19 +8606,23 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 18,
         "fecha": "2026-05-01",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 10,
             "dia": "Viernes",
             "plato_principal": "Pastel de papa",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Día del Trabajador",
+            "tipo": "inamovible"
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 19,
         "fecha": "2026-05-04",
         "tipo": "escolar",
@@ -8598,7 +8634,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 19,
         "fecha": "2026-05-05",
         "tipo": "escolar",
@@ -8610,7 +8646,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 19,
         "fecha": "2026-05-06",
         "tipo": "escolar",
@@ -8622,7 +8658,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 19,
         "fecha": "2026-05-07",
         "tipo": "escolar",
@@ -8634,7 +8670,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 19,
         "fecha": "2026-05-08",
         "tipo": "escolar",
@@ -8646,7 +8682,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 20,
         "fecha": "2026-05-11",
         "tipo": "escolar",
@@ -8658,7 +8694,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 20,
         "fecha": "2026-05-12",
         "tipo": "escolar",
@@ -8670,7 +8706,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 20,
         "fecha": "2026-05-13",
         "tipo": "escolar",
@@ -8682,7 +8718,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 20,
         "fecha": "2026-05-14",
         "tipo": "escolar",
@@ -8694,7 +8730,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 20,
         "fecha": "2026-05-15",
         "tipo": "escolar",
@@ -8706,7 +8742,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 21,
         "fecha": "2026-05-18",
         "tipo": "escolar",
@@ -8718,7 +8754,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 21,
         "fecha": "2026-05-19",
         "tipo": "escolar",
@@ -8730,7 +8766,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 21,
         "fecha": "2026-05-20",
         "tipo": "escolar",
@@ -8742,7 +8778,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 21,
         "fecha": "2026-05-21",
         "tipo": "escolar",
@@ -8754,7 +8790,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 21,
         "fecha": "2026-05-22",
         "tipo": "escolar",
@@ -8766,19 +8802,23 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 22,
         "fecha": "2026-05-25",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 6,
             "dia": "Lunes",
             "plato_principal": "Fideos cortos semolados con estofado de carne",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Día de la Revolución de Mayo",
+            "tipo": "inamovible"
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 22,
         "fecha": "2026-05-26",
         "tipo": "escolar",
@@ -8790,19 +8830,23 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 22,
         "fecha": "2026-05-27",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 8,
             "dia": "Miércoles",
             "plato_principal": "Pollo a la portuguesa con papa y batata doré",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Fiesta del Sacrificio (c)",
+            "tipo": "no_laborable"
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 22,
         "fecha": "2026-05-28",
         "tipo": "escolar",
@@ -8814,7 +8858,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 22,
         "fecha": "2026-05-29",
         "tipo": "escolar",
@@ -8826,7 +8870,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 23,
         "fecha": "2026-06-01",
         "tipo": "escolar",
@@ -8838,7 +8882,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 23,
         "fecha": "2026-06-02",
         "tipo": "escolar",
@@ -8850,7 +8894,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 23,
         "fecha": "2026-06-03",
         "tipo": "escolar",
@@ -8862,7 +8906,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 23,
         "fecha": "2026-06-04",
         "tipo": "escolar",
@@ -8874,7 +8918,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 23,
         "fecha": "2026-06-05",
         "tipo": "escolar",
@@ -8886,7 +8930,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 24,
         "fecha": "2026-06-08",
         "tipo": "escolar",
@@ -8898,7 +8942,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 24,
         "fecha": "2026-06-09",
         "tipo": "escolar",
@@ -8910,7 +8954,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 24,
         "fecha": "2026-06-10",
         "tipo": "escolar",
@@ -8922,7 +8966,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 24,
         "fecha": "2026-06-11",
         "tipo": "escolar",
@@ -8934,7 +8978,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 24,
         "fecha": "2026-06-12",
         "tipo": "escolar",
@@ -8946,19 +8990,23 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 25,
         "fecha": "2026-06-15",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 1,
             "dia": "Lunes",
             "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Paso a la Inmortalidad del Gral. Don Martín Miguel de Güemes (17/6)",
+            "tipo": "trasladable"
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 25,
         "fecha": "2026-06-16",
         "tipo": "escolar",
@@ -8970,19 +9018,23 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 25,
         "fecha": "2026-06-17",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 3,
             "dia": "Miércoles",
             "plato_principal": "Fideos cortos semolados con salsa bolognesa",
             "postre": "Ensalada de fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Año Nuevo Islámico (c)",
+            "tipo": "no_laborable"
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 25,
         "fecha": "2026-06-18",
         "tipo": "escolar",
@@ -8994,7 +9046,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 25,
         "fecha": "2026-06-19",
         "tipo": "escolar",
@@ -9006,7 +9058,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 26,
         "fecha": "2026-06-22",
         "tipo": "escolar",
@@ -9018,7 +9070,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 26,
         "fecha": "2026-06-23",
         "tipo": "escolar",
@@ -9030,7 +9082,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 26,
         "fecha": "2026-06-24",
         "tipo": "escolar",
@@ -9042,7 +9094,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 26,
         "fecha": "2026-06-25",
         "tipo": "escolar",
@@ -9054,7 +9106,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 26,
         "fecha": "2026-06-26",
         "tipo": "escolar",
@@ -9066,7 +9118,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 27,
         "fecha": "2026-06-29",
         "tipo": "escolar",
@@ -9078,7 +9130,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 27,
         "fecha": "2026-06-30",
         "tipo": "escolar",
@@ -9090,7 +9142,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 27,
         "fecha": "2026-07-01",
         "tipo": "escolar",
@@ -9102,7 +9154,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 27,
         "fecha": "2026-07-02",
         "tipo": "escolar",
@@ -9114,7 +9166,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 27,
         "fecha": "2026-07-03",
         "tipo": "escolar",
@@ -9126,7 +9178,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 28,
         "fecha": "2026-07-06",
         "tipo": "escolar",
@@ -9138,7 +9190,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 28,
         "fecha": "2026-07-07",
         "tipo": "escolar",
@@ -9150,7 +9202,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 28,
         "fecha": "2026-07-08",
         "tipo": "escolar",
@@ -9162,31 +9214,39 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 28,
         "fecha": "2026-07-09",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 9,
             "dia": "Jueves",
             "plato_principal": "Milanesa con ensalada de zanahoria, tomate y huevo",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Día de la Independencia",
+            "tipo": "inamovible"
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 28,
         "fecha": "2026-07-10",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 10,
             "dia": "Viernes",
             "plato_principal": "Pastel de papa",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Día no laborable con fines turísticos",
+            "tipo": "turistico"
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 29,
         "fecha": "2026-07-13",
         "tipo": "escolar",
@@ -9198,7 +9258,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 29,
         "fecha": "2026-07-14",
         "tipo": "escolar",
@@ -9210,7 +9270,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 29,
         "fecha": "2026-07-15",
         "tipo": "escolar",
@@ -9222,7 +9282,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 29,
         "fecha": "2026-07-16",
         "tipo": "escolar",
@@ -9234,7 +9294,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 29,
         "fecha": "2026-07-17",
         "tipo": "escolar",
@@ -9246,7 +9306,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 30,
         "fecha": "2026-07-20",
         "tipo": "receso",
@@ -9258,7 +9318,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 30,
         "fecha": "2026-07-21",
         "tipo": "receso",
@@ -9270,7 +9330,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 30,
         "fecha": "2026-07-22",
         "tipo": "receso",
@@ -9282,7 +9342,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 30,
         "fecha": "2026-07-23",
         "tipo": "receso",
@@ -9294,7 +9354,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 30,
         "fecha": "2026-07-24",
         "tipo": "receso",
@@ -9306,7 +9366,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 31,
         "fecha": "2026-07-27",
         "tipo": "receso",
@@ -9318,7 +9378,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 31,
         "fecha": "2026-07-28",
         "tipo": "receso",
@@ -9330,7 +9390,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 31,
         "fecha": "2026-07-29",
         "tipo": "receso",
@@ -9342,7 +9402,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 31,
         "fecha": "2026-07-30",
         "tipo": "receso",
@@ -9354,7 +9414,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 31,
         "fecha": "2026-07-31",
         "tipo": "receso",
@@ -9366,7 +9426,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 32,
         "fecha": "2026-08-03",
         "tipo": "escolar",
@@ -9378,7 +9438,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 32,
         "fecha": "2026-08-04",
         "tipo": "escolar",
@@ -9390,7 +9450,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 32,
         "fecha": "2026-08-05",
         "tipo": "escolar",
@@ -9402,7 +9462,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 32,
         "fecha": "2026-08-06",
         "tipo": "escolar",
@@ -9414,7 +9474,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 32,
         "fecha": "2026-08-07",
         "tipo": "escolar",
@@ -9426,7 +9486,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 33,
         "fecha": "2026-08-10",
         "tipo": "escolar",
@@ -9438,7 +9498,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 33,
         "fecha": "2026-08-11",
         "tipo": "escolar",
@@ -9450,7 +9510,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 33,
         "fecha": "2026-08-12",
         "tipo": "escolar",
@@ -9462,7 +9522,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 33,
         "fecha": "2026-08-13",
         "tipo": "escolar",
@@ -9474,7 +9534,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 33,
         "fecha": "2026-08-14",
         "tipo": "escolar",
@@ -9486,19 +9546,23 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 34,
         "fecha": "2026-08-17",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 6,
             "dia": "Lunes",
             "plato_principal": "Fideos cortos semolados con estofado de carne",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Paso a la Inmortalidad del Gral. José de San Martín",
+            "tipo": "trasladable"
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 34,
         "fecha": "2026-08-18",
         "tipo": "escolar",
@@ -9510,7 +9574,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 34,
         "fecha": "2026-08-19",
         "tipo": "escolar",
@@ -9522,7 +9586,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 34,
         "fecha": "2026-08-20",
         "tipo": "escolar",
@@ -9534,7 +9598,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 34,
         "fecha": "2026-08-21",
         "tipo": "escolar",
@@ -9546,7 +9610,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 35,
         "fecha": "2026-08-24",
         "tipo": "escolar",
@@ -9558,7 +9622,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 35,
         "fecha": "2026-08-25",
         "tipo": "escolar",
@@ -9570,7 +9634,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 35,
         "fecha": "2026-08-26",
         "tipo": "escolar",
@@ -9582,7 +9646,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 35,
         "fecha": "2026-08-27",
         "tipo": "escolar",
@@ -9594,7 +9658,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 35,
         "fecha": "2026-08-28",
         "tipo": "escolar",
@@ -9606,7 +9670,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 36,
         "fecha": "2026-08-31",
         "tipo": "escolar",
@@ -9618,7 +9682,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 36,
         "fecha": "2026-09-01",
         "tipo": "escolar",
@@ -9630,7 +9694,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 36,
         "fecha": "2026-09-02",
         "tipo": "escolar",
@@ -9642,7 +9706,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 36,
         "fecha": "2026-09-03",
         "tipo": "escolar",
@@ -9654,7 +9718,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 36,
         "fecha": "2026-09-04",
         "tipo": "escolar",
@@ -9666,7 +9730,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 37,
         "fecha": "2026-09-07",
         "tipo": "escolar",
@@ -9678,7 +9742,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 37,
         "fecha": "2026-09-08",
         "tipo": "escolar",
@@ -9690,7 +9754,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 37,
         "fecha": "2026-09-09",
         "tipo": "escolar",
@@ -9702,7 +9766,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 37,
         "fecha": "2026-09-10",
         "tipo": "escolar",
@@ -9714,7 +9778,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 37,
         "fecha": "2026-09-11",
         "tipo": "escolar",
@@ -9726,7 +9790,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 38,
         "fecha": "2026-09-14",
         "tipo": "escolar",
@@ -9738,7 +9802,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 38,
         "fecha": "2026-09-15",
         "tipo": "escolar",
@@ -9750,7 +9814,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 38,
         "fecha": "2026-09-16",
         "tipo": "escolar",
@@ -9762,7 +9826,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 38,
         "fecha": "2026-09-17",
         "tipo": "escolar",
@@ -9774,7 +9838,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 38,
         "fecha": "2026-09-18",
         "tipo": "escolar",
@@ -9786,19 +9850,23 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 39,
         "fecha": "2026-09-21",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 1,
             "dia": "Lunes",
             "plato_principal": "Carne a la cacerola con arroz con manteca y queso",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Día del Perdón (b)",
+            "tipo": "no_laborable"
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 39,
         "fecha": "2026-09-22",
         "tipo": "escolar",
@@ -9810,7 +9878,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 39,
         "fecha": "2026-09-23",
         "tipo": "escolar",
@@ -9822,7 +9890,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 39,
         "fecha": "2026-09-24",
         "tipo": "escolar",
@@ -9834,7 +9902,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 39,
         "fecha": "2026-09-25",
         "tipo": "escolar",
@@ -9846,7 +9914,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 40,
         "fecha": "2026-09-28",
         "tipo": "escolar",
@@ -9858,7 +9926,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 40,
         "fecha": "2026-09-29",
         "tipo": "escolar",
@@ -9870,7 +9938,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 40,
         "fecha": "2026-09-30",
         "tipo": "escolar",
@@ -9882,7 +9950,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 40,
         "fecha": "2026-10-01",
         "tipo": "escolar",
@@ -9894,7 +9962,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 40,
         "fecha": "2026-10-02",
         "tipo": "escolar",
@@ -9906,7 +9974,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 41,
         "fecha": "2026-10-05",
         "tipo": "escolar",
@@ -9918,7 +9986,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 41,
         "fecha": "2026-10-06",
         "tipo": "escolar",
@@ -9930,7 +9998,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 41,
         "fecha": "2026-10-07",
         "tipo": "escolar",
@@ -9942,7 +10010,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 41,
         "fecha": "2026-10-08",
         "tipo": "escolar",
@@ -9954,7 +10022,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 41,
         "fecha": "2026-10-09",
         "tipo": "escolar",
@@ -9966,19 +10034,23 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 42,
         "fecha": "2026-10-12",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 6,
             "dia": "Lunes",
             "plato_principal": "Fideos cortos semolados con estofado de carne",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Día de la  Raza",
+            "tipo": "trasladable"
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 42,
         "fecha": "2026-10-13",
         "tipo": "escolar",
@@ -9990,7 +10062,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 42,
         "fecha": "2026-10-14",
         "tipo": "escolar",
@@ -10002,7 +10074,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 42,
         "fecha": "2026-10-15",
         "tipo": "escolar",
@@ -10014,7 +10086,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 42,
         "fecha": "2026-10-16",
         "tipo": "escolar",
@@ -10026,7 +10098,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 43,
         "fecha": "2026-10-19",
         "tipo": "escolar",
@@ -10038,7 +10110,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 43,
         "fecha": "2026-10-20",
         "tipo": "escolar",
@@ -10050,7 +10122,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 43,
         "fecha": "2026-10-21",
         "tipo": "escolar",
@@ -10062,7 +10134,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 43,
         "fecha": "2026-10-22",
         "tipo": "escolar",
@@ -10074,7 +10146,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 43,
         "fecha": "2026-10-23",
         "tipo": "escolar",
@@ -10086,7 +10158,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 44,
         "fecha": "2026-10-26",
         "tipo": "escolar",
@@ -10098,7 +10170,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 44,
         "fecha": "2026-10-27",
         "tipo": "escolar",
@@ -10110,7 +10182,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 44,
         "fecha": "2026-10-28",
         "tipo": "escolar",
@@ -10122,7 +10194,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 44,
         "fecha": "2026-10-29",
         "tipo": "escolar",
@@ -10134,7 +10206,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 44,
         "fecha": "2026-10-30",
         "tipo": "escolar",
@@ -10146,7 +10218,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 45,
         "fecha": "2026-11-02",
         "tipo": "escolar",
@@ -10158,7 +10230,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 45,
         "fecha": "2026-11-03",
         "tipo": "escolar",
@@ -10170,7 +10242,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 45,
         "fecha": "2026-11-04",
         "tipo": "escolar",
@@ -10182,7 +10254,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 45,
         "fecha": "2026-11-05",
         "tipo": "escolar",
@@ -10194,7 +10266,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 45,
         "fecha": "2026-11-06",
         "tipo": "escolar",
@@ -10206,7 +10278,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 46,
         "fecha": "2026-11-09",
         "tipo": "escolar",
@@ -10218,7 +10290,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 46,
         "fecha": "2026-11-10",
         "tipo": "escolar",
@@ -10230,7 +10302,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 46,
         "fecha": "2026-11-11",
         "tipo": "escolar",
@@ -10242,7 +10314,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 46,
         "fecha": "2026-11-12",
         "tipo": "escolar",
@@ -10254,7 +10326,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 46,
         "fecha": "2026-11-13",
         "tipo": "escolar",
@@ -10266,7 +10338,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 47,
         "fecha": "2026-11-16",
         "tipo": "escolar",
@@ -10278,7 +10350,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 47,
         "fecha": "2026-11-17",
         "tipo": "escolar",
@@ -10290,7 +10362,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 47,
         "fecha": "2026-11-18",
         "tipo": "escolar",
@@ -10302,7 +10374,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 47,
         "fecha": "2026-11-19",
         "tipo": "escolar",
@@ -10314,7 +10386,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 47,
         "fecha": "2026-11-20",
         "tipo": "escolar",
@@ -10326,19 +10398,23 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 48,
         "fecha": "2026-11-23",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 6,
             "dia": "Lunes",
             "plato_principal": "Fideos cortos semolados con estofado de carne",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Día de la Soberanía Nacional (20/11)",
+            "tipo": "trasladable"
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 48,
         "fecha": "2026-11-24",
         "tipo": "escolar",
@@ -10350,7 +10426,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 48,
         "fecha": "2026-11-25",
         "tipo": "escolar",
@@ -10362,7 +10438,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 48,
         "fecha": "2026-11-26",
         "tipo": "escolar",
@@ -10374,7 +10450,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 48,
         "fecha": "2026-11-27",
         "tipo": "escolar",
@@ -10386,7 +10462,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 49,
         "fecha": "2026-11-30",
         "tipo": "escolar",
@@ -10398,7 +10474,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 49,
         "fecha": "2026-12-01",
         "tipo": "escolar",
@@ -10410,7 +10486,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 49,
         "fecha": "2026-12-02",
         "tipo": "escolar",
@@ -10422,7 +10498,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 49,
         "fecha": "2026-12-03",
         "tipo": "escolar",
@@ -10434,7 +10510,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 49,
         "fecha": "2026-12-04",
         "tipo": "escolar",
@@ -10446,31 +10522,39 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 50,
         "fecha": "2026-12-07",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 6,
             "dia": "Lunes",
             "plato_principal": "Fideos cortos semolados con estofado de carne",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Día no laborable con fines turísticos",
+            "tipo": "turistico"
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 50,
         "fecha": "2026-12-08",
-        "tipo": "escolar",
+        "tipo": "feriado",
         "menu": {
             "numero_menu": 7,
             "dia": "Martes",
             "plato_principal": "Tortillita de verdura con arroz con manteca y queso",
             "postre": "Fruta"
+        },
+        "detalle_feriado": {
+            "etiqueta": "Inmaculada Concepción de María",
+            "tipo": "inamovible"
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 50,
         "fecha": "2026-12-09",
         "tipo": "escolar",
@@ -10482,7 +10566,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 50,
         "fecha": "2026-12-10",
         "tipo": "escolar",
@@ -10494,7 +10578,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 50,
         "fecha": "2026-12-11",
         "tipo": "escolar",
@@ -10506,7 +10590,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "lunes",
+        "dia": "Lunes",
         "semana": 51,
         "fecha": "2026-12-14",
         "tipo": "escolar",
@@ -10518,7 +10602,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "martes",
+        "dia": "Martes",
         "semana": 51,
         "fecha": "2026-12-15",
         "tipo": "escolar",
@@ -10530,7 +10614,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "miércoles",
+        "dia": "Miércoles",
         "semana": 51,
         "fecha": "2026-12-16",
         "tipo": "escolar",
@@ -10542,7 +10626,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "jueves",
+        "dia": "Jueves",
         "semana": 51,
         "fecha": "2026-12-17",
         "tipo": "escolar",
@@ -10554,7 +10638,7 @@ const diasHabiles = [
         }
     },
     {
-        "dia": "viernes",
+        "dia": "Viernes",
         "semana": 51,
         "fecha": "2026-12-18",
         "tipo": "escolar",
@@ -10753,22 +10837,21 @@ $(document).ready(function () {
     // Agrego el menú desplegable al DOM
     $("div.dropdown").html(menuDesplegableGrados);
 
-    // Función para resaltar la actividad del día actual (Opcional)
-    const hoy = diasSemana[new Date().getDay()];
-
     // Genero la grilla de tareas semanales
+    const hoy = diasSemana[new Date().getDay()];
     const idTablaGrilalSemanal = "#tablaPanelTareasSemana";
     const idLeyensaSemana = "#leyendaSemana";
-    const selectorTablaGrillaSemanal = `table${idTablaGrilalSemanal} > tbody > tr`;
     const selectorFilasTablaGrillaSemanal = `${idTablaGrilalSemanal} > tbody`;
     // Leyenda de cabecera (Semana del xx al xx)
     $(idLeyensaSemana).text(obtenerRangoSemana(new Date()));
     // Genero las filas de la tabla
-    const idSemana = diasHabiles.find(m => m.fecha === new Date().toISOString().slice(0,10)).semana;
-    const menuSemanal = diasHabiles.filter(d => d.semana === idSemana);
+    const idSemana = calendarioEscolar.find(m => m.fecha === new Date().toISOString().slice(0,10)).semana;
+    const menuSemanal = calendarioEscolar.filter(d => d.semana === idSemana);
+    const estiloFilaDiaActual = `class="border-3 border-warning bg-dark-subtle"`;
     $(selectorFilasTablaGrillaSemanal).html(
         menuSemanal.map(dia => {
-            return `<tr>
+            const resaltarFila = hoy.toLowerCase().trim() === dia.menu.dia.toLowerCase().trim();
+            return `<tr ${resaltarFila ? estiloFilaDiaActual : ""}>
                 <th>${dia.menu.dia}</th>
                 <td>...</td>
                 <td>...</td>
@@ -10776,16 +10859,6 @@ $(document).ready(function () {
             </tr>`
         }).join("")
     );
-
-
-
-    // Resalta el día actual en el panel si coincide con lunes-viernes
-    $(selectorTablaGrillaSemanal).each(function () {
-        if ($(this).text().includes(hoy)) {
-            $(this).addClass("border-3 border-warning bg-dark-subtle");
-        }
-    });
-
 });
 
 // Agrego lista desplegable para filtrar búsquedas
