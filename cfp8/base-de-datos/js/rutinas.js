@@ -74,25 +74,69 @@ const cursos = [
     },
 ];
 
-const botonesPanel = cursos.map((c,i) => 
-    `<li class="nav-item"><a class="nav-link${i === 0 ? ' active' : ''}" data-bs-toggle="pill" href="#curso-${c.id}">${c.curso}</a></li>`).join("");
-const contenidoPanel = cursos.map((c, i) => 
-    `<div class="tab-pane container${i === 0 ? ' active' : ''}" id="curso-${c.id}">
-        <ul>
-            <li>Curso: ${c.curso}</li>
-            <li>Docente: Francisco Acuña</li>
-            <li>Día y hora: ${c.dias} de ${c.horario}</li>
-        </ul>
-        <hr>
-        <strong>Material de presentación de curso</strong>
-        <ul>
-            ${c.presentaciones.map(p => `<li><a href="${p.enlace}" target="_blank" title="Ver el material">${p.archivo}</a></li>`).join("")}
-        </ul>
-    </div>`)
-    .join("");
+// Función para formatear fechas de manera amigable (ej: 31 de marzo)
+const formatearFecha = (iso) => {
+    return new Date(iso).toLocaleDateString('es-AR', { day: '2-digit', month: 'long' });
+};
 
-const cabeceraPanel = `<ul class="nav nav-pills">${botonesPanel}</ul>`;
-const cuerpoPanel = `<div class="tab-content">${contenidoPanel}</div>`;
-    $("#panel")
-    .append(cabeceraPanel)
-    .append(cuerpoPanel);
+const contenidoPanel = cursos.map((c, i) => `
+    <div class="tab-pane fade${i === 0 ? ' show active' : ''}" id="curso-${c.id}">
+        <div class="row g-4">
+            <div class="col-md-5">
+                <img src="${c.imagen}" class="img-fluid rounded-4 mb-3 shadow-sm" alt="${c.curso}">
+                <h3 class="fw-bold">${c.curso}</h3>
+                <p class="text-secondary">
+                    <i class="bi bi-person-badge me-2"></i>Docente: Francisco Acuña<br>
+                    <i class="bi bi-calendar3 me-2"></i>${c.dias}<br>
+                    <i class="bi bi-clock me-2"></i>${c.horario}
+                </p>
+            </div>
+            
+            <div class="col-md-7">
+                <h5 class="mb-3 text-primary fw-bold">Presentaciones</h5>
+                <div class="list-group mb-4">
+                    ${c.presentaciones.map(p => `
+                        <a href="${p.enlace}" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center">
+                            <i class="bi bi-file-earmark-pdf-fill text-danger me-3 fs-4"></i>
+                            ${p.archivo}
+                        </a>
+                    `).join("")}
+                </div>
+
+                <h5 class="mb-3 text-primary fw-bold">Clases (Scripts SQL)</h5>
+                <div class="list-group">
+                    ${c.clases.map(cl => `
+                        <a href="${cl.enlace}" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <span><i class="bi bi-database-fill-gear text-secondary me-3"></i>${cl.archivo}</span>
+                            <small class="text-muted">${formatearFecha(cl.fecha)}</small>
+                        </a>
+                    `).join("")}
+                </div>
+            </div>
+        </div>
+    </div>
+`).join("");
+
+// Inyectar el contenido con clases de Nav Pills mejoradas
+$("#panel").html(`
+    <ul class="nav nav-pills mb-5 p-2 bg-light-subtle rounded-pill justify-content-center shadow-sm">
+        ${cursos.map((c, i) => `
+            <li class="nav-item">
+                <a class="nav-link rounded-pill ${i === 0 ? 'active' : ''}" data-bs-toggle="pill" href="#curso-${c.id}">${c.curso}</a>
+            </li>
+        `).join("")}
+    </ul>
+    <div class="tab-content">${contenidoPanel}</div>
+`);
+
+// Lógica de Toggle con Persistencia
+$('#themeToggler').on('click', function() {
+    const html = $('html');
+    const newTheme = html.attr('data-bs-theme') === 'dark' ? 'light' : 'dark';
+    
+    html.attr('data-bs-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Cambiar icono dinámicamente
+    $('#themeIcon').toggleClass('bi-sun-fill bi-moon-stars-fill');
+});
