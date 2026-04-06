@@ -1,0 +1,61 @@
+/* Valores por defecto (Modo Claro) */
+:root {
+  --bg-main: #f8fafc;
+  --bg-surface: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --accent: #3b82f6;
+  --border: #e2e8f0;
+}
+
+/* Valores para Modo Oscuro */
+[data-theme="dark"] {
+  --bg-main: #0f172a;
+  --bg-surface: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent: #60a5fa;
+  --border: #334155;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+button {
+  background-color: var(--accent);
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#theme-toggle {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+/* Cambiar el contenido del botón mediante CSS según el tema */
+#theme-toggle::after {
+    content: "☀️";
+}
+
+[data-theme="dark"] #theme-toggle::after {
+    content: "🌙";
+}
