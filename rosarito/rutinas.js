@@ -16,10 +16,12 @@ function obtenerRangoSemana(fechaActual) {
     let resultado = `Semana del ${diaL} al ${diaV}`;
 
     // Si los meses son distintos, añadir el nombre del mes del viernes
+    const nombreMes = viernes.toLocaleString('es-ES', { month: 'long' }).replace('.', '');
     if (lunes.getMonth() !== viernes.getMonth()) {
-        const nombreMes = viernes.toLocaleString('es-ES', { month: 'short' }).replace('.', '');
-        resultado += ` (de ${nombreMes.toLowerCase()})`;
+        const nombreMesAnterior = lunes.toLocaleString('es-ES', { month: 'long' }).replace('.', '');
+        resultado = resultado.replace(' al ', ` de ${nombreMesAnterior} al `);
     }
+    resultado += ` de ${nombreMes.toLowerCase()}`;
 
     return resultado;
 }
