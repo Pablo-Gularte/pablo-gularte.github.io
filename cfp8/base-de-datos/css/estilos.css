@@ -1,61 +1,97 @@
-/* Valores por defecto (Modo Claro) */
-:root {
-  --bg-main: #f8fafc;
-  --bg-surface: #ffffff;
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
-  --accent: #3b82f6;
-  --border: #e2e8f0;
-}
-
-/* Valores para Modo Oscuro */
-[data-theme="dark"] {
-  --bg-main: #0f172a;
-  --bg-surface: #1e293b;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --accent: #60a5fa;
-  --border: #334155;
-}
-
+/* =========================================
+   INTEGRACIÓN CON BOOTSTRAP 5
+   ========================================= */
 body {
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+    background-image: url('/img/fondoRed.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Suaviza la transición entre temas */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+:root {
+    /* Sobrescritura de colores principales de Bootstrap (Modo Claro) */
+    --bs-primary: #2d6a4f;
+    --bs-primary-rgb: 45, 106, 79; /* Necesario para utilidades de opacidad */
+    
+    --bs-secondary: #74c69d;
+    --bs-secondary-rgb: 116, 198, 157;
+    
+    --bs-success: #52b788;
+    
+    /* Fondo y Texto */
+    --bs-body-bg: #f8faf5;
+    --bs-body-color: #1b4332;
+    
+    /* Enlaces */
+    --bs-link-color: #2d6a4f;
+    --bs-link-hover-color: #1b4332;
+    
+    /* Bordes y Componentes */
+    --bs-border-color: #d8e2dc;
+    --bs-card-bg: #ffffff;
+
+    --bs-body-bg: rgba(248, 250, 245, 0.95); /* Fondo claro con ligera transparenc
+}
+
+/* Configuración para el Modo Oscuro nativo de Bootstrap 5.3+ */
+[data-bs-theme="dark"] {
+    --bs-primary: #95d5b2;
+    --bs-primary-rgb: 149, 213, 178;
+    
+    --bs-secondary: #52b788;
+    --bs-secondary-rgb: 82, 183, 136;
+    
+    /* Fondo y Texto Oscuro */
+    --bs-body-bg: #081c15;
+    --bs-body-color: #d8f3dc;
+    
+    /* Ajuste de Cards y Superficies */
+    --bs-card-bg: #1b4332;
+    --bs-tertiary-bg: #102e24; /* Para elementos como el navbar oscuro */
+    
+    --bs-border-color: #2d6a4f;
+    
+    /* Enlaces en modo oscuro */
+    --bs-link-color: #b7e4c7;
+    --bs-link-hover-color: #ffffff;
+
+    --bs-body-bg: rgba(8, 28, 21, 0.92); /* Fondo oscuro con transparencia */
+}
+
+/* Aplicar el modo de mezcla para que la imagen se adapte al color de fondo */
+[data-bs-theme="light"] body {
+    background-blend-mode: overlay;
+}
+
+[data-bs-theme="dark"] body {
+    background-blend-mode: multiply;
+}
+
+/* Mejora de legibilidad para el panel dinámico */
+#panel {
+    background-color: var(--bs-card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid var(--bs-border-color);
+}
+
+/* Ajustes finos para coherencia visual */
 .card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border);
-  padding: 1.5rem;
-  border-radius: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-button {
-  background-color: var(--accent);
-  color: #ffffff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
+[data-bs-theme="dark"] .card {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-#theme-toggle {
-    padding: 10px 20px;
-    cursor: pointer;
-    border: 1px solid var(--border);
-    background-color: var(--bg-surface);
-    color: var(--text-primary);
-    border-radius: 20px;
-    font-weight: bold;
-    transition: all 0.2s ease;
+.btn-primary {
+    /* Asegura legibilidad en el botón primario */
+    --bs-btn-color: #ffffff;
 }
 
-/* Cambiar el contenido del botón mediante CSS según el tema */
-#theme-toggle::after {
-    content: "☀️";
-}
-
-[data-theme="dark"] #theme-toggle::after {
-    content: "🌙";
+[data-bs-theme="dark"] .btn-primary {
+    --bs-btn-color: #081c15;
 }
