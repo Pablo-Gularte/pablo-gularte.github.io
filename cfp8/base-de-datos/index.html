@@ -31,9 +31,9 @@
             <a class="navbar-brand text-primary fw-bold" href="#">
                 <i class="bi bi-leaf-fill"></i> EcoSystem
             </a>
-            <button class="btn btn-outline-primary btn-sm d-flex align-items-center gap-2" id="themeToggler">
+            <button class="btn btn-outline-primary btn-sm d-flex align-items-center gap-2" id="themeToggler" title="Cambiar tema">
                 <i class="bi bi-sun-fill d-block-light" id="themeIcon"></i>
-                <span>Tema</span>
+                <!-- <span>Tema</span> -->
             </button>
         </div>
     </nav>
@@ -55,7 +55,7 @@
 
     <!-- Rutinas personalizadas -->
     <script src="js/rutinas.js"></script>
-    <script>
+    <!-- <script>
         // Script simple para alternar el tema de Bootstrap
         const toggler = document.getElementById('themeToggler');
         toggler.addEventListener('click', () => {
@@ -63,7 +63,7 @@
             const target = current === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-bs-theme', target);
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
