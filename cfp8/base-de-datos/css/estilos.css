@@ -22,7 +22,7 @@ body {
     
     /* Fondo y Texto */
     --bs-body-bg-rgb: 248, 250, 245; /* Definimos el RGB para transparencias */
-    --bs-body-bg: rgba(var(--bs-body-bg-rgb), 0.85); /* Efecto traslúcido */
+    --bs-body-bg: rgba(var(--bs-body-bg-rgb), 0.25); /* Efecto traslúcido */
     --bs-body-color: #1b4332;
     
     /* Enlaces */
@@ -33,7 +33,7 @@ body {
     --bs-border-color: rgba(45, 106, 79, 0.2);
     --bs-card-bg: #ffffff;
 
-    --bs-body-bg: rgba(248, 250, 245, 0.95); /* Fondo claro con ligera transparencia */
+    /* --bs-body-bg: rgba(248, 250, 245, 0.95); */
 }
 
 /* Configuración para el Modo Oscuro nativo de Bootstrap 5.3+ */
@@ -58,7 +58,7 @@ body {
     --bs-link-color: #b7e4c7;
     --bs-link-hover-color: #ffffff;
 
-    --bs-body-bg: rgba(8, 28, 21, 0.92); /* Fondo oscuro con transparencia */
+    /* --bs-body-bg: rgba(8, 28, 21, 0.25); */
 }
 
 /* Aplicar el modo de mezcla para que la imagen se adapte al color de fondo */
