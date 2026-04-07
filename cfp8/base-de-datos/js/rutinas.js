@@ -76,23 +76,27 @@ const cursos = [
 
 // Función para formatear fechas de manera amigable (ej: 31 de marzo)
 const formatearFecha = (iso) => {
-    return new Date(iso).toLocaleDateString('es-AR', { day: '2-digit', month: 'long' });
+    return new Date(iso).toLocaleDateString('es-AR', { dateStyle: 'full' });
 };
 
 const contenidoPanel = cursos.map((c, i) => `
     <div class="tab-pane fade${i === 0 ? ' show active' : ''}" id="curso-${c.id}">
         <div class="row g-4">
             <div class="col-md-5">
-                <img src="${c.imagen}" class="img-fluid rounded-4 mb-3 shadow-sm" alt="${c.curso}">
+                <img src="${c.imagen}" class="img-fluid rounded-4 mb-3 shadow-sm mx-auto" alt="${c.curso}">
+            </div>
+            <div class="col-md-7">
                 <h3 class="fw-bold">${c.curso}</h3>
-                <p class="text-secondary">
+                <p class="text-secondary p-2 border-start border-success border-3 rounded-start-2 bg-info-subtle">
                     <i class="bi bi-person-badge me-2"></i>Docente: Francisco Acuña<br>
                     <i class="bi bi-calendar3 me-2"></i>${c.dias}<br>
                     <i class="bi bi-clock me-2"></i>${c.horario}
                 </p>
+                <h5>Asistencias</h5>
             </div>
-            
-            <div class="col-md-7">
+        </div>
+        <div class="row g-4 bg-success-subtle rounded-3 mt-2">
+            <div class="col-md-6">
                 <h5 class="mb-3 text-primary fw-bold">Presentaciones</h5>
                 <div class="list-group mb-4">
                     ${c.presentaciones.map(p => `
@@ -102,7 +106,8 @@ const contenidoPanel = cursos.map((c, i) => `
                         </a>
                     `).join("")}
                 </div>
-
+            </div>
+            <div class="col-md-6">
                 <h5 class="mb-3 text-primary fw-bold">Clases (Scripts SQL)</h5>
                 <div class="list-group">
                     ${c.clases.map(cl => `
