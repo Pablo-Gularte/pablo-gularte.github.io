@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Página se seguimiento de cursada - CFP8-SMATA</title>
+    <link rel="icon" href="/img/favicon-database-check.svg" type="image/svg+xml">
+
+
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
@@ -18,14 +22,6 @@
 </head>
 
 <body>
-
-    <script>
-        // Bloque de detección inmediata para evitar parpadeos
-        const savedTheme = localStorage.getItem('theme') ||
-            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-bs-theme', savedTheme);
-    </script>
-
     <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
         <div class="container">
             <h1>
@@ -33,15 +29,17 @@
                     <i class="bi bi-database-check"></i> Administración y Gestión de base de datos
                 </a>
             </h1>
-            <button class="btn btn-outline-primary btn-sm d-flex align-items-center gap-2" id="themeToggler" title="Cambiar tema">
+            <button class="btn btn-outline-primary btn-sm d-flex align-items-center gap-2" id="themeToggler"
+                title="Cambiar tema">
                 <i class="bi bi-sun-fill d-block-light" id="themeIcon"></i>
-                <!-- <span>Tema</span> -->
             </button>
         </div>
     </nav>
-    <div class="container text-center">
-        <h2 class="text-success">Trayecto "Especialización Profesional en Administración de Base de Datos"</h2>
-        <h5>Tramo formativo de capacitación profesional</h5>
+    <div class="container text-center fw-bold">
+        <h2>Trayecto "Especialización Profesional en Administración de Base de Datos"</h2>
+        <h5>Seguimiento de clases y asistencia</h5>
+        <hr>
+        <p class="text-primary">La presente página no es oficial. Está pensada para recopilar la información de ambos cursos del trayecto de especialización que figura en el <a href="https://github.com/francisco-acuna" target="_blank" title="Visitar repositorio del profe">repositorio GitHub del profesor Francisco Acuña</a> y hacer seguimiento de asistencias a clases para controlar la regularidad</p>
     </div>
 
     <main class="container mt-5">
@@ -51,18 +49,26 @@
     <footer class="text-center text-primary bg-secondary-subtle border-top border-2 border-dark py-3 mt-2">
         <h6>Centro de Formación Profesional 8 - SMATA</h6>
         <small>
-            <i class="bi bi-house-fill"></i> Av. Medrano 162, Almagro 
-            <i class="bi bi-clock-fill"></i> lunes a Viernes de 11 a 21 hs. 
-            <i class="bi bi-telephone-fill"></i> (011) 4958-8042 
+            <i class="bi bi-house-fill"></i> Av. Medrano 162, Almagro
+            <i class="bi bi-clock-fill"></i> lunes a Viernes de 11 a 21 hs.
+            <i class="bi bi-telephone-fill"></i> (011) 4958-8042
             <br>
-            <i class="bi bi-envelope-at-fill"></i> <a href="mailto:cfp8consultas.informatica@gmail.com" title="Enviar correo">cfp8consultas.informatica@gmail.com</a>
-            <i class="bi bi-display"></i> <a href="https://centro8smata.org.ar/" title="Visitar página" target="_blank">https://centro8smata.org.ar/</a>
+            <i class="bi bi-envelope-at-fill"></i> <a href="mailto:cfp8consultas.informatica@gmail.com"
+                title="Enviar correo">cfp8consultas.informatica@gmail.com</a>
+            <i class="bi bi-display"></i> <a href="https://centro8smata.org.ar/" title="Visitar página"
+                target="_blank">https://centro8smata.org.ar/</a>
         </small>
+        <br>
+        <div class="text-secondary mt-2">
+            <small>diseñado por PabloGularte</small>
+        </div>
     </footer>
 
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -73,15 +79,12 @@
 
     <!-- Rutinas personalizadas -->
     <script src="js/rutinas.js"></script>
-    <!-- <script>
-        // Script simple para alternar el tema de Bootstrap
-        const toggler = document.getElementById('themeToggler');
-        toggler.addEventListener('click', () => {
-            const current = document.documentElement.getAttribute('data-bs-theme');
-            const target = current === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-bs-theme', target);
-        });
-    </script> -->
+    <script>
+        // Bloque de detección inmediata para evitar parpadeos
+        const savedTheme = localStorage.getItem('theme') ||
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        $("document").attr('data-bs-theme', savedTheme);
+    </script>
 </body>
 
 </html>
