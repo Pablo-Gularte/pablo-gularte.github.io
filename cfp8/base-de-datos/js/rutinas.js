@@ -1,7 +1,7 @@
 const cursos = [
     {
         id: 1,
-        curso: "Administración de Base de Datos",
+        curso: "Administración de Bases de Datos",
         dias: "lunes y miércoles",
         horario: "19:00 a 22:30 hs.",
         totalFaltas: 5,
@@ -304,7 +304,7 @@ const cursos = [
     },
     {
         id: 2,
-        curso: "Gestión de Base de Datos",
+        curso: "Gestión de Bases de Datos",
         dias: "viernes",
         horario: "19:00 a 22:30 hs.",
         totalFaltas: 3,
