@@ -4,7 +4,7 @@
 
 :root {
     /* Paleta Principal - Bosque */
-    --bg-image: url('img/fondoRedClaro.jpg');
+    --bg-image: url('../img/fondoRedClaro.jpg');
     --bs-primary: #2d6a4f;
     --bs-primary-rgb: 45, 106, 79;
     --bs-secondary: #74c69d;
@@ -23,7 +23,7 @@
 
 [data-bs-theme="dark"] {
     /* Paleta Principal - Esmeralda Oscuro */
-    --bg-image: url('img/fondoRedOscuro.jpg');
+    --bg-image: url('../img/fondoRedOscuro.jpg');
     --bs-primary: #95d5b2;
     --bs-primary-rgb: 149, 213, 178;
     --bs-secondary: #52b788;
