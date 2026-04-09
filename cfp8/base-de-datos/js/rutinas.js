@@ -7,6 +7,7 @@ const cursos = [
         totalFaltas: 5,
         imagen: "img/abd.png",
         github: "https://github.com/Francisco-Acuna/2026_1C_ADB_NOCHE",
+        aulaVirtual: "https://aulasvirtuales.bue.edu.ar/course/view.php?id=27621",
         presentaciones: [
             {
                 archivo: "ABD - Módulo 1.pdf",
@@ -51,6 +52,11 @@ const cursos = [
                 archivo: "clase_08.sql",
                 url: "https://github.com/Francisco-Acuna/2026_1C_ADB_NOCHE/blob/main/clase_08.sql",
                 fecha: "2026-04-07T01:15:47.000Z",
+            },
+            {
+                archivo: "clase_09.sql",
+                url: "https://github.com/Francisco-Acuna/2026_1C_ADB_NOCHE/blob/main/clase_09.sql",
+                fecha: "2026-04-09T01:13:13.000Z"
             }
         ],
         calendario: [
@@ -114,7 +120,7 @@ const cursos = [
             {
                 "fecha": "2026-04-08T03:00:00.000Z",
                 "dia": "miércoles",
-                "feriado": "Últimos dos días de la Pascua Judía (b)",
+                "feriado": "Últimos dos días de la Pascua Judía",
                 "tipoFeriado": "no_laborable",
                 "seCursa": true,
                 "mes": "abril",
@@ -204,7 +210,7 @@ const cursos = [
             {
                 "fecha": "2026-05-27T03:00:00.000Z",
                 "dia": "miércoles",
-                "feriado": "Fiesta del Sacrificio (c)",
+                "feriado": "Fiesta del Sacrificio (religión islámica)",
                 "tipoFeriado": "no_laborable",
                 "seCursa": true,
                 "mes": "mayo",
@@ -246,7 +252,7 @@ const cursos = [
             {
                 "fecha": "2026-06-17T03:00:00.000Z",
                 "dia": "miércoles",
-                "feriado": "Año Nuevo Islámico (c)",
+                "feriado": "Año Nuevo Islámico",
                 "tipoFeriado": "no_laborable",
                 "seCursa": true,
                 "mes": "junio",
@@ -310,6 +316,7 @@ const cursos = [
         totalFaltas: 3,
         imagen: "img/gbd.png",
         github: "https://github.com/Francisco-Acuna/2026_1C_GESTION_BD_NOCHE",
+        aulaVirtual: "",
         presentaciones: [
             {
                 archivo: "Gestión de Base de Datos.pdf",
@@ -343,7 +350,7 @@ const cursos = [
             {
                 "fecha": "2026-03-20T03:00:00.000Z",
                 "dia": "viernes",
-                "feriado": "Fiesta de la Ruptura del Ayuno del Sagrado Mes de Ramadán (c)",
+                "feriado": "Fiesta de la Ruptura del Ayuno del Sagrado Mes de Ramadán (religión islámica)",
                 "tipoFeriado": "no_laborable",
                 "seCursa": true,
                 "mes": "marzo",
@@ -379,7 +386,7 @@ const cursos = [
             {
                 "fecha": "2026-04-24T03:00:00.000Z",
                 "dia": "viernes",
-                "feriado": "Día de acción por la tolerancia y el respeto entre los pueblos (a)",
+                "feriado": "Día de acción por la tolerancia y el respeto entre los pueblos (conmemoración armenia)",
                 "tipoFeriado": "no_laborable",
                 "seCursa": true,
                 "mes": "abril",
@@ -484,8 +491,10 @@ const contenidoPanel = cursos.map((c, i) => `
                     <i class="bi bi-person-badge me-2"></i>Docente: Francisco Acuña<br>
                     <i class="bi bi-calendar3 me-2"></i>${c.dias}<br>
                     <i class="bi bi-clock me-2"></i>${c.horario}<br>
-                    <i class="bi bi-github"></i> <a href="${c.github}" target="_blank" title="Visitar repositorio de clases del profe">Repositorio de clases</a><br>
-                    <i class="bi bi-card-checklist"></i> Máximo inasistencias: ${c.totalFaltas}
+                    <i class="bi bi-github me-2"></i><a href="${c.github}" target="_blank" title="Visitar repositorio de clases del profe">Repositorio de clases</a><br>
+                    <i class="bi bi-display me-2"></i>${c.aulaVirtual ? `<a href="${c.aulaVirtual}" target="_blank" title="Visitar aula virtual">Aula virtual</a>` : 'Aula virtual: N/D'}<br>
+                    <i class="bi bi-card-checklist me-2"></i>Máximo inasistencias: ${c.totalFaltas}<br>
+                    <i class="bi bi-marker-tip me-2"></i>Total de clases: ${c.calendario.filter(c => !Object.keys(c).includes('feriado') || (c.feriado && c.seCursa)).length}
                 </p>
                 <h5>Asistencias</h5>
                 <!-- Botonera -->
@@ -622,7 +631,7 @@ $(document).ready(function () {
                     const textoDia = diaCursada + (item.feriado && item.seCursa === false ? diaFeriado : botonAsistencia);
                     const estiloCompartido = 'col list-group-item d-flex justify-content-between align-items-center';
                     const estiloNoSeCursa = 'text-decoration-line-through text-muted text-bg-secondary';
-                    const atributosTooltip = `data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="${item.feriado}"`;
+                    const atributosTooltip = `data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="${item.feriado} (feriado ${item.tipoFeriado})"`;
 
                     htmlContenido += item.seCursa === false && item.feriado ?
                         `<div class="${estiloCompartido} ${estiloNoSeCursa}" ${atributosTooltip}>
