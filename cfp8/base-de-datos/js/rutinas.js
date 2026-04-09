@@ -316,7 +316,7 @@ const cursos = [
         totalFaltas: 3,
         imagen: "img/gbd.png",
         github: "https://github.com/Francisco-Acuna/2026_1C_GESTION_BD_NOCHE",
-        aulaVirtual: "",
+        aulaVirtual: "https://aulasvirtuales.bue.edu.ar/enrol/index.php?id=27619",
         presentaciones: [
             {
                 archivo: "Gestión de Base de Datos.pdf",
