@@ -1,0 +1,150 @@
+{
+    "2026": {
+        "1erCuatrimestre": {
+            "AnálisisMatemáticoI": {
+                "id": "548",
+                "leyenda": "Análisis Matemático I",
+                "nroOrden": "01",
+                "grupoWhatsApp": "https://chat.whatsapp.com/JVhj3twnFsTHus4sPh5W4F",
+                "carpetaProtonMe": "https://drive.proton.me/urls/968PEF758M#CNTzpgnk6wLt",
+                "datosCampus": {
+                    "fullname": "1er Cuatrimestre - (LCiberDef-01) Análisis Matemático I 2026",
+                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=548"
+                },
+                "sistemaArchivos": {
+                    "nombreCarpetaMateria": "01.Análisis_Matemático_I",
+                    "cmdCrearCarpeta": "mkdir 01.Análisis_Matemático_I"
+                },
+                "bibliografia": {
+                    "carpetaGoogleDrive": "https://drive.google.com/drive/folders/1We0rxE8hEQ93OZ1eXICLBGKMwu7iE2F_?usp=drive_link"
+                },
+                "cronograma": [
+                    {
+                        "semana": 1,
+                        "inicio": "6-abr",
+                        "fin": "10-abr",
+                        "unidad": "Inicio",
+                        "temas": "Programa. Presentación de la Materia. Cronograma."
+                    },
+                    {
+                        "semana": 2,
+                        "inicio": "13-abr",
+                        "fin": "17-abr",
+                        "unidad": "1",
+                        "temas": "Conjuntos e intervalos"
+                    },
+                    {
+                        "semana": 3,
+                        "inicio": "20-abr",
+                        "fin": "24-abr",
+                        "unidad": "1",
+                        "temas": "Funciones y representación gráfica"
+                    },
+                    {
+                        "semana": 4,
+                        "inicio": "27-abr",
+                        "fin": "1-may",
+                        "unidad": "2",
+                        "temas": "Limite y continuidad"
+                    },
+                    {
+                        "semana": 5,
+                        "inicio": "4-may",
+                        "fin": "8-may",
+                        "unidad": "2",
+                        "temas": "Cálculo de límites."
+                    },
+                    {
+                        "semana": 6,
+                        "inicio": "11-may",
+                        "fin": "15-may",
+                        "unidad": "3",
+                        "temas": "Introducción a las derivadas. Reglas de derivación. Repaso."
+                    },
+                    {
+                        "semana": 7,
+                        "inicio": "18-may",
+                        "fin": "22-may",
+                        "unidad": "Examen",
+                        "temas": "Primer Parcial"
+                    },
+                    {
+                        "semana": 8,
+                        "inicio": "25-may",
+                        "fin": "29-may",
+                        "unidad": "3",
+                        "temas": "Aplicaciones de la derivada"
+                    },
+                    {
+                        "semana": 9,
+                        "inicio": "1-jun",
+                        "fin": "5-jun",
+                        "unidad": "4 y 5",
+                        "temas": "Diferenciales y aplicaciones. Teorema del valor medio"
+                    },
+                    {
+                        "semana": 10,
+                        "inicio": "8-jun",
+                        "fin": "12-jun",
+                        "unidad": "4",
+                        "temas": "Regla de L'Hôpital. Asíntotas."
+                    },
+                    {
+                        "semana": 11,
+                        "inicio": "15-jun",
+                        "fin": "19-jun",
+                        "unidad": "4",
+                        "temas": "Análisis de funciones."
+                    },
+                    {
+                        "semana": 12,
+                        "inicio": "22-jun",
+                        "fin": "26-jun",
+                        "unidad": "4",
+                        "temas": "Optimización."
+                    },
+                    {
+                        "semana": 13,
+                        "inicio": "29-jun",
+                        "fin": "3-jul",
+                        "unidad": "3, 4 y 5",
+                        "temas": "Repaso Segundo Parcial"
+                    },
+                    {
+                        "semana": 14,
+                        "inicio": "6-jul",
+                        "fin": "10-jul",
+                        "unidad": "Examen",
+                        "temas": "Segundo Parcial"
+                    },
+                    {
+                        "semana": 15,
+                        "inicio": "13-jul",
+                        "fin": "17-jul",
+                        "unidad": "Examen",
+                        "temas": "Recuperatorio"
+                    },
+                    {
+                        "semana": 16,
+                        "inicio": "20-jul",
+                        "fin": "24-jul",
+                        "unidad": "Cierre",
+                        "temas": "Cierre"
+                    },
+                    {
+                        "semana": 17,
+                        "inicio": "27-jul",
+                        "fin": "31-jul",
+                        "unidad": null,
+                        "temas": "Mesa de examen Final"
+                    }
+                ]
+            },
+            "ÁlgebraI": {},
+            "GestiónDeServiciosDeInformación": {},
+            "InglésI": {},
+            "SistemasOperativosI": {}
+        },
+        "2doCuatrimestre": {}
+    }
+}
