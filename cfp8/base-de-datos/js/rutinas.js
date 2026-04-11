@@ -339,6 +339,11 @@ const cursos = [
                 enlace: "https://github.com/Francisco-Acuna/2026_1C_GESTION_BD_NOCHE/blob/main/clase03_gestion_bd.sql",
                 fecha: "2026-03-28T01:14:41.000Z",
             },
+            {
+                archivo: "clase04_gestion_bd.sql",
+                url: "https://github.com/Francisco-Acuna/2026_1C_GESTION_BD_NOCHE/blob/main/clase04_gestion_bd.sql",
+                fecha: "2026-04-11T01:08:59.000Z"
+            }
         ],
         calendario: [
             {
@@ -499,10 +504,10 @@ const contenidoPanel = cursos.map((c, i) => `
                 <h5>Asistencias</h5>
                 <!-- Botonera -->
                 <div class="btn-group w-100" role="group" aria-label="Selección de meses">
-                    ${Array.from(new Set(cursos[0].calendario.map(c => c.mes))).map(mes => 
-                        `<input type="radio" class="btn-check" name="mes" id="${mes}${c.id}" value="${mes}${c.id}" aria-mes="${mes}">
+                    ${Array.from(new Set(cursos[0].calendario.map(c => c.mes))).map(mes =>
+    `<input type="radio" class="btn-check" name="mes" id="${mes}${c.id}" value="${mes}${c.id}" aria-mes="${mes}">
                         <label class="btn btn-outline-primary" for="${mes}${c.id}">${mes}</label>`
-                    ).join("")}
+).join("")}
                 </div>
 
                 <!-- Panel Inferior -->
@@ -601,14 +606,14 @@ $(document).ready(function () {
                 let totAsistencias = Object.keys(localStorage).filter(r => r.startsWith(`asist-${mesSeleccionado}${idCursoActivo}`)).length;
                 let totInasistencias = esMesFuturo ? 0 : totalClasesMes - totAsistencias - clasesFuturasMesActual;
 
-                const encabezado = 
+                const encabezado =
                     `<p>
                         <i class="bi bi-mortarboard-fill"></i> Total de clases en el mes: <span id="total-clases">${totalClasesMes}</span><br>
                         <i class="bi bi-calendar3"></i> Feriados del mes: <span id="total-feriados">${totalFeriadosMes}</span><br>
                         <i class="bi bi-person-check"></i> Asistencias: <span id="${idTotalAsistenciasMesCurso}">${totAsistencias}</span><br>
                         <i class="bi bi-ban"></i> Inasistencias: <span id="${idTotalInasistenciasMesCurso}">${totInasistencias}</span><br>
                     </p>`;
-                
+
                 clasesMes.forEach(item => {
                     const idInputCHkBox = `asist-${item.mes}${idCursoActivo}-${new Date(item.fecha).getDate()}`;
                     const asistie = localStorage.getItem(idInputCHkBox);
@@ -675,20 +680,20 @@ function actualizarAsistencia(id, asist, inasist) {
 
     let totalAsistencias = Number($(idAsist).text());
     let totalInasistencias = Number($(idInasist).text());
-    
+
     // Si la asistencia ya está almacenada la borro del almacenamiento local y actualizo las etiquetas de cantidades
     if (itemGuardado) {
         localStorage.removeItem(id);
         totalAsistencias = Math.max(0, totalAsistencias - 1);
         totalInasistencias++;
-        
+
         $(idAsist).text(totalAsistencias);
         $(idInasist).text(totalInasistencias);
     } else {
         localStorage.setItem(id, true);
         totalAsistencias++;
         totalInasistencias = Math.max(0, totalInasistencias - 1);
-        
+
         $(idAsist).text(totalAsistencias);
         $(idInasist).text(totalInasistencias);
     }
