@@ -15,6 +15,16 @@
                     "nombreCarpetaMateria": "01.Análisis_Matemático_I",
                     "cmdCrearCarpeta": "mkdir 01.Análisis_Matemático_I"
                 },
+                "plantel": [
+                    {
+                        "nombre": "Lic. Nelson Monzon",
+                        "cargo": "PROFESOR TITULAR"
+                    },
+                    {
+                        "nombre": "Prof. Maela Lombardi",
+                        "cargo": "PROFESORA ADJUNTA"
+                    }
+                ],
                 "bibliografia": {
                     "carpetaGoogleDrive": "https://drive.google.com/drive/folders/1We0rxE8hEQ93OZ1eXICLBGKMwu7iE2F_?usp=drive_link"
                 },
@@ -140,10 +150,118 @@
                     }
                 ]
             },
-            "ÁlgebraI": {},
-            "GestiónDeServiciosDeInformación": {},
-            "InglésI": {},
-            "SistemasOperativosI": {}
+            "ÁlgebraI": {
+                "id": 545,
+                "leyenda": "Álgebra I",
+                "nroOrden": "02",
+                "grupoWhatsApp": "https://chat.whatsapp.com/EoaXEKa2YzPCPct4OZ2B10",
+                "carpetaProtonMe": "https://drive.proton.me/urls/NW6WNWDRCW#jwrwCdwPyB7H",
+                "datosCampus": {
+                    "fullname": "1er Cuatrimestre - (LCiberDef-02) Álgebra I 2026",
+                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=545"
+                },
+                "sistemaArchivos": {
+                    "nombreCarpetaMateria": "02.Álgebra_I",
+                    "cmdCrearCarpeta": "mkdir 02.Álgebra_I"
+                },
+                "plantel": [
+                    {
+                        "nombre": "Lic. Nelson Monzon",
+                        "cargo": "PROFESOR TITULAR"
+                    },
+                    {
+                        "nombre": "Prof. Maela Lombardi",
+                        "cargo": "PROFESORA ADJUNTA"
+                    }
+                ],
+                "bibliografia": {
+                    "carpetaGoogleDrive": "https://drive.google.com/drive/folders/1MzWTwrVdo2QrGB8pS3PzTgu1eDIC0vAj?usp=drive_link"
+                },
+                "cronograma": []
+            },
+            "GestiónDeServiciosDeInformación": {
+                "id": 549,
+                "leyenda": "Gestión de Servicios de Información",
+                "nroOrden": "03",
+                "grupoWhatsApp": "https://chat.whatsapp.com/BEX53aINg1HHXpIdqh77kD",
+                "carpetaProtonMe": "https://drive.proton.me/urls/YR9BBPBZMR#mq5OPhvzWg8K",
+                "datosCampus": {
+                    "fullname": "1er Cuatrimestre - (LCiberDef-03) Gestión de Servicios de Información 2026",
+                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=549"
+                },
+                "sistemaArchivos": {
+                    "nombreCarpetaMateria": "03.Gestión_de_Servicios_de_Información",
+                    "cmdCrearCarpeta": "mkdir 03.Gestión_de_Servicios_de_Información"
+                },
+                "plantel": [
+                    {
+                        "nombre": "ALEJANDRO FIORETTI",
+                        "cargo": "Docente"
+                    },
+                    {
+                        "nombre": "FLAVIO ALFANO",
+                        "cargo": "Docente"
+                    }
+                ],
+                "bibliografia": {
+                    "carpetaGoogleDrive": "https://drive.google.com/drive/folders/152Ux3mrudLqKXZuBESNI83M5twaZXLmv?usp=drive_link"
+                },
+                "cronograma": []
+            },
+            "InglésI": {
+                "id": 546,
+                "leyenda": "Inglés I",
+                "nroOrden": "04",
+                "grupoWhatsApp": "https://chat.whatsapp.com/HrMmATXmhL96KJonDaPI5Y",
+                "carpetaProtonMe": "https://drive.proton.me/urls/D8H09MTJ84#Fo6oBIX2I8IG",
+                "datosCampus": {
+                    "fullname": "1er Cuatrimestre - (LCiberDef-04) Inglés I 2026",
+                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=546"
+                },
+                "sistemaArchivos": {
+                    "nombreCarpetaMateria": "04.Inglés_I",
+                    "cmdCrearCarpeta": "mkdir 04.Inglés_I"
+                },
+                "plantel": [
+                    {
+                        "nombre": "MARIA CECILIA FRATTIN",
+                        "cargo": "Docente"
+                    },
+                    {
+                        "nombre": "GUSTAVO HOFFERLEN",
+                        "cargo": "JTP"
+                    }
+                ],
+                "bibliografia": {
+                    "carpetaGoogleDrive": "https://drive.google.com/drive/folders/1DoLLfdV6HGSYRSBz4h9ePzhz6caEaoCJ?usp=drive_link"
+                },
+                "cronograma": []
+            },
+            "SistemasOperativosI": {
+                "id": 547,
+                "leyenda": "Sistemas Operativos I",
+                "nroOrden": "05",
+                "grupoWhatsApp": "https://chat.whatsapp.com/LPSWPohJkxK44hJznPRm7r",
+                "carpetaProtonMe": "https://drive.proton.me/urls/CKFPARAF00#76IuaUI5dlar",
+                "datosCampus": {
+                    "fullname": "1er Cuatrimestre - (LCiberDef-05) Sistemas Operativos I 2026",
+                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=547"
+                },
+                "sistemaArchivos": {
+                    "nombreCarpetaMateria": "05.Sistemas_Operativos_I",
+                    "cmdCrearCarpeta": "mkdir 05.Sistemas_Operativos_I"
+                },
+                "plantel": [
+                    {
+                        "nombre": "Lic. Gustavo DRAPAÑOTI",
+                        "cargo": "Docente"
+                    }
+                ],
+                "bibliografia": {
+                    "carpetaGoogleDrive": "https://drive.google.com/drive/folders/1uHJmVj7Inbb_NtBlhxX-ET1-D3xMCwrc?usp=drive_link"
+                },
+                "cronograma": []
+            }
         },
         "2doCuatrimestre": {}
     }

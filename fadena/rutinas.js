@@ -8,23 +8,27 @@ const jsonMaterias = await datosMoodle.json();
 const colTmpMaterias = jsonMaterias[0].data.courses.map(c => ({
     idCampus: c.id,
     fullname: c.fullname,
-    urlCampus: c.viewurl
+    viewurl: c.viewurl
 }));
 // filtro materias de primer año (.includes("1er")) y genero el objeto JSON correspondiente a la materia 
 // que se guardará en archivo cursada.json
 const anioFiltrado = "1er";
 const objetoMateria = colTmpMaterias.map((reg) => {
 	if (reg.fullname.startsWith(anioFiltrado)) {
-		const leyenda = reg.fullname.fullname.split(") ")[1].replace(` ${anioFiltrado}`, "");
+		const atributoFullname = reg.fullname;
+		const primeraParteFullname = atributoFullname.split(") ")[0];
+		const segundaParteFullname = atributoFullname.split(") ")[1];
+		const nroOrden = primeraParteFullname.substring(primeraParteFullname.length - 2);
+		const leyenda = segundaParteFullname.replace(segundaParteFullname.substring(segundaParteFullname.length - 5), "");
 		const nombreCarpetaMateria = generarNombreCarpetaMateria(reg.fullname);
-		const cmdCrearCarpeta = `mkdir ${reg.nombreMateria}`;
+		const cmdCrearCarpeta = `mkdir ${nombreCarpetaMateria}`;
 		const clave = toPascalCase(leyenda);
 
 		return {
 			[clave]: {
-				id: reg.id,
-				leyenda: "",
-				nroOrden: "",
+				id: reg.idCampus,
+				leyenda: leyenda,
+				nroOrden: nroOrden,
 				grupoWhatsApp: "",
 				carpetaProtonMe: "",
 				datosCampus: {
@@ -35,6 +39,12 @@ const objetoMateria = colTmpMaterias.map((reg) => {
 					nombreCarpetaMateria: nombreCarpetaMateria,
 					cmdCrearCarpeta: cmdCrearCarpeta
 				},
+				plantel: [
+					{
+						nombre: "",
+						cargo: ""
+					}
+				],
 				bibliografia: {
 					carpetaGoogleDrive: ""
 				},
@@ -42,7 +52,7 @@ const objetoMateria = colTmpMaterias.map((reg) => {
 			}
 		};
 	} else {
-		return null;
+		return reg;
 	}
 
 });
