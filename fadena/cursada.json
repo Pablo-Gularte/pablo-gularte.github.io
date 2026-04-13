@@ -9,7 +9,85 @@
                 "carpetaProtonMe": "https://drive.proton.me/urls/968PEF758M#CNTzpgnk6wLt",
                 "datosCampus": {
                     "fullname": "1er Cuatrimestre - (LCiberDef-01) Análisis Matemático I 2026",
-                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=548"
+                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=548",
+                    "clases": [
+                        {
+                            "titulo": "General",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=0"
+                        },
+                        {
+                            "titulo": "Presentación de la materia 06/04 al 10/04",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=1"
+                        },
+                        {
+                            "titulo": "13/04 al 17/04 - Unidad 1",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=2"
+                        },
+                        {
+                            "titulo": "20/04 al 24/04",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=3"
+                        },
+                        {
+                            "titulo": "27/04 al 01/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=4"
+                        },
+                        {
+                            "titulo": "04/05 al 08/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=5"
+                        },
+                        {
+                            "titulo": "11/05 al 15/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=6"
+                        },
+                        {
+                            "titulo": "18/05 al 25/05 [Revisar calendario]",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=7"
+                        },
+                        {
+                            "titulo": "Primer Parcial 18/05 al 22/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=8"
+                        },
+                        {
+                            "titulo": "25/05 al 29/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=9"
+                        },
+                        {
+                            "titulo": "01/06 al 05/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=10"
+                        },
+                        {
+                            "titulo": "08/06 al 12/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=11"
+                        },
+                        {
+                            "titulo": "15/06 al 19/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=12"
+                        },
+                        {
+                            "titulo": "22/06 al 26/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=13"
+                        },
+                        {
+                            "titulo": "29/06 al 03/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=14"
+                        },
+                        {
+                            "titulo": "Segundo Parcial 06/07 al 10/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=15"
+                        },
+                        {
+                            "titulo": "Recuperatorio 13/07 al 17/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=16"
+                        },
+                        {
+                            "titulo": "Cierre de la materia 20/07 al 24/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=17"
+                        },
+                        {
+                            "titulo": "Mesa de examen final 27/07 al 31/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=548&section=18"
+                        }
+                    ]
                 },
                 "sistemaArchivos": {
                     "nombreCarpetaMateria": "01.Análisis_Matemático_I",
@@ -158,7 +236,85 @@
                 "carpetaProtonMe": "https://drive.proton.me/urls/NW6WNWDRCW#jwrwCdwPyB7H",
                 "datosCampus": {
                     "fullname": "1er Cuatrimestre - (LCiberDef-02) Álgebra I 2026",
-                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=545"
+                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=545",
+                    "clases": [
+                        {
+                            "titulo": "General",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=0"
+                        },
+                        {
+                            "titulo": "Presentación de la materia 06/04 al 10/04",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=1"
+                        },
+                        {
+                            "titulo": "13/04 al 17/04",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=2"
+                        },
+                        {
+                            "titulo": "20/04 al 24/04",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=3"
+                        },
+                        {
+                            "titulo": "27/04 al 01/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=4"
+                        },
+                        {
+                            "titulo": "04/05 al 08/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=5"
+                        },
+                        {
+                            "titulo": "11/05 al 15/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=6"
+                        },
+                        {
+                            "titulo": "18/05 al 25/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=7"
+                        },
+                        {
+                            "titulo": "Primer Parcial 18/05 al 22/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=8"
+                        },
+                        {
+                            "titulo": "25/05 al 29/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=9"
+                        },
+                        {
+                            "titulo": "01/06 al 05/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=10"
+                        },
+                        {
+                            "titulo": "08/06 al 12/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=11"
+                        },
+                        {
+                            "titulo": "15/06 al 19/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=12"
+                        },
+                        {
+                            "titulo": "22/06 al 26/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=13"
+                        },
+                        {
+                            "titulo": "29/06 al 03/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=14"
+                        },
+                        {
+                            "titulo": "Segundo Parcial 06/07 al 10/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=15"
+                        },
+                        {
+                            "titulo": "Recuperatorio 13/07 al 17/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=16"
+                        },
+                        {
+                            "titulo": "Cierre de la materia 20/07 al 24/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=17"
+                        },
+                        {
+                            "titulo": "Mesa de examen final 27/07 al 31/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=545&section=18"
+                        }
+                    ]
                 },
                 "sistemaArchivos": {
                     "nombreCarpetaMateria": "02.Álgebra_I",
@@ -187,7 +343,93 @@
                 "carpetaProtonMe": "https://drive.proton.me/urls/YR9BBPBZMR#mq5OPhvzWg8K",
                 "datosCampus": {
                     "fullname": "1er Cuatrimestre - (LCiberDef-03) Gestión de Servicios de Información 2026",
-                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=549"
+                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=549",
+                    "clases": [
+                        {
+                            "titulo": "General",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=0"
+                        },
+                        {
+                            "titulo": "Presentación de la materia 06/04 al 10/04",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=1"
+                        },
+                        {
+                            "titulo": "13/04 al 17/04",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=2"
+                        },
+                        {
+                            "titulo": "20/04 al 24/04",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=3"
+                        },
+                        {
+                            "titulo": "27/04 al 01/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=4"
+                        },
+                        {
+                            "titulo": "04/05 al 08/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=5"
+                        },
+                        {
+                            "titulo": "11/05 al 15/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=6"
+                        },
+                        {
+                            "titulo": "18/05 al 25/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=7"
+                        },
+                        {
+                            "titulo": "25/05 al 29/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=8"
+                        },
+                        {
+                            "titulo": "Primer Parcial 18/05 al 22/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=9"
+                        },
+                        {
+                            "titulo": "01/06 al 05/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=10"
+                        },
+                        {
+                            "titulo": "08/06 al 12/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=11"
+                        },
+                        {
+                            "titulo": "15/06 al 19/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=12"
+                        },
+                        {
+                            "titulo": "22/06 al 26/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=13"
+                        },
+                        {
+                            "titulo": "29/06 al 03/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=14"
+                        },
+                        {
+                            "titulo": "06/07 al 10/07 [Revisar el calendario]",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=15"
+                        },
+                        {
+                            "titulo": "07/07 al 13/07 [Revisar el calendario]",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=16"
+                        },
+                        {
+                            "titulo": "Segundo Parcial 06/07 al 10/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=17"
+                        },
+                        {
+                            "titulo": "Recuperatorios 13/07 al 17/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=18"
+                        },
+                        {
+                            "titulo": "20/07 al 24/07: Cierre [Revisar el calendario]",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=19"
+                        },
+                        {
+                            "titulo": "Mesa de examen final 27/07 al 31/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=549&section=20"
+                        }
+                    ]
                 },
                 "sistemaArchivos": {
                     "nombreCarpetaMateria": "03.Gestión_de_Servicios_de_Información",
@@ -216,7 +458,85 @@
                 "carpetaProtonMe": "https://drive.proton.me/urls/D8H09MTJ84#Fo6oBIX2I8IG",
                 "datosCampus": {
                     "fullname": "1er Cuatrimestre - (LCiberDef-04) Inglés I 2026",
-                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=546"
+                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=546",
+                    "clases": [
+                        {
+                            "titulo": "General",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=0"
+                        },
+                        {
+                            "titulo": "Presentación de la materia 06/04 al 10/04",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=1"
+                        },
+                        {
+                            "titulo": "13/04 al 17/04 - Unidad 1",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=2"
+                        },
+                        {
+                            "titulo": "20/04 al 24/04",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=3"
+                        },
+                        {
+                            "titulo": "27/04 al 01/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=4"
+                        },
+                        {
+                            "titulo": "04/05 al 08/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=5"
+                        },
+                        {
+                            "titulo": "11/05 al 15/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=6"
+                        },
+                        {
+                            "titulo": "Primer Parcial 18/05 al 22/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=7"
+                        },
+                        {
+                            "titulo": "25/05 al 29/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=8"
+                        },
+                        {
+                            "titulo": "25/05 al 29/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=9"
+                        },
+                        {
+                            "titulo": "01/06 al 05/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=10"
+                        },
+                        {
+                            "titulo": "08/06 al 12/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=11"
+                        },
+                        {
+                            "titulo": "15/06 al 19/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=12"
+                        },
+                        {
+                            "titulo": "22/06 al 26/06",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=13"
+                        },
+                        {
+                            "titulo": "29/06 al 03/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=14"
+                        },
+                        {
+                            "titulo": "Segundo Parcial 06/07 al 10/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=15"
+                        },
+                        {
+                            "titulo": "Recuperatorio 13/07 al 17/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=16"
+                        },
+                        {
+                            "titulo": "Cierre de la materia 20/07 al 24/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=17"
+                        },
+                        {
+                            "titulo": "Mesa de examen final 27/07 al 31/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=546&section=18"
+                        }
+                    ]
                 },
                 "sistemaArchivos": {
                     "nombreCarpetaMateria": "04.Inglés_I",
@@ -245,7 +565,81 @@
                 "carpetaProtonMe": "https://drive.proton.me/urls/CKFPARAF00#76IuaUI5dlar",
                 "datosCampus": {
                     "fullname": "1er Cuatrimestre - (LCiberDef-05) Sistemas Operativos I 2026",
-                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=547"
+                    "viewurl": "https://campus.fadena.undef.edu.ar/course/view.php?id=547",
+                    "clases": [
+                        {
+                            "titulo": "General",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=0"
+                        },
+                        {
+                            "titulo": "06/04 al 10/04 - Presentación de la Materia",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=1"
+                        },
+                        {
+                            "titulo": "13/04 al 17/04 - Unidad 1",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=2"
+                        },
+                        {
+                            "titulo": "20/04 al 24/04 - Unidad 1",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=3"
+                        },
+                        {
+                            "titulo": "27/04 al 01/05 - Unidad 1",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=4"
+                        },
+                        {
+                            "titulo": "04/05 al 08/05 - Unidad 2",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=5"
+                        },
+                        {
+                            "titulo": "11/05 al 15/05 - Unidad 2",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=6"
+                        },
+                        {
+                            "titulo": "Primer Parcial 18/05 al 22/05",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=7"
+                        },
+                        {
+                            "titulo": "25/05 al 29/05 - Unidad 3",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=8"
+                        },
+                        {
+                            "titulo": "01/06 al 05/06 - Unidad 3",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=9"
+                        },
+                        {
+                            "titulo": "08/06 al 12/06 - Unidad 4",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=10"
+                        },
+                        {
+                            "titulo": "15/06 al 19/06 - Unidad 4",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=11"
+                        },
+                        {
+                            "titulo": "22/06 al 26/06 - Unidad 5",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=12"
+                        },
+                        {
+                            "titulo": "29/06 al 03/07 - REPASO",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=13"
+                        },
+                        {
+                            "titulo": "Segundo Parcial 10/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=14"
+                        },
+                        {
+                            "titulo": "Recuperatorio 16/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=15"
+                        },
+                        {
+                            "titulo": "Cierre de la materia 20/07 al 24/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=16"
+                        },
+                        {
+                            "titulo": "Mesa de examen final 27/07 al 31/07",
+                            "enlace": "https://campus.fadena.undef.edu.ar/course/view.php?id=547&section=17"
+                        }
+                    ]
                 },
                 "sistemaArchivos": {
                     "nombreCarpetaMateria": "05.Sistemas_Operativos_I",
