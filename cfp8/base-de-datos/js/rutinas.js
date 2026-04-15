@@ -57,6 +57,16 @@ const cursos = [
                 archivo: "clase_09.sql",
                 url: "https://github.com/Francisco-Acuna/2026_1C_ADB_NOCHE/blob/main/clase_09.sql",
                 fecha: "2026-04-09T01:13:13.000Z"
+            },
+            {
+                archivo: "clase_10.sql",
+                url: "https://github.com/Francisco-Acuna/2026_1C_ADB_NOCHE/blob/main/clase_10.sql",
+                fecha: "2026-04-14T00:19:22.000Z"
+            },
+            {
+                archivo: "Operational Handover (hoja de instalación).txt",
+                url: "https://github.com/Francisco-Acuna/2026_1C_ADB_NOCHE/blob/main/actividades/Operational%20Handover%20(hoja%20de%20instalaci%C3%B3n).txt",
+                fecha: "2026-04-14T00:21:19.000Z"
             }
         ],
         calendario: [
