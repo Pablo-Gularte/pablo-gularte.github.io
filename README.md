@@ -2,7 +2,7 @@
 
 Actualmente estoy profundizando mis conocimientos técnicos en varias tecnologías.
 
-- 🌱 Estoy aprendiendo: **Desarrollo de aplicaciones Web** en el **Centro de Formación Profesional nro 8**
+- 🌱 Estoy aprendiendo: **Desarrollo de aplicaciones Web** en el **[Centro de Formación Profesional Nro8 - SMATA](https://centro8smata.org.ar/)**
 - 📫 Cómo contactarme: **pablog@gmail.com**
 
 ### ⚡ Tecnologías trabajadas
