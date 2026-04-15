@@ -10,6 +10,20 @@ const colTmpMaterias = jsonMaterias[0].data.courses.map(c => ({
     fullname: c.fullname,
     viewurl: c.viewurl
 }));
+
+// ====================================================================================
+// Obtengo los datos de clases de la materia del panel de la izquierda del aula virtual
+// ====================================================================================
+// Busco el reg.viewurl de la materia correspondiente y recupero el cronograma de clases del aula viertual con el siguiente código
+const panelIzquierdo = document.querySelector("#course-index");
+// Selecciono los enlaces de las clases para obtener el texto y el enlace de cada una
+const clasesAV = [];
+panelIzquierdo.querySelectorAll("div > div > a.courseindex-link.text-truncate").forEach(r => clasesAV.push({
+	titulo: r.textContent.replaceAll("\n", "").trim(),
+	enlace: r.href
+}));
+// ====================================================================================
+
 // filtro materias de primer año (.includes("1er")) y genero el objeto JSON correspondiente a la materia 
 // que se guardará en archivo cursada.json
 const anioFiltrado = "1er";
@@ -33,7 +47,8 @@ const objetoMateria = colTmpMaterias.map((reg) => {
 				carpetaProtonMe: "",
 				datosCampus: {
 					fullname: reg.fullname,
-					viewurl: reg.viewurl
+					viewurl: reg.viewurl,
+					clases: clasesAV
 				},
 				sistemaArchivos: {
 					nombreCarpetaMateria: nombreCarpetaMateria,
@@ -57,7 +72,12 @@ const objetoMateria = colTmpMaterias.map((reg) => {
 
 });
 
+
+
+
+// *********************
 // Funciones auxiliares
+// *********************
 // convierte una cadena a PascalCase considerando tildes y números romanos
 function toPascalCase(str) {
   // Regex para números romanos válidos del 1 al 3999 (I a MMMCMXCIX)
