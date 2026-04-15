@@ -65,7 +65,7 @@ const cursos = [
             },
             {
                 archivo: "Operational Handover (hoja de instalación).txt",
-                url: "https://github.com/Francisco-Acuna/2026_1C_ADB_NOCHE/blob/main/actividades/Operational%20Handover%20(hoja%20de%20instalaci%C3%B3n).txt",
+                url: "https://github.com/Francisco-Acuna/2026_1C_ADB_NOCHE/blob/28c1efb867d529bd0dc78f8d787a366380116de6/actividades/Operational%20Handover%20(hoja%20de%20instalaci%C3%B3n).txt",
                 fecha: "2026-04-14T00:21:19.000Z"
             }
         ],
