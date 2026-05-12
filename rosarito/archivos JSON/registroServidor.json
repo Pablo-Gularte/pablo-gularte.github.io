@@ -1,0 +1,101 @@
+{
+  "2026": {
+    "feriados": [],
+    "calendario": [],
+    "agendaEducativa": [],
+    "menuComedor": {
+      "semana1": [],
+      "semana2": []
+    },
+    "grados": {
+      "sextoA": {
+        "estudiantes": [],
+        "registroAsistencias": [],
+        "boletines": {
+          "bimestre1": {
+            "sociales": [],
+            "matematica": []
+          },
+          "bimestre2": {
+            "sociales": [],
+            "matematica": []
+          },
+          "bimestre3": {
+            "sociales": [],
+            "matematica": []
+          },
+          "bimestre4": {
+            "sociales": [],
+            "matematica": []
+          }
+        }
+      },
+      "sextoB": {
+        "estudiantes": [],
+        "registroAsistencias": [],
+        "boletines": {
+          "bimestre1": {
+            "sociales": [],
+            "matematica": []
+          },
+          "bimestre2": {
+            "sociales": [],
+            "matematica": []
+          },
+          "bimestre3": {
+            "sociales": [],
+            "matematica": []
+          },
+          "bimestre4": {
+            "sociales": [],
+            "matematica": []
+          }
+        }
+      },
+      "sextoC": {
+        "estudiantes": [],
+        "registroAsistencias": [],
+        "boletines": {
+          "bimestre1": {
+            "sociales": [],
+            "matematica": []
+          },
+          "bimestre2": {
+            "sociales": [],
+            "matematica": []
+          },
+          "bimestre3": {
+            "sociales": [],
+            "matematica": []
+          },
+          "bimestre4": {
+            "sociales": [],
+            "matematica": []
+          }
+        }
+      },
+      "sextoD": {
+        "estudiantes": [],
+        "registroAsistencias": [],
+        "boletines": {
+          "bimestre1": {
+            "sociales": [],
+            "matematica": []
+          },
+          "bimestre2": {
+            "sociales": [],
+            "matematica": []
+          },
+          "bimestre3": {
+            "sociales": [],
+            "matematica": []
+          },
+          "bimestre4": {
+            "sociales": [],
+            "matematica": []
+          }
+        }
+      }
+    }
+  }
+}

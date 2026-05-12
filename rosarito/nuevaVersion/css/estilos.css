@@ -1,0 +1,313 @@
+/* =========================================
+VARIABLES Y PALETA DE COLORES
+========================================= */
+:root {
+    /* Tema Claro (Gama de Verdes) */
+    --bg-body: #f0f4f1;
+    --bg-nav: #ffffff;
+    --bg-panel: #ffffff;
+    --primary: #2d6a4f;
+    /* Verde Bosque */
+    --primary-light: #d8f3dc;
+    --text-main: #1b4332;
+    --text-muted: #40916c;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --border: #b7e4c7;
+    --accent: #52b788;
+}
+
+[data-theme="dark"] {
+    /* Tema Oscuro */
+    --bg-body: #121212;
+    --bg-nav: #1e1e1e;
+    --bg-panel: #252525;
+    --primary: #52b788;
+    /* Verde Menta Brillante */
+    --primary-light: #2d6a4f;
+    --text-main: #e0e0e0;
+    --text-muted: #a3b18a;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --border: #333333;
+    --accent: #74c69d;
+}
+
+/* =========================================
+ESTILOS BASE
+========================================= */
+* {
+    box-sizing: border-box;
+    transition: background 0.3s, color 0.3s;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+}
+
+/* =========================================
+BARRA DE NAVEGACIÓN
+========================================= */
+.navbar {
+    background-color: var(--bg-nav);
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-brand {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Botones de Grados (Desktop) */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.grade-btn {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.grade-btn:hover {
+    background: var(--primary-light);
+}
+
+.grade-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Hamburguesa */
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+}
+
+/* =========================================
+PANEL DE RECORDATORIOS
+========================================= */
+.reminder-panel {
+    position: fixed;
+    /* top: 80px; */
+    right: 20px;
+    width: 40vw;
+    /* Máximo 40% del ancho */
+    max-width: 400px;
+    /* Límite para pantallas muy grandes */
+    height: 30vh;
+    /* Máximo 30% del alto */
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.reminder-panel.collapsed {
+    display: none;
+}
+
+.panel-header {
+    background: var(--primary);
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.close-panel-btn {
+    background: rgba(0, 0, 0, 0.2);
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 2px 8px;
+}
+
+.panel-content {
+    padding: 15px;
+    overflow-y: auto;
+    font-size: 0.85rem;
+}
+
+.reminder-item {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Botón para reabrir panel */
+.reopen-panel-btn {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    display: none;
+    z-index: 1;
+}
+
+/* =========================================
+           RESPONSIVIDAD (MÓVIL)
+           ========================================= */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        /* Colapsado por defecto */
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-nav);
+        padding: 20px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+        gap: 15px;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .reminder-panel {
+        width: 80vw;
+        /* En móvil le damos un poco más de ancho para legibilidad */
+        right: 10px;
+    }
+}
+
+/* Utilidades */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+main {
+    padding: 2rem;
+}
+
+/* =======================================================
+   ADAPTACIÓN DE BOOTSTRAP-TABLE AL TEMA OSCURO "ROSARITO"
+   ======================================================= */
+
+[data-theme="dark"] .table {
+    /* Fondos y textos base de la tabla */
+    --bs-table-bg: var(--bg-panel);
+    --bs-table-color: var(--text-main);
+    --bs-table-border-color: var(--border);
+    
+    /* Filas alternadas (striped) - Usamos un tono translúcido del color primario */
+    --bs-table-striped-bg: rgba(82, 183, 136, 0.05); 
+    --bs-table-striped-color: var(--text-main);
+    
+    /* Fila al pasar el mouse (hover) */
+    --bs-table-hover-bg: rgba(82, 183, 136, 0.15);
+    --bs-table-hover-color: var(--text-main);
+}
+
+/* Estilo para los encabezados (thead) en modo oscuro */
+[data-theme="dark"] .table thead th {
+    background-color: var(--primary-light);
+    color: var(--text-main);
+    border-bottom: 2px solid var(--primary);
+}
+
+/* Borde exterior del contenedor de la tabla */
+[data-theme="dark"] .bootstrap-table .fixed-table-container {
+    border-color: var(--border);
+}
+
+/* Buscador (Input) de Bootstrap-Table en modo oscuro */
+[data-theme="dark"] .bootstrap-table .search input.form-control {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    border-color: var(--border);
+}
+[data-theme="dark"] .bootstrap-table .search input.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(82, 183, 136, 0.25);
+    border-color: var(--primary);
+}
+
+/* Menú desplegable de columnas y paginación en modo oscuro */
+[data-theme="dark"] .pagination .page-link,
+[data-theme="dark"] .dropdown-menu {
+    background-color: var(--bg-panel);
+    border-color: var(--border);
+    color: var(--primary);
+}
+
+[data-theme="dark"] .dropdown-menu .dropdown-item {
+    color: var(--text-main);
+}
+[data-theme="dark"] .dropdown-menu .dropdown-item:hover {
+    background-color: var(--primary-light);
+}
+
+/* Paginación activa */
+[data-theme="dark"] .pagination .active .page-link {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #121212; /* Texto oscuro para contrastar con el verde menta */
+}
