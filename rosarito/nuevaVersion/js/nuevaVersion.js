@@ -173,7 +173,7 @@ const formatearCadena = (cadena) => {
 async function fetchEstudiantes() {
   try {
     // Hacemos la petición GET al endpoint PHP (con proxy corsproxy.io para poder acceder a buethost desde localhost)
-    const url ="http://rosarito.byethost4.com/api/estudiantes.php";
+    const url ="https://rosarito.byethost4.com/api/estudiantes.php";
     const response = await fetch(url);
 
     // Verificamos si la respuesta del servidor es exitosa
